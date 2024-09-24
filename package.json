@@ -53,10 +53,10 @@
     "suncalc": "^1.9.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-yaml": "^3.1.0",
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-yaml": "^4.1.2",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "assert": "^2.0.0",
@@ -75,7 +75,7 @@
     "optimist": "^0.6.1",
     "package-json-validator": "^0.6.3",
     "pinst": "^3.0.0",
-    "rollup": "^2.73.0",
+    "rollup": "^4.22.4",
     "sprintf-js": "1.1.2",
     "terser": "^5.13.1",
     "timekeeper": "^2.2.0",
