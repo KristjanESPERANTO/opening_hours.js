@@ -12,7 +12,7 @@ p.value_explanation {
     padding: 6px 10px;
     border-radius: 5px;
 }
-/* See http://clrs.cc/ */
+/* See https://clrs.cc/ */
 .error       { background: #ff851b } /* Orange */
 .warning     { background: #ffdc00 } /* Yellow */
 span.year    { background: #ff851b } /* Orange */
