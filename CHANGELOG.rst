@@ -1,4 +1,4 @@
-.. SPDX-FileCopyrightText: 2016-2021 Robin Schneider <ypid@riseup.net>
+.. SPDX-FileCopyrightText: 2016-2025 Robin Schneider <ypid@riseup.net>
 ..
 .. SPDX-License-Identifier: LGPL-3.0-only
 
@@ -192,6 +192,7 @@ Changed
   * Test with maintained node versions
   * Update actions
 * [chore] Update `husky` (#468)
+* [chore] Update year in copyright notices (#468)
 
 Fixed
 ~~~~~
