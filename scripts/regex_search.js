@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * SPDX-FileCopyrightText: 2015-2025 Schneider <ypid@riseup.net>
+ * SPDX-FileCopyrightText: 2015-2025 Robin Schneider <ypid@riseup.net>
  *
  * SPDX-License-Identifier: AGPL-3.0-only
  */
