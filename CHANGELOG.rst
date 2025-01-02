@@ -189,6 +189,7 @@ Changed
 
 * School holiday definitions updated:
 
+  * German (#468)
   * Hungarian (#466)
 
 * [chore] Update CI in `ci.yml` (#468)
