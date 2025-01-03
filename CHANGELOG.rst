@@ -203,6 +203,7 @@ Changed
   * Test with maintained node versions
   * Update actions
 * [chore] Upgrade `husky` and ESLint (#468)
+* [chore] Update dependencies (#468)
 * [chore] Update year in copyright notices (#468)
 
 Fixed
