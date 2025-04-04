@@ -217,6 +217,7 @@ Fixed
 
 * JOSM remote control was not working because it was trying to be accessed as https://localhost:8111/. Switch to HTTP.
 * [Evaluation tool] Fix timebar wrap on certain zoom levels in Firefox (issue #419)
+* [Evaluation tool] Fix Russian and Ukrainian pluralization by updating `i18next` and using API version V4 (#468)
 * [chore] Fix `yamlToJson.mjs` (#468)
 * [chore] Fix `make list` (#468)
 
