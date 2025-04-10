@@ -180,6 +180,8 @@ Added
   * Croatian
   * France
 
+* Script to update german school holidays [scripts/update_german_sh.mjs](scripts/update_german_sh.mjs)
+
 Changed
 ~~~~~~~
 
