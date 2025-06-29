@@ -105,13 +105,7 @@ An around-the-clock shop with some breaks.
 - [Related links](#related-links)
 - [ToDo](#todo)
 - [How to contribute](#how-to-contribute)
-  - [Translating the evaluation tool and the map](#translating-the-evaluation-tool-and-the-map)
-  - [Translating error messages and warnings](#translating-error-messages-and-warnings)
-  - [Holiday Data](#holiday-data)
-  - [Core code](#core-code)
-    - [Commit hooks](#commit-hooks)
-    - [Documentation](#documentation)
-- [Authors](#authors)
+- [Maintainers](#maintainers)
 - [Contributors](#contributors)
 - [Credits](#credits)
 - [Stats](#stats)
@@ -849,7 +843,7 @@ Note that the original work from Dmitry Marakasov is published under the BSD 2-c
 
 <https://reuse.software> is used. The year of initial publication is used and not updated. When you as new author make copyrightable changes, you are free of course to add a `SPDX-FileCopyrightText` line to the file(s) you changed with the year of the contribution. Please use a format like this:
 
-```
+```text
 SPDX-FileCopyrightText: © 2021 Humble Hacker <hh@example.org>
 ```
 
@@ -878,12 +872,9 @@ Edit: This does also work on npmjs in this short version … -->
 [ohlib.iterator-api]: #iterator-api
 [ohlib.time-ranges]: #time-ranges
 [ohlib.states]: #states
-[ohlib.holidays]: #holidays
 [ohlib.contribute.holidays]: /src/holidays/
 [ohlib.evaluation-tool]: #evaluation-tool
 [ohlib.library-api]: #library-api
-[ohlib.docs.holiday]: /holidays/README.md
-[ohlib.makefile]: /Makefile
 [ohlib.npmjs]: https://www.npmjs.org/package/opening_hours
 [ohlib.github]: https://github.com/opening-hours/opening_hours.js
 [hc]: https://gitlab.com/ypid/hc

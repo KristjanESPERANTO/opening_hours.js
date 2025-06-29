@@ -105,9 +105,13 @@ Thank you for contributing!
 [i18next]: https://www.i18next.com
 [Vim folds]: https://vimhelp.org/fold.txt.html#folding
 
-[ohlib.opening_hours.js]: /index.js
+[opening_hours_map]: https://github.com/opening-hours/opening_hours_map
+[ohlib.docs.holiday]: /holidays/README.md
+[ohlib.holidays]: README.md#holidays
 [ohlib.js/locales/opening_hours_resources.yaml]: src/locales/opening_hours_resources.yaml
 [ohlib.js/i18n-resources.js]: site/js/i18n-resources.js
-[site/index.html]: site/index.html
+[ohlib.makefile]: /Makefile
+[ohlib.opening_hours.js]: /index.js
 [ohlib.test.js]: test/test.js
 [ohlib.testing]: README.md#testing
+[site/index.html]: site/index.html
