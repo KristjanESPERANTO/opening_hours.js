@@ -49,7 +49,7 @@ function opening_hours_object(value) {
             console.error(warnings);
         // prettified = oh.prettifyValue();
         crashed = false;
-    } catch (err) {
+    } catch {
         try {
             oh = new opening_hours(value, nominatimTestJSON, { 'locale': argv.locale });
             crashed = false;
@@ -72,7 +72,7 @@ function opening_hours_object(value) {
         result.state_string  = oh.getStateString();
         try {
             result.next_change   = oh.getNextChange();
-        } catch (err) {
+        } catch {
             // This might throw an exception if there is no change.
         }
         result.rule_index    = oh.getMatchingRule();

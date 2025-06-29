@@ -47,7 +47,7 @@ function get_dump_creation_time_from_file(file) {
                 return new Date(data[i].data_until);
             }
         }
-    } catch (err) {
+    } catch {
         return;
     }
 }
@@ -59,6 +59,7 @@ var local_dump_creation_time = get_dump_creation_time_from_file('taginfo_sources
 var taginfo_api_url_source = taginfo_api_base_url + 'site/sources';
 console.log('Loading file ' + taginfo_api_url_source + ' to check if new data is available.');
 var file = fs.createWriteStream('taginfo_sources.json');
+// eslint-disable-next-line no-unused-vars
 var request = https.get(taginfo_api_url_source, function(response) {
     response.pipe(file);
 

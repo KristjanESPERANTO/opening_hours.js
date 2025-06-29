@@ -23,8 +23,7 @@ export default defineConfig([
       'no-empty': 'warn',
       'no-empty-function': 'warn',
       'no-func-assign': 'warn',
-      'no-prototype-builtins': 'warn',
-      'no-unused-vars': 'warn',
+      'no-prototype-builtins': 'warn'
     },
   },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/gfm', extends: ['markdown/recommended'] },

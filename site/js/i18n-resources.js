@@ -1508,6 +1508,7 @@ var resources = { // English is fallback language.
 };
 
 // Functions which generate localized HTML sections {{{
+// eslint-disable-next-line no-unused-vars
 function getUserSelectTranslateHTMLCode() {
     document.write('<span class="hd">');
     var res = i18next.t('lang.choose')

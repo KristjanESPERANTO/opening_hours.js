@@ -6,10 +6,8 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-var opening_hours = require('../build/opening_hours.js');
 var fs = require('node:fs');
 var readline = require('node:readline');
-var colors = require('colors');
 
 var page_width = 20;
 
@@ -93,9 +91,8 @@ function print_values(matched) {
     for (let i = 0; i < matched.length; i++) {
         if (i !== 0 && i % page_width === 0) {
         }
-        var value = matched[i][0];
-        var count = matched[i][1];
-        var res   = matched[i][2];
+        let count = matched[i][1];
+        let res   = matched[i][2];
         console.log('Matched (count: '+ count +'): ' + res[1] + res[2].blue + res[3])
     }
 }

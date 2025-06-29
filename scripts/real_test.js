@@ -203,7 +203,9 @@ function opening_hours_test() {
 
             var punchcard_data = {};
             var punchcard_data_out = {};
+            // eslint-disable-next-line no-unused-vars
             var punchcard_debug = [];
+            // eslint-disable-next-line no-unused-vars
             var punchcard_debug2 = [];
             var day_number_to_name = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
             var cur_date = new Date();
@@ -243,7 +245,7 @@ function opening_hours_test() {
                         oh_value_prettified = oh.prettifyValue();
 
                         oh_crahsed = false;
-                    } catch (err) {
+                    } catch {
                         oh_crahsed = true;
                     }
 
@@ -316,7 +318,7 @@ function opening_hours_test() {
             if (fs.existsSync('real_test.' + tag_key_name + '.log')) {
                 try {
                     fs.renameSync('real_test.' + tag_key_name + '.log', 'real_test.last.' + tag_key_name + '.log');
-                } catch (err) {
+                } catch {
                     /* Ignore */
                 }
                 fs.writeFile('real_test.' + tag_key_name + '.log', logfile_out_string, function(err) {
@@ -636,7 +638,7 @@ function opening_hours_test() {
                     return new Date(data[i].data_until);
                 }
             }
-        } catch (err) {
+        } catch {
             return;
         }
     }

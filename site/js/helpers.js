@@ -15,6 +15,7 @@ var evaluation_tool_colors = {
 // Using a different way to load stuff in JOSM than https://github.com/rurseekatze/OpenLinkMap/blob/master/js/small.js
 // prevent josm remote plugin of showing message
 // FIXME: Warning in console. Encoding stuff.
+// eslint-disable-next-line no-unused-vars
 function josm(url_param) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8111/' + url_param, true);      // true makes this call asynchronous
@@ -78,6 +79,7 @@ function reverseGeocodeLocation(query, guessed_language_for_location, on_success
     }).error(on_error);
 }
 
+// eslint-disable-next-line no-unused-vars
 function submitenter(myfield,e) {
     Evaluate();
     // var keycode;
@@ -93,6 +95,7 @@ function submitenter(myfield,e) {
 }
 
 /* JS for toggling examples on and off {{{ */
+// eslint-disable-next-line no-unused-vars
 function toggle(control){
     var elem = document.getElementById(control);
 
@@ -104,6 +107,7 @@ function toggle(control){
 }
 /* }}} */
 
+// eslint-disable-next-line no-unused-vars
 function copyToClipboard(text) {
     window.prompt('Copy to clipboard: Ctrl+C, Enter', text);
 }
@@ -284,7 +288,7 @@ function Evaluate (offset, reset) {
                   'warnings_severity': 7,
                   'locale': i18next.language
               }));
-          } catch (err) {
+          } catch {
               $('input#diff_value').css({'background-color' : evaluation_tool_colors.error})
           }
           if (typeof is_equal_to === 'object') {
@@ -352,6 +356,7 @@ function Evaluate (offset, reset) {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 function EX (element) {
     newValue(element.innerHTML);
     return false;
@@ -366,6 +371,7 @@ function newValue(value) {
     Evaluate();
 }
 
+// eslint-disable-next-line no-unused-vars
 function permalink () {
     var exp = document.getElementById('expression').value;
     var diff_value = document.getElementById('diff_value').value;
@@ -385,6 +391,7 @@ function permalink () {
     location = location.protocol+'//'+location.host+location.pathname+permalink_url_query;
 }
 
+// eslint-disable-next-line no-unused-vars
 function setCurrentPosition() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(onPositionUpdate);

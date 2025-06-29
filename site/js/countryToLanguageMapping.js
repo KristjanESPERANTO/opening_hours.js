@@ -228,6 +228,7 @@ var countryToLanguageMapping = {
     'zm': 'en',
     'zw': 'en,sn,nd ',
 };
+// eslint-disable-next-line no-unused-vars
 function mapCountryToLanguage(country_code) {
     if (typeof countryToLanguageMapping[country_code] !== 'undefined') {
         return countryToLanguageMapping[country_code];

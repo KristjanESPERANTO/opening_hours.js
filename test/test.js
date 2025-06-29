@@ -5385,13 +5385,12 @@ function opening_hours_test() {
         let crashed = false;
         try {
             // Since they should fail anyway we can give them the nominatim_default.
-            let oh = new opening_hours(value, nominatim_data, oh_mode);
+            new opening_hours(value, nominatim_data, oh_mode);
         } catch (err) {
             crashed = err;
         }
 
-        var passed = false;
-        var str = '"' + name + '" for "'
+        let str = '"' + name + '" for "'
             + (typeof value === 'string'
                 ? value.replace('\n', '*newline*')
                 : value
@@ -5399,7 +5398,6 @@ function opening_hours_test() {
             + '": ';
         if (crashed) {
             str += 'PASSED'.passed;
-            passed = true;
 
             if (this.show_passing_tests) {
                 console.log(str);
@@ -5436,7 +5434,7 @@ function opening_hours_test() {
             crashed = err;
         }
 
-        var passed = false;
+        let passed = false;
         var str = '"' + name + '" for "'
             + (typeof value === 'string'
                 ? value.replace('\n', '*newline*')
@@ -5560,9 +5558,8 @@ function opening_hours_test() {
 
         }
 
-        var passed = false;
-        var str = '"' + name + '" for "' + value + '": ';
-        var failed = false;
+        let passed = false;
+        let str = '"' + name + '" for "' + value + '": ';
         if (intervals_ok
                 && duration_ok
                 && (prettify_ok   || ignored === 'prettifyValue')
@@ -5608,7 +5605,6 @@ function opening_hours_test() {
                 str += ', bad weekstable flag: ' + weekstable + ', expected ' + expected_weekstable;
             if (!prettify_ok)
                 str += ', bad prettified value: "' + prettified + '", expected either value or "' + first_value + '"';
-            failed = true;
 
             console.warn(str);
             this.print_warnings(warnings);
@@ -5618,13 +5614,14 @@ function opening_hours_test() {
     }; /* }}} */
 
     this.runSingleTestCompMatchingRule = function(test_data_object) { /* {{{ */
-        var name           = test_data_object[0],
+        let name           = test_data_object[0],
             value          = test_data_object[1],
             point_in_time  = test_data_object[2],
             expected_matching_rule  = test_data_object[3],
             nominatim_data = test_data_object[4];
-        var matching_rule, matching_rule_ok;
+        let matching_rule, matching_rule_ok;
         let crashed = false;
+        let passed = false;
         try {
             // since they should fail anyway we can give them the nominatim_default
             let oh = new opening_hours(value, nominatim_data);
@@ -5632,8 +5629,6 @@ function opening_hours_test() {
 
             matching_rule = oh.prettifyValue({ rule_index: it.getMatchingRule() });
             matching_rule_ok = matching_rule === expected_matching_rule;
-
-        var passed = false;
         } catch (err) {
             crashed = err;
         }
@@ -5665,13 +5660,12 @@ function opening_hours_test() {
         var prettify_value_ok;
         let crashed = false;
         let prettified_value;
+        let passed = false;
         try {
             let oh = new opening_hours(value, nominatim_default);
 
             prettified_value = oh.prettifyValue({ 'conf': { 'locale': prettify_locale } });
             prettify_value_ok = prettified_value === expected_prettified_value;
-
-            var passed = false;
         } catch (err) {
             crashed = err;
         }
@@ -5695,14 +5689,14 @@ function opening_hours_test() {
     }; /* }}} */
 
     this.runSingleTestEqualTo = function(test_data_object) { /* {{{ */
-        var name = test_data_object[0],
+        let name = test_data_object[0],
             first_value = test_data_object[1],
             second_value = test_data_object[2],
             expected_result = test_data_object[3];
 
-        var passed = false;
-        var crashed = true;
-        var actual_result;
+        let passed = false;
+        let crashed = true;
+        let actual_result;
         try {
             let first_oh = new opening_hours(first_value, nominatim_default);
             let second_oh = new opening_hours(second_value, nominatim_default);
@@ -5775,7 +5769,6 @@ function opening_hours_test() {
             console.warn(this.ignored.length + ' test' + (this.ignored.length === 1 ? ' was' : 's where') + ' (partly) ignored, sorted by commonness:');
             var ignored_categories = [];
             for (let i = 0; i < this.ignored.length; i++) {
-                var value   = this.ignored[i][0];
                 let reason  = this.ignored[i][1];
                 if (typeof ignored_categories[reason] !== 'number') {
                     ignored_categories[reason] = 1;

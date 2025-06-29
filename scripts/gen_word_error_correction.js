@@ -99,6 +99,7 @@ function parseWeekdays(weekday_list_list, locale) {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 function getCharArray(list) {
     return list.join('').split('').getUnique().filter(function (value) {
       return ! value.match(/^[a-z]$/);
