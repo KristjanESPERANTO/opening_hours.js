@@ -86,7 +86,7 @@ function opening_hours_object(value) {
 }
 
 var servers = [];
-for (var i = 0; i < argv._.length; i++) {
+for (let i = 0; i < argv._.length; i++) {
     console.log('Starting to listen on "%s"', argv._[i]);
     servers[i] = net.createServer(function(socket) {
         console.log("connected");
@@ -114,7 +114,7 @@ if (typeof argv.value === 'string') {
         console.log(JSON.stringify(result, null, '\t') + '\n');
 
     }).on('close', function() {
-        for (var i = 0; i < servers.length; i++) {
+        for (let i = 0; i < servers.length; i++) {
             servers[i].close();
         }
         console.log('\nBye');

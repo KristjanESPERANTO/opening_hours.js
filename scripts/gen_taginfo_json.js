@@ -56,7 +56,7 @@ if (typeof argv['template-file'] === 'string') {
         key_description = template_file.tags[0];
         template_file.tags = [];
     }
-    for (var i = 0; i < keys.length; i++) {
+    for (let i = 0; i < keys.length; i++) {
         var key = keys[i];
         var key_entry = {
             'key': key,

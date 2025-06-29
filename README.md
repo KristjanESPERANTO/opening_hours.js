@@ -190,7 +190,7 @@ var to = new Date("01 Feb 2012");
 // high-level API
 {
   var intervals = oh.getOpenIntervals(from, to);
-  for (var i in intervals)
+  for (let i in intervals)
     console.log(
       "We are " +
         (intervals[i][2] ? "maybe " : "") +

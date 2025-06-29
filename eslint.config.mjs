@@ -24,7 +24,6 @@ export default defineConfig([
       'no-empty-function': 'warn',
       'no-func-assign': 'warn',
       'no-prototype-builtins': 'warn',
-      'no-redeclare': 'warn',
       'no-unused-vars': 'warn',
     },
   },

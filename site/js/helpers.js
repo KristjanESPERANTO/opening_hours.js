@@ -404,7 +404,7 @@ window.onload = function () {
     var params = {};
     var customCoords = false;
 
-    for ( var i = 0; i < prmarr.length; i++) {
+    for ( let i = 0; i < prmarr.length; i++) {
         var tmparr = prmarr[i].split("=");
         params[tmparr[0]] = tmparr[1];
     }

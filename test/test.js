@@ -5116,7 +5116,7 @@ test.addShouldFail('SH with non-existing address.', [
     ], nominatim_no_valid_address, 'not only test');
 
 // Appeared in real_test … {{{
-for (var mode = 0; mode <= 2; mode++) {
+for (let mode = 0; mode <= 2; mode++) {
     test.addShouldFail('Trying to trigger "Missing minutes in time range after" for mode === ' + mode + '.', [
         'Mon-Sun 14-',
         '8:am',
@@ -5124,7 +5124,7 @@ for (var mode = 0; mode <= 2; mode++) {
     ], nominatim_default, 'not last test', mode);
 }
 
-for (var mode = 0; mode <= 2; mode++) {
+for (let mode = 0; mode <= 2; mode++) {
     test.addShouldFail('Trying to trigger "Missing time separator in time range after" for mode === ' + mode + '.', [
         'Su 7:30,10;00,22:00',
         'Su 7:30,10?00,22:00', // '?' gets replaced. Not fully supported … FIXME
@@ -5539,7 +5539,7 @@ function opening_hours_test() {
 
             if (this.extensive_testing && !crashed) {
 
-                var oh = new opening_hours(value, nominatim_data, oh_mode);
+                oh = new opening_hours(value, nominatim_data, oh_mode);
 
                 for (var move_date = expected_from; move_date.getTime() < expected_to.getTime(); move_date.setHours(move_date.getHours() + 1)) {
                     var is_open = oh.getState(move_date);
@@ -5745,27 +5745,27 @@ function opening_hours_test() {
             this.tests_equal_to.length;
         var success   = 0;
         this.ignored  = [];
-        for (var test = 0; test < this.tests.length; test++) {
+        for (let test = 0; test < this.tests.length; test++) {
             if (this.runSingleTest(this.tests[test]))
                 success++;
         }
-        for (var test = 0; test < this.tests_should_warn.length; test++) {
+        for (let test = 0; test < this.tests_should_warn.length; test++) {
             if (this.runSingleTestShouldThrowWarning(this.tests_should_warn[test]))
                 success++;
         }
-        for (var test = 0; test < this.tests_should_fail.length; test++) {
+        for (let test = 0; test < this.tests_should_fail.length; test++) {
             if (this.runSingleTestShouldFail(this.tests_should_fail[test]))
                 success++;
         }
-        for (var test = 0; test < this.tests_comp_matching_rule.length; test++) {
+        for (let test = 0; test < this.tests_comp_matching_rule.length; test++) {
             if (this.runSingleTestCompMatchingRule(this.tests_comp_matching_rule[test]))
                 success++;
         }
-        for (var test = 0; test < this.tests_prettify_value.length; test++) {
+        for (let test = 0; test < this.tests_prettify_value.length; test++) {
             if (this.runSingleTestPrettifyValue(this.tests_prettify_value[test]))
                 success++;
         }
-        for (var test = 0; test < this.tests_equal_to.length; test++) {
+        for (let test = 0; test < this.tests_equal_to.length; test++) {
             if (this.runSingleTestEqualTo(this.tests_equal_to[test]))
                 success++;
         }
@@ -5774,9 +5774,9 @@ function opening_hours_test() {
         if (this.ignored.length) {
             console.warn(this.ignored.length + ' test' + (this.ignored.length === 1 ? ' was' : 's where') + ' (partly) ignored, sorted by commonness:');
             var ignored_categories = [];
-            for (var i = 0; i < this.ignored.length; i++) {
+            for (let i = 0; i < this.ignored.length; i++) {
                 var value   = this.ignored[i][0];
-                var reason  = this.ignored[i][1];
+                let reason  = this.ignored[i][1];
                 if (typeof ignored_categories[reason] !== 'number') {
                     ignored_categories[reason] = 1;
                 } else {
@@ -5785,15 +5785,15 @@ function opening_hours_test() {
             }
 
             var sorted_ignores = [];
-            for (var key in ignored_categories)
+            for (let key in ignored_categories)
                 sorted_ignores.push([key, ignored_categories[key]]);
 
             sorted_ignores.sort(function(a, b) {
                 return a[1] > b[1] ? -1 : (a[1] < b[1] ? 1 : 0);
             });
-            for (var i = 0; i < sorted_ignores.length; i++) {
-                var reason = sorted_ignores[i][0];
-                var count  = sorted_ignores[i][1];
+            for (let i = 0; i < sorted_ignores.length; i++) {
+                let reason = sorted_ignores[i][0];
+                let count  = sorted_ignores[i][1];
                 switch (reason) {
                     case 'prettifyValue':
                         reason += " (most of the cases this is used to test if values with selectors in wrong order or wrong symbols (error tolerance) are evaluated correctly)";

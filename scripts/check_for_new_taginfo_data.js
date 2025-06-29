@@ -42,7 +42,7 @@ var fs   = require('node:fs');
 function get_dump_creation_time_from_file(file) {
     try {
         var data = JSON.parse(fs.readFileSync(file, 'utf8'));
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             if (data[i].name === 'Database') {
                 return new Date(data[i].data_until);
             }

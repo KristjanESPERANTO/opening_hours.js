@@ -25,7 +25,7 @@ var fs = require('node:fs');
 /* https://stackoverflow.com/a/1961068/2239985 */
 Array.prototype.getUnique = function(){
    var u = {}, a = [];
-   for(var i = 0, l = this.length; i < l; ++i){
+   for(let i = 0, l = this.length; i < l; ++i){
       if(u.hasOwnProperty(this[i])) {
          continue;
       }

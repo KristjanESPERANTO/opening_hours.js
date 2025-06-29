@@ -32,7 +32,7 @@ fs.readFile(json_file, 'utf8', function (err, json) {
         console.log('Error: ' + err);
         return;
     }
-    var json = JSON.parse(json);
+    let parsedJson = JSON.parse(json);
 
     rl.setPrompt('regex search> ');
     rl.prompt();
@@ -52,10 +52,10 @@ fs.readFile(json_file, 'utf8', function (err, json) {
 
         if (user_re_ok) {
             let matched = [];
-            for (var i = 0; i < json.data.length; i++) {
-                var res = json.data[i].value.match(user_re);
+            for (let i = 0; i < parsedJson.data.length; i++) {
+                var res = parsedJson.data[i].value.match(user_re);
                 if (res)
-                    matched.push([json.data[i].value, json.data[i].count, res]);
+                    matched.push([parsedJson.data[i].value, parsedJson.data[i].count, res]);
             }
 
             if (matched === 0) {
@@ -63,7 +63,7 @@ fs.readFile(json_file, 'utf8', function (err, json) {
             } else {
                 matched = matched.sort(Comparator);
                 var total_in_use = 0;
-                for (var i = 0; i < matched.length; i++) {
+                for (let i = 0; i < matched.length; i++) {
                     total_in_use += matched[i][1];
                 }
 
@@ -90,7 +90,7 @@ fs.readFile(json_file, 'utf8', function (err, json) {
 });
 
 function print_values(matched) {
-    for (var i = 0; i < matched.length; i++) {
+    for (let i = 0; i < matched.length; i++) {
         if (i !== 0 && i % page_width === 0) {
         }
         var value = matched[i][0];

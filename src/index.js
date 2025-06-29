@@ -151,10 +151,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
             } else {
                 translatorFunction = i18next.t;
             }
-            var text = translatorFunction('opening_hours:texts.' + str, variables);
+            let text = translatorFunction('opening_hours:texts.' + str, variables);
             return text;
         }
-        var text = lang[str];
+        let text = lang[str];
         if (typeof text === 'undefined') {
             text = str;
         }
@@ -626,7 +626,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 }
                 ok += regular_number;
                 if (!done_with_warnings) {
-                    for (var i = 0; i <= tmp[0].length; i++) {
+                    for (let i = 0; i <= tmp[0].length; i++) {
                         if (value.charCodeAt(i) === 176) {
                             parsing_warnings.push([ -1, value.length - (1 + i),
                                     t('rant degree sign used for zero')]);
@@ -646,7 +646,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                  * mo|tu|we|th|fr|sa|su|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec: Prefer defended keywords
                  * if used in cases like 'mo12:00-14:00' (when keyword is followed by number).
                  */
-                var correct_val = returnCorrectWordOrToken(tmp[1].toLowerCase(), value.length);
+                let correct_val = returnCorrectWordOrToken(tmp[1].toLowerCase(), value.length);
                 // console.log('Error tolerance for string "' + tmp[1] + '" returned "' + correct_val + '".');
                 if (typeof correct_val === 'object') {
                     curr_rule_tokens.push([ correct_val[0], correct_val[1], value.length ]);
@@ -684,7 +684,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     if (correct_tokens[1] === true) { // last_rule_fallback_terminated
                         throw formatLibraryBugMessage();
                     }
-                    for (var i = 0; i < correct_tokens[0].length; i++) {
+                    for (let i = 0; i < correct_tokens[0].length; i++) {
                         curr_rule_tokens.push([correct_tokens[0][i][0], correct_tokens[0][i][1], value.length]);
                         // value.length - tmp[0].length does not have the desired effect for all test cases.
                     }
@@ -743,9 +743,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 // quote but rather something unknown which the user should
                 // fix first.
                 // console.log('Matched: ' + JSON.stringify(tmp));
-                for (var pos = 1; pos <= 3; pos += 2) {
+                for (let pos = 1; pos <= 3; pos += 2) {
                     // console.log('Pos: ' + pos + ', substring: ' + tmp[pos]);
-                    var correct_val = returnCorrectWordOrToken(tmp[pos],
+                    let correct_val = returnCorrectWordOrToken(tmp[pos],
                         value.length - (pos === 3 ? tmp[1].length + tmp[2].length : 0)
                     );
                     if (typeof correct_val !== 'string' && tmp[pos] !== '"') {
@@ -888,7 +888,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             // console.log('used_selectors_types_array: ' + JSON.stringify(used_selectors_types_array, null, '    '));
             /* }}} */
 
-            for (var nrule = 0; nrule < used_selectors.length; nrule++) {
+            for (let nrule = 0; nrule < used_selectors.length; nrule++) {
 
                 /* Check if more than one not connected selector of the same type is used in one rule {{{ */
                 Object.keys(used_selectors[nrule]).forEach(function (selector_type) {
@@ -941,7 +941,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 }
                 /* }}} */
                 /* Check for valid use of <separator_for_readability> {{{ */
-                for (var i = 0; i < used_selectors_types_array[nrule].length - 1; i++) {
+                for (let i = 0; i < used_selectors_types_array[nrule].length - 1; i++) {
                     var selector_type = used_selectors_types_array[nrule][i];
                     var next_selector_type = used_selectors_types_array[nrule][i+1];
                     if (   (   wide_range_selector_order.indexOf(selector_type)       !== -1
@@ -968,7 +968,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         ) {
 
                     var rules_too_complex = [ nrule, nrule+1 ].map(function (nrule){
-                        for (var i = 0; i < wide_range_selector_order.length - 1; i++) {
+                        for (let i = 0; i < wide_range_selector_order.length - 1; i++) {
                             if (typeof used_selectors[nrule][wide_range_selector_order[i]] === 'object') {
                                 return true;
                             }
@@ -984,7 +984,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             && typeof rule_infos[nrule+1] === 'object'
                             && typeof rule_infos[nrule+1]['week_days'] === 'object'
                             ) {
-                        for (var i = 0; i < rule_infos[nrule]['week_days'].length; i++) {
+                        for (let i = 0; i < rule_infos[nrule]['week_days'].length; i++) {
                             var week_day = rule_infos[nrule]['week_days'][i];
                                 // console.log(rule_infos[nrule+1]['week_days']);
                                 // console.log(week_day);
@@ -1084,7 +1084,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
         var warnings = [];
         // FIXME: Sort based on parsing_warnings[1], tricky …
-        for (var i = 0; i < parsing_warnings.length; i++) {
+        for (let i = 0; i < parsing_warnings.length; i++) {
             warnings.push( formatWarnErrorMessage(parsing_warnings[i][0], parsing_warnings[i][1], parsing_warnings[i][2], parsing_warnings[i][3]) );
         }
         return warnings;
@@ -1287,7 +1287,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 } else {
                     translatorFunction = i18next.t;
                 }
-                for (var i = 0; i < prettified_group_value.length; i++) {
+                for (let i = 0; i < prettified_group_value.length; i++) {
                     var type = prettified_group_value[i][0][2];
                     if (type === 'weekday') {
                         weekdays.forEach(function (weekday, key) {
@@ -1313,7 +1313,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             prettified_value_array.push( prettified_group_value );
 
             if (!done_with_selector_reordering_warnings) {
-                for (var i = 0, l = not_sorted_prettified_group_value.length; i < l; i++) {
+                for (let i = 0, l = not_sorted_prettified_group_value.length; i < l; i++) {
                     if (not_sorted_prettified_group_value[i] !== prettified_group_value[i]) {
                         // console.log(i + ': ' + prettified_group_value[i][0][2]);
                         var length = i + old_prettified_value_length; // i: Number of spaces in string.
@@ -1353,7 +1353,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     function matchTokens(tokens, at /*, matches... */) {
         if (at + arguments.length - 2 > tokens.length)
             return false;
-        for (var i = 0; i < arguments.length - 2; i++) {
+        for (let i = 0; i < arguments.length - 2; i++) {
             if (tokens[at + i][1] !== arguments[i + 2]) {
                 return false;
             }
@@ -1609,7 +1609,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     t('range constrained weekdays'));
             }
         });
-        for (var i = at; i < endat; i++) {
+        for (let i = at; i < endat; i++) {
             tokens[i][4] = 'positive_number';
         }
 
@@ -2124,7 +2124,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     if (from === to) {
                         numbers.push(from);
                     } else if (from < to) {
-                        for (var i = from; i <= to; i++) {
+                        for (let i = from; i <= to; i++) {
                             // bad number
                             if (i === 0 || i < -5 || i > 5)
                                 throw formatWarnErrorMessage(nrule, at+2,
@@ -2345,20 +2345,20 @@ export default function(value, nominatim_object, optional_conf_parm) {
         for (; at < tokens.length; at++) {
             if (matchTokens(tokens, at, 'holiday')) {
                 if (tokens[at][0] === 'PH') {
-                    var applying_holidays = getMatchingHoliday(tokens[at][0]);
+                    let applying_holidays = getMatchingHoliday(tokens[at][0]);
 
                     // Only allow moving one day in the past or in the future.
                     // This makes implementation easier because only one holiday is assumed to be moved to the next year.
                     var add_days = getMoveDays(tokens, at+1, 1, 'public holiday');
 
-                    var selector = function(applying_holidays, add_days) { return function(date) {
+                    let selector = function(applying_holidays, add_days) { return function(date) {
 
                         var holidays = getApplyingHolidaysForYear(applying_holidays, date.getFullYear(), add_days);
                         // Needs to be calculated each time because of movable days.
 
                         var date_num = getValueForDate(date, true);
 
-                        for (var i = 0; i < holidays.length; i++) {
+                        for (let i = 0; i < holidays.length; i++) {
                             var next_holiday_date_num = getValueForDate(holidays[i][0], true);
 
                             if (date_num < next_holiday_date_num) {
@@ -2409,13 +2409,13 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                     at += 1 + add_days[1];
                 } else if (tokens[at][0] === 'SH') {
-                    var applying_holidays = getMatchingHoliday(tokens[at][0]);
+                    let applying_holidays = getMatchingHoliday(tokens[at][0]);
 
-                    var selector = function(applying_holidays) { return function(date) {
+                    let selector = function(applying_holidays) { return function(date) {
                         var date_num = getValueForDate(date);
 
                         // Iterate over holiday array containing the different holiday ranges.
-                        for (var i = 0; i < applying_holidays.length; i++) {
+                        for (let i = 0; i < applying_holidays.length; i++) {
 
                             var holiday = getSHForYear(applying_holidays[i], date.getFullYear(), false);
                             if (typeof holiday === 'undefined') {
@@ -2574,7 +2574,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }), 'library bug PR only');
         }
 
-        var matching_holiday = [];
+        let matching_holiday = [];
         if (typeof location_state === 'string'
             && typeof holiday_definitions[location_cc][location_state] === 'object'
             && typeof holiday_definitions[location_cc][location_state][type_of_holidays] === 'object') {
@@ -2595,7 +2595,6 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 var country_holiday_names = country_holidays.map(function(country_holiday) {
                     return country_holiday.name;
                 });
-                var matching_holiday = [];
                 matching_holiday.push.apply(matching_holiday, country_holidays);
                 matching_holiday.push.apply(matching_holiday, state_holidays.filter(function is_not_a_country_holiday(state_holiday) {
                     return country_holiday_names.indexOf(state_holiday.name) === -1;
@@ -3129,7 +3128,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     }
     function getNextDateOfISOWeek(week, date) {
         var next_date;
-        for (var i = -1; i <= 1; i++) {
+        for (let i = -1; i <= 1; i++) {
             next_date = getDateOfISOWeek(week, date.getFullYear() + i);
             if (next_date.getTime() > date.getTime()) {
                 return next_date;
@@ -3178,7 +3177,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     inside = false;
                 }
 
-                var selector = function(month_from, month_to, inside) { return function(date) {
+                let selector = function(month_from, month_to, inside) { return function(date) {
                     var ourmonth = date.getMonth();
 
                     if (month_to < month_from) {
@@ -3272,7 +3271,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 if (has_month[1])
                     checkIfDateIsValid(tokens[at_sec_event_or_month][0], tokens[at_sec_event_or_month+1][0], nrule, at_sec_event_or_month+1);
 
-                var selector = function(tokens, at, nrule, has_year, has_event, has_calc, at_sec_event_or_month, has_constrained_weekday) { return function(date) {
+                let selector = function(tokens, at, nrule, has_year, has_event, has_calc, at_sec_event_or_month, has_constrained_weekday) { return function(date) {
                     var start_of_next_year = new Date(date.getFullYear() + 1, 0, 1);
 
                     var movableDays, from_date;
@@ -3401,7 +3400,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         nrule, at+has_year+(is_range ? 3 : 1));
                     /* }}} */
 
-                    var selector = function(year, has_year, month, range_from, range_to, period) { return function(date) {
+                    let selector = function(year, has_year, month, range_from, range_to, period) { return function(date) {
                         var start_of_next_year = new Date(date.getFullYear() + 1, 0, 1);
 
                         var from_date = new Date(has_year ? year : date.getFullYear(),
@@ -3448,7 +3447,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 // Only event like easter {{{
             } else if (has_event[0]) {
 
-                var selector = function(tokens, at, nrule, has_year, add_days) { return function(date) {
+                let selector = function(tokens, at, nrule, has_year, add_days) { return function(date) {
 
                     // console.log('enter selector with date: ' + date);
                     var movableDays = getMovableEventsForYear((has_year ? tokens[at][0] : date.getFullYear()));
@@ -3520,8 +3519,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
         /* Go though all date selectors and check if they return something
          * else than closed for the given date.
          */
-        for (var nrule = 0; nrule < rules.length; nrule++) {
-            var matching_date_rule = true;
+        for (let nrule = 0; nrule < rules.length; nrule++) {
+            let matching_date_rule = true;
             // console.log(nrule, 'length',  rules[nrule].date.length);
 
             /* Try each date selector type. */
@@ -3579,8 +3578,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
         }
 
         // console.log(date_matching_rules);
-        for (var nrule = 0; nrule < date_matching_rules.length; nrule++) {
-            var rule = date_matching_rules[nrule];
+        for (let nrule = 0; nrule < date_matching_rules.length; nrule++) {
+            let rule = date_matching_rules[nrule];
 
             // console.log('Processing rule ' + rule + ': with date ' + date
                 // + ' and ' + rules[rule].time.length + ' time selectors (comment: "' + rules[rule].comment + '").');
@@ -3599,8 +3598,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 }
             }
 
-            for (var timesel = 0; timesel < rules[rule].time.length; timesel++) {
-                var res = rules[rule].time[timesel](date);
+            for (let timesel = 0; timesel < rules[rule].time.length; timesel++) {
+                let res = rules[rule].time[timesel](date);
 
                 // console.log('res:', res);
                 if (res[0]) {
@@ -3877,9 +3876,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
     /* isEqualTo: Check if this opening_hours object has the same meaning as the given opening_hours object. {{{ */
     this.isEqualTo = function(second_oh_object, start_date) {
         if (typeof start_date === 'undefined') {
-            var start_date = new Date();
+            start_date = new Date();
         }
-        var datelimit;
+        let datelimit;
 
         if (this.isWeekStable() && second_oh_object.isWeekStable()) {
             datelimit = new Date(start_date.getTime() + msec_in_day * 10);

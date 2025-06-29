@@ -121,7 +121,7 @@ function write_config_file(filepath, oh_value, nominatim_file_lookup_string, fro
     var intervals = oh.getOpenIntervals(from_date, to_date);
 
     var output_lines = [];
-    for (var i = 0; i < intervals.length; i++) {
+    for (let i = 0; i < intervals.length; i++) {
         var holiday_entry = intervals[i];
         var output_line = [
             getISODate(holiday_entry[0], 0, argv['omit-date-hyphens']),
