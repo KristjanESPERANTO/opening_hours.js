@@ -1,150 +1,59 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=-10&lon=-52&zoom=18&addressdetails=1&accept-language=pt,en
+
 PH:
-- name: Confraternização Universal
-  fixed_date: [1, 1]
-- name: Sexta-feira Santa
-  fixed_date: [4, 18]
-- name: Tiradentes
-  fixed_date: [4, 21]
-- name: Dia do Trabalhador
-  fixed_date: [5, 1]
-- name: Independência do Brasil
-  fixed_date: [9, 7]
-- name: Nossa Senhora Aparecida
-  fixed_date: [10, 12]
-- name: Finados
-  fixed_date: [11, 2]
-- name: Proclamação da República
-  fixed_date: [11, 15]
-- name: Dia Nacional de Zumbi e da Consciência Negra
-  fixed_date: [11, 20]
-- name: Natal
-  fixed_date: [12, 25]
-- name: Dia do Evangélico
-  fixed_date: [1, 24]
-  only_states: [Acre]
-- name: Dia Internacional da Mulher
-  fixed_date: [3, 8]
-  only_states: [Acre]
-- name: Aniversário do Acre
-  fixed_date: [6, 15]
-  only_states: [Acre]
-- name: Dia da Amazônia
-  fixed_date: [9, 5]
-  only_states: [Acre]
-- name: Assinatura do Tratado de Petrópolis
-  fixed_date: [11, 17]
-  only_states: [Acre]
-- name: São João
-  fixed_date: [6, 24]
-  only_states: [Alagoas]
-- name: São Pedro
-  fixed_date: [6, 29]
-  only_states: [Alagoas]
-- name: Emancipação Política de Alagoas
-  fixed_date: [9, 16]
-  only_states: [Alagoas]
-- name: Dia do Evangélico
-  fixed_date: [11, 30]
-  only_states: [Alagoas, Distrito Federal]
-- name: Elevação do Amazonas à categoria de província
-  fixed_date: [9, 5]
-  only_states: [Amazonas]
-- name: São José
-  fixed_date: [3, 19]
-  only_states: [Amapá, Ceará]
-- name: São Tiago
-  fixed_date: [7, 25]
-  only_states: [Amapá]
-- name: Criação do Território Federal
-  fixed_date: [9, 13]
-  only_states: [Amapá]
-- name: Independência da Bahia
-  fixed_date: [7, 2]
-  only_states: [Bahia]
-- name: Abolição da escravidão no Ceará
-  fixed_date: [3, 25]
-  only_states: [Ceará]
-- name: Nossa Senhora da Assunção
-  fixed_date: [8, 15]
-  only_states: [Ceará]
-- name: Fundação de Brasília; Tiradentes
-  fixed_date: [4, 21]
-  only_states: [Distrito Federal]
-- name: Nossa Senhora da Penha
-  fixed_date: [4, 28]
-  only_states: [Espírito Santo]
-- name: Fundação da cidade de Goiás
-  fixed_date: [7, 26]
-  only_states: [Goiás]
-- name: Pedra fundamental de Goiânia
-  fixed_date: [10, 24]
-  only_states: [Goiás]
-- name: Adesão do Maranhão à independência do Brasil
-  fixed_date: [7, 28]
-  only_states: [Maranhão]
-- name: Execução de Tiradentes; Tiradentes
-  fixed_date: [4, 21]
-  only_states: [Minas Gerais]
-- name: Criação do Estado
-  fixed_date: [10, 11]
-  only_states: [Mato Grosso do Sul]
-- name: Adesão do Grão-Pará à independência do Brasil
-  fixed_date: [8, 15]
-  only_states: [Pará]
-- name: Fundação do Estado
-  fixed_date: [8, 5]
-  only_states: [Paraíba]
-- name: Revolução Pernambucana
-  fixed_date: [3, 2]
-  only_states: [Pernambuco]
-- name: Dia do Piauí
-  fixed_date: [10, 19]
-  only_states: [Piauí]
-- name: Emancipação do Paraná
-  fixed_date: [12, 19]
-  only_states: [Paraná]
-- name: São Jorge
-  fixed_date: [4, 23]
-  only_states: [Rio de Janeiro]
-- name: Dia do Rio Grande do Norte
-  fixed_date: [8, 7]
-  only_states: [Rio Grande do Norte]
-- name: Mártires de Cunhaú e Uruaçu
-  fixed_date: [10, 3]
-  only_states: [Rio Grande do Norte]
-- name: Criação do Estado
-  fixed_date: [1, 4]
-  only_states: [Rondônia]
-- name: Dia do Evangélico
-  fixed_date: [6, 18]
-  only_states: [Rondônia]
-- name: Criação do Estado
-  fixed_date: [10, 5]
-  only_states: [Roraima, Tocantins]
-- name: Dia do Gaúcho
-  fixed_date: [9, 20]
-  only_states: [Rio Grande do Sul]
-- name: Dia do Estado de Santa Catarina
-  fixed_date: [8, 17]
-  only_states: [Santa Catarina]
-- name: Dia de Santa Catarina de Alexandria
-  fixed_date: [11, 30]
-  only_states: [Santa Catarina]
-- name: Emancipação política de Sergipe
-  fixed_date: [7, 8]
-  only_states: [Sergipe]
-- name: Revolução Constitucionalista
-  fixed_date: [7, 9]
-  only_states: [São Paulo]
-- name: Dia da Autonomia
-  fixed_date: [3, 18]
-  only_states: [Tocantins]
-- name: Nossa Senhora da Natividade
-  fixed_date: [9, 8]
-  only_states: [Tocantins]
+  - {'name': 'Confraternização Universal', 'fixed_date': [1, 1]}
+  - {'name': 'Sexta-feira Santa', 'fixed_date': [4, 18]}
+  - {'name': 'Tiradentes', 'fixed_date': [4, 21]}
+  - {'name': 'Dia do Trabalhador', 'fixed_date': [5, 1]}
+  - {'name': 'Independência do Brasil', 'fixed_date': [9, 7]}
+  - {'name': 'Nossa Senhora Aparecida', 'fixed_date': [10, 12]}
+  - {'name': 'Finados', 'fixed_date': [11, 2]}
+  - {'name': 'Proclamação da República', 'fixed_date': [11, 15]}
+  - {'name': 'Dia Nacional de Zumbi e da Consciência Negra', 'fixed_date': [11, 20]}
+  - {'name': 'Natal', 'fixed_date': [12, 25]}
+  - {'name': 'Dia do Evangélico', 'fixed_date': [1, 24], 'only_states': ['Acre']}
+  - {'name': 'Dia Internacional da Mulher', 'fixed_date': [3, 8], 'only_states': ['Acre']}
+  - {'name': 'Aniversário do Acre', 'fixed_date': [6, 15], 'only_states': ['Acre']}
+  - {'name': 'Dia da Amazônia', 'fixed_date': [9, 5], 'only_states': ['Acre']}
+  - {'name': 'Assinatura do Tratado de Petrópolis', 'fixed_date': [11, 17], 'only_states': ['Acre']}
+  - {'name': 'São João', 'fixed_date': [6, 24], 'only_states': ['Alagoas']}
+  - {'name': 'São Pedro', 'fixed_date': [6, 29], 'only_states': ['Alagoas']}
+  - {'name': 'Emancipação Política de Alagoas', 'fixed_date': [9, 16], 'only_states': ['Alagoas']}
+  - {'name': 'Dia do Evangélico', 'fixed_date': [11, 30], 'only_states': ['Alagoas', 'Distrito Federal']}
+  - {'name': 'Elevação do Amazonas à categoria de província', 'fixed_date': [9, 5], 'only_states': ['Amazonas']}
+  - {'name': 'São José', 'fixed_date': [3, 19], 'only_states': ['Amapá', 'Ceará']}
+  - {'name': 'São Tiago', 'fixed_date': [7, 25], 'only_states': ['Amapá']}
+  - {'name': 'Criação do Território Federal', 'fixed_date': [9, 13], 'only_states': ['Amapá']}
+  - {'name': 'Independência da Bahia', 'fixed_date': [7, 2], 'only_states': ['Bahia']}
+  - {'name': 'Abolição da escravidão no Ceará', 'fixed_date': [3, 25], 'only_states': ['Ceará']}
+  - {'name': 'Nossa Senhora da Assunção', 'fixed_date': [8, 15], 'only_states': ['Ceará']}
+  - {'name': 'Fundação de Brasília; Tiradentes', 'fixed_date': [4, 21], 'only_states': ['Distrito Federal']}
+  - {'name': 'Nossa Senhora da Penha', 'fixed_date': [4, 28], 'only_states': ['Espírito Santo']}
+  - {'name': 'Fundação da cidade de Goiás', 'fixed_date': [7, 26], 'only_states': ['Goiás']}
+  - {'name': 'Pedra fundamental de Goiânia', 'fixed_date': [10, 24], 'only_states': ['Goiás']}
+  - {'name': 'Adesão do Maranhão à independência do Brasil', 'fixed_date': [7, 28], 'only_states': ['Maranhão']}
+  - {'name': 'Execução de Tiradentes; Tiradentes', 'fixed_date': [4, 21], 'only_states': ['Minas Gerais']}
+  - {'name': 'Criação do Estado', 'fixed_date': [10, 11], 'only_states': ['Mato Grosso do Sul']}
+  - {'name': 'Adesão do Grão-Pará à independência do Brasil', 'fixed_date': [8, 15], 'only_states': ['Pará']}
+  - {'name': 'Fundação do Estado', 'fixed_date': [8, 5], 'only_states': ['Paraíba']}
+  - {'name': 'Revolução Pernambucana', 'fixed_date': [3, 2], 'only_states': ['Pernambuco']}
+  - {'name': 'Dia do Piauí', 'fixed_date': [10, 19], 'only_states': ['Piauí']}
+  - {'name': 'Emancipação do Paraná', 'fixed_date': [12, 19], 'only_states': ['Paraná']}
+  - {'name': 'São Jorge', 'fixed_date': [4, 23], 'only_states': ['Rio de Janeiro']}
+  - {'name': 'Dia do Rio Grande do Norte', 'fixed_date': [8, 7], 'only_states': ['Rio Grande do Norte']}
+  - {'name': 'Mártires de Cunhaú e Uruaçu', 'fixed_date': [10, 3], 'only_states': ['Rio Grande do Norte']}
+  - {'name': 'Criação do Estado', 'fixed_date': [1, 4], 'only_states': ['Rondônia']}
+  - {'name': 'Dia do Evangélico', 'fixed_date': [6, 18], 'only_states': ['Rondônia']}
+  - {'name': 'Criação do Estado', 'fixed_date': [10, 5], 'only_states': ['Roraima', 'Tocantins']}
+  - {'name': 'Dia do Gaúcho', 'fixed_date': [9, 20], 'only_states': ['Rio Grande do Sul']}
+  - {'name': 'Dia do Estado de Santa Catarina', 'fixed_date': [8, 17], 'only_states': ['Santa Catarina']}
+  - {'name': 'Dia de Santa Catarina de Alexandria', 'fixed_date': [11, 30], 'only_states': ['Santa Catarina']}
+  - {'name': 'Emancipação política de Sergipe', 'fixed_date': [7, 8], 'only_states': ['Sergipe']}
+  - {'name': 'Revolução Constitucionalista', 'fixed_date': [7, 9], 'only_states': ['São Paulo']}
+  - {'name': 'Dia da Autonomia', 'fixed_date': [3, 18], 'only_states': ['Tocantins']}
+  - {'name': 'Nossa Senhora da Natividade', 'fixed_date': [9, 8], 'only_states': ['Tocantins']}
 Acre:
   PH:
   - name: Ano Novo

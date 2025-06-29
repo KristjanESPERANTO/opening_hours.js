@@ -1,19 +1,11 @@
 ---
 
 PH:
-- name: ວັນປີໃໝ່ສາກົນ
-  fixed_date: [1, 1]
-- name: ວັນແມ່ຍິງສາກົນ
-  fixed_date: [3, 8]
-- name: ພັກຊົດເຊີຍວັນແມ່ຍິງສາກົນ
-  fixed_date: [3, 10]
-- name: ບຸນປີໃໝ່ລາວ
-  fixed_date: [4, 14]
-- name: ບຸນປີໃໝ່ລາວ
-  fixed_date: [4, 15]
-- name: ບຸນປີໃໝ່ລາວ
-  fixed_date: [4, 16]
-- name: ວັນກຳມະກອນສາກົນ
-  fixed_date: [5, 1]
-- name: ວັນຊາດ
-  fixed_date: [12, 2]
+  - {'name': 'ວັນປີໃໝ່ສາກົນ', 'fixed_date': [1, 1]}
+  - {'name': 'ວັນແມ່ຍິງສາກົນ', 'fixed_date': [3, 8]}
+  - {'name': 'ພັກຊົດເຊີຍວັນແມ່ຍິງສາກົນ', 'fixed_date': [3, 10]}
+  - {'name': 'ບຸນປີໃໝ່ລາວ', 'fixed_date': [4, 14]}
+  - {'name': 'ບຸນປີໃໝ່ລາວ', 'fixed_date': [4, 15]}
+  - {'name': 'ບຸນປີໃໝ່ລາວ', 'fixed_date': [4, 16]}
+  - {'name': 'ວັນກຳມະກອນສາກົນ', 'fixed_date': [5, 1]}
+  - {'name': 'ວັນຊາດ', 'fixed_date': [12, 2]}

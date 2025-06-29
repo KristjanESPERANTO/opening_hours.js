@@ -1,34 +1,20 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=5.3203570&lon=-4.0161070&zoom=18&addressdetails=1&accept-language=fr
+
 PH:
-- name: 1er janvier
-  fixed_date: [1, 1]
-- name: Lendemain de la Nuit du Destin
-  fixed_date: [3, 27]
-- name: Fête de fin du Ramadan
-  fixed_date: [3, 30]
-- name: Lendemain de la Fête de fin du Ramadan
-  fixed_date: [3, 31]
-- name: Lundi de Pâques
-  fixed_date: [4, 21]
-- name: Fête du travail
-  fixed_date: [5, 1]
-- name: Jour de l'Ascension
-  fixed_date: [5, 29]
-- name: Fête de la Tabaski
-  fixed_date: [6, 6]
-- name: Lundi de Pentecôte
-  fixed_date: [6, 9]
-- name: Fête Nationale
-  fixed_date: [8, 7]
-- name: Fête de l'Assomption
-  fixed_date: [8, 15]
-- name: Lendemain de l'Anniversaire de la Naissance du Prophète Mahomet
-  fixed_date: [9, 4]
-- name: Fête de la Toussaint
-  fixed_date: [11, 1]
-- name: Journée Nationale de la Paix
-  fixed_date: [11, 15]
-- name: Fête de Noël
-  fixed_date: [12, 25]
+  - {'name': '1er janvier', 'fixed_date': [1, 1]}
+  - {'name': 'Lendemain de la Nuit du Destin', 'fixed_date': [3, 27]}
+  - {'name': 'Fête de fin du Ramadan', 'fixed_date': [3, 30]}
+  - {'name': 'Lendemain de la Fête de fin du Ramadan', 'fixed_date': [3, 31]}
+  - {'name': 'Lundi de Pâques', 'fixed_date': [4, 21]}
+  - {'name': 'Fête du travail', 'fixed_date': [5, 1]}
+  - {'name': "Jour de l'Ascension", 'fixed_date': [5, 29]}
+  - {'name': 'Fête de la Tabaski', 'fixed_date': [6, 6]}
+  - {'name': 'Lundi de Pentecôte', 'fixed_date': [6, 9]}
+  - {'name': 'Fête Nationale', 'fixed_date': [8, 7]}
+  - {'name': "Fête de l'Assomption", 'fixed_date': [8, 15]}
+  - {'name': "Lendemain de l'Anniversaire de la Naissance du Prophète Mahomet", 'fixed_date': [9, 4]}
+  - {'name': 'Fête de la Toussaint', 'fixed_date': [11, 1]}
+  - {'name': 'Journée Nationale de la Paix', 'fixed_date': [11, 15]}
+  - {'name': 'Fête de Noël', 'fixed_date': [12, 25]}

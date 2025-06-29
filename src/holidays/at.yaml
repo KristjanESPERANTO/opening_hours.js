@@ -1,33 +1,21 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lon=16.3725042&lat=48.2083537&zoom=18&addressdetails=1&accept-language=de,en
+
 PH:
-- name: Neujahr
-  fixed_date: [1, 1]
-- name: Heilige Drei Könige
-  fixed_date: [1, 6]
-- name: Ostermontag
-  fixed_date: [4, 21]
-- name: Staatsfeiertag
-  fixed_date: [5, 1]
-- name: Christi Himmelfahrt
-  fixed_date: [5, 29]
-- name: Pfingstmontag
-  fixed_date: [6, 9]
-- name: Fronleichnam
-  fixed_date: [6, 19]
-- name: Mariä Himmelfahrt
-  fixed_date: [8, 15]
-- name: Nationalfeiertag
-  fixed_date: [10, 26]
-- name: Allerheiligen
-  fixed_date: [11, 1]
-- name: Mariä Empfängnis
-  fixed_date: [12, 8]
-- name: Christtag
-  fixed_date: [12, 25]
-- name: Stefanitag
-  fixed_date: [12, 26]
+  - {'name': 'Neujahr', 'fixed_date': [1, 1]}
+  - {'name': 'Heilige Drei Könige', 'fixed_date': [1, 6]}
+  - {'name': 'Ostermontag', 'fixed_date': [4, 21]}
+  - {'name': 'Staatsfeiertag', 'fixed_date': [5, 1]}
+  - {'name': 'Christi Himmelfahrt', 'fixed_date': [5, 29]}
+  - {'name': 'Pfingstmontag', 'fixed_date': [6, 9]}
+  - {'name': 'Fronleichnam', 'fixed_date': [6, 19]}
+  - {'name': 'Mariä Himmelfahrt', 'fixed_date': [8, 15]}
+  - {'name': 'Nationalfeiertag', 'fixed_date': [10, 26]}
+  - {'name': 'Allerheiligen', 'fixed_date': [11, 1]}
+  - {'name': 'Mariä Empfängnis', 'fixed_date': [12, 8]}
+  - {'name': 'Christtag', 'fixed_date': [12, 25]}
+  - {'name': 'Stefanitag', 'fixed_date': [12, 26]}
 SH:
 - name: Osterferien
   '2017': [4, 8, 4, 18]

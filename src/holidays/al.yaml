@@ -1,42 +1,22 @@
 ---
 
 PH:
-- name: Festat e Vitit të Ri
-  fixed_date: [1, 1]
-- name: Festat e Vitit të Ri
-  fixed_date: [1, 2]
-- name: Dita e Verës
-  fixed_date: [3, 14]
-- name: Dita e Nevruzit
-  fixed_date: [3, 22]
-- name: Dita e Nevruzit (ditë pushimi e shtyrë)
-  fixed_date: [3, 24]
-- name: Dita e Bajramit të Madh
-  fixed_date: [3, 30]
-- name: Dita e Bajramit të Madh (ditë pushimi e shtyrë)
-  fixed_date: [3, 31]
-- name: E diela e Pashkëve Katolike; E diela e Pashkëve Ortodokse
-  fixed_date: [4, 20]
-- name: E diela e Pashkëve Katolike (ditë pushimi e shtyrë); E diela e Pashkëve Ortodokse
-    (ditë pushimi e shtyrë)
-  fixed_date: [4, 21]
-- name: Dita Ndërkombëtare e Punëtorëve
-  fixed_date: [5, 1]
-- name: Dita e Kurban Bajramit
-  fixed_date: [6, 6]
-- name: Dita e Shenjtërimit të Shenjt Terezës
-  fixed_date: [9, 5]
-- name: Dita e Alfabetit
-  fixed_date: [11, 22]
-- name: Dita e Alfabetit (ditë pushimi e shtyrë)
-  fixed_date: [11, 24]
-- name: Dita Flamurit dhe e Pavarësisë
-  fixed_date: [11, 28]
-- name: Dita e Çlirimit
-  fixed_date: [11, 29]
-- name: Dita e Çlirimit (ditë pushimi e shtyrë)
-  fixed_date: [12, 1]
-- name: Dita Kombëtare e Rinisë
-  fixed_date: [12, 8]
-- name: Krishtlindjet
-  fixed_date: [12, 25]
+  - {'name': 'Festat e Vitit të Ri', 'fixed_date': [1, 1]}
+  - {'name': 'Festat e Vitit të Ri', 'fixed_date': [1, 2]}
+  - {'name': 'Dita e Verës', 'fixed_date': [3, 14]}
+  - {'name': 'Dita e Nevruzit', 'fixed_date': [3, 22]}
+  - {'name': 'Dita e Nevruzit (ditë pushimi e shtyrë)', 'fixed_date': [3, 24]}
+  - {'name': 'Dita e Bajramit të Madh', 'fixed_date': [3, 30]}
+  - {'name': 'Dita e Bajramit të Madh (ditë pushimi e shtyrë)', 'fixed_date': [3, 31]}
+  - {'name': 'E diela e Pashkëve Katolike; E diela e Pashkëve Ortodokse', 'fixed_date': [4, 20]}
+  - {'name': 'E diela e Pashkëve Katolike (ditë pushimi e shtyrë); E diela e Pashkëve Ortodokse (ditë pushimi e shtyrë)', 'fixed_date': [4, 21]}
+  - {'name': 'Dita Ndërkombëtare e Punëtorëve', 'fixed_date': [5, 1]}
+  - {'name': 'Dita e Kurban Bajramit', 'fixed_date': [6, 6]}
+  - {'name': 'Dita e Shenjtërimit të Shenjt Terezës', 'fixed_date': [9, 5]}
+  - {'name': 'Dita e Alfabetit', 'fixed_date': [11, 22]}
+  - {'name': 'Dita e Alfabetit (ditë pushimi e shtyrë)', 'fixed_date': [11, 24]}
+  - {'name': 'Dita Flamurit dhe e Pavarësisë', 'fixed_date': [11, 28]}
+  - {'name': 'Dita e Çlirimit', 'fixed_date': [11, 29]}
+  - {'name': 'Dita e Çlirimit (ditë pushimi e shtyrë)', 'fixed_date': [12, 1]}
+  - {'name': 'Dita Kombëtare e Rinisë', 'fixed_date': [12, 8]}
+  - {'name': 'Krishtlindjet', 'fixed_date': [12, 25]}

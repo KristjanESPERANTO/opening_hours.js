@@ -1,35 +1,19 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Christmas Day
-  fixed_date: [1, 7]
-- name: Fatherland Defender's Day
-  fixed_date: [2, 23]
-- name: International Women's Day
-  fixed_date: [3, 8]
-- name: Nooruz Mairamy
-  fixed_date: [3, 21]
-- name: Orozo Ait (estimated)
-  fixed_date: [3, 30]
-- name: Orozo Ait (estimated)
-  fixed_date: [3, 31]
-- name: Day of the People's April Revolution
-  fixed_date: [4, 7]
-- name: International Workers' Day
-  fixed_date: [5, 1]
-- name: Constitution Day
-  fixed_date: [5, 5]
-- name: Victory Day
-  fixed_date: [5, 9]
-- name: Kurman Ait (estimated)
-  fixed_date: [6, 6]
-- name: Independence Day
-  fixed_date: [8, 31]
-- name: Days of History and Commemoration of Ancestors
-  fixed_date: [11, 7]
-- name: Days of History and Commemoration of Ancestors
-  fixed_date: [11, 8]
-- name: New Year's Eve
-  fixed_date: [12, 31]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Christmas Day', 'fixed_date': [1, 7]}
+  - {'name': "Fatherland Defender's Day", 'fixed_date': [2, 23]}
+  - {'name': "International Women's Day", 'fixed_date': [3, 8]}
+  - {'name': 'Nooruz Mairamy', 'fixed_date': [3, 21]}
+  - {'name': 'Orozo Ait (estimated)', 'fixed_date': [3, 30]}
+  - {'name': 'Orozo Ait (estimated)', 'fixed_date': [3, 31]}
+  - {'name': "Day of the People's April Revolution", 'fixed_date': [4, 7]}
+  - {'name': "International Workers' Day", 'fixed_date': [5, 1]}
+  - {'name': 'Constitution Day', 'fixed_date': [5, 5]}
+  - {'name': 'Victory Day', 'fixed_date': [5, 9]}
+  - {'name': 'Kurman Ait (estimated)', 'fixed_date': [6, 6]}
+  - {'name': 'Independence Day', 'fixed_date': [8, 31]}
+  - {'name': 'Days of History and Commemoration of Ancestors', 'fixed_date': [11, 7]}
+  - {'name': 'Days of History and Commemoration of Ancestors', 'fixed_date': [11, 8]}
+  - {'name': "New Year's Eve", 'fixed_date': [12, 31]}

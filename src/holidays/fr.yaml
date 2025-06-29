@@ -1,78 +1,35 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=46.60333&lon=1.88920&zoom=18&addressdetails=1&accept-language=fr,en
+
 PH:
-- name: Jour de l'an
-  fixed_date: [1, 1]
-- name: Lundi de Pâques
-  fixed_date: [4, 21]
-- name: Fête du Travail
-  fixed_date: [5, 1]
-- name: Fête de la Victoire
-  fixed_date: [5, 8]
-- name: Ascension
-  fixed_date: [5, 29]
-- name: Lundi de Pentecôte
-  fixed_date: [6, 9]
-- name: Fête nationale
-  fixed_date: [7, 14]
-- name: Assomption
-  fixed_date: [8, 15]
-- name: Toussaint
-  fixed_date: [11, 1]
-- name: Armistice
-  fixed_date: [11, 11]
-- name: Noël
-  fixed_date: [12, 25]
-- name: Abolition de l'esclavage
-  fixed_date: [10, 9]
-  only_states: [Saint-Barthélemy]
-- name: Vendredi saint
-  fixed_date: [4, 18]
-  only_states: [Alsace, Champagne-Ardenne, Lorraine, Guadeloupe, Martinique, Polynésie
-      Française]
-- name: Saint Étienne
-  fixed_date: [12, 26]
-  only_states: [Alsace, Champagne-Ardenne, Lorraine]
-- name: Mi-Carême
-  fixed_date: [3, 27]
-  only_states: [Guadeloupe]
-- name: Abolition de l'esclavage
-  fixed_date: [5, 27]
-  only_states: [Guadeloupe]
-- name: Fête de Victor Schoelcher
-  fixed_date: [7, 21]
-  only_states: [Guadeloupe, Martinique]
-- name: Abolition de l'esclavage
-  fixed_date: [6, 10]
-  only_states: [Guyane]
-- name: Abolition de l'esclavage
-  fixed_date: [5, 28]
-  only_states: [Saint-Martin]
-- name: Abolition de l'esclavage
-  fixed_date: [5, 22]
-  only_states: [Martinique]
-- name: Fête de la Citoyenneté
-  fixed_date: [9, 24]
-  only_states: [Nouvelle-Calédonie]
-- name: Arrivée de l'Évangile
-  fixed_date: [3, 5]
-  only_states: [Polynésie Française]
-- name: Fête de l'autonomie
-  fixed_date: [6, 29]
-  only_states: [Polynésie Française]
-- name: Abolition de l'esclavage
-  fixed_date: [12, 20]
-  only_states: [La Réunion]
-- name: Saint Pierre Chanel
-  fixed_date: [4, 28]
-  only_states: [Wallis-et-Futuna]
-- name: Fête du Territoire
-  fixed_date: [7, 29]
-  only_states: [Wallis-et-Futuna]
-- name: Abolition de l'esclavage
-  fixed_date: [4, 27]
-  only_states: [Mayotte]
+  - {'name': "Jour de l'an", 'fixed_date': [1, 1]}
+  - {'name': 'Lundi de Pâques', 'fixed_date': [4, 21]}
+  - {'name': 'Fête du Travail', 'fixed_date': [5, 1]}
+  - {'name': 'Fête de la Victoire', 'fixed_date': [5, 8]}
+  - {'name': 'Ascension', 'fixed_date': [5, 29]}
+  - {'name': 'Lundi de Pentecôte', 'fixed_date': [6, 9]}
+  - {'name': 'Fête nationale', 'fixed_date': [7, 14]}
+  - {'name': 'Assomption', 'fixed_date': [8, 15]}
+  - {'name': 'Toussaint', 'fixed_date': [11, 1]}
+  - {'name': 'Armistice', 'fixed_date': [11, 11]}
+  - {'name': 'Noël', 'fixed_date': [12, 25]}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [10, 9], 'only_states': ['Saint-Barthélemy']}
+  - {'name': 'Vendredi saint', 'fixed_date': [4, 18], 'only_states': ['Alsace', 'Champagne-Ardenne', 'Lorraine', 'Guadeloupe', 'Martinique', 'Polynésie Française']}
+  - {'name': 'Saint Étienne', 'fixed_date': [12, 26], 'only_states': ['Alsace', 'Champagne-Ardenne', 'Lorraine']}
+  - {'name': 'Mi-Carême', 'fixed_date': [3, 27], 'only_states': ['Guadeloupe']}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [5, 27], 'only_states': ['Guadeloupe']}
+  - {'name': 'Fête de Victor Schoelcher', 'fixed_date': [7, 21], 'only_states': ['Guadeloupe', 'Martinique']}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [6, 10], 'only_states': ['Guyane']}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [5, 28], 'only_states': ['Saint-Martin']}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [5, 22], 'only_states': ['Martinique']}
+  - {'name': 'Fête de la Citoyenneté', 'fixed_date': [9, 24], 'only_states': ['Nouvelle-Calédonie']}
+  - {'name': "Arrivée de l'Évangile", 'fixed_date': [3, 5], 'only_states': ['Polynésie Française']}
+  - {'name': "Fête de l'autonomie", 'fixed_date': [6, 29], 'only_states': ['Polynésie Française']}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [12, 20], 'only_states': ['La Réunion']}
+  - {'name': 'Saint Pierre Chanel', 'fixed_date': [4, 28], 'only_states': ['Wallis-et-Futuna']}
+  - {'name': 'Fête du Territoire', 'fixed_date': [7, 29], 'only_states': ['Wallis-et-Futuna']}
+  - {'name': "Abolition de l'esclavage", 'fixed_date': [4, 27], 'only_states': ['Mayotte']}
 Auvergne-Rhône-Alpes:
   _state_code: ara
   _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=45.29683&lon=4.65952&zoom=18&addressdetails=1&accept-language=fr,en

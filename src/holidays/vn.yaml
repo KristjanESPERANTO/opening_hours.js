@@ -1,28 +1,17 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=10.77374&lon=106.70094&zoom=16&addressdetails=1&accept-language=en
+
 PH:
-- name: Tết Dương lịch
-  fixed_date: [1, 1]
-- name: 29 Tết
-  fixed_date: [1, 27]
-- name: Giao thừa Tết Nguyên Đán
-  fixed_date: [1, 28]
-- name: Tết Nguyên Đán
-  fixed_date: [1, 29]
-- name: Mùng hai Tết Nguyên Đán
-  fixed_date: [1, 30]
-- name: Mùng ba Tết Nguyên Đán
-  fixed_date: [1, 31]
-- name: Mùng bốn Tết Nguyên Đán
-  fixed_date: [2, 1]
-- name: Ngày Giỗ Tổ Hùng Vương
-  fixed_date: [4, 7]
-- name: Ngày Chiến thắng
-  fixed_date: [4, 30]
-- name: Ngày Quốc tế Lao động
-  fixed_date: [5, 1]
-- name: Quốc khánh
-  fixed_date: [9, 1]
-- name: Quốc khánh
-  fixed_date: [9, 2]
+  - {'name': 'Tết Dương lịch', 'fixed_date': [1, 1]}
+  - {'name': '29 Tết', 'fixed_date': [1, 27]}
+  - {'name': 'Giao thừa Tết Nguyên Đán', 'fixed_date': [1, 28]}
+  - {'name': 'Tết Nguyên Đán', 'fixed_date': [1, 29]}
+  - {'name': 'Mùng hai Tết Nguyên Đán', 'fixed_date': [1, 30]}
+  - {'name': 'Mùng ba Tết Nguyên Đán', 'fixed_date': [1, 31]}
+  - {'name': 'Mùng bốn Tết Nguyên Đán', 'fixed_date': [2, 1]}
+  - {'name': 'Ngày Giỗ Tổ Hùng Vương', 'fixed_date': [4, 7]}
+  - {'name': 'Ngày Chiến thắng', 'fixed_date': [4, 30]}
+  - {'name': 'Ngày Quốc tế Lao động', 'fixed_date': [5, 1]}
+  - {'name': 'Quốc khánh', 'fixed_date': [9, 1]}
+  - {'name': 'Quốc khánh', 'fixed_date': [9, 2]}

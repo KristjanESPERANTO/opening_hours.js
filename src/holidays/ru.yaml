@@ -1,45 +1,27 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=55.7780&lon=49.1303&zoom=18&addressdetails=1&accept-language=ru,en
+
 PH:
-- name: Новогодние каникулы
-  fixed_date: [1, 1]
-- name: Новогодние каникулы
-  fixed_date: [1, 2]
-- name: Новогодние каникулы
-  fixed_date: [1, 3]
-- name: Новогодние каникулы
-  fixed_date: [1, 4]
-- name: Новогодние каникулы
-  fixed_date: [1, 5]
-- name: Новогодние каникулы
-  fixed_date: [1, 6]
-- name: Рождество Христово
-  fixed_date: [1, 7]
-- name: Новогодние каникулы
-  fixed_date: [1, 8]
-- name: День защитника Отечества
-  fixed_date: [2, 23]
-- name: Международный женский день
-  fixed_date: [3, 8]
-- name: Праздник Весны и Труда
-  fixed_date: [5, 1]
-- name: Выходной (перенесено с 04.01.2025)
-  fixed_date: [5, 2]
-- name: Выходной (перенесено с 23.02.2025)
-  fixed_date: [5, 8]
-- name: День Победы
-  fixed_date: [5, 9]
-- name: День России
-  fixed_date: [6, 12]
-- name: Выходной (перенесено с 08.03.2025)
-  fixed_date: [6, 13]
-- name: Выходной (перенесено с 01.11.2025)
-  fixed_date: [11, 3]
-- name: День народного единства
-  fixed_date: [11, 4]
-- name: Выходной (перенесено с 05.01.2025)
-  fixed_date: [12, 31]
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 1]}
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 2]}
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 3]}
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 4]}
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 5]}
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 6]}
+  - {'name': 'Рождество Христово', 'fixed_date': [1, 7]}
+  - {'name': 'Новогодние каникулы', 'fixed_date': [1, 8]}
+  - {'name': 'День защитника Отечества', 'fixed_date': [2, 23]}
+  - {'name': 'Международный женский день', 'fixed_date': [3, 8]}
+  - {'name': 'Праздник Весны и Труда', 'fixed_date': [5, 1]}
+  - {'name': 'Выходной (перенесено с 04.01.2025)', 'fixed_date': [5, 2]}
+  - {'name': 'Выходной (перенесено с 23.02.2025)', 'fixed_date': [5, 8]}
+  - {'name': 'День Победы', 'fixed_date': [5, 9]}
+  - {'name': 'День России', 'fixed_date': [6, 12]}
+  - {'name': 'Выходной (перенесено с 08.03.2025)', 'fixed_date': [6, 13]}
+  - {'name': 'Выходной (перенесено с 01.11.2025)', 'fixed_date': [11, 3]}
+  - {'name': 'День народного единства', 'fixed_date': [11, 4]}
+  - {'name': 'Выходной (перенесено с 05.01.2025)', 'fixed_date': [12, 31]}
 Татарстан:
   _state_code: tatarstan
   _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=55.7780&lon=49.1303&zoom=18&addressdetails=1&accept-language=ru,en

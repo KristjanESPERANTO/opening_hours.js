@@ -1,63 +1,33 @@
 ---
 
 PH:
-- name: Solennità di Maria Santissima Madre di Dio
-  fixed_date: [1, 1]
-- name: Epifania del Signore
-  fixed_date: [1, 6]
-- name: Anniversario della istituzione dello Stato della Città del Vaticano
-  fixed_date: [2, 11]
-- name: Anniversario dell'Elezione del Santo Padre
-  fixed_date: [3, 13]
-- name: San Giuseppe
-  fixed_date: [3, 19]
-- name: Giovedì Santo
-  fixed_date: [4, 17]
-- name: Venerdì Santo
-  fixed_date: [4, 18]
-- name: Sabato Santo
-  fixed_date: [4, 19]
-- name: Pasqua di Resurrezione
-  fixed_date: [4, 20]
-- name: Lunedì dell'Angelo
-  fixed_date: [4, 21]
-- name: Martedì in Albis
-  fixed_date: [4, 22]
-- name: Onomastico del Santo Padre
-  fixed_date: [4, 23]
-- name: San Giuseppe Artigiano
-  fixed_date: [5, 1]
-- name: Ascensione del Signore
-  fixed_date: [5, 29]
-- name: Solennità della Pentecoste
-  fixed_date: [6, 8]
-- name: Solennità della Santissima Trinità
-  fixed_date: [6, 15]
-- name: Corpus Domini
-  fixed_date: [6, 19]
-- name: Santi Pietro e Paolo
-  fixed_date: [6, 29]
-- name: Vigilia dell'Assunzione di Maria Santissima
-  fixed_date: [8, 14]
-- name: Assunzione di Maria Santissima
-  fixed_date: [8, 15]
-- name: Giorno Successivo all'Assunzione di Maria Santissima
-  fixed_date: [8, 16]
-- name: Onomastico del Santo Padre
-  fixed_date: [9, 17]
-- name: Tutti i Santi
-  fixed_date: [11, 1]
-- name: Tutti i Fedeli Defunti
-  fixed_date: [11, 2]
-- name: Immacolata Concezione
-  fixed_date: [12, 8]
-- name: Vigilia di Natale
-  fixed_date: [12, 24]
-- name: Natale
-  fixed_date: [12, 25]
-- name: Santo Stefano
-  fixed_date: [12, 26]
-- name: San Giovanni
-  fixed_date: [12, 27]
-- name: Ultimo giorno dell'anno
-  fixed_date: [12, 31]
+  - {'name': 'Solennità di Maria Santissima Madre di Dio', 'fixed_date': [1, 1]}
+  - {'name': 'Epifania del Signore', 'fixed_date': [1, 6]}
+  - {'name': 'Anniversario della istituzione dello Stato della Città del Vaticano', 'fixed_date': [2, 11]}
+  - {'name': "Anniversario dell'Elezione del Santo Padre", 'fixed_date': [3, 13]}
+  - {'name': 'San Giuseppe', 'fixed_date': [3, 19]}
+  - {'name': 'Giovedì Santo', 'fixed_date': [4, 17]}
+  - {'name': 'Venerdì Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Sabato Santo', 'fixed_date': [4, 19]}
+  - {'name': 'Pasqua di Resurrezione', 'fixed_date': [4, 20]}
+  - {'name': "Lunedì dell'Angelo", 'fixed_date': [4, 21]}
+  - {'name': 'Martedì in Albis', 'fixed_date': [4, 22]}
+  - {'name': 'Onomastico del Santo Padre', 'fixed_date': [4, 23]}
+  - {'name': 'San Giuseppe Artigiano', 'fixed_date': [5, 1]}
+  - {'name': 'Ascensione del Signore', 'fixed_date': [5, 29]}
+  - {'name': 'Solennità della Pentecoste', 'fixed_date': [6, 8]}
+  - {'name': 'Solennità della Santissima Trinità', 'fixed_date': [6, 15]}
+  - {'name': 'Corpus Domini', 'fixed_date': [6, 19]}
+  - {'name': 'Santi Pietro e Paolo', 'fixed_date': [6, 29]}
+  - {'name': "Vigilia dell'Assunzione di Maria Santissima", 'fixed_date': [8, 14]}
+  - {'name': 'Assunzione di Maria Santissima', 'fixed_date': [8, 15]}
+  - {'name': "Giorno Successivo all'Assunzione di Maria Santissima", 'fixed_date': [8, 16]}
+  - {'name': 'Onomastico del Santo Padre', 'fixed_date': [9, 17]}
+  - {'name': 'Tutti i Santi', 'fixed_date': [11, 1]}
+  - {'name': 'Tutti i Fedeli Defunti', 'fixed_date': [11, 2]}
+  - {'name': 'Immacolata Concezione', 'fixed_date': [12, 8]}
+  - {'name': 'Vigilia di Natale', 'fixed_date': [12, 24]}
+  - {'name': 'Natale', 'fixed_date': [12, 25]}
+  - {'name': 'Santo Stefano', 'fixed_date': [12, 26]}
+  - {'name': 'San Giovanni', 'fixed_date': [12, 27]}
+  - {'name': "Ultimo giorno dell'anno", 'fixed_date': [12, 31]}

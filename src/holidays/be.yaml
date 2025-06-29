@@ -1,31 +1,20 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Belgium&zoom=18&addressdetails=1&limit=1&accept-language=nl,fr,de,en
+
 PH:
-- name: Nieuwjaar
-  fixed_date: [1, 1]
-- name: Pasen
-  fixed_date: [4, 20]
-- name: Paasmaandag
-  fixed_date: [4, 21]
-- name: Dag van de Arbeid
-  fixed_date: [5, 1]
-- name: O. L. H. Hemelvaart
-  fixed_date: [5, 29]
-- name: Pinksteren
-  fixed_date: [6, 8]
-- name: Pinkstermaandag
-  fixed_date: [6, 9]
-- name: Nationale feestdag
-  fixed_date: [7, 21]
-- name: O. L. V. Hemelvaart
-  fixed_date: [8, 15]
-- name: Allerheiligen
-  fixed_date: [11, 1]
-- name: Wapenstilstand
-  fixed_date: [11, 11]
-- name: Kerstmis
-  fixed_date: [12, 25]
+  - {'name': 'Nieuwjaar', 'fixed_date': [1, 1]}
+  - {'name': 'Pasen', 'fixed_date': [4, 20]}
+  - {'name': 'Paasmaandag', 'fixed_date': [4, 21]}
+  - {'name': 'Dag van de Arbeid', 'fixed_date': [5, 1]}
+  - {'name': 'O. L. H. Hemelvaart', 'fixed_date': [5, 29]}
+  - {'name': 'Pinksteren', 'fixed_date': [6, 8]}
+  - {'name': 'Pinkstermaandag', 'fixed_date': [6, 9]}
+  - {'name': 'Nationale feestdag', 'fixed_date': [7, 21]}
+  - {'name': 'O. L. V. Hemelvaart', 'fixed_date': [8, 15]}
+  - {'name': 'Allerheiligen', 'fixed_date': [11, 1]}
+  - {'name': 'Wapenstilstand', 'fixed_date': [11, 11]}
+  - {'name': 'Kerstmis', 'fixed_date': [12, 25]}
 SH:
 - name: Krokusvakantie - Vacances de carnaval
   '2020': [2, 24, 3, 1]

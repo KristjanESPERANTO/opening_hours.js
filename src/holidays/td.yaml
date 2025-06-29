@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: International Women's Day
-  fixed_date: [3, 8]
-- name: Eid al-Fitr (estimated)
-  fixed_date: [3, 30]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Eid al-Adha (estimated)
-  fixed_date: [6, 6]
-- name: Independence Day
-  fixed_date: [8, 11]
-- name: Mawlid (estimated)
-  fixed_date: [9, 4]
-- name: All Saints' Day
-  fixed_date: [11, 1]
-- name: Republic Day
-  fixed_date: [11, 28]
-- name: Freedom and Democracy Day
-  fixed_date: [12, 1]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': "International Women's Day", 'fixed_date': [3, 8]}
+  - {'name': 'Eid al-Fitr (estimated)', 'fixed_date': [3, 30]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Eid al-Adha (estimated)', 'fixed_date': [6, 6]}
+  - {'name': 'Independence Day', 'fixed_date': [8, 11]}
+  - {'name': 'Mawlid (estimated)', 'fixed_date': [9, 4]}
+  - {'name': "All Saints' Day", 'fixed_date': [11, 1]}
+  - {'name': 'Republic Day', 'fixed_date': [11, 28]}
+  - {'name': 'Freedom and Democracy Day', 'fixed_date': [12, 1]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

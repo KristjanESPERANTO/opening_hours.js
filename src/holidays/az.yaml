@@ -1,63 +1,33 @@
 ---
 
 PH:
-- name: Yeni il bayramı
-  fixed_date: [1, 1]
-- name: Yeni il bayramı
-  fixed_date: [1, 2]
-- name: İstirahət günü (29.12.2024 ilə əvəz edilmişdir)
-  fixed_date: [1, 3]
-- name: Ümumxalq hüzn günü
-  fixed_date: [1, 20]
-- name: Bələdiyyə seçkiləri
-  fixed_date: [1, 29]
-- name: Qadınlar günü
-  fixed_date: [3, 8]
-- name: Novruz bayramı
-  fixed_date: [3, 20]
-- name: Novruz bayramı
-  fixed_date: [3, 21]
-- name: Novruz bayramı
-  fixed_date: [3, 22]
-- name: Novruz bayramı
-  fixed_date: [3, 23]
-- name: Novruz bayramı
-  fixed_date: [3, 24]
-- name: Novruz bayramı (müşahidə olunur)
-  fixed_date: [3, 25]
-- name: Novruz bayramı (müşahidə olunur)
-  fixed_date: [3, 26]
-- name: Qadınlar günü (müşahidə olunur)
-  fixed_date: [3, 27]
-- name: Ramazan bayrami (müşahidə olunur)
-  fixed_date: [3, 28]
-- name: Ramazan bayrami
-  fixed_date: [3, 30]
-- name: Ramazan bayrami
-  fixed_date: [3, 31]
-- name: Faşizm üzərində qələbə günü
-  fixed_date: [5, 9]
-- name: Müstəqillik Günü
-  fixed_date: [5, 28]
-- name: Qurban bayrami
-  fixed_date: [6, 6]
-- name: Qurban bayrami
-  fixed_date: [6, 7]
-- name: Qurban bayrami (müşahidə olunur)
-  fixed_date: [6, 9]
-- name: Azərbaycan xalqının milli qurtuluş günü
-  fixed_date: [6, 15]
-- name: Azərbaycan xalqının milli qurtuluş günü (müşahidə olunur)
-  fixed_date: [6, 16]
-- name: Azərbaycan Respublikasının Silahlı Qüvvələri günü
-  fixed_date: [6, 26]
-- name: Zəfər Günü
-  fixed_date: [11, 8]
-- name: Azərbaycan Respublikasının Dövlət bayrağı günü
-  fixed_date: [11, 9]
-- name: Zəfər Günü (müşahidə olunur)
-  fixed_date: [11, 10]
-- name: Azərbaycan Respublikasının Dövlət bayrağı günü (müşahidə olunur)
-  fixed_date: [11, 11]
-- name: Dünya azərbaycanlılarının həmrəyliyi günü
-  fixed_date: [12, 31]
+  - {'name': 'Yeni il bayramı', 'fixed_date': [1, 1]}
+  - {'name': 'Yeni il bayramı', 'fixed_date': [1, 2]}
+  - {'name': 'İstirahət günü (29.12.2024 ilə əvəz edilmişdir)', 'fixed_date': [1, 3]}
+  - {'name': 'Ümumxalq hüzn günü', 'fixed_date': [1, 20]}
+  - {'name': 'Bələdiyyə seçkiləri', 'fixed_date': [1, 29]}
+  - {'name': 'Qadınlar günü', 'fixed_date': [3, 8]}
+  - {'name': 'Novruz bayramı', 'fixed_date': [3, 20]}
+  - {'name': 'Novruz bayramı', 'fixed_date': [3, 21]}
+  - {'name': 'Novruz bayramı', 'fixed_date': [3, 22]}
+  - {'name': 'Novruz bayramı', 'fixed_date': [3, 23]}
+  - {'name': 'Novruz bayramı', 'fixed_date': [3, 24]}
+  - {'name': 'Novruz bayramı (müşahidə olunur)', 'fixed_date': [3, 25]}
+  - {'name': 'Novruz bayramı (müşahidə olunur)', 'fixed_date': [3, 26]}
+  - {'name': 'Qadınlar günü (müşahidə olunur)', 'fixed_date': [3, 27]}
+  - {'name': 'Ramazan bayrami (müşahidə olunur)', 'fixed_date': [3, 28]}
+  - {'name': 'Ramazan bayrami', 'fixed_date': [3, 30]}
+  - {'name': 'Ramazan bayrami', 'fixed_date': [3, 31]}
+  - {'name': 'Faşizm üzərində qələbə günü', 'fixed_date': [5, 9]}
+  - {'name': 'Müstəqillik Günü', 'fixed_date': [5, 28]}
+  - {'name': 'Qurban bayrami', 'fixed_date': [6, 6]}
+  - {'name': 'Qurban bayrami', 'fixed_date': [6, 7]}
+  - {'name': 'Qurban bayrami (müşahidə olunur)', 'fixed_date': [6, 9]}
+  - {'name': 'Azərbaycan xalqının milli qurtuluş günü', 'fixed_date': [6, 15]}
+  - {'name': 'Azərbaycan xalqının milli qurtuluş günü (müşahidə olunur)', 'fixed_date': [6, 16]}
+  - {'name': 'Azərbaycan Respublikasının Silahlı Qüvvələri günü', 'fixed_date': [6, 26]}
+  - {'name': 'Zəfər Günü', 'fixed_date': [11, 8]}
+  - {'name': 'Azərbaycan Respublikasının Dövlət bayrağı günü', 'fixed_date': [11, 9]}
+  - {'name': 'Zəfər Günü (müşahidə olunur)', 'fixed_date': [11, 10]}
+  - {'name': 'Azərbaycan Respublikasının Dövlət bayrağı günü (müşahidə olunur)', 'fixed_date': [11, 11]}
+  - {'name': 'Dünya azərbaycanlılarının həmrəyliyi günü', 'fixed_date': [12, 31]}

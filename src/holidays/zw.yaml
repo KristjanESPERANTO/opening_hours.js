@@ -1,29 +1,16 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Robert Gabriel Mugabe National Youth Day
-  fixed_date: [2, 21]
-- name: Good Friday; Independence Day
-  fixed_date: [4, 18]
-- name: Easter Saturday
-  fixed_date: [4, 19]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Workers' Day
-  fixed_date: [5, 1]
-- name: Africa Day
-  fixed_date: [5, 25]
-- name: Africa Day (observed)
-  fixed_date: [5, 26]
-- name: Zimbabwe Heroes' Day
-  fixed_date: [8, 11]
-- name: Defense Forces Day
-  fixed_date: [8, 12]
-- name: Unity Day
-  fixed_date: [12, 22]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Robert Gabriel Mugabe National Youth Day', 'fixed_date': [2, 21]}
+  - {'name': 'Good Friday; Independence Day', 'fixed_date': [4, 18]}
+  - {'name': 'Easter Saturday', 'fixed_date': [4, 19]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': "Workers' Day", 'fixed_date': [5, 1]}
+  - {'name': 'Africa Day', 'fixed_date': [5, 25]}
+  - {'name': 'Africa Day (observed)', 'fixed_date': [5, 26]}
+  - {'name': "Zimbabwe Heroes' Day", 'fixed_date': [8, 11]}
+  - {'name': 'Defense Forces Day', 'fixed_date': [8, 12]}
+  - {'name': 'Unity Day', 'fixed_date': [12, 22]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

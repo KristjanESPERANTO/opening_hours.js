@@ -1,31 +1,17 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: New Year's Day Holiday
-  fixed_date: [1, 2]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Holy Saturday
-  fixed_date: [4, 19]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Ascension Day
-  fixed_date: [5, 29]
-- name: Sir Seretse Khama Day
-  fixed_date: [7, 1]
-- name: President's Day
-  fixed_date: [7, 21]
-- name: President's Day Holiday
-  fixed_date: [7, 22]
-- name: Botswana Day
-  fixed_date: [9, 30]
-- name: Botswana Day Holiday
-  fixed_date: [10, 1]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': "New Year's Day Holiday", 'fixed_date': [1, 2]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Holy Saturday', 'fixed_date': [4, 19]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Ascension Day', 'fixed_date': [5, 29]}
+  - {'name': 'Sir Seretse Khama Day', 'fixed_date': [7, 1]}
+  - {'name': "President's Day", 'fixed_date': [7, 21]}
+  - {'name': "President's Day Holiday", 'fixed_date': [7, 22]}
+  - {'name': 'Botswana Day', 'fixed_date': [9, 30]}
+  - {'name': 'Botswana Day Holiday', 'fixed_date': [10, 1]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

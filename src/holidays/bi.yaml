@@ -1,37 +1,20 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Unity Day
-  fixed_date: [2, 5]
-- name: Eid ul Fitr (estimated)
-  fixed_date: [3, 30]
-- name: Eid ul Fitr (estimated) (observed)
-  fixed_date: [3, 31]
-- name: President Ntaryamira Day
-  fixed_date: [4, 6]
-- name: President Ntaryamira Day (observed)
-  fixed_date: [4, 7]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Ascension Day
-  fixed_date: [5, 29]
-- name: Eid al Adha (estimated)
-  fixed_date: [6, 6]
-- name: President Nkurunziza Day
-  fixed_date: [6, 8]
-- name: President Nkurunziza Day (observed)
-  fixed_date: [6, 9]
-- name: Independence Day
-  fixed_date: [7, 1]
-- name: Assumption Day
-  fixed_date: [8, 15]
-- name: Prince Louis Rwagasore Day
-  fixed_date: [10, 13]
-- name: President Ndadaye's Day
-  fixed_date: [10, 21]
-- name: All Saints' Day
-  fixed_date: [11, 1]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Unity Day', 'fixed_date': [2, 5]}
+  - {'name': 'Eid ul Fitr (estimated)', 'fixed_date': [3, 30]}
+  - {'name': 'Eid ul Fitr (estimated) (observed)', 'fixed_date': [3, 31]}
+  - {'name': 'President Ntaryamira Day', 'fixed_date': [4, 6]}
+  - {'name': 'President Ntaryamira Day (observed)', 'fixed_date': [4, 7]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Ascension Day', 'fixed_date': [5, 29]}
+  - {'name': 'Eid al Adha (estimated)', 'fixed_date': [6, 6]}
+  - {'name': 'President Nkurunziza Day', 'fixed_date': [6, 8]}
+  - {'name': 'President Nkurunziza Day (observed)', 'fixed_date': [6, 9]}
+  - {'name': 'Independence Day', 'fixed_date': [7, 1]}
+  - {'name': 'Assumption Day', 'fixed_date': [8, 15]}
+  - {'name': 'Prince Louis Rwagasore Day', 'fixed_date': [10, 13]}
+  - {'name': "President Ndadaye's Day", 'fixed_date': [10, 21]}
+  - {'name': "All Saints' Day", 'fixed_date': [11, 1]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

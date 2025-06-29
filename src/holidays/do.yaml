@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día de los Santos Reyes
-  fixed_date: [1, 6]
-- name: Día de la Altagracia
-  fixed_date: [1, 21]
-- name: Día de Duarte
-  fixed_date: [1, 26]
-- name: Día de Independencia
-  fixed_date: [2, 27]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Día del Trabajo
-  fixed_date: [5, 5]
-- name: Corpus Christi
-  fixed_date: [6, 19]
-- name: Día de la Restauración
-  fixed_date: [8, 16]
-- name: Día de las Mercedes
-  fixed_date: [9, 24]
-- name: Día de la Constitución
-  fixed_date: [11, 10]
-- name: Día de Navidad
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día de los Santos Reyes', 'fixed_date': [1, 6]}
+  - {'name': 'Día de la Altagracia', 'fixed_date': [1, 21]}
+  - {'name': 'Día de Duarte', 'fixed_date': [1, 26]}
+  - {'name': 'Día de Independencia', 'fixed_date': [2, 27]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Día del Trabajo', 'fixed_date': [5, 5]}
+  - {'name': 'Corpus Christi', 'fixed_date': [6, 19]}
+  - {'name': 'Día de la Restauración', 'fixed_date': [8, 16]}
+  - {'name': 'Día de las Mercedes', 'fixed_date': [9, 24]}
+  - {'name': 'Día de la Constitución', 'fixed_date': [11, 10]}
+  - {'name': 'Día de Navidad', 'fixed_date': [12, 25]}

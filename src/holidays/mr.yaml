@@ -1,23 +1,13 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Eid al-Fitr (estimated)
-  fixed_date: [3, 30]
-- name: Eid al-Fitr (estimated)
-  fixed_date: [3, 31]
-- name: Labor Day
-  fixed_date: [5, 1]
-- name: Africa Day
-  fixed_date: [5, 25]
-- name: Eid al-Adha (estimated)
-  fixed_date: [6, 6]
-- name: Eid al-Adha (estimated)
-  fixed_date: [6, 7]
-- name: Islamic New Year (estimated)
-  fixed_date: [6, 26]
-- name: Mawlid al-Nabi (estimated)
-  fixed_date: [9, 4]
-- name: Independence Day
-  fixed_date: [11, 28]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Eid al-Fitr (estimated)', 'fixed_date': [3, 30]}
+  - {'name': 'Eid al-Fitr (estimated)', 'fixed_date': [3, 31]}
+  - {'name': 'Labor Day', 'fixed_date': [5, 1]}
+  - {'name': 'Africa Day', 'fixed_date': [5, 25]}
+  - {'name': 'Eid al-Adha (estimated)', 'fixed_date': [6, 6]}
+  - {'name': 'Eid al-Adha (estimated)', 'fixed_date': [6, 7]}
+  - {'name': 'Islamic New Year (estimated)', 'fixed_date': [6, 26]}
+  - {'name': 'Mawlid al-Nabi (estimated)', 'fixed_date': [9, 4]}
+  - {'name': 'Independence Day', 'fixed_date': [11, 28]}

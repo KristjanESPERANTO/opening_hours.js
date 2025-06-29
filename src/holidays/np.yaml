@@ -1,73 +1,38 @@
 ---
 
 PH:
-- name: Prithvi Jayanti
-  fixed_date: [1, 11]
-- name: Maghe Sankranti
-  fixed_date: [1, 14]
-- name: Martyr's Day
-  fixed_date: [1, 29]
-- name: Sonam Lhochhar
-  fixed_date: [1, 30]
-- name: National Democracy Day
-  fixed_date: [2, 19]
-- name: Maha Shivaratri
-  fixed_date: [2, 26]
-- name: Gyalpo Lhosar
-  fixed_date: [2, 28]
-- name: International Women's Day
-  fixed_date: [3, 8]
-- name: Fagu Poornima
-  fixed_date: [3, 13]
-- name: Fagu Poornima (Terai)
-  fixed_date: [3, 14]
-- name: Id-ul-Fitr
-  fixed_date: [3, 31]
-- name: Ram Navami
-  fixed_date: [4, 6]
-- name: Nepali New Year
-  fixed_date: [4, 14]
-- name: International Labour Day
-  fixed_date: [5, 1]
-- name: Buddha Jayanti
-  fixed_date: [5, 12]
-- name: Republic Day
-  fixed_date: [5, 28]
-- name: Bakrid
-  fixed_date: [6, 7]
-- name: Janai Poornima
-  fixed_date: [8, 9]
-- name: Shree Krishna Janmashtami
-  fixed_date: [8, 16]
-- name: Constitution Day
-  fixed_date: [9, 19]
-- name: Ghatasthapana
-  fixed_date: [9, 22]
-- name: Fulpati
-  fixed_date: [9, 29]
-- name: Maha Ashtami
-  fixed_date: [9, 30]
-- name: Maha Navami
-  fixed_date: [10, 1]
-- name: Bijaya Dashami
-  fixed_date: [10, 2]
-- name: Ekadashi (Dashain)
-  fixed_date: [10, 3]
-- name: Duwadashi (Dashain)
-  fixed_date: [10, 4]
-- name: Laxmi Pooja
-  fixed_date: [10, 20]
-- name: Gai Tihar
-  fixed_date: [10, 21]
-- name: Gobardhan Pooja; Mha Pooja
-  fixed_date: [10, 22]
-- name: Bhai Tika
-  fixed_date: [10, 23]
-- name: Tihar Holiday
-  fixed_date: [10, 24]
-- name: Chhath Parva
-  fixed_date: [10, 27]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Tamu Lhochhar
-  fixed_date: [12, 30]
+  - {'name': 'Prithvi Jayanti', 'fixed_date': [1, 11]}
+  - {'name': 'Maghe Sankranti', 'fixed_date': [1, 14]}
+  - {'name': "Martyr's Day", 'fixed_date': [1, 29]}
+  - {'name': 'Sonam Lhochhar', 'fixed_date': [1, 30]}
+  - {'name': 'National Democracy Day', 'fixed_date': [2, 19]}
+  - {'name': 'Maha Shivaratri', 'fixed_date': [2, 26]}
+  - {'name': 'Gyalpo Lhosar', 'fixed_date': [2, 28]}
+  - {'name': "International Women's Day", 'fixed_date': [3, 8]}
+  - {'name': 'Fagu Poornima', 'fixed_date': [3, 13]}
+  - {'name': 'Fagu Poornima (Terai)', 'fixed_date': [3, 14]}
+  - {'name': 'Id-ul-Fitr', 'fixed_date': [3, 31]}
+  - {'name': 'Ram Navami', 'fixed_date': [4, 6]}
+  - {'name': 'Nepali New Year', 'fixed_date': [4, 14]}
+  - {'name': 'International Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Buddha Jayanti', 'fixed_date': [5, 12]}
+  - {'name': 'Republic Day', 'fixed_date': [5, 28]}
+  - {'name': 'Bakrid', 'fixed_date': [6, 7]}
+  - {'name': 'Janai Poornima', 'fixed_date': [8, 9]}
+  - {'name': 'Shree Krishna Janmashtami', 'fixed_date': [8, 16]}
+  - {'name': 'Constitution Day', 'fixed_date': [9, 19]}
+  - {'name': 'Ghatasthapana', 'fixed_date': [9, 22]}
+  - {'name': 'Fulpati', 'fixed_date': [9, 29]}
+  - {'name': 'Maha Ashtami', 'fixed_date': [9, 30]}
+  - {'name': 'Maha Navami', 'fixed_date': [10, 1]}
+  - {'name': 'Bijaya Dashami', 'fixed_date': [10, 2]}
+  - {'name': 'Ekadashi (Dashain)', 'fixed_date': [10, 3]}
+  - {'name': 'Duwadashi (Dashain)', 'fixed_date': [10, 4]}
+  - {'name': 'Laxmi Pooja', 'fixed_date': [10, 20]}
+  - {'name': 'Gai Tihar', 'fixed_date': [10, 21]}
+  - {'name': 'Gobardhan Pooja; Mha Pooja', 'fixed_date': [10, 22]}
+  - {'name': 'Bhai Tika', 'fixed_date': [10, 23]}
+  - {'name': 'Tihar Holiday', 'fixed_date': [10, 24]}
+  - {'name': 'Chhath Parva', 'fixed_date': [10, 27]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Tamu Lhochhar', 'fixed_date': [12, 30]}
