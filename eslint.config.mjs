@@ -34,8 +34,7 @@ export default tseslint.config(
       'no-prototype-builtins': 'warn',
       'no-redeclare': 'warn',
       'no-undef': 'warn',
-      'no-unused-vars': 'warn',
-      'no-useless-escape': 'warn',
+      'no-unused-vars': 'warn'
     }
   },
   {

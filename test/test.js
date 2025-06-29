@@ -3655,7 +3655,7 @@ test.addTest('Additional comments for unknown', [
         'Sa 10:00-12:00 "Maybe open. Call us. (testing special tokens in comment: ; ;; \' || | test end)"',
         'Sa 10:00-12:00 unknown "Maybe open. Call us. (testing special tokens in comment: ; ;; \' || | test end)"',
     ], '2012-10-01 0:00', '2012-10-08 0:00', [
-        [ '2012-10-06 10:00', '2012-10-06 12:00', true, "Maybe open. Call us. (testing special tokens in comment: ; ;; \' || | test end)" ],
+        [ '2012-10-06 10:00', '2012-10-06 12:00', true, "Maybe open. Call us. (testing special tokens in comment: ; ;; ' || | test end)" ],
     ], 0, 1000 * 60 * 60 * 2, true, {}, 'not last test');
 
 test.addTest('Date overwriting with additional comments for unknown ', [

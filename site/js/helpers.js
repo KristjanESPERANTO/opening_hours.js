@@ -50,7 +50,7 @@ function reverseGeocodeLocation(query, guessed_language_for_location, on_success
 
     if (query === '&lat=48.7769&lon=9.1844') {
         /* Cached response to avoid two queries for each usage of the tool. */
-        return on_success({"place_id":"159221147","licence":"Data © OpenStreetMap contributors, ODbL 1.0. https:\/\/www.openstreetmap.org\/copyright","osm_type":"relation","osm_id":"62611","lat":"48.6296972","lon":"9.1949534","display_name":"Baden-Württemberg, Deutschland","address":{"state":"Baden-Württemberg","country":"Deutschland","country_code":"de"},"boundingbox":["47.5324787","49.7912941","7.5117461","10.4955731"]});
+        return on_success({"place_id":"159221147","licence":"Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright","osm_type":"relation","osm_id":"62611","lat":"48.6296972","lon":"9.1949534","display_name":"Baden-Württemberg, Deutschland","address":{"state":"Baden-Württemberg","country":"Deutschland","country_code":"de"},"boundingbox":["47.5324787","49.7912941","7.5117461","10.4955731"]});
     }
 
     var nominatim_api_url_template_query = nominatim_api_url
@@ -143,7 +143,7 @@ function Evaluate (offset, reset) {
             function() {
                 /* Set fallback Nominatim answer to allow using the evaluation tool even without Nominatim. */
                 alert("Reverse geocoding of the coordinates using Nominatim was not successful. The evaluation of features of the opening_hours specification which depend this information will be unreliable. Otherwise, this tool will work as expected using a fallback answer. You might want to check your browser settings to fix this.");
-                nominatim = {"place_id":"44651229","licence":"Data \u00a9 OpenStreetMap contributors, ODbL 1.0. https:\/\/www.openstreetmap.org\/copyright","osm_type":"way","osm_id":"36248375","lat":"49.5400039","lon":"9.7937133","display_name":"K 2847, Lauda-K\u00f6nigshofen, Main-Tauber-Kreis, Regierungsbezirk Stuttgart, Baden-W\u00fcrttemberg, Germany, European Union","address":{"road":"K 2847","city":"Lauda-K\u00f6nigshofen","county":"Main-Tauber-Kreis","state_district":"Regierungsbezirk Stuttgart","state":"Baden-W\u00fcrttemberg","country":"Germany","country_code":"de","continent":"European Union"}};
+                nominatim = {"place_id":"44651229","licence":"Data \u00a9 OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright","osm_type":"way","osm_id":"36248375","lat":"49.5400039","lon":"9.7937133","display_name":"K 2847, Lauda-K\u00f6nigshofen, Main-Tauber-Kreis, Regierungsbezirk Stuttgart, Baden-W\u00fcrttemberg, Germany, European Union","address":{"road":"K 2847","city":"Lauda-K\u00f6nigshofen","county":"Main-Tauber-Kreis","state_district":"Regierungsbezirk Stuttgart","state":"Baden-W\u00fcrttemberg","country":"Germany","country_code":"de","continent":"European Union"}};
                 document.forms.check.elements['cc'].value    = nominatim.address.country_code;
                 document.forms.check.elements['state'].value = nominatim.address.state;
                 Evaluate();

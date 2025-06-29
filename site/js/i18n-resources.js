@@ -77,7 +77,7 @@ var resources = { // English is fallback language.
                 "rule separator  ||": 'rule separator (the next rule will be a fallback rule which applies for any time not handled by previous rules)',
                 "rule separator ,": 'rule separator (the next rule will be a additional rule which extends the times of previous rules and does not override them like normal rules would do)',
                 "JOSM remote conn error": 'Could not connect to JOSM. Please make sure that JOSM is running and is configured for remote control on the default tcp port 8111.',
-                "refer to yohours": 'This value can also be parsed by YoHours which is a simple editor for the opening_hours syntax. If you don’t need advanced features of the syntax, <a href=\"{{href}}\">give it a try</a>.',
+                "refer to yohours": 'This value can also be parsed by YoHours which is a simple editor for the opening_hours syntax. If you don’t need advanced features of the syntax, <a href="{{href}}">give it a try</a>.',
                 "include timestamp?": 'include timestamp?',
             },
             "words": {
@@ -210,7 +210,7 @@ var resources = { // English is fallback language.
                 "rule separator  ||": 'separador de reglas (la siguiente regla será una regla de reserva que será aplicada para cualquier tiempo que no haya sido manipulado por las reglas anteriores)',
                 "rule separator ,": 'separador de reglas (la siguiente regla será una regla adicional que extiende los tiempos de las reglas anteriores y no las sobreescribe como harían las reglas normales)',
                 "JOSM remote conn error": 'No pudo conectar a JOSM. Por favor, asegúrese de que JOSM está corriendo y está configurado para control remoto en el puerto tcp por defecto 8111.',
-                "refer to yohours": 'Este valor puede ser analizado también por YoHours, que es un editor simpre para la sintaxis de opening_hours. Si no necesita funcionalidades avanzadas de la sintaxis, <a href=\"{{href}}\">puede darle una oportunidad</a>.',
+                "refer to yohours": 'Este valor puede ser analizado también por YoHours, que es un editor simpre para la sintaxis de opening_hours. Si no necesita funcionalidades avanzadas de la sintaxis, <a href="{{href}}">puede darle una oportunidad</a>.',
                 "include timestamp?": '¿incluir marca de tiempo?',
             },
             "words": {
@@ -342,7 +342,7 @@ var resources = { // English is fallback language.
                 "rule separator  ||": 'scheidingsteken voor regel (de volgende regel will be a fallback rule which applies for any time not handled by previous rules)',
                 "rule separator ,": 'scheidingsteken voor regel (de volgende regel is aanvullende regel die de tijden van de vorige regels uitbreid. De volgende regel overschrijft de vorige regels dus niet (zoals een normale regel wel doet)',
                 "JOSM remote conn error": 'Kan niet connecteren met JOSM. Controleer aub dat  JOSM is opgestart en geconfigureerd is voor afstandbediening via de standaard tcp port 8111.',
-                "refer to yohours": 'Deze waarde kan ook geïnterpreteerd worden door YoHours. Dit is een eenvoudige editor voor de opening_hours syntax.  Indien je de geavanceerde mogelijkheden van de syntax niet nodig hebt, <a href=\"{{href}}\">probeer YoHours dan eens</a>.',
+                "refer to yohours": 'Deze waarde kan ook geïnterpreteerd worden door YoHours. Dit is een eenvoudige editor voor de opening_hours syntax.  Indien je de geavanceerde mogelijkheden van de syntax niet nodig hebt, <a href="{{href}}">probeer YoHours dan eens</a>.',
             },
             "words": {
                 "modifier": "{{name}} wijziger (modifier)",
@@ -585,7 +585,7 @@ var resources = { // English is fallback language.
                 "rule separator  ||": 'Begrenzungszeichen für Regeln (es folgt eine Oder-Verknüpfte Regel die nur auf Zeiten zutrifft, die nicht bereits von vorherigen Regeln behandelt werden)',
                 "rule separator ,": 'Begrenzungszeichen für Regeln (es folgt eine additive Regel deren Zeiten vorherige Regeln erweitern und nicht überschreiben wie bei normalen Regeln)',
                 "JOSM remote conn error": 'Es konnte keine Verbindung zu JOSM aufgebaut werden. Bitte prüfe, ob JOSM ausgeführt wird und Fernsteuerung auf dem Standard tcp Port 8111 erlaubt ist.',
-                "refer to yohours": 'Dieser Wert kann auch von YoHours verarbeitet werden. YoHours ist ein benutzerfreundlicher Editor für die opening_hours Syntax. Falls keine fortschrittlichen Funktionen der Syntax benötigt werden ist YoHours eine einsteigerfreundliche Alternative. <a href=\"{{href}}\">Ausprobieren</a>.',
+                "refer to yohours": 'Dieser Wert kann auch von YoHours verarbeitet werden. YoHours ist ein benutzerfreundlicher Editor für die opening_hours Syntax. Falls keine fortschrittlichen Funktionen der Syntax benötigt werden ist YoHours eine einsteigerfreundliche Alternative. <a href="{{href}}">Ausprobieren</a>.',
                 "include timestamp?": 'mit Zeitstempel?',
             },
             "words": {
@@ -795,9 +795,9 @@ var resources = { // English is fallback language.
                 "warning": "Se apareceram avisos durante a avaliação, um {{sign}} azul vai aparecer na barra de estado",
                 "map filter": "Alguns filtros podem ser aplicados para encontrar e consertar erros (CQ) ou para mostrar somente lugares abertos ou fechados:",
                 "data source": 'Os dados da camada vem de {{APIaTag}}. O mapa é {{OSMaTag}}.',
-                "mode 0": 'Somente intervalos de tempo são aceitos (etiquetas \"opening_hours\" e \"lit\")',
+                "mode 0": 'Somente intervalos de tempo são aceitos (etiquetas "opening_hours" e "lit")',
                 "mode 1": 'Somente pontos específicos no tempo são aceitos',
-                "mode 2": 'Intervalos de tempo e pontos específicos no tempo são aceitos (etiquetas \"service_times\" e \"collection_times\")',
+                "mode 2": 'Intervalos de tempo e pontos específicos no tempo são aceitos (etiquetas "service_times" e "collection_times")',
                 "value to long for osm": 'O valor é longo demais para o OSM. O banco de dados do OpenStreetMap atualmente é limitado a valores de até {{maxLength}} caracteres. O valor "embelezado" tem um comprimento de {{pretLength}} e o valor que você digitou tem {{valLength}} caracteres',
                 "low zoom level": 'Os Pontos de Interesse vão começar a aparecer em um nível de zoom maior ou igual a ${next}. Agora você está no nível de zoom ${actual}.',
                 "all n entries": 'Todos os {{total}} resultados:',
@@ -1180,7 +1180,7 @@ var resources = { // English is fallback language.
                 "rule separator  ||": 'Szabályelválasztó (utána egy tartalékszabály [vagylagos szabály] következik, amely csak arra az időre vonatkozik, amelyiket az előző szabály nem érinti)',
                 "rule separator ,": 'Szabályelválasztó (utána egy kiegészítő szabály kövektezik, amely – a rendes szabállyal ellentétben – nem írja felül az előző szabályok idejeit, csupák kiterjeszti azokat)',
                 "JOSM remote conn error": 'Nem sikerült kapcsolódni a JOSM-hoz. Győződjön meg arról, hogy a JOSM fut-e, és be van-e állítva az alapértelmezett 8111-es TCP porton keresztüli távoli vezérlés (távirányító).',
-                "refer to yohours": 'Ezt az értéket fel tudja dolgozni a YoHours is, egy felhasználóbarát címkeszerkesztő az opening_hours szintaxisához. Ha nincs szüksége a szintaxis speciális funkcióira, akkor YoHours remek eszköz. <a href=\"{{href}}\">Próbálja ki!</a>',
+                "refer to yohours": 'Ezt az értéket fel tudja dolgozni a YoHours is, egy felhasználóbarát címkeszerkesztő az opening_hours szintaxisához. Ha nincs szüksége a szintaxis speciális funkcióira, akkor YoHours remek eszköz. <a href="{{href}}">Próbálja ki!</a>',
                 "include timestamp?": 'tartalmazzon-e időbélyeget?',
             },
             "words": {
@@ -1313,7 +1313,7 @@ var resources = { // English is fallback language.
                 "rule separator  ||": 'ký tự phân tách quy tắc (quy tắc sau sẽ là quy tắc dự trữ ứng với các thời gian bên ngoài các quy tắc trước)',
                 "rule separator ,": 'ký tự phân tách quy tắc (quy tắc sau sẽ là quy tắc bổ sung để kéo dài các quy tắc trước mà không ghi đè các quy tắc trước, khác với quy tắc bình thường)',
                 "JOSM remote conn error": 'Không thể kết nối với JOSM. Xin vui lòng kiểm tra rằng JOSM đang chạy và được thiết lập để điều khiển từ xa qua cổng mặc định 8111 của TCP.',
-                "refer to yohours": 'YoHours cũng có thể phân tích giá trị này, đây là một trình soạn thảo cú pháp opening_hours đơn giản. Nếu bạn không cần các cú pháp nâng cao, <a href=\"{{href}}\">hãy thử YoHours</a>.',
+                "refer to yohours": 'YoHours cũng có thể phân tích giá trị này, đây là một trình soạn thảo cú pháp opening_hours đơn giản. Nếu bạn không cần các cú pháp nâng cao, <a href="{{href}}">hãy thử YoHours</a>.',
                 "include timestamp?": 'bao gồm dấu thời gian?',
             },
             "words": {
