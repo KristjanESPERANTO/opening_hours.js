@@ -1,29 +1,21 @@
-import eslint from '@eslint/js'
-import globals from "globals";
+import { defineConfig, globalIgnores } from 'eslint/config'
+import globals from 'globals'
+import js from '@eslint/js'
+import markdown from '@eslint/markdown'
 import tseslint from 'typescript-eslint'
 
-export default tseslint.config(
-  eslint.configs.recommended,
+export default defineConfig([
+  globalIgnores(['build/*', 'submodules/*', '**/yohours_model.js']),
   {
-    files: ['**/*.ts'],
-    extends: [
-      eslint.configs.recommended,
-      tseslint.configs.recommended,
-    ],
-    rules: {
-      '@typescript-eslint/array-type': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
-    },
-  },
-  {
-    "files": ["**/*.js", "**/*.mjs"],
-    "languageOptions": {
-      "ecmaVersion": "latest",
-      "globals": {
+    files: ['**/*.js', '**/*.mjs'],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      globals: {
         ...globals.browser,
-        ...globals.node
+        ...globals.node,
       },
-      "sourceType": "module"
+      sourceType: 'module',
     },
     rules: {
       'no-cond-assign': 'warn',
@@ -34,10 +26,16 @@ export default tseslint.config(
       'no-prototype-builtins': 'warn',
       'no-redeclare': 'warn',
       'no-undef': 'warn',
-      'no-unused-vars': 'warn'
-    }
+      'no-unused-vars': 'warn',
+    },
   },
+  { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/gfm', extends: ['markdown/recommended'] },
   {
-    ignores: ['build/*', 'submodules/*', '**/yohours_model.js']
-  }
-)
+    files: ['**/*.ts'],
+    extends: [tseslint.configs.recommended],
+    rules: {
+      '@typescript-eslint/array-type': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
+    },
+  },
+])
