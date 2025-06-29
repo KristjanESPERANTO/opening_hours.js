@@ -1,3 +1,5 @@
+---
+
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=61.0&lon=8.0&zoom=8&addressdetails=1&accept-language=no,en
 PH:
 - name: Første nyttårsdag

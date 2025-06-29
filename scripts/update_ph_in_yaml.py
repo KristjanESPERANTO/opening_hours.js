@@ -50,6 +50,7 @@ def update_yaml_file(filepath, ph_list):
         data = yaml.safe_load(f)
     data["PH"] = ph_list
     with open(filepath, "w", encoding="utf-8") as f:
+        f.write("---\n\n")  # Add YAML document separator at the beginning
         yaml.dump(
             data,
             f,
