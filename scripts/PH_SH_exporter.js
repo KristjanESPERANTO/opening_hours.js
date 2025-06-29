@@ -108,6 +108,7 @@ function write_config_file(filepath, oh_value, nominatim_file_lookup_string, fro
         process.exit(1);
     }
 
+    let oh;
     try {
         oh = new opening_hours(oh_value, nominatim_data);
     } catch (err) {

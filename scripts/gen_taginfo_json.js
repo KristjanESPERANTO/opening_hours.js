@@ -42,7 +42,7 @@ if (argv.help) {
 }
 /* }}} */
 
-keys = [];
+let keys = [];
 fs.readFileSync(argv['key-file'], 'utf8').split('\n').forEach(function (osm_tag_key) {
     if (osm_tag_key.match(new RegExp('^[^#]'))) {
         keys.push(osm_tag_key)

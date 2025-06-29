@@ -453,7 +453,7 @@ function opening_hours_test() {
             return;
         }
 
-        filename_asciified = filename.replace(/♡/g, '@');
+        let filename_asciified = filename.replace(/♡/g, '@');
         /* TODO: JavaScript could not handle [^♡] */
         var re = filename_asciified.match(/^export@([^@]+)@([^@]+)(@[^@]+|).json$/);
         if (re !== null) {
@@ -487,12 +487,12 @@ function opening_hours_test() {
             };
             assert.strictEqual(typeof(info.key)       , "string")
         } else {
-            throw 'Filename of unknwon type given.';
+            throw 'Filename of unknown type given.';
         }
 
         fs.readFile(filename, 'utf8', function (err, data) {
             if (err) {
-                console.error('Error for tag "' + tag_key_name + '": ' + err);
+                console.error('Error for tag "' + this.tag_key_name + '": ' + err);
                 return;
             }
 

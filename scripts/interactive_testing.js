@@ -92,16 +92,16 @@ for (var i = 0; i < argv._.length; i++) {
         console.log("connected");
 
         socket.on('data', function (data) {
-            value = data.toString();
+            let value = data.toString();
             console.log(value);
-            result = opening_hours_object(value);
+            let result = opening_hours_object(value);
             socket.write(JSON.stringify(result, null, '\t'));
         });
     }).listen(argv._[i]);
 }
 
 if (typeof argv.value === 'string') {
-    result = opening_hours_object(argv.value);
+    let result = opening_hours_object(argv.value);
     console.log(JSON.stringify(result, null, '\t') + '\n');
 } else {
     var rl = readline.createInterface({
@@ -110,7 +110,7 @@ if (typeof argv.value === 'string') {
     });
 
     rl.on('line', function (value) {
-        result = opening_hours_object(value);
+        let result = opening_hours_object(value);
         console.log(JSON.stringify(result, null, '\t') + '\n');
 
     }).on('close', function() {
@@ -122,6 +122,6 @@ if (typeof argv.value === 'string') {
     });
 
     console.info('You can enter your opening_hours like value and hit enter to evaluate. The result handed to you is represented in JSON.');
-    console.info('If you want to create a binding for another programing language you should use the unix socket interface which gives you full access to the API or use a native binding to NodeJS/JavaScript if one does exist.');
+    console.info('If you want to create a binding for another programming language you should use the unix socket interface which gives you full access to the API or use a native binding to NodeJS/JavaScript if one does exist.');
     // Also the stdin method breaks for certain values (e.g. newlines in values).
 }

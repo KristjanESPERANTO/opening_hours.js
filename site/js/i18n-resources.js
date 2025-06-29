@@ -1,3 +1,5 @@
+/* global i18next */
+
 // localization {{{
 var resources = { // English is fallback language.
     // English (en) localization {{{

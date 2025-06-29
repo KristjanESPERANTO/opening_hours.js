@@ -91,7 +91,7 @@ function parseWeekdays(weekday_list_list, locale) {
 
     }
     if (Object.keys(correction_mapping).length) {
-       message = 'Please use the abbreviation "<ok>" for "<ko>" which is for example used in ' + getNativeLang(moment.locale());
+       let message = 'Please use the abbreviation "<ok>" for "<ko>" which is for example used in ' + getNativeLang(moment.locale());
        word_error_correction['weekday'][message] = correction_mapping;
 
        list_of_all_used_glyphs.push(weekday_list);

@@ -5382,11 +5382,10 @@ function opening_hours_test() {
             value          = test_data_object[1],
             nominatim_data = test_data_object[2],
             oh_mode        = test_data_object[3];
+        let crashed = false;
         try {
             // Since they should fail anyway we can give them the nominatim_default.
-            oh = new opening_hours(value, nominatim_data, oh_mode);
-
-            crashed = false;
+            let oh = new opening_hours(value, nominatim_data, oh_mode);
         } catch (err) {
             crashed = err;
         }
@@ -5428,11 +5427,11 @@ function opening_hours_test() {
         }
 
         var warnings, oh;
+        let crashed = false;
         try {
             oh = new opening_hours(value, nominatim_data, oh_mode);
 
             warnings = oh.getWarnings();
-            crashed = false;
         } catch (err) {
             crashed = err;
         }
@@ -5625,17 +5624,16 @@ function opening_hours_test() {
             expected_matching_rule  = test_data_object[3],
             nominatim_data = test_data_object[4];
         var matching_rule, matching_rule_ok;
+        let crashed = false;
         try {
             // since they should fail anyway we can give them the nominatim_default
-            oh = new opening_hours(value, nominatim_data);
-            it = oh.getIterator(new Date(point_in_time));
+            let oh = new opening_hours(value, nominatim_data);
+            let it = oh.getIterator(new Date(point_in_time));
 
             matching_rule = oh.prettifyValue({ rule_index: it.getMatchingRule() });
             matching_rule_ok = matching_rule === expected_matching_rule;
 
         var passed = false;
-
-            crashed = false;
         } catch (err) {
             crashed = err;
         }
@@ -5665,15 +5663,15 @@ function opening_hours_test() {
             prettify_locale = test_data_object[2],
             expected_prettified_value = test_data_object[3];
         var prettify_value_ok;
+        let crashed = false;
+        let prettified_value;
         try {
-            oh = new opening_hours(value, nominatim_default);
+            let oh = new opening_hours(value, nominatim_default);
 
             prettified_value = oh.prettifyValue({ 'conf': { 'locale': prettify_locale } });
             prettify_value_ok = prettified_value === expected_prettified_value;
 
             var passed = false;
-
-            crashed = false;
         } catch (err) {
             crashed = err;
         }
@@ -5706,8 +5704,8 @@ function opening_hours_test() {
         var crashed = true;
         var actual_result;
         try {
-            first_oh = new opening_hours(first_value, nominatim_default);
-            second_oh = new opening_hours(second_value, nominatim_default);
+            let first_oh = new opening_hours(first_value, nominatim_default);
+            let second_oh = new opening_hours(second_value, nominatim_default);
 
             actual_result = first_oh.isEqualTo(second_oh, new Date('Sat Oct 17 2015 18:20:29 GMT+0200 (CEST)'));
 

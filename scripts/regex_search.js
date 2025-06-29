@@ -51,7 +51,7 @@ fs.readFile(json_file, 'utf8', function (err, json) {
         }
 
         if (user_re_ok) {
-            matched = [];
+            let matched = [];
             for (var i = 0; i < json.data.length; i++) {
                 var res = json.data[i].value.match(user_re);
                 if (res)
