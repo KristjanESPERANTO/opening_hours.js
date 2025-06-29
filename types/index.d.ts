@@ -8,6 +8,14 @@ declare module 'opening_hours' {
     getState(date?: Date): boolean
     getUnknown(date?: Date): boolean
     getStateString(
+      date: Date | undefined,
+      past: true
+    ): 'open' | 'unknown' | 'closed'
+    getStateString(
+      date?: Date,
+      past?: false
+    ): 'open' | 'unknown' | 'close'
+    getStateString(
       date?: Date,
       past?: boolean
     ): 'open' | 'unknown' | 'closed' | 'close'
@@ -38,6 +46,14 @@ declare module 'opening_hours' {
     setDate(date: Date): void
     getState(date?: Date): boolean
     getUnknown(date?: Date): boolean
+    getStateString(
+      date: Date | undefined,
+      past: true
+    ): 'open' | 'unknown' | 'closed'
+    getStateString(
+      date?: Date,
+      past?: false
+    ): 'open' | 'unknown' | 'close'
     getStateString(
       date?: Date,
       past?: boolean
