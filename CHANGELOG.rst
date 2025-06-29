@@ -169,14 +169,25 @@ main_ - unreleased
 Changed
 ~~~~~~~
 
-* chore: change default git branch from `master` to `main`
-* chore: remove `bower.json`
-* docs: move Contributing section from README to CONTRIBUTING file and add "Branching Model" section
+* chore: change default git branch from `master` to `main` (#495)
+* chore: remove `bower.json` (#496)
+* chore: update dependencies (#501)
+* chore: update `package-json-validator` (#500)
+* docs: move Contributing section from README to CONTRIBUTING file and add "Branching Model" section (#497)
+
+* School holiday definitions updated:
+
+  * French (#470)
 
 Added
 ~~~~~
 
 * feat: script to update German school holidays [scripts/update_german_sh.mjs](scripts/update_german_sh.mjs) (#492)
+
+Fixed
+~~~~~
+
+* fix: add missing country_code to xa.yaml (#499)
 
 v3.9.0_ - 2025-05-31
 --------------------
