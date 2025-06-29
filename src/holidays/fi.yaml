@@ -1,22 +1,35 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=63.4965&lon=26.8429&zoom=18&addressdetails=1&accept-language=fi,sv,en'
-
-# https://almanakka.helsinki.fi/fi/julkaisut/24-suomi/juhlap%C3%A4iv%C3%A4t-ja-liputus.html
-
-# https://en.wikipedia.org/wiki/Public_holidays_in_Finland
-
+_nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=63.4965&lon=26.8429&zoom=18&addressdetails=1&accept-language=fi,sv,en
 PH:
-  - {'name': 'uudenvuodenpäivä - nyårsdagen', 'fixed_date': [1, 1]}
-  - {'name': 'loppiainen - trettondedagen', 'fixed_date': [1, 6]}
-  - {'name': 'pitkäperjantai - långfredagen', 'variable_date': easter, 'offset': -2}
-  - {'name': 'pääsiäispäivä - påskdagen', 'variable_date': easter}
-  - {'name': 'toinen pääsiäispäivä - annandag påsk', 'variable_date': easter, 'offset': 1}
-  - {'name': 'vappu - första maj', 'fixed_date': [5, 1]}
-  - {'name': 'helatorstai - Kristi himmelsfärdsdag', 'variable_date': easter, 'offset': 39}
-  - {'name': 'helluntai - pingst', 'variable_date': easter, 'offset': 49}
-  - {'name': 'juhannuspäivä - midsommardagen', 'variable_date': nextSaturday20Jun}
-  - {'name': 'pyhäinpäivä - alla helgons dag', 'variable_date': nextSaturday31Oct}
-  - {'name': 'itsenäisyyspäivä - självständighetsdagen', 'fixed_date': [12, 6]}
-  - {'name': 'joulupäivä - juldagen', 'fixed_date': [12, 25]}
-  - {'name': 'toinen joulupäivä - annandag jul', 'fixed_date': [12, 26]}
+- name: Uudenvuodenpäivä
+  fixed_date: [1, 1]
+- name: Loppiainen
+  fixed_date: [1, 6]
+- name: Pitkäperjantai
+  fixed_date: [4, 18]
+- name: Pääsiäispäivä
+  fixed_date: [4, 20]
+- name: Toinen pääsiäispäivä
+  fixed_date: [4, 21]
+- name: Vappu
+  fixed_date: [5, 1]
+- name: Helatorstai
+  fixed_date: [5, 29]
+- name: Helluntaipäivä
+  fixed_date: [6, 8]
+- name: Juhannusaatto
+  fixed_date: [6, 20]
+- name: Juhannuspäivä
+  fixed_date: [6, 21]
+- name: Pyhäinpäivä
+  fixed_date: [11, 1]
+- name: Itsenäisyyspäivä
+  fixed_date: [12, 6]
+- name: Jouluaatto
+  fixed_date: [12, 24]
+- name: Joulupäivä
+  fixed_date: [12, 25]
+- name: Tapaninpäivä
+  fixed_date: [12, 26]
+- name: Ahvenanmaan itsehallintopäivä
+  fixed_date: [6, 9]
+  only_states: [Ahvenanmaan maakunta, Landskapet Åland]

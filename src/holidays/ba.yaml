@@ -1,0 +1,60 @@
+PH:
+- name: Nova godina
+  fixed_date: [1, 1]
+- name: Nova godina
+  fixed_date: [1, 2]
+- name: Božić (Pravoslavni)
+  fixed_date: [1, 7]
+- name: Ramazanski Bajram (estimated)
+  fixed_date: [3, 30]
+- name: Veliki petak (Pravoslavni)
+  fixed_date: [4, 18]
+- name: Uskrsni ponedjeljak (Katolički)
+  fixed_date: [4, 21]
+- name: Međunarodni praznik rada
+  fixed_date: [5, 1]
+- name: Međunarodni praznik rada
+  fixed_date: [5, 2]
+- name: Kurban Bajram (estimated)
+  fixed_date: [6, 6]
+- name: Božić (Katolički)
+  fixed_date: [12, 25]
+- name: Badnji dan (Pravoslavni)
+  fixed_date: [1, 6]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Dan nezavisnosti
+  fixed_date: [3, 1]
+  only_states: [Federacija Bosne i Hercegovine, FBiH]
+- name: Ramazanski Bajram (estimated)
+  fixed_date: [3, 31]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Veliki petak (Katolički); Veliki petak (Pravoslavni)
+  fixed_date: [4, 18]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Uskrs (Katolički); Vaskrs (Pravoslavni)
+  fixed_date: [4, 20]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Uskrsni ponedjeljak (Katolički); Uskrsni ponedjeljak (Pravoslavni)
+  fixed_date: [4, 21]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Dan pobjede nad fašizmom
+  fixed_date: [5, 9]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Kurban Bajram (estimated)
+  fixed_date: [6, 7]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Dan državnosti
+  fixed_date: [11, 25]
+  only_states: [Federacija Bosne i Hercegovine, FBiH]
+- name: Badnji dan (Katolički)
+  fixed_date: [12, 24]
+  only_states: [Federacija Bosne i Hercegovine, FBiH, Republika Srpska, RS]
+- name: Dan uspostavljanja Brčko distrikta
+  fixed_date: [3, 8]
+  only_states: [Brčko distrikt, BD]
+- name: Pravoslavna Nova godina
+  fixed_date: [1, 14]
+  only_states: [Republika Srpska, RS]
+- name: Dan uspostave Opšteg okvirnog sporazuma za mir u Bosni i Hercegovini
+  fixed_date: [11, 21]
+  only_states: [Republika Srpska, RS]

@@ -1,0 +1,41 @@
+PH:
+- name: 元旦
+  fixed_date: [1, 1]
+- name: 農曆正月初一
+  fixed_date: [1, 29]
+- name: 農曆正月初二
+  fixed_date: [1, 30]
+- name: 農曆正月初三
+  fixed_date: [1, 31]
+- name: 清明節
+  fixed_date: [4, 4]
+- name: 耶穌受難日
+  fixed_date: [4, 18]
+- name: 復活節前日
+  fixed_date: [4, 19]
+- name: 勞動節
+  fixed_date: [5, 1]
+- name: 佛誕節
+  fixed_date: [5, 5]
+- name: 端午節
+  fixed_date: [5, 31]
+- name: 中華人民共和國國慶日
+  fixed_date: [10, 1]
+- name: 中華人民共和國國慶日翌日
+  fixed_date: [10, 2]
+- name: 中秋節翌日
+  fixed_date: [10, 7]
+- name: 重陽節
+  fixed_date: [10, 29]
+- name: 追思節
+  fixed_date: [11, 2]
+- name: 聖母無原罪瞻禮
+  fixed_date: [12, 8]
+- name: 澳門特別行政區成立紀念日
+  fixed_date: [12, 20]
+- name: 冬至
+  fixed_date: [12, 21]
+- name: 聖誕節前日
+  fixed_date: [12, 24]
+- name: 聖誕節
+  fixed_date: [12, 25]

@@ -1,0 +1,23 @@
+PH:
+- name: Aña Nobo
+  fixed_date: [1, 1]
+- name: Dia di Betico
+  fixed_date: [1, 25]
+- name: Dialuna prome cu diaranson di shinish
+  fixed_date: [3, 3]
+- name: Dia di Himno y Bandera
+  fixed_date: [3, 18]
+- name: Bierna Santo
+  fixed_date: [4, 18]
+- name: Di dos dia di Pasco di Resureccion
+  fixed_date: [4, 21]
+- name: Dia di Rey
+  fixed_date: [4, 26]
+- name: Dia di Obrero
+  fixed_date: [5, 1]
+- name: Dia di Asuncion
+  fixed_date: [5, 29]
+- name: Pasco di Nacemento
+  fixed_date: [12, 25]
+- name: Di dos dia di Pasco di Nacemento
+  fixed_date: [12, 26]

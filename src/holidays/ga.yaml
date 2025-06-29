@@ -1,0 +1,27 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Eid al-Fitr (estimated)
+  fixed_date: [3, 30]
+- name: Women's Rights Day
+  fixed_date: [4, 17]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Labour Day
+  fixed_date: [5, 1]
+- name: Ascension Day
+  fixed_date: [5, 29]
+- name: Eid al-Adha (estimated)
+  fixed_date: [6, 6]
+- name: Whit Monday
+  fixed_date: [6, 9]
+- name: Assumption Day
+  fixed_date: [8, 15]
+- name: Independence Day
+  fixed_date: [8, 16]
+- name: Independence Day Holiday
+  fixed_date: [8, 17]
+- name: All Saints' Day
+  fixed_date: [11, 1]
+- name: Christmas Day
+  fixed_date: [12, 25]

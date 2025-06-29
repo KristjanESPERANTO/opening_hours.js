@@ -1,0 +1,23 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: The Day After New Year's Day
+  fixed_date: [1, 2]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Day After Good Friday
+  fixed_date: [4, 19]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Mother's Day
+  fixed_date: [5, 12]
+- name: Independence Day
+  fixed_date: [6, 1]
+- name: Father's Day
+  fixed_date: [8, 11]
+- name: White Sunday (Lotu a Tamaiti)
+  fixed_date: [10, 13]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

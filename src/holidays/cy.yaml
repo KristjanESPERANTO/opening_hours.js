@@ -1,0 +1,31 @@
+PH:
+- name: Πρωτοχρονιά
+  fixed_date: [1, 1]
+- name: Ημέρα των Θεοφανίων
+  fixed_date: [1, 6]
+- name: Καθαρά Δευτέρα
+  fixed_date: [3, 3]
+- name: Ημέρα της Ελληνικής Ανεξαρτησίας
+  fixed_date: [3, 25]
+- name: Εθνική Ημέρα Κύπρου
+  fixed_date: [4, 1]
+- name: Μεγάλη Παρασκευή
+  fixed_date: [4, 18]
+- name: Κυριακή του Πάσχα
+  fixed_date: [4, 20]
+- name: Δευτέρα της Διακαινησίμου
+  fixed_date: [4, 21]
+- name: Πρωτομαγιά
+  fixed_date: [5, 1]
+- name: Δευτέρα του Αγίου Πνεύματος
+  fixed_date: [6, 9]
+- name: Κοίμηση της Θεοτόκου
+  fixed_date: [8, 15]
+- name: Ημέρα της Κυπριακής Ανεξαρτησίας
+  fixed_date: [10, 1]
+- name: Ημέρα του Όχι
+  fixed_date: [10, 28]
+- name: Χριστούγεννα
+  fixed_date: [12, 25]
+- name: Επομένη Χριστουγέννων
+  fixed_date: [12, 26]

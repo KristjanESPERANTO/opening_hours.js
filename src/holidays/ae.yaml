@@ -1,0 +1,25 @@
+PH:
+- name: رأس السنة الميلادية
+  fixed_date: [1, 1]
+- name: عيد الفطر
+  fixed_date: [3, 30]
+- name: عطلة عيد الفطر
+  fixed_date: [3, 31]
+- name: عطلة عيد الفطر
+  fixed_date: [4, 1]
+- name: وقفة عرفة
+  fixed_date: [6, 3]
+- name: عيد الأضحى
+  fixed_date: [6, 4]
+- name: عطلة عيد الأضحى
+  fixed_date: [6, 5]
+- name: عطلة عيد الأضحى
+  fixed_date: [6, 6]
+- name: رأس السنة الهجرية
+  fixed_date: [6, 26]
+- name: عيد المولد النبوي
+  fixed_date: [9, 5]
+- name: اليوم الوطني
+  fixed_date: [12, 2]
+- name: اليوم الوطني
+  fixed_date: [12, 3]

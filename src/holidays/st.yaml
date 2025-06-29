@@ -1,0 +1,36 @@
+PH:
+- name: Ano Novo
+  fixed_date: [1, 1]
+- name: Dia do Rei Amador (observado)
+  fixed_date: [1, 3]
+- name: Dia do Rei Amador
+  fixed_date: [1, 4]
+- name: Dia dos Mártires
+  fixed_date: [2, 3]
+- name: Dia do Trabalhador
+  fixed_date: [5, 1]
+- name: Dia da Independência (observado)
+  fixed_date: [7, 11]
+- name: Dia da Independência
+  fixed_date: [7, 12]
+- name: Dia das Forças Armadas (observado)
+  fixed_date: [9, 5]
+- name: Dia das Forças Armadas
+  fixed_date: [9, 6]
+- name: Dia da Reforma Agrária
+  fixed_date: [9, 30]
+- name: Dia de São Tomé
+  fixed_date: [12, 21]
+- name: Dia de São Tomé (observado)
+  fixed_date: [12, 22]
+- name: Natal
+  fixed_date: [12, 25]
+- name: Descobrimento da Ilha do Príncipe
+  fixed_date: [1, 17]
+  only_states: [Príncipe]
+- name: Dia da Autonomia do Príncipe
+  fixed_date: [4, 29]
+  only_states: [Príncipe]
+- name: Dia de São Lourenço
+  fixed_date: [8, 15]
+  only_states: [Príncipe]

@@ -1,0 +1,21 @@
+PH:
+- name: Nova godina
+  fixed_date: [1, 1]
+- name: Nova godina
+  fixed_date: [1, 2]
+- name: Praznik rada
+  fixed_date: [5, 1]
+- name: Praznik rada
+  fixed_date: [5, 2]
+- name: Dan nezavisnosti
+  fixed_date: [5, 21]
+- name: Dan nezavisnosti
+  fixed_date: [5, 22]
+- name: Dan državnosti
+  fixed_date: [7, 13]
+- name: Dan državnosti
+  fixed_date: [7, 14]
+- name: Dan državnosti (neradni dan)
+  fixed_date: [7, 15]
+- name: Njegošev dan
+  fixed_date: [11, 13]

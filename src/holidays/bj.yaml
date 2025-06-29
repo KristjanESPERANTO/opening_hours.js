@@ -1,0 +1,29 @@
+PH:
+- name: Fête du Nouvel An
+  fixed_date: [1, 1]
+- name: Fête annuelle des religions traditionnelles
+  fixed_date: [1, 9]
+- name: Fête annuelle des religions traditionnelles
+  fixed_date: [1, 10]
+- name: Jour du Ramadan (estimé)
+  fixed_date: [3, 30]
+- name: Lundi de Pâques
+  fixed_date: [4, 21]
+- name: Fête du Travail
+  fixed_date: [5, 1]
+- name: Jour de l'Ascension
+  fixed_date: [5, 29]
+- name: Jour de la Tabaski (estimé)
+  fixed_date: [6, 6]
+- name: Lundi de Pentecôte
+  fixed_date: [6, 9]
+- name: Fête Nationale
+  fixed_date: [8, 1]
+- name: Jour de l'Assomption
+  fixed_date: [8, 15]
+- name: Journée Maouloud (estimé)
+  fixed_date: [9, 4]
+- name: La Toussaint
+  fixed_date: [11, 1]
+- name: Jour de Noël
+  fixed_date: [12, 25]

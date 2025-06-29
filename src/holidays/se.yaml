@@ -1,20 +1,134 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=63.1151&lon=16.5767&zoom=18&addressdetails=1&accept-language=sv,en'
-
-# https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-1989253-om-allmanna-helgdagar_sfs-1989-253
-# https://en.wikipedia.org/wiki/Public_holidays_in_Sweden
+_nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=63.1151&lon=16.5767&zoom=18&addressdetails=1&accept-language=sv,en
 PH:
-  - {'name': 'nyårsdagen', 'fixed_date': [1, 1]}
-  - {'name': 'trettondedag jul', 'fixed_date': [1, 6]}
-  - {'name': 'långfredagen', 'variable_date': easter, 'offset': -2}
-  - {'name': 'påskdagen', 'variable_date': easter}
-  - {'name': 'annandag påsk', 'variable_date': easter, 'offset': 1}
-  - {'name': 'första maj', 'fixed_date': [5, 1]}
-  - {'name': 'Kristi himmelsfärdsdag', 'variable_date': easter, 'offset': 39}
-  - {'name': 'pingstdagen', 'variable_date': easter, 'offset': 49}
-  - {'name': 'nationaldagen', 'fixed_date': [6, 6]}
-  - {'name': 'midsommardagen', 'variable_date': nextSaturday20Jun}
-  - {'name': 'alla helgons dag', 'variable_date': nextSaturday31Oct}
-  - {'name': 'juldagen', 'fixed_date': [12, 25]}
-  - {'name': 'annandag jul', 'fixed_date': [12, 26]}
+- name: Nyårsdagen
+  fixed_date: [1, 1]
+- name: Söndag
+  fixed_date: [1, 5]
+- name: Trettondedag jul
+  fixed_date: [1, 6]
+- name: Söndag
+  fixed_date: [1, 12]
+- name: Söndag
+  fixed_date: [1, 19]
+- name: Söndag
+  fixed_date: [1, 26]
+- name: Söndag
+  fixed_date: [2, 2]
+- name: Söndag
+  fixed_date: [2, 9]
+- name: Söndag
+  fixed_date: [2, 16]
+- name: Söndag
+  fixed_date: [2, 23]
+- name: Söndag
+  fixed_date: [3, 2]
+- name: Söndag
+  fixed_date: [3, 9]
+- name: Söndag
+  fixed_date: [3, 16]
+- name: Söndag
+  fixed_date: [3, 23]
+- name: Söndag
+  fixed_date: [3, 30]
+- name: Söndag
+  fixed_date: [4, 6]
+- name: Söndag
+  fixed_date: [4, 13]
+- name: Långfredagen
+  fixed_date: [4, 18]
+- name: Påskdagen; Söndag
+  fixed_date: [4, 20]
+- name: Annandag påsk
+  fixed_date: [4, 21]
+- name: Söndag
+  fixed_date: [4, 27]
+- name: Första maj
+  fixed_date: [5, 1]
+- name: Söndag
+  fixed_date: [5, 4]
+- name: Söndag
+  fixed_date: [5, 11]
+- name: Söndag
+  fixed_date: [5, 18]
+- name: Söndag
+  fixed_date: [5, 25]
+- name: Kristi himmelsfärdsdag
+  fixed_date: [5, 29]
+- name: Söndag
+  fixed_date: [6, 1]
+- name: Sveriges nationaldag
+  fixed_date: [6, 6]
+- name: Pingstdagen; Söndag
+  fixed_date: [6, 8]
+- name: Söndag
+  fixed_date: [6, 15]
+- name: Midsommarafton
+  fixed_date: [6, 20]
+- name: Midsommardagen
+  fixed_date: [6, 21]
+- name: Söndag
+  fixed_date: [6, 22]
+- name: Söndag
+  fixed_date: [6, 29]
+- name: Söndag
+  fixed_date: [7, 6]
+- name: Söndag
+  fixed_date: [7, 13]
+- name: Söndag
+  fixed_date: [7, 20]
+- name: Söndag
+  fixed_date: [7, 27]
+- name: Söndag
+  fixed_date: [8, 3]
+- name: Söndag
+  fixed_date: [8, 10]
+- name: Söndag
+  fixed_date: [8, 17]
+- name: Söndag
+  fixed_date: [8, 24]
+- name: Söndag
+  fixed_date: [8, 31]
+- name: Söndag
+  fixed_date: [9, 7]
+- name: Söndag
+  fixed_date: [9, 14]
+- name: Söndag
+  fixed_date: [9, 21]
+- name: Söndag
+  fixed_date: [9, 28]
+- name: Söndag
+  fixed_date: [10, 5]
+- name: Söndag
+  fixed_date: [10, 12]
+- name: Söndag
+  fixed_date: [10, 19]
+- name: Söndag
+  fixed_date: [10, 26]
+- name: Alla helgons dag
+  fixed_date: [11, 1]
+- name: Söndag
+  fixed_date: [11, 2]
+- name: Söndag
+  fixed_date: [11, 9]
+- name: Söndag
+  fixed_date: [11, 16]
+- name: Söndag
+  fixed_date: [11, 23]
+- name: Söndag
+  fixed_date: [11, 30]
+- name: Söndag
+  fixed_date: [12, 7]
+- name: Söndag
+  fixed_date: [12, 14]
+- name: Söndag
+  fixed_date: [12, 21]
+- name: Julafton
+  fixed_date: [12, 24]
+- name: Juldagen
+  fixed_date: [12, 25]
+- name: Annandag jul
+  fixed_date: [12, 26]
+- name: Söndag
+  fixed_date: [12, 28]
+- name: Nyårsafton
+  fixed_date: [12, 31]

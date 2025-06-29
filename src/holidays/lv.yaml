@@ -1,0 +1,31 @@
+PH:
+- name: Jaunais Gads
+  fixed_date: [1, 1]
+- name: Lielā Piektdiena
+  fixed_date: [4, 18]
+- name: Lieldienas
+  fixed_date: [4, 20]
+- name: Otrās Lieldienas
+  fixed_date: [4, 21]
+- name: Darba svētki
+  fixed_date: [5, 1]
+- name: Latvijas Republikas Neatkarības atjaunošanas diena
+  fixed_date: [5, 4]
+- name: Latvijas Republikas Neatkarības atjaunošanas diena (brīvdiena)
+  fixed_date: [5, 5]
+- name: Mātes diena
+  fixed_date: [5, 11]
+- name: Līgo diena
+  fixed_date: [6, 23]
+- name: Jāņu diena
+  fixed_date: [6, 24]
+- name: Latvijas Republikas proklamēšanas diena
+  fixed_date: [11, 18]
+- name: Ziemassvētku vakars
+  fixed_date: [12, 24]
+- name: Ziemassvētki
+  fixed_date: [12, 25]
+- name: Otrie Ziemassvētki
+  fixed_date: [12, 26]
+- name: Vecgada vakars
+  fixed_date: [12, 31]

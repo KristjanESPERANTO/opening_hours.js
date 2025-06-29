@@ -1,0 +1,39 @@
+PH:
+- name: رأس السنة الميلادية
+  fixed_date: [1, 1]
+- name: عيد الميلاد المجيد (تقويم قبطي)
+  fixed_date: [1, 7]
+- name: عيد ثورة 25 يناير
+  fixed_date: [1, 25]
+- name: (تقدير) عيد الفطر
+  fixed_date: [3, 30]
+- name: (تقدير) عطلة عيد الفطر
+  fixed_date: [3, 31]
+- name: (تقدير) عطلة عيد الفطر
+  fixed_date: [4, 1]
+- name: عيد الفصح القبطي
+  fixed_date: [4, 20]
+- name: شم النسيم
+  fixed_date: [4, 21]
+- name: عيد تحرير سيناء
+  fixed_date: [4, 25]
+- name: عيد العمال
+  fixed_date: [5, 1]
+- name: (تقدير) يوم عرفة
+  fixed_date: [6, 5]
+- name: (تقدير) عيد الأضحى
+  fixed_date: [6, 6]
+- name: (تقدير) عطلة عيد الأضحى
+  fixed_date: [6, 7]
+- name: (تقدير) عطلة عيد الأضحى
+  fixed_date: [6, 8]
+- name: (تقدير) رأس السنة الهجرية
+  fixed_date: [6, 26]
+- name: عيد ثورة 30 يونيو
+  fixed_date: [6, 30]
+- name: عيد ثورة 23 يوليو
+  fixed_date: [7, 23]
+- name: (تقدير) عيد المولد النبوي
+  fixed_date: [9, 4]
+- name: عيد القوات المسلحة
+  fixed_date: [10, 6]

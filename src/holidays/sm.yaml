@@ -1,0 +1,37 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Epiphany
+  fixed_date: [1, 6]
+- name: Feast of Saint Agatha
+  fixed_date: [2, 5]
+- name: Anniversary of the Arengo
+  fixed_date: [3, 25]
+- name: Easter Sunday
+  fixed_date: [4, 20]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Labour Day
+  fixed_date: [5, 1]
+- name: Corpus Cristi
+  fixed_date: [6, 19]
+- name: Liberation from Fascism Day
+  fixed_date: [7, 28]
+- name: Assumption Day
+  fixed_date: [8, 15]
+- name: Foundation Day
+  fixed_date: [9, 3]
+- name: All Saints' Day
+  fixed_date: [11, 1]
+- name: Commemoration of the Dead
+  fixed_date: [11, 2]
+- name: Immaculate Conception Day
+  fixed_date: [12, 8]
+- name: Christmas Eve
+  fixed_date: [12, 24]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Saint Stephen's Day
+  fixed_date: [12, 26]
+- name: New Year's Eve
+  fixed_date: [12, 31]

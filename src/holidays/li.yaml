@@ -1,0 +1,35 @@
+PH:
+- name: Neujahr
+  fixed_date: [1, 1]
+- name: Heilige Drei Könige
+  fixed_date: [1, 6]
+- name: Mariä Lichtmess
+  fixed_date: [2, 2]
+- name: Josefstag
+  fixed_date: [3, 19]
+- name: Ostersonntag
+  fixed_date: [4, 20]
+- name: Ostermontag
+  fixed_date: [4, 21]
+- name: Tag der Arbeit
+  fixed_date: [5, 1]
+- name: Auffahrt
+  fixed_date: [5, 29]
+- name: Pfingstsonntag
+  fixed_date: [6, 8]
+- name: Pfingstmontag
+  fixed_date: [6, 9]
+- name: Fronleichnam
+  fixed_date: [6, 19]
+- name: Staatsfeiertag
+  fixed_date: [8, 15]
+- name: Mariä Geburt
+  fixed_date: [9, 8]
+- name: Allerheiligen
+  fixed_date: [11, 1]
+- name: Mariä Empfängnis
+  fixed_date: [12, 8]
+- name: Weihnachten
+  fixed_date: [12, 25]
+- name: Stephanstag
+  fixed_date: [12, 26]

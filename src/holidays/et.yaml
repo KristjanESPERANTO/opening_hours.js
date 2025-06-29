@@ -1,0 +1,27 @@
+PH:
+- name: የገና ወይም የልደት በዓል
+  fixed_date: [1, 7]
+- name: የጥምቀት በዓል
+  fixed_date: [1, 19]
+- name: የአድዋ ድል በዓል
+  fixed_date: [3, 2]
+- name: የኢድ አልፈጥር
+  fixed_date: [3, 30]
+- name: የስቅለት በዓል
+  fixed_date: [4, 18]
+- name: የትንሳኤ(ፋሲካ) በዓል
+  fixed_date: [4, 20]
+- name: የዓለም የሠራተኞች (የላብአደሮች) ቀን
+  fixed_date: [5, 1]
+- name: የአርበኞች (የድል) ቀን በዓል
+  fixed_date: [5, 5]
+- name: ደርግ የወደቀበት ቀን
+  fixed_date: [5, 28]
+- name: የኢድ አልአድሃ (አረፋ) (ግምት)
+  fixed_date: [6, 6]
+- name: የመውሊድ በዓል (ግምት)
+  fixed_date: [9, 4]
+- name: የዘመን መለወጫ (እንቁጣጣሽ) በዓል
+  fixed_date: [9, 11]
+- name: የመስቀል በዓል
+  fixed_date: [9, 27]
