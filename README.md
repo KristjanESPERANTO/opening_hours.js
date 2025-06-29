@@ -703,7 +703,7 @@ The current results of this test are also tracked in the repository and can be v
 
 #### Large scale
 
-To see how this library performances in the real OpenStreetMap world you can run `make osm-tag-data-check` or `node scripts/real_test.js` (data needs to be exported first) to try to process every value which uses the opening_hours syntax from [taginfo] with this library.
+To see how this library performances in the real OpenStreetMap world you can run `make osm-tag-data-taginfo-check` or `node scripts/real_test.js` (data needs to be exported first) to try to process every value which uses the opening_hours syntax from [taginfo] with this library.
 
 Currently (Mai 2015) this library can parse 97 % (383990/396167) of all opening_hours values in OSM. If identical values appear multiple times then each value counts.
 This test is automated by now. Have a look at the [opening_hours-statistics][].
