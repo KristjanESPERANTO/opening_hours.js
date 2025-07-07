@@ -32,6 +32,29 @@
       console.log(`Prettified value (en):                  ${prettified_value_en}`);
       console.log(`Prettified value (ru):                  ${prettified_value_ru}`);
       console.log(`Warnings:\n  ${oh.getWarnings().join("\n  ")}`);
+
+      // Show the state of the opening hours for different dates.
+      let date = new Date();
+      date.setHours(11, 0, 0, 0);
+      let last_monday = new Date(date);
+      last_monday.setDate(date.getDate() - (date.getDay() + 6) % 7 - 7);
+      let last_sunday = new Date(date);
+      last_sunday.setDate(date.getDate() - (date.getDay() + 6) % 7 - 1);
+      let next_monday = new Date(date);
+      next_monday.setDate(date.getDate() + (8 - date.getDay()) % 7);
+      let next_sunday = new Date(date);
+      next_sunday.setDate(date.getDate() + (8 - date.getDay()) % 7 + 6);
+      let today = new Date(date);
+      let tomorrow = new Date(date);
+      tomorrow.setDate(date.getDate() + 1);
+
+      console.log(`\nShow the state of the opening hours for the following dates:`);
+      console.log(`Last Monday:    ${last_monday.toLocaleString()} - ${oh.getStateString(last_monday, true)}`);
+      console.log(`Last Sunday:    ${last_sunday.toLocaleString()} - ${oh.getStateString(last_sunday, true)}`);
+      console.log(`Next Monday:    ${next_monday.toLocaleString()} - ${oh.getStateString(next_monday, false)}`);
+      console.log(`Next Sunday:    ${next_sunday.toLocaleString()} - ${oh.getStateString(next_sunday, false)}`);
+      console.log(`Today:          ${today.toLocaleString()} - ${oh.getStateString(today, false)}`);
+      console.log(`Tomorrow:       ${tomorrow.toLocaleString()} - ${oh.getStateString(tomorrow, false)}`);
     </script>
 
   </body>
