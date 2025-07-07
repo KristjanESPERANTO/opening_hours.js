@@ -30,12 +30,14 @@
  *     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  *     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-import * as holiday_definitions from './holidays/index';
+import * as Holidays from 'date-holidays';
 import word_error_correction from './locales/word_error_correction.yaml';
 import lang from './locales/lang.yaml';
 
 import SunCalc from 'suncalc';
 import i18next from './locales/core';
+
+var holiday_definitions = new Holidays();
 
 export default function(value, nominatim_object, optional_conf_parm) {
     // Short constants {{{
