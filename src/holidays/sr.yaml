@@ -1,33 +1,18 @@
 ---
 
 PH:
-- name: Nieuwjaarsdag
-  fixed_date: [1, 1]
-- name: Chinees Nieuwjaar
-  fixed_date: [1, 29]
-- name: Holi-Phagwa
-  fixed_date: [3, 14]
-- name: Ied-Ul-Fitre
-  fixed_date: [3, 31]
-- name: Goede Vrijdag
-  fixed_date: [4, 18]
-- name: Tweede Paasdag
-  fixed_date: [4, 21]
-- name: Dag van de Arbeid
-  fixed_date: [5, 1]
-- name: Ied-Ul-Adha
-  fixed_date: [6, 7]
-- name: Dag der Vrijheden
-  fixed_date: [7, 1]
-- name: Dag der Inheemsen
-  fixed_date: [8, 9]
-- name: Dag der Marrons
-  fixed_date: [10, 10]
-- name: Divali
-  fixed_date: [10, 20]
-- name: Onafhankelijkheidsdag
-  fixed_date: [11, 25]
-- name: Eerste Kerstdag
-  fixed_date: [12, 25]
-- name: Tweede Kerstdag
-  fixed_date: [12, 26]
+  - {'name': 'Nieuwjaarsdag', 'fixed_date': [1, 1]}
+  - {'name': 'Chinees Nieuwjaar', 'fixed_date': [1, 29]}
+  - {'name': 'Holi-Phagwa', 'fixed_date': [3, 14]}
+  - {'name': 'Ied-Ul-Fitre', 'fixed_date': [3, 31]}
+  - {'name': 'Goede Vrijdag', 'fixed_date': [4, 18]}
+  - {'name': 'Tweede Paasdag', 'fixed_date': [4, 21]}
+  - {'name': 'Dag van de Arbeid', 'fixed_date': [5, 1]}
+  - {'name': 'Ied-Ul-Adha', 'fixed_date': [6, 7]}
+  - {'name': 'Dag der Vrijheden', 'fixed_date': [7, 1]}
+  - {'name': 'Dag der Inheemsen', 'fixed_date': [8, 9]}
+  - {'name': 'Dag der Marrons', 'fixed_date': [10, 10]}
+  - {'name': 'Divali', 'fixed_date': [10, 20]}
+  - {'name': 'Onafhankelijkheidsdag', 'fixed_date': [11, 25]}
+  - {'name': 'Eerste Kerstdag', 'fixed_date': [12, 25]}
+  - {'name': 'Tweede Kerstdag', 'fixed_date': [12, 26]}

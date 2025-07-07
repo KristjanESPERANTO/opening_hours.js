@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Youth Day
-  fixed_date: [2, 11]
-- name: Eid al-Fitr (estimated)
-  fixed_date: [3, 30]
-- name: Eid al-Fitr (estimated) (observed)
-  fixed_date: [3, 31]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: National Day
-  fixed_date: [5, 20]
-- name: Ascension Day
-  fixed_date: [5, 29]
-- name: Eid al-Adha (estimated)
-  fixed_date: [6, 6]
-- name: Assumption Day
-  fixed_date: [8, 15]
-- name: Mawlid (estimated)
-  fixed_date: [9, 4]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Youth Day', 'fixed_date': [2, 11]}
+  - {'name': 'Eid al-Fitr (estimated)', 'fixed_date': [3, 30]}
+  - {'name': 'Eid al-Fitr (estimated) (observed)', 'fixed_date': [3, 31]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'National Day', 'fixed_date': [5, 20]}
+  - {'name': 'Ascension Day', 'fixed_date': [5, 29]}
+  - {'name': 'Eid al-Adha (estimated)', 'fixed_date': [6, 6]}
+  - {'name': 'Assumption Day', 'fixed_date': [8, 15]}
+  - {'name': 'Mawlid (estimated)', 'fixed_date': [9, 4]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

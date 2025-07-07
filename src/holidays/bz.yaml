@@ -1,31 +1,17 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: George Price Day
-  fixed_date: [1, 15]
-- name: National Heroes and Benefactors Day (observed)
-  fixed_date: [3, 10]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Holy Saturday
-  fixed_date: [4, 19]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Emancipation Day (observed)
-  fixed_date: [8, 4]
-- name: Saint George's Caye Day
-  fixed_date: [9, 10]
-- name: Independence Day (observed)
-  fixed_date: [9, 22]
-- name: Indigenous Peoples' Resistance Day (observed)
-  fixed_date: [10, 13]
-- name: Garifuna Settlement Day
-  fixed_date: [11, 19]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'George Price Day', 'fixed_date': [1, 15]}
+  - {'name': 'National Heroes and Benefactors Day (observed)', 'fixed_date': [3, 10]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Holy Saturday', 'fixed_date': [4, 19]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Emancipation Day (observed)', 'fixed_date': [8, 4]}
+  - {'name': "Saint George's Caye Day", 'fixed_date': [9, 10]}
+  - {'name': 'Independence Day (observed)', 'fixed_date': [9, 22]}
+  - {'name': "Indigenous Peoples' Resistance Day (observed)", 'fixed_date': [10, 13]}
+  - {'name': 'Garifuna Settlement Day', 'fixed_date': [11, 19]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

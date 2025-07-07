@@ -1,73 +1,31 @@
 ---
 
 PH:
-- name: Cap d'Any
-  fixed_date: [1, 1]
-- name: Reis
-  fixed_date: [1, 6]
-- name: Carnaval
-  fixed_date: [3, 3]
-- name: Dia de la Constitució
-  fixed_date: [3, 14]
-- name: Divendres Sant
-  fixed_date: [4, 18]
-- name: Dilluns de Pasqua
-  fixed_date: [4, 21]
-- name: Festa del treball
-  fixed_date: [5, 1]
-- name: Dilluns de Pentecosta
-  fixed_date: [6, 9]
-- name: Assumpció
-  fixed_date: [8, 15]
-- name: Nostra Senyora de Meritxell
-  fixed_date: [9, 8]
-- name: Tots Sants
-  fixed_date: [11, 1]
-- name: Immaculada Concepció
-  fixed_date: [12, 8]
-- name: Nadal
-  fixed_date: [12, 25]
-- name: Sant Esteve
-  fixed_date: [12, 26]
-- name: Sant Roc
-  fixed_date: [8, 16]
-  only_states: [Canillo]
-- name: Sant Antoni
-  fixed_date: [1, 17]
-  only_states: [La Massana]
-- name: Sant Pere
-  fixed_date: [6, 29]
-  only_states: [Ordino]
-- name: Sant Julià
-  fixed_date: [1, 7]
-  only_states: [Sant Julià de Lòria]
-- name: Diada de Canòlich
-  fixed_date: [5, 31]
-  only_states: [Sant Julià de Lòria]
-- name: Festa Major de Sant Julià de Lòria
-  fixed_date: [7, 28]
-  only_states: [Sant Julià de Lòria]
-- name: Festa Major de Sant Julià de Lòria
-  fixed_date: [7, 29]
-  only_states: [Sant Julià de Lòria]
-- name: Festa Major d'Andorra la Vella
-  fixed_date: [8, 2]
-  only_states: [Andorra la Vella]
-- name: Festa Major d'Andorra la Vella
-  fixed_date: [8, 3]
-  only_states: [Andorra la Vella]
-- name: Festa Major d'Andorra la Vella
-  fixed_date: [8, 4]
-  only_states: [Andorra la Vella]
-- name: Sant Miquel d'Engolasters
-  fixed_date: [5, 7]
-  only_states: [Escaldes-Engordany]
-- name: Diada de la creació de la parròquia
-  fixed_date: [6, 15]
-  only_states: [Escaldes-Engordany]
-- name: Festa Major d'Escaldes-Engordany
-  fixed_date: [7, 25]
-  only_states: [Escaldes-Engordany]
-- name: Festa Major d'Escaldes-Engordany
-  fixed_date: [7, 26]
-  only_states: [Escaldes-Engordany]
+  - {'name': "Cap d'Any", 'fixed_date': [1, 1]}
+  - {'name': 'Reis', 'fixed_date': [1, 6]}
+  - {'name': 'Carnaval', 'fixed_date': [3, 3]}
+  - {'name': 'Dia de la Constitució', 'fixed_date': [3, 14]}
+  - {'name': 'Divendres Sant', 'fixed_date': [4, 18]}
+  - {'name': 'Dilluns de Pasqua', 'fixed_date': [4, 21]}
+  - {'name': 'Festa del treball', 'fixed_date': [5, 1]}
+  - {'name': 'Dilluns de Pentecosta', 'fixed_date': [6, 9]}
+  - {'name': 'Assumpció', 'fixed_date': [8, 15]}
+  - {'name': 'Nostra Senyora de Meritxell', 'fixed_date': [9, 8]}
+  - {'name': 'Tots Sants', 'fixed_date': [11, 1]}
+  - {'name': 'Immaculada Concepció', 'fixed_date': [12, 8]}
+  - {'name': 'Nadal', 'fixed_date': [12, 25]}
+  - {'name': 'Sant Esteve', 'fixed_date': [12, 26]}
+  - {'name': 'Sant Roc', 'fixed_date': [8, 16], 'only_states': ['Canillo']}
+  - {'name': 'Sant Antoni', 'fixed_date': [1, 17], 'only_states': ['La Massana']}
+  - {'name': 'Sant Pere', 'fixed_date': [6, 29], 'only_states': ['Ordino']}
+  - {'name': 'Sant Julià', 'fixed_date': [1, 7], 'only_states': ['Sant Julià de Lòria']}
+  - {'name': 'Diada de Canòlich', 'fixed_date': [5, 31], 'only_states': ['Sant Julià de Lòria']}
+  - {'name': 'Festa Major de Sant Julià de Lòria', 'fixed_date': [7, 28], 'only_states': ['Sant Julià de Lòria']}
+  - {'name': 'Festa Major de Sant Julià de Lòria', 'fixed_date': [7, 29], 'only_states': ['Sant Julià de Lòria']}
+  - {'name': "Festa Major d'Andorra la Vella", 'fixed_date': [8, 2], 'only_states': ['Andorra la Vella']}
+  - {'name': "Festa Major d'Andorra la Vella", 'fixed_date': [8, 3], 'only_states': ['Andorra la Vella']}
+  - {'name': "Festa Major d'Andorra la Vella", 'fixed_date': [8, 4], 'only_states': ['Andorra la Vella']}
+  - {'name': "Sant Miquel d'Engolasters", 'fixed_date': [5, 7], 'only_states': ['Escaldes-Engordany']}
+  - {'name': 'Diada de la creació de la parròquia', 'fixed_date': [6, 15], 'only_states': ['Escaldes-Engordany']}
+  - {'name': "Festa Major d'Escaldes-Engordany", 'fixed_date': [7, 25], 'only_states': ['Escaldes-Engordany']}
+  - {'name': "Festa Major d'Escaldes-Engordany", 'fixed_date': [7, 26], 'only_states': ['Escaldes-Engordany']}

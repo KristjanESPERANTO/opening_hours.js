@@ -1,33 +1,18 @@
 ---
 
 PH:
-- name: اليوم الوطني لتولي السلطان
-  fixed_date: [1, 11]
-- name: الإسراء والمعراج
-  fixed_date: [1, 27]
-- name: عيد الفطر
-  fixed_date: [3, 29]
-- name: عيد الفطر
-  fixed_date: [3, 30]
-- name: عيد الفطر
-  fixed_date: [3, 31]
-- name: عيد الفطر
-  fixed_date: [4, 1]
-- name: عيد الفطر
-  fixed_date: [4, 2]
-- name: عيد الأضحى (مُقدَّر)
-  fixed_date: [6, 5]
-- name: عيد الأضحى (مُقدَّر)
-  fixed_date: [6, 6]
-- name: عيد الأضحى (مُقدَّر)
-  fixed_date: [6, 7]
-- name: عيد الأضحى (مُقدَّر)
-  fixed_date: [6, 8]
-- name: رأس السنة الهجرية (مُقدَّر)
-  fixed_date: [6, 26]
-- name: مولد النبي (مُقدَّر)
-  fixed_date: [9, 4]
-- name: يوم وطني
-  fixed_date: [11, 20]
-- name: يوم وطني
-  fixed_date: [11, 21]
+  - {'name': 'اليوم الوطني لتولي السلطان', 'fixed_date': [1, 11]}
+  - {'name': 'الإسراء والمعراج', 'fixed_date': [1, 27]}
+  - {'name': 'عيد الفطر', 'fixed_date': [3, 29]}
+  - {'name': 'عيد الفطر', 'fixed_date': [3, 30]}
+  - {'name': 'عيد الفطر', 'fixed_date': [3, 31]}
+  - {'name': 'عيد الفطر', 'fixed_date': [4, 1]}
+  - {'name': 'عيد الفطر', 'fixed_date': [4, 2]}
+  - {'name': 'عيد الأضحى (مُقدَّر)', 'fixed_date': [6, 5]}
+  - {'name': 'عيد الأضحى (مُقدَّر)', 'fixed_date': [6, 6]}
+  - {'name': 'عيد الأضحى (مُقدَّر)', 'fixed_date': [6, 7]}
+  - {'name': 'عيد الأضحى (مُقدَّر)', 'fixed_date': [6, 8]}
+  - {'name': 'رأس السنة الهجرية (مُقدَّر)', 'fixed_date': [6, 26]}
+  - {'name': 'مولد النبي (مُقدَّر)', 'fixed_date': [9, 4]}
+  - {'name': 'يوم وطني', 'fixed_date': [11, 20]}
+  - {'name': 'يوم وطني', 'fixed_date': [11, 21]}

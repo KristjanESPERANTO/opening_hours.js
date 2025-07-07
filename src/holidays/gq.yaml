@@ -1,36 +1,19 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día Internacional de la Mujer
-  fixed_date: [3, 8]
-- name: Jueves Santo
-  fixed_date: [4, 17]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Día Internacional del Trabajo
-  fixed_date: [5, 1]
-- name: Día de la liberación Africana
-  fixed_date: [5, 25]
-- name: Natalicio de Su Excelencia el Presidente de la República
-  fixed_date: [6, 5]
-- name: Corpus Christi
-  fixed_date: [6, 19]
-- name: Día de las Fuerzas Armadas
-  fixed_date: [8, 3]
-- name: Día de las Fuerzas Armadas (observado)
-  fixed_date: [8, 4]
-- name: Día de la Constitución
-  fixed_date: [8, 15]
-- name: Día de la Independencia Nacional
-  fixed_date: [10, 12]
-- name: Día de la Independencia Nacional (observado)
-  fixed_date: [10, 13]
-- name: Festividad de la Inmaculada Concepción de María
-  fixed_date: [12, 8]
-- name: Día de Navidad
-  fixed_date: [12, 25]
-- name: Fiesta Patronal de Annobón
-  fixed_date: [6, 13]
-  only_states: [Annobón, Annobon]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día Internacional de la Mujer', 'fixed_date': [3, 8]}
+  - {'name': 'Jueves Santo', 'fixed_date': [4, 17]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Día Internacional del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Día de la liberación Africana', 'fixed_date': [5, 25]}
+  - {'name': 'Natalicio de Su Excelencia el Presidente de la República', 'fixed_date': [6, 5]}
+  - {'name': 'Corpus Christi', 'fixed_date': [6, 19]}
+  - {'name': 'Día de las Fuerzas Armadas', 'fixed_date': [8, 3]}
+  - {'name': 'Día de las Fuerzas Armadas (observado)', 'fixed_date': [8, 4]}
+  - {'name': 'Día de la Constitución', 'fixed_date': [8, 15]}
+  - {'name': 'Día de la Independencia Nacional', 'fixed_date': [10, 12]}
+  - {'name': 'Día de la Independencia Nacional (observado)', 'fixed_date': [10, 13]}
+  - {'name': 'Festividad de la Inmaculada Concepción de María', 'fixed_date': [12, 8]}
+  - {'name': 'Día de Navidad', 'fixed_date': [12, 25]}
+  - {'name': 'Fiesta Patronal de Annobón', 'fixed_date': [6, 13], 'only_states': ['Annobón', 'Annobon']}

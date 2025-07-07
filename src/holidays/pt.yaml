@@ -1,86 +1,35 @@
 ---
 
 PH:
-- name: Ano Novo
-  fixed_date: [1, 1]
-- name: Sexta-feira Santa
-  fixed_date: [4, 18]
-- name: Páscoa
-  fixed_date: [4, 20]
-- name: Dia da Liberdade
-  fixed_date: [4, 25]
-- name: Dia do Trabalhador
-  fixed_date: [5, 1]
-- name: Dia de Portugal, de Camões e das Comunidades Portuguesas
-  fixed_date: [6, 10]
-- name: Corpo de Deus
-  fixed_date: [6, 19]
-- name: Assunção de Nossa Senhora
-  fixed_date: [8, 15]
-- name: Implantação da República
-  fixed_date: [10, 5]
-- name: Dia de Todos os Santos
-  fixed_date: [11, 1]
-- name: Restauração da Independência
-  fixed_date: [12, 1]
-- name: Imaculada Conceição
-  fixed_date: [12, 8]
-- name: Dia de Natal
-  fixed_date: [12, 25]
-- name: Dia de Santa Joana
-  fixed_date: [5, 12]
-  only_states: [Aveiro]
-- name: Quinta-feira da Ascensão
-  fixed_date: [5, 29]
-  only_states: [Beja]
-- name: Dia de São João
-  fixed_date: [6, 24]
-  only_states: [Braga, Porto]
-- name: Dia de Nossa Senhora das Graças
-  fixed_date: [8, 22]
-  only_states: [Bragança]
-- name: Dia de Nossa Senhora de Mércoles
-  fixed_date: [5, 6]
-  only_states: [Castelo Branco]
-- name: Dia de Santa Isabel
-  fixed_date: [7, 4]
-  only_states: [Coimbra]
-- name: Dia de São Pedro
-  fixed_date: [6, 29]
-  only_states: [Évora]
-- name: Dia do Município de Faro
-  fixed_date: [9, 7]
-  only_states: [Faro]
-- name: Dia do Município da Guarda
-  fixed_date: [11, 27]
-  only_states: [Guarda]
-- name: Dia do Município de Leiria
-  fixed_date: [5, 22]
-  only_states: [Leiria]
-- name: Dia de Santo António
-  fixed_date: [6, 13]
-  only_states: [Lisboa, Vila Real]
-- name: Dia do Município de Portalegre
-  fixed_date: [5, 23]
-  only_states: [Portalegre]
-- name: Dia de São José
-  fixed_date: [3, 19]
-  only_states: [Santarém]
-- name: Dia de Bocage
-  fixed_date: [9, 15]
-  only_states: [Setúbal]
-- name: Dia de Nossa Senhora da Agonia
-  fixed_date: [8, 20]
-  only_states: [Viana do Castelo]
-- name: Dia de São Mateus
-  fixed_date: [9, 21]
-  only_states: [Viseu]
-- name: Dia da Região Autónoma dos Açores
-  fixed_date: [6, 9]
-  only_states: [Região Autónoma dos Açores]
-- name: Dia da Região Autónoma da Madeira e das Comunidades Madeirenses
-  fixed_date: [7, 1]
-  only_states: [Região Autónoma da Madeira]
-- name: Primeira Oitava
-  fixed_date: [12, 26]
-  only_states: [Região Autónoma da Madeira]
+  - {'name': 'Ano Novo', 'fixed_date': [1, 1]}
+  - {'name': 'Sexta-feira Santa', 'fixed_date': [4, 18]}
+  - {'name': 'Páscoa', 'fixed_date': [4, 20]}
+  - {'name': 'Dia da Liberdade', 'fixed_date': [4, 25]}
+  - {'name': 'Dia do Trabalhador', 'fixed_date': [5, 1]}
+  - {'name': 'Dia de Portugal, de Camões e das Comunidades Portuguesas', 'fixed_date': [6, 10]}
+  - {'name': 'Corpo de Deus', 'fixed_date': [6, 19]}
+  - {'name': 'Assunção de Nossa Senhora', 'fixed_date': [8, 15]}
+  - {'name': 'Implantação da República', 'fixed_date': [10, 5]}
+  - {'name': 'Dia de Todos os Santos', 'fixed_date': [11, 1]}
+  - {'name': 'Restauração da Independência', 'fixed_date': [12, 1]}
+  - {'name': 'Imaculada Conceição', 'fixed_date': [12, 8]}
+  - {'name': 'Dia de Natal', 'fixed_date': [12, 25]}
+  - {'name': 'Dia de Santa Joana', 'fixed_date': [5, 12], 'only_states': ['Aveiro']}
+  - {'name': 'Quinta-feira da Ascensão', 'fixed_date': [5, 29], 'only_states': ['Beja']}
+  - {'name': 'Dia de São João', 'fixed_date': [6, 24], 'only_states': ['Braga', 'Porto']}
+  - {'name': 'Dia de Nossa Senhora das Graças', 'fixed_date': [8, 22], 'only_states': ['Bragança']}
+  - {'name': 'Dia de Nossa Senhora de Mércoles', 'fixed_date': [5, 6], 'only_states': ['Castelo Branco']}
+  - {'name': 'Dia de Santa Isabel', 'fixed_date': [7, 4], 'only_states': ['Coimbra']}
+  - {'name': 'Dia de São Pedro', 'fixed_date': [6, 29], 'only_states': ['Évora']}
+  - {'name': 'Dia do Município de Faro', 'fixed_date': [9, 7], 'only_states': ['Faro']}
+  - {'name': 'Dia do Município da Guarda', 'fixed_date': [11, 27], 'only_states': ['Guarda']}
+  - {'name': 'Dia do Município de Leiria', 'fixed_date': [5, 22], 'only_states': ['Leiria']}
+  - {'name': 'Dia de Santo António', 'fixed_date': [6, 13], 'only_states': ['Lisboa', 'Vila Real']}
+  - {'name': 'Dia do Município de Portalegre', 'fixed_date': [5, 23], 'only_states': ['Portalegre']}
+  - {'name': 'Dia de São José', 'fixed_date': [3, 19], 'only_states': ['Santarém']}
+  - {'name': 'Dia de Bocage', 'fixed_date': [9, 15], 'only_states': ['Setúbal']}
+  - {'name': 'Dia de Nossa Senhora da Agonia', 'fixed_date': [8, 20], 'only_states': ['Viana do Castelo']}
+  - {'name': 'Dia de São Mateus', 'fixed_date': [9, 21], 'only_states': ['Viseu']}
+  - {'name': 'Dia da Região Autónoma dos Açores', 'fixed_date': [6, 9], 'only_states': ['Região Autónoma dos Açores']}
+  - {'name': 'Dia da Região Autónoma da Madeira e das Comunidades Madeirenses', 'fixed_date': [7, 1], 'only_states': ['Região Autónoma da Madeira']}
+  - {'name': 'Primeira Oitava', 'fixed_date': [12, 26], 'only_states': ['Região Autónoma da Madeira']}

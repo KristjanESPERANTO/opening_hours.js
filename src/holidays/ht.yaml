@@ -1,35 +1,19 @@
 ---
 
 PH:
-- name: Fête de l'Indépendance Nationale; Nouvel An
-  fixed_date: [1, 1]
-- name: Jour des Aïeux
-  fixed_date: [1, 2]
-- name: Carnaval
-  fixed_date: [3, 2]
-- name: Lundi Gras
-  fixed_date: [3, 3]
-- name: Mardi Gras
-  fixed_date: [3, 4]
-- name: Vendredi Saint
-  fixed_date: [4, 18]
-- name: Pâques
-  fixed_date: [4, 20]
-- name: Fête de l'Agriculture et du Travail
-  fixed_date: [5, 1]
-- name: Fête du Drapeau et de l'Université
-  fixed_date: [5, 18]
-- name: Fête-Dieu
-  fixed_date: [6, 19]
-- name: Assomption de Marie
-  fixed_date: [8, 15]
-- name: Mort de Dessalines
-  fixed_date: [10, 17]
-- name: La Toussaint
-  fixed_date: [11, 1]
-- name: Fête des Morts
-  fixed_date: [11, 2]
-- name: Commémoration de la Bataille de Vertières; Jour des Forces Armées
-  fixed_date: [11, 18]
-- name: Noël
-  fixed_date: [12, 25]
+  - {'name': "Fête de l'Indépendance Nationale; Nouvel An", 'fixed_date': [1, 1]}
+  - {'name': 'Jour des Aïeux', 'fixed_date': [1, 2]}
+  - {'name': 'Carnaval', 'fixed_date': [3, 2]}
+  - {'name': 'Lundi Gras', 'fixed_date': [3, 3]}
+  - {'name': 'Mardi Gras', 'fixed_date': [3, 4]}
+  - {'name': 'Vendredi Saint', 'fixed_date': [4, 18]}
+  - {'name': 'Pâques', 'fixed_date': [4, 20]}
+  - {'name': "Fête de l'Agriculture et du Travail", 'fixed_date': [5, 1]}
+  - {'name': "Fête du Drapeau et de l'Université", 'fixed_date': [5, 18]}
+  - {'name': 'Fête-Dieu', 'fixed_date': [6, 19]}
+  - {'name': 'Assomption de Marie', 'fixed_date': [8, 15]}
+  - {'name': 'Mort de Dessalines', 'fixed_date': [10, 17]}
+  - {'name': 'La Toussaint', 'fixed_date': [11, 1]}
+  - {'name': 'Fête des Morts', 'fixed_date': [11, 2]}
+  - {'name': 'Commémoration de la Bataille de Vertières; Jour des Forces Armées', 'fixed_date': [11, 18]}
+  - {'name': 'Noël', 'fixed_date': [12, 25]}

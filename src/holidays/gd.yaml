@@ -1,33 +1,18 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Independence Day
-  fixed_date: [2, 7]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Whit Monday
-  fixed_date: [6, 9]
-- name: Corpus Christi
-  fixed_date: [6, 19]
-- name: Emancipation Day
-  fixed_date: [8, 1]
-- name: Carnival Monday
-  fixed_date: [8, 11]
-- name: Carnival Tuesday
-  fixed_date: [8, 12]
-- name: National Heroes' Day
-  fixed_date: [10, 19]
-- name: National Heroes' Day (observed)
-  fixed_date: [10, 20]
-- name: Thanksgiving Day
-  fixed_date: [10, 25]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Independence Day', 'fixed_date': [2, 7]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Whit Monday', 'fixed_date': [6, 9]}
+  - {'name': 'Corpus Christi', 'fixed_date': [6, 19]}
+  - {'name': 'Emancipation Day', 'fixed_date': [8, 1]}
+  - {'name': 'Carnival Monday', 'fixed_date': [8, 11]}
+  - {'name': 'Carnival Tuesday', 'fixed_date': [8, 12]}
+  - {'name': "National Heroes' Day", 'fixed_date': [10, 19]}
+  - {'name': "National Heroes' Day (observed)", 'fixed_date': [10, 20]}
+  - {'name': 'Thanksgiving Day', 'fixed_date': [10, 25]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

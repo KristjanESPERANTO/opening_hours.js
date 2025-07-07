@@ -1,25 +1,14 @@
 ---
 
 PH:
-- name: Yangi yil
-  fixed_date: [1, 1]
-- name: Xotin-qizlar kuni
-  fixed_date: [3, 8]
-- name: Xotin-qizlar kuni (ko‘chirilgan)
-  fixed_date: [3, 10]
-- name: Navro‘z bayrami
-  fixed_date: [3, 21]
-- name: Ro‘za hayit (taxminiy)
-  fixed_date: [3, 30]
-- name: Ro‘za hayit (ko‘chirilgan, taxminiy)
-  fixed_date: [3, 31]
-- name: Xotira va qadrlash kuni
-  fixed_date: [5, 9]
-- name: Qurbon hayit (taxminiy)
-  fixed_date: [6, 6]
-- name: Mustaqillik kuni
-  fixed_date: [9, 1]
-- name: O‘qituvchi va murabbiylar kuni
-  fixed_date: [10, 1]
-- name: O‘zbekiston Respublikasi Konstitutsiyasi kuni
-  fixed_date: [12, 8]
+  - {'name': 'Yangi yil', 'fixed_date': [1, 1]}
+  - {'name': 'Xotin-qizlar kuni', 'fixed_date': [3, 8]}
+  - {'name': 'Xotin-qizlar kuni (ko‘chirilgan)', 'fixed_date': [3, 10]}
+  - {'name': 'Navro‘z bayrami', 'fixed_date': [3, 21]}
+  - {'name': 'Ro‘za hayit (taxminiy)', 'fixed_date': [3, 30]}
+  - {'name': 'Ro‘za hayit (ko‘chirilgan, taxminiy)', 'fixed_date': [3, 31]}
+  - {'name': 'Xotira va qadrlash kuni', 'fixed_date': [5, 9]}
+  - {'name': 'Qurbon hayit (taxminiy)', 'fixed_date': [6, 6]}
+  - {'name': 'Mustaqillik kuni', 'fixed_date': [9, 1]}
+  - {'name': 'O‘qituvchi va murabbiylar kuni', 'fixed_date': [10, 1]}
+  - {'name': 'O‘zbekiston Respublikasi Konstitutsiyasi kuni', 'fixed_date': [12, 8]}

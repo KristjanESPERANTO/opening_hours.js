@@ -1,5 +1,21 @@
 ---
 
+PH:
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'May Day', 'fixed_date': [5, 5]}
+  - {'name': 'Spring Bank Holiday', 'fixed_date': [5, 26]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21], 'only_states': ['England', 'Northern Ireland', 'Wales']}
+  - {'name': 'Late Summer Bank Holiday', 'fixed_date': [8, 25], 'only_states': ['England', 'Northern Ireland', 'Wales']}
+  - {'name': "Saint Patrick's Day", 'fixed_date': [3, 17], 'only_states': ['Northern Ireland']}
+  - {'name': 'Battle of the Boyne', 'fixed_date': [7, 12], 'only_states': ['Northern Ireland']}
+  - {'name': 'Battle of the Boyne (observed)', 'fixed_date': [7, 14], 'only_states': ['Northern Ireland']}
+  - {'name': 'New Year Holiday', 'fixed_date': [1, 2], 'only_states': ['Scotland']}
+  - {'name': 'Summer Bank Holiday', 'fixed_date': [8, 4], 'only_states': ['Scotland']}
+  - {'name': "Saint Andrew's Day", 'fixed_date': [11, 30], 'only_states': ['Scotland']}
+  - {'name': "Saint Andrew's Day (observed)", 'fixed_date': [12, 1], 'only_states': ['Scotland']}
 England:
   _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=51.5073219&lon=-0.1276474&zoom=18&addressdetails=1&accept-language=en
   PH:
@@ -28,43 +44,3 @@ Wales:
     fixed_date: [12, 25]
   - name: Boxing Day
     fixed_date: [12, 26]
-PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: May Day
-  fixed_date: [5, 5]
-- name: Spring Bank Holiday
-  fixed_date: [5, 26]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
-- name: Easter Monday
-  fixed_date: [4, 21]
-  only_states: [England, Northern Ireland, Wales]
-- name: Late Summer Bank Holiday
-  fixed_date: [8, 25]
-  only_states: [England, Northern Ireland, Wales]
-- name: Saint Patrick's Day
-  fixed_date: [3, 17]
-  only_states: [Northern Ireland]
-- name: Battle of the Boyne
-  fixed_date: [7, 12]
-  only_states: [Northern Ireland]
-- name: Battle of the Boyne (observed)
-  fixed_date: [7, 14]
-  only_states: [Northern Ireland]
-- name: New Year Holiday
-  fixed_date: [1, 2]
-  only_states: [Scotland]
-- name: Summer Bank Holiday
-  fixed_date: [8, 4]
-  only_states: [Scotland]
-- name: Saint Andrew's Day
-  fixed_date: [11, 30]
-  only_states: [Scotland]
-- name: Saint Andrew's Day (observed)
-  fixed_date: [12, 1]
-  only_states: [Scotland]

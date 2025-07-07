@@ -1,47 +1,25 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Chinese New Year
-  fixed_date: [1, 29]
-- name: Eid'l Fitr
-  fixed_date: [4, 1]
-- name: Araw ng Kagitingan
-  fixed_date: [4, 9]
-- name: Maundy Thursday
-  fixed_date: [4, 17]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Black Saturday
-  fixed_date: [4, 19]
-- name: Labor Day
-  fixed_date: [5, 1]
-- name: Elections special (non-working) day
-  fixed_date: [5, 12]
-- name: Eid'l Adha
-  fixed_date: [6, 6]
-- name: Independence Day
-  fixed_date: [6, 12]
-- name: Additional special (non-working) day
-  fixed_date: [7, 27]
-- name: Ninoy Aquino Day
-  fixed_date: [8, 21]
-- name: National Heroes Day
-  fixed_date: [8, 25]
-- name: All Saints' Day Eve
-  fixed_date: [10, 31]
-- name: All Saints' Day
-  fixed_date: [11, 1]
-- name: Bonifacio Day
-  fixed_date: [11, 30]
-- name: Feast of the Immaculate Conception of Mary
-  fixed_date: [12, 8]
-- name: Christmas Eve
-  fixed_date: [12, 24]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Rizal Day
-  fixed_date: [12, 30]
-- name: Last Day of the Year
-  fixed_date: [12, 31]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Chinese New Year', 'fixed_date': [1, 29]}
+  - {'name': "Eid'l Fitr", 'fixed_date': [4, 1]}
+  - {'name': 'Araw ng Kagitingan', 'fixed_date': [4, 9]}
+  - {'name': 'Maundy Thursday', 'fixed_date': [4, 17]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Black Saturday', 'fixed_date': [4, 19]}
+  - {'name': 'Labor Day', 'fixed_date': [5, 1]}
+  - {'name': 'Elections special (non-working) day', 'fixed_date': [5, 12]}
+  - {'name': "Eid'l Adha", 'fixed_date': [6, 6]}
+  - {'name': 'Independence Day', 'fixed_date': [6, 12]}
+  - {'name': 'Additional special (non-working) day', 'fixed_date': [7, 27]}
+  - {'name': 'Ninoy Aquino Day', 'fixed_date': [8, 21]}
+  - {'name': 'National Heroes Day', 'fixed_date': [8, 25]}
+  - {'name': "All Saints' Day Eve", 'fixed_date': [10, 31]}
+  - {'name': "All Saints' Day", 'fixed_date': [11, 1]}
+  - {'name': 'Bonifacio Day', 'fixed_date': [11, 30]}
+  - {'name': 'Feast of the Immaculate Conception of Mary', 'fixed_date': [12, 8]}
+  - {'name': 'Christmas Eve', 'fixed_date': [12, 24]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Rizal Day', 'fixed_date': [12, 30]}
+  - {'name': 'Last Day of the Year', 'fixed_date': [12, 31]}

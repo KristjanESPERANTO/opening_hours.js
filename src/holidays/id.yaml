@@ -1,37 +1,20 @@
 ---
 
 PH:
-- name: Tahun Baru Masehi
-  fixed_date: [1, 1]
-- name: Isra Mikraj Nabi Muhammad
-  fixed_date: [1, 27]
-- name: Tahun Baru Imlek
-  fixed_date: [1, 29]
-- name: Hari Suci Nyepi
-  fixed_date: [3, 29]
-- name: Hari Raya Idul Fitri
-  fixed_date: [3, 31]
-- name: Hari kedua dari Hari Raya Idul Fitri
-  fixed_date: [4, 1]
-- name: Wafat Yesus Kristus
-  fixed_date: [4, 18]
-- name: Kebangkitan Yesus Kristus
-  fixed_date: [4, 20]
-- name: Hari Buruh Internasional
-  fixed_date: [5, 1]
-- name: Hari Raya Waisak
-  fixed_date: [5, 12]
-- name: Kenaikan Yesus Kristus
-  fixed_date: [5, 29]
-- name: Hari Lahir Pancasila
-  fixed_date: [6, 1]
-- name: Hari Raya Idul Adha
-  fixed_date: [6, 6]
-- name: Tahun Baru Islam
-  fixed_date: [6, 27]
-- name: Hari Kemerdekaan Republik Indonesia
-  fixed_date: [8, 17]
-- name: Maulid Nabi Muhammad
-  fixed_date: [9, 5]
-- name: Hari Raya Natal
-  fixed_date: [12, 25]
+  - {'name': 'Tahun Baru Masehi', 'fixed_date': [1, 1]}
+  - {'name': 'Isra Mikraj Nabi Muhammad', 'fixed_date': [1, 27]}
+  - {'name': 'Tahun Baru Imlek', 'fixed_date': [1, 29]}
+  - {'name': 'Hari Suci Nyepi', 'fixed_date': [3, 29]}
+  - {'name': 'Hari Raya Idul Fitri', 'fixed_date': [3, 31]}
+  - {'name': 'Hari kedua dari Hari Raya Idul Fitri', 'fixed_date': [4, 1]}
+  - {'name': 'Wafat Yesus Kristus', 'fixed_date': [4, 18]}
+  - {'name': 'Kebangkitan Yesus Kristus', 'fixed_date': [4, 20]}
+  - {'name': 'Hari Buruh Internasional', 'fixed_date': [5, 1]}
+  - {'name': 'Hari Raya Waisak', 'fixed_date': [5, 12]}
+  - {'name': 'Kenaikan Yesus Kristus', 'fixed_date': [5, 29]}
+  - {'name': 'Hari Lahir Pancasila', 'fixed_date': [6, 1]}
+  - {'name': 'Hari Raya Idul Adha', 'fixed_date': [6, 6]}
+  - {'name': 'Tahun Baru Islam', 'fixed_date': [6, 27]}
+  - {'name': 'Hari Kemerdekaan Republik Indonesia', 'fixed_date': [8, 17]}
+  - {'name': 'Maulid Nabi Muhammad', 'fixed_date': [9, 5]}
+  - {'name': 'Hari Raya Natal', 'fixed_date': [12, 25]}

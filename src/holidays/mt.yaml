@@ -1,31 +1,17 @@
 ---
 
 PH:
-- name: L-Ewwel tas-Sena
-  fixed_date: [1, 1]
-- name: Il-Festa tan-Nawfraġju ta' San Pawl
-  fixed_date: [2, 10]
-- name: Il-Festa ta' San Ġużepp
-  fixed_date: [3, 19]
-- name: Jum il-Ħelsien
-  fixed_date: [3, 31]
-- name: Il-Ġimgħa l-Kbira
-  fixed_date: [4, 18]
-- name: Jum il-Ħaddiem
-  fixed_date: [5, 1]
-- name: Sette Giugno
-  fixed_date: [6, 7]
-- name: Il-Festa ta' San Pietru u San Pawl
-  fixed_date: [6, 29]
-- name: Il-Festa ta' Santa Marija
-  fixed_date: [8, 15]
-- name: Jum il-Vitorja
-  fixed_date: [9, 8]
-- name: Jum l-Indipendenza
-  fixed_date: [9, 21]
-- name: Il-Festa tal-Immakulata Kunċizzjoni
-  fixed_date: [12, 8]
-- name: Jum ir-Repubblika
-  fixed_date: [12, 13]
-- name: Il-Milied
-  fixed_date: [12, 25]
+  - {'name': 'L-Ewwel tas-Sena', 'fixed_date': [1, 1]}
+  - {'name': "Il-Festa tan-Nawfraġju ta' San Pawl", 'fixed_date': [2, 10]}
+  - {'name': "Il-Festa ta' San Ġużepp", 'fixed_date': [3, 19]}
+  - {'name': 'Jum il-Ħelsien', 'fixed_date': [3, 31]}
+  - {'name': 'Il-Ġimgħa l-Kbira', 'fixed_date': [4, 18]}
+  - {'name': 'Jum il-Ħaddiem', 'fixed_date': [5, 1]}
+  - {'name': 'Sette Giugno', 'fixed_date': [6, 7]}
+  - {'name': "Il-Festa ta' San Pietru u San Pawl", 'fixed_date': [6, 29]}
+  - {'name': "Il-Festa ta' Santa Marija", 'fixed_date': [8, 15]}
+  - {'name': 'Jum il-Vitorja', 'fixed_date': [9, 8]}
+  - {'name': 'Jum l-Indipendenza', 'fixed_date': [9, 21]}
+  - {'name': 'Il-Festa tal-Immakulata Kunċizzjoni', 'fixed_date': [12, 8]}
+  - {'name': 'Jum ir-Repubblika', 'fixed_date': [12, 13]}
+  - {'name': 'Il-Milied', 'fixed_date': [12, 25]}

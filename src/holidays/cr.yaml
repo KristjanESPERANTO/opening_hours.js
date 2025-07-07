@@ -1,21 +1,12 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día de Juan Santamaría
-  fixed_date: [4, 11]
-- name: Jueves Santo
-  fixed_date: [4, 17]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Día Internacional del Trabajo
-  fixed_date: [5, 1]
-- name: Anexión del Partido de Nicoya a Costa Rica
-  fixed_date: [7, 25]
-- name: Día de la Madre
-  fixed_date: [8, 15]
-- name: Día de la Independencia
-  fixed_date: [9, 15]
-- name: Navidad
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día de Juan Santamaría', 'fixed_date': [4, 11]}
+  - {'name': 'Jueves Santo', 'fixed_date': [4, 17]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Día Internacional del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Anexión del Partido de Nicoya a Costa Rica', 'fixed_date': [7, 25]}
+  - {'name': 'Día de la Madre', 'fixed_date': [8, 15]}
+  - {'name': 'Día de la Independencia', 'fixed_date': [9, 15]}
+  - {'name': 'Navidad', 'fixed_date': [12, 25]}

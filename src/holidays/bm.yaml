@@ -1,23 +1,13 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Bermuda Day
-  fixed_date: [5, 23]
-- name: National Heroes Day
-  fixed_date: [6, 16]
-- name: Emancipation Day
-  fixed_date: [7, 31]
-- name: Mary Prince Day
-  fixed_date: [8, 1]
-- name: Labour Day
-  fixed_date: [9, 1]
-- name: Remembrance Day
-  fixed_date: [11, 11]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Bermuda Day', 'fixed_date': [5, 23]}
+  - {'name': 'National Heroes Day', 'fixed_date': [6, 16]}
+  - {'name': 'Emancipation Day', 'fixed_date': [7, 31]}
+  - {'name': 'Mary Prince Day', 'fixed_date': [8, 1]}
+  - {'name': 'Labour Day', 'fixed_date': [9, 1]}
+  - {'name': 'Remembrance Day', 'fixed_date': [11, 11]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

@@ -1,13 +1,8 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día de los Trabajadores
-  fixed_date: [5, 1]
-- name: Jura de la Constitución
-  fixed_date: [7, 18]
-- name: Declaratoria de la Independencia
-  fixed_date: [8, 25]
-- name: Día de la Familia
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día de los Trabajadores', 'fixed_date': [5, 1]}
+  - {'name': 'Jura de la Constitución', 'fixed_date': [7, 18]}
+  - {'name': 'Declaratoria de la Independencia', 'fixed_date': [8, 25]}
+  - {'name': 'Día de la Familia', 'fixed_date': [12, 25]}

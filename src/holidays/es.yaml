@@ -1,114 +1,46 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=41.60333&lon=2.18920&zoom=18&addressdetails=1&limit=1&accept-language=es,ca,eu,gl,oc,ast
+
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Epifanía del Señor
-  fixed_date: [1, 6]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Fiesta del Trabajo
-  fixed_date: [5, 1]
-- name: Asunción de la Virgen
-  fixed_date: [8, 15]
-- name: Todos los Santos
-  fixed_date: [11, 1]
-- name: Día de la Constitución Española
-  fixed_date: [12, 6]
-- name: Inmaculada Concepción
-  fixed_date: [12, 8]
-- name: Natividad del Señor
-  fixed_date: [12, 25]
-- name: Día de Andalucia
-  fixed_date: [2, 28]
-  only_states: [Andalucía]
-- name: Jueves Santo
-  fixed_date: [4, 17]
-  only_states: [Andalucía, Aragón, Asturias, Cantabria, Ceuta, Castilla y León, Castilla-La
-      Mancha, Canarias, Extremadura, Galicia, Islas Baleares, Illes Balears, Murcia,
-    Madrid, Melilla, Navarra, País Vasco, La Rioja]
-- name: Lunes siguiente a Fiesta Nacional de España
-  fixed_date: [10, 13]
-  only_states: [Andalucía, Aragón, Asturias, Castilla y León, Extremadura]
-- name: Día de San Jorge
-  fixed_date: [4, 23]
-  only_states: [Aragón]
-- name: Día de Asturias
-  fixed_date: [9, 8]
-  only_states: [Asturias]
-- name: Día de las Instituciones de Cantabria
-  fixed_date: [7, 28]
-  only_states: [Cantabria]
-- name: La Bien Aparecida
-  fixed_date: [9, 15]
-  only_states: [Cantabria]
-- name: Fiesta del Sacrificio-Eidul Adha
-  fixed_date: [6, 6]
-  only_states: [Ceuta]
-- name: Nuestra Señora de África
-  fixed_date: [8, 5]
-  only_states: [Ceuta]
-- name: Fiesta de Castilla y León
-  fixed_date: [4, 23]
-  only_states: [Castilla y León]
-- name: Día de Castilla-La Mancha
-  fixed_date: [5, 31]
-  only_states: [Castilla-La Mancha]
-- name: Corpus Christi
-  fixed_date: [6, 19]
-  only_states: [Castilla-La Mancha]
-- name: Día de Canarias
-  fixed_date: [5, 30]
-  only_states: [Canarias]
-- name: Lunes de Pascua
-  fixed_date: [4, 21]
-  only_states: [Cataluña, Catalunya, Navarra, País Vasco, La Rioja, Valenciana]
-- name: San Juan
-  fixed_date: [6, 24]
-  only_states: [Cataluña, Catalunya, Valenciana]
-- name: Fiesta Nacional de Cataluña
-  fixed_date: [9, 11]
-  only_states: [Cataluña, Catalunya]
-- name: San Esteban
-  fixed_date: [12, 26]
-  only_states: [Cataluña, Catalunya, Islas Baleares, Illes Balears]
-- name: Día de Extremadura
-  fixed_date: [9, 8]
-  only_states: [Extremadura]
-- name: Día de las Letras Gallegas
-  fixed_date: [5, 17]
-  only_states: [Galicia]
-- name: Día Nacional de Galicia
-  fixed_date: [7, 25]
-  only_states: [Galicia]
-- name: Día de las Islas Baleares
-  fixed_date: [3, 1]
-  only_states: [Islas Baleares, Illes Balears]
-- name: San José
-  fixed_date: [3, 19]
-  only_states: [Murcia, Valenciana]
-- name: Día de la Región de Murcia
-  fixed_date: [6, 9]
-  only_states: [Murcia]
-- name: Fiesta de la Comunidad de Madrid
-  fixed_date: [5, 2]
-  only_states: [Madrid]
-- name: Santiago Apóstol
-  fixed_date: [7, 25]
-  only_states: [Madrid, Navarra, País Vasco]
-- name: Fiesta del Eid Fitr
-  fixed_date: [3, 31]
-  only_states: [Melilla]
-- name: Fiesta del Sacrificio-Aid Al Adha
-  fixed_date: [6, 6]
-  only_states: [Melilla]
-- name: Día de La Rioja
-  fixed_date: [6, 9]
-  only_states: [La Rioja]
-- name: Día de la Comunidad Valenciana
-  fixed_date: [10, 9]
-  only_states: [Valenciana]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Epifanía del Señor', 'fixed_date': [1, 6]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Fiesta del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Asunción de la Virgen', 'fixed_date': [8, 15]}
+  - {'name': 'Todos los Santos', 'fixed_date': [11, 1]}
+  - {'name': 'Día de la Constitución Española', 'fixed_date': [12, 6]}
+  - {'name': 'Inmaculada Concepción', 'fixed_date': [12, 8]}
+  - {'name': 'Natividad del Señor', 'fixed_date': [12, 25]}
+  - {'name': 'Día de Andalucia', 'fixed_date': [2, 28], 'only_states': ['Andalucía']}
+  - {'name': 'Jueves Santo', 'fixed_date': [4, 17], 'only_states': ['Andalucía', 'Aragón', 'Asturias', 'Cantabria', 'Ceuta', 'Castilla y León', 'Castilla-La Mancha', 'Canarias', 'Extremadura', 'Galicia', 'Islas Baleares', 'Illes Balears', 'Murcia', 'Madrid', 'Melilla', 'Navarra', 'País Vasco', 'La Rioja']}
+  - {'name': 'Lunes siguiente a Fiesta Nacional de España', 'fixed_date': [10, 13], 'only_states': ['Andalucía', 'Aragón', 'Asturias', 'Castilla y León', 'Extremadura']}
+  - {'name': 'Día de San Jorge', 'fixed_date': [4, 23], 'only_states': ['Aragón']}
+  - {'name': 'Día de Asturias', 'fixed_date': [9, 8], 'only_states': ['Asturias']}
+  - {'name': 'Día de las Instituciones de Cantabria', 'fixed_date': [7, 28], 'only_states': ['Cantabria']}
+  - {'name': 'La Bien Aparecida', 'fixed_date': [9, 15], 'only_states': ['Cantabria']}
+  - {'name': 'Fiesta del Sacrificio-Eidul Adha', 'fixed_date': [6, 6], 'only_states': ['Ceuta']}
+  - {'name': 'Nuestra Señora de África', 'fixed_date': [8, 5], 'only_states': ['Ceuta']}
+  - {'name': 'Fiesta de Castilla y León', 'fixed_date': [4, 23], 'only_states': ['Castilla y León']}
+  - {'name': 'Día de Castilla-La Mancha', 'fixed_date': [5, 31], 'only_states': ['Castilla-La Mancha']}
+  - {'name': 'Corpus Christi', 'fixed_date': [6, 19], 'only_states': ['Castilla-La Mancha']}
+  - {'name': 'Día de Canarias', 'fixed_date': [5, 30], 'only_states': ['Canarias']}
+  - {'name': 'Lunes de Pascua', 'fixed_date': [4, 21], 'only_states': ['Cataluña', 'Catalunya', 'Navarra', 'País Vasco', 'La Rioja', 'Valenciana']}
+  - {'name': 'San Juan', 'fixed_date': [6, 24], 'only_states': ['Cataluña', 'Catalunya', 'Valenciana']}
+  - {'name': 'Fiesta Nacional de Cataluña', 'fixed_date': [9, 11], 'only_states': ['Cataluña', 'Catalunya']}
+  - {'name': 'San Esteban', 'fixed_date': [12, 26], 'only_states': ['Cataluña', 'Catalunya', 'Islas Baleares', 'Illes Balears']}
+  - {'name': 'Día de Extremadura', 'fixed_date': [9, 8], 'only_states': ['Extremadura']}
+  - {'name': 'Día de las Letras Gallegas', 'fixed_date': [5, 17], 'only_states': ['Galicia']}
+  - {'name': 'Día Nacional de Galicia', 'fixed_date': [7, 25], 'only_states': ['Galicia']}
+  - {'name': 'Día de las Islas Baleares', 'fixed_date': [3, 1], 'only_states': ['Islas Baleares', 'Illes Balears']}
+  - {'name': 'San José', 'fixed_date': [3, 19], 'only_states': ['Murcia', 'Valenciana']}
+  - {'name': 'Día de la Región de Murcia', 'fixed_date': [6, 9], 'only_states': ['Murcia']}
+  - {'name': 'Fiesta de la Comunidad de Madrid', 'fixed_date': [5, 2], 'only_states': ['Madrid']}
+  - {'name': 'Santiago Apóstol', 'fixed_date': [7, 25], 'only_states': ['Madrid', 'Navarra', 'País Vasco']}
+  - {'name': 'Fiesta del Eid Fitr', 'fixed_date': [3, 31], 'only_states': ['Melilla']}
+  - {'name': 'Fiesta del Sacrificio-Aid Al Adha', 'fixed_date': [6, 6], 'only_states': ['Melilla']}
+  - {'name': 'Día de La Rioja', 'fixed_date': [6, 9], 'only_states': ['La Rioja']}
+  - {'name': 'Día de la Comunidad Valenciana', 'fixed_date': [10, 9], 'only_states': ['Valenciana']}
 Andalucía: {_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=37.33999&lon=-4.58116&zoom=18&addressdetails=1&limit=1&accept-language=es,ca',
   _state_code: an}
 Aragón: {_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.37872&lon=-0.76393&zoom=18&addressdetails=1&limit=1&accept-language=es,ca',

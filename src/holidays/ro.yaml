@@ -1,41 +1,25 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=45.9852129&lon=24.6859225&zoom=18&addressdetails=1&accept-language=ro,en
+
 PH:
-- name: Anul Nou
-  fixed_date: [1, 1]
-- name: Anul Nou
-  fixed_date: [1, 2]
-- name: Bobotează
-  fixed_date: [1, 6]
-- name: Sfântul Ion
-  fixed_date: [1, 7]
-- name: Ziua Unirii Principatelor Române
-  fixed_date: [1, 24]
-- name: Paștele
-  fixed_date: [4, 18]
-- name: Paștele
-  fixed_date: [4, 20]
-- name: Paștele
-  fixed_date: [4, 21]
-- name: Ziua Muncii
-  fixed_date: [5, 1]
-- name: Ziua Copilului
-  fixed_date: [6, 1]
-- name: Rusaliile
-  fixed_date: [6, 8]
-- name: Rusaliile
-  fixed_date: [6, 9]
-- name: Adormirea Maicii Domnului
-  fixed_date: [8, 15]
-- name: Sfantul Apostol Andrei cel Intai chemat
-  fixed_date: [11, 30]
-- name: Ziua Națională a României
-  fixed_date: [12, 1]
-- name: Crăciunul
-  fixed_date: [12, 25]
-- name: Crăciunul
-  fixed_date: [12, 26]
+  - {'name': 'Anul Nou', 'fixed_date': [1, 1]}
+  - {'name': 'Anul Nou', 'fixed_date': [1, 2]}
+  - {'name': 'Bobotează', 'fixed_date': [1, 6]}
+  - {'name': 'Sfântul Ion', 'fixed_date': [1, 7]}
+  - {'name': 'Ziua Unirii Principatelor Române', 'fixed_date': [1, 24]}
+  - {'name': 'Paștele', 'fixed_date': [4, 18]}
+  - {'name': 'Paștele', 'fixed_date': [4, 20]}
+  - {'name': 'Paștele', 'fixed_date': [4, 21]}
+  - {'name': 'Ziua Muncii', 'fixed_date': [5, 1]}
+  - {'name': 'Ziua Copilului', 'fixed_date': [6, 1]}
+  - {'name': 'Rusaliile', 'fixed_date': [6, 8]}
+  - {'name': 'Rusaliile', 'fixed_date': [6, 9]}
+  - {'name': 'Adormirea Maicii Domnului', 'fixed_date': [8, 15]}
+  - {'name': 'Sfantul Apostol Andrei cel Intai chemat', 'fixed_date': [11, 30]}
+  - {'name': 'Ziua Națională a României', 'fixed_date': [12, 1]}
+  - {'name': 'Crăciunul', 'fixed_date': [12, 25]}
+  - {'name': 'Crăciunul', 'fixed_date': [12, 26]}
 SH:
 - name: Vacanţa intersemestrială
   '2015': [1, 31, 2, 8]

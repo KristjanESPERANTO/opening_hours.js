@@ -1,25 +1,14 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: King's Birthday
-  fixed_date: [4, 19]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: National Flag Day
-  fixed_date: [4, 25]
-- name: Worker's Day
-  fixed_date: [5, 1]
-- name: Ascension Day
-  fixed_date: [5, 29]
-- name: Birthday of Late King Sobhuza
-  fixed_date: [7, 22]
-- name: Independence Day
-  fixed_date: [9, 6]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': "King's Birthday", 'fixed_date': [4, 19]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'National Flag Day', 'fixed_date': [4, 25]}
+  - {'name': "Worker's Day", 'fixed_date': [5, 1]}
+  - {'name': 'Ascension Day', 'fixed_date': [5, 29]}
+  - {'name': 'Birthday of Late King Sobhuza', 'fixed_date': [7, 22]}
+  - {'name': 'Independence Day', 'fixed_date': [9, 6]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

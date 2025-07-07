@@ -46,20 +46,37 @@ def get_ph_list(country, year):
 
 
 def update_yaml_file(filepath, ph_list):
+
     with open(filepath, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
-    data["PH"] = ph_list
+
     with open(filepath, "w", encoding="utf-8") as f:
         f.write("---\n\n")  # Add YAML document separator at the beginning
-        yaml.dump(
-            data,
-            f,
-            allow_unicode=True,
-            sort_keys=False,
-            default_flow_style=None,
-            indent=2,
-        )
-        # Change default_flow_style to None and add indent=2
+
+        if "_nominatim_url" in data:
+            f.write(f"_nominatim_url: {data['_nominatim_url']}\n\n")
+            del data["_nominatim_url"]
+
+        if "PH" in data:
+            del data["PH"]
+
+        if len(ph_list) == 0:
+            yaml.dump({"PH": []}, f)
+        else:
+            f.write("PH:\n")
+            for item in ph_list:
+                f.write(f"  - {item}\n")
+        # if data not empty, merge with existing data
+        if data:
+            yaml.dump(
+                data,
+                f,
+                allow_unicode=True,
+                sort_keys=False,
+                default_flow_style=None,
+                indent=2,
+            )
+
     print(f"Updated: {filepath}")
 
 
@@ -90,6 +107,7 @@ def main():
     with open("src/holidays/index.js", "w", encoding="utf-8") as f:
         f.write("// This file is auto-generated. Do not edit manually.\n")
         f.write(index_string)
+
 
 if __name__ == "__main__":
     main()
