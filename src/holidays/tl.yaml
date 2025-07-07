@@ -1,0 +1,37 @@
+PH:
+- name: Dia de Ano Novo
+  fixed_date: [1, 1]
+- name: Dia dos Veteranos
+  fixed_date: [3, 3]
+- name: Idul Fitri
+  fixed_date: [3, 31]
+- name: Sexta-Feira Santa
+  fixed_date: [4, 18]
+- name: Dia Mundial do Trabalhador
+  fixed_date: [5, 1]
+- name: Dia da Restauração da Independência
+  fixed_date: [5, 20]
+- name: Idul Adha
+  fixed_date: [6, 6]
+- name: Festa do Corpo de Deus
+  fixed_date: [6, 19]
+- name: Dia da Consulta Popular
+  fixed_date: [8, 30]
+- name: Dia de Todos os Santos
+  fixed_date: [11, 1]
+- name: Dia de Todos os Fiéis Defuntos
+  fixed_date: [11, 2]
+- name: Dia Nacional da Mulher
+  fixed_date: [11, 3]
+- name: Dia Nacional da Juventude
+  fixed_date: [11, 12]
+- name: Dia da Proclamação da Independência
+  fixed_date: [11, 28]
+- name: Dia da Memória
+  fixed_date: [12, 7]
+- name: Dia de Nossa Senhora da Imaculada Conceição, padroeira de Timor-Leste
+  fixed_date: [12, 8]
+- name: Dia de Natal
+  fixed_date: [12, 25]
+- name: Dia dos Heróis Nacionais
+  fixed_date: [12, 31]

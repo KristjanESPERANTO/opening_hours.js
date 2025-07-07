@@ -1,0 +1,39 @@
+PH:
+- name: Awal Tahun Masihi
+  fixed_date: [1, 1]
+- name: Israk dan Mikraj
+  fixed_date: [1, 27]
+- name: Tahun Baru Cina
+  fixed_date: [1, 29]
+- name: Hari Kebangsaan
+  fixed_date: [2, 23]
+- name: Hari Kebangsaan (diperhatikan)
+  fixed_date: [2, 24]
+- name: Hari Pertama Berpuasa
+  fixed_date: [3, 2]
+- name: Hari Pertama Berpuasa (diperhatikan)
+  fixed_date: [3, 3]
+- name: Hari Nuzul Al-Quran
+  fixed_date: [3, 18]
+- name: Hari Raya Aidil Fitri
+  fixed_date: [3, 31]
+- name: Hari Raya Aidil Fitri
+  fixed_date: [4, 1]
+- name: Hari Raya Aidil Fitri
+  fixed_date: [4, 2]
+- name: Hari Angkatan Bersenjata Diraja Brunei
+  fixed_date: [5, 31]
+- name: Hari Raya Aidil Adha
+  fixed_date: [6, 7]
+- name: Awal Tahun Hijrah
+  fixed_date: [6, 27]
+- name: Awal Tahun Hijrah (diperhatikan)
+  fixed_date: [6, 28]
+- name: Hari Keputeraan KDYMM Sultan Brunei
+  fixed_date: [7, 15]
+- name: Maulidur Rasul
+  fixed_date: [9, 5]
+- name: Maulidur Rasul (diperhatikan)
+  fixed_date: [9, 6]
+- name: Hari Natal
+  fixed_date: [12, 25]

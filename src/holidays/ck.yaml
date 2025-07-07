@@ -1,0 +1,25 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Day after New Year's Day
+  fixed_date: [1, 2]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Anzac Day
+  fixed_date: [4, 25]
+- name: Sovereign's Birthday
+  fixed_date: [6, 2]
+- name: Ra o te Ui Ariki
+  fixed_date: [7, 4]
+- name: Constitution Day
+  fixed_date: [8, 4]
+- name: Cook Islands Gospel Day
+  fixed_date: [10, 26]
+- name: Cook Islands Gospel Day (observed)
+  fixed_date: [10, 27]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

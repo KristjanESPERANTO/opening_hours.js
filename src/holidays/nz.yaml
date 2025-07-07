@@ -1,15 +1,58 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=-41.2922255&lon=174.7763033&zoom=16&addressdetails=1&accept-language=en'
-
-PH:  # https://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand
-  - {'name': 'New Year''s Day', 'fixed_date': [1, 1]}
-  - {'name': 'Day after New Year''s Day', 'fixed_date': [1, 2]}
-  - {'name': 'Waitangi Day', 'fixed_date': [2, 6]}
-  - {'name': 'Good Friday', 'variable_date': easter, 'offset': -2}
-  - {'name': 'Easter Monday', 'variable_date': easter, 'offset': 1}
-  - {'name': 'Anzac Day', 'fixed_date': [4, 25]}
-  - {'name': 'Queen''s Birthday', 'variable_date': firstJuneMonday}
-  - {'name': 'Labour Day', 'variable_date': firstOctoberMonday, 'offset': 21}
-  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
-  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}
+_nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=-41.2922255&lon=174.7763033&zoom=16&addressdetails=1&accept-language=en
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Day after New Year's Day
+  fixed_date: [1, 2]
+- name: Waitangi Day
+  fixed_date: [2, 6]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Anzac Day
+  fixed_date: [4, 25]
+- name: King's Birthday
+  fixed_date: [6, 2]
+- name: Matariki
+  fixed_date: [6, 20]
+- name: Labour Day
+  fixed_date: [10, 27]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]
+- name: Auckland Anniversary Day
+  fixed_date: [1, 27]
+  only_states: [Auckland, Tāmaki-Makaurau, AU, Northland, Te Taitokerau, 'NO']
+- name: Canterbury Anniversary Day
+  fixed_date: [11, 14]
+  only_states: [Canterbury, Waitaha, CA]
+- name: Chatham Islands Anniversary Day
+  fixed_date: [12, 1]
+  only_states: [Chatham Islands Territory, Chatham Islands, Wharekauri, CI]
+- name: Hawke's Bay Anniversary Day
+  fixed_date: [10, 24]
+  only_states: [Hawke's Bay, Te Matau-a-Māui, HB]
+- name: Marlborough Anniversary Day
+  fixed_date: [11, 3]
+  only_states: [Marlborough, MA]
+- name: Nelson Anniversary Day
+  fixed_date: [2, 3]
+  only_states: [Nelson, Whakatū, NE]
+- name: Otago Anniversary Day
+  fixed_date: [3, 24]
+  only_states: [Otago, Ō Tākou, OT]
+- name: Southland Anniversary Day
+  fixed_date: [4, 22]
+  only_states: [Southland, Te Taiao Tonga, SO]
+- name: Taranaki Anniversary Day
+  fixed_date: [3, 10]
+  only_states: [Taranaki, TK]
+- name: Wellington Anniversary Day
+  fixed_date: [1, 20]
+  only_states: [Greater Wellington, Te Pane Matua Taiao, Wellington, Te Whanganui-a-Tara,
+    WG]
+- name: West Coast Anniversary Day
+  fixed_date: [12, 1]
+  only_states: [West Coast, Te Tai o Poutini, WC]

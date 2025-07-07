@@ -1,0 +1,31 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Father Lini Day
+  fixed_date: [2, 21]
+- name: Custom Chief's Day
+  fixed_date: [3, 5]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Labour Day
+  fixed_date: [5, 1]
+- name: Ascension Day
+  fixed_date: [5, 29]
+- name: Children's Day
+  fixed_date: [7, 24]
+- name: Independence Day
+  fixed_date: [7, 30]
+- name: Assumption Day
+  fixed_date: [8, 15]
+- name: Constitution Day
+  fixed_date: [10, 5]
+- name: Constitution Day (observed)
+  fixed_date: [10, 6]
+- name: Unity Day
+  fixed_date: [11, 29]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Family Day
+  fixed_date: [12, 26]

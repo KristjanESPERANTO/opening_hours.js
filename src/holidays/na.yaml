@@ -1,17 +1,34 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Namibia&zoom=18&addressdetails=1&limit=1'
-
-PH:  # https://en.wikipedia.org/wiki/Public_holidays_in_Namibia, https://www.officeholidays.com/countries/namibia
-  - {'name': 'New Year’s Day', 'fixed_date': [1, 1]}
-  - {'name': 'Independence Day', 'fixed_date': [3, 21]}
-  - {'name': 'Good Friday', 'variable_date': easter, 'offset': -2}
-  - {'name': 'Easter Monday', 'variable_date': easter, 'offset': 1}
-  - {'name': 'Worker’s Day', 'fixed_date': [5, 1]}
-  - {'name': 'Cassinga Day', 'fixed_date': [5, 4]}
-  - {'name': 'Ascension Day', 'variable_date': easter, 'offset': 39}
-  - {'name': 'Africa Day', 'fixed_date': [5, 25]}
-  - {'name': 'Heroes’ Day', 'fixed_date': [8, 26]}
-  - {'name': 'Human Rights Day', 'fixed_date': [12, 10]}
-  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
-  - {'name': 'Family Day', 'fixed_date': [12, 26]}
+_nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Namibia&zoom=18&addressdetails=1&limit=1
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Burial ceremony of Dr. Sam Shafiishuna Nujoma
+  fixed_date: [3, 1]
+- name: Independence Day
+  fixed_date: [3, 21]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Workers' Day
+  fixed_date: [5, 1]
+- name: Cassinga Day
+  fixed_date: [5, 4]
+- name: Cassinga Day (observed)
+  fixed_date: [5, 5]
+- name: Africa Day
+  fixed_date: [5, 25]
+- name: Africa Day (observed)
+  fixed_date: [5, 26]
+- name: Genocide Remembrance Day
+  fixed_date: [5, 28]
+- name: Ascension Day
+  fixed_date: [5, 29]
+- name: Heroes' Day
+  fixed_date: [8, 26]
+- name: Day of the Namibian Women and International Human Rights Day
+  fixed_date: [9, 10]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Family Day
+  fixed_date: [12, 26]

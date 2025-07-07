@@ -1,0 +1,29 @@
+PH:
+- name: Año Nuevo
+  fixed_date: [1, 1]
+- name: Jueves Santo
+  fixed_date: [4, 17]
+- name: Viernes Santo
+  fixed_date: [4, 18]
+- name: Sábado Santo
+  fixed_date: [4, 19]
+- name: Día del Trabajo
+  fixed_date: [5, 1]
+- name: Día de la Madre
+  fixed_date: [5, 10]
+- name: Día del Padre
+  fixed_date: [6, 17]
+- name: Celebración del Divino Salvador del Mundo
+  fixed_date: [8, 6]
+- name: Día de la Independencia
+  fixed_date: [9, 15]
+- name: Día de los Difuntos
+  fixed_date: [11, 2]
+- name: Navidad
+  fixed_date: [12, 25]
+- name: Fiesta de San Salvador
+  fixed_date: [8, 3]
+  only_states: [San Salvador]
+- name: Fiesta de San Salvador
+  fixed_date: [8, 5]
+  only_states: [San Salvador]

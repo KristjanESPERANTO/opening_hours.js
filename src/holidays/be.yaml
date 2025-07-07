@@ -1,76 +1,67 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Belgium&zoom=18&addressdetails=1&limit=1&accept-language=nl,fr,de,en'
-
-# https://nl.wikipedia.org/wiki/Feestdagen_in_Belgi%C3%AB
+_nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Belgium&zoom=18&addressdetails=1&limit=1&accept-language=nl,fr,de,en
 PH:
-  - {'name': 'Nieuwjaar - Jour de l''an', 'fixed_date': [1, 1]}
-  - {'name': 'Paasmaandag - Lundi de Pâques', 'variable_date': easter, 'offset': 1}
-  - {'name': 'Dag van de Arbeid - Fête du Travail', 'fixed_date': [5, 1]}
-  - {'name': 'Onze-Lieve-Heer-Hemelvaart - Jeudi de l''Ascensionn', 'variable_date': easter, 'offset': 39}
-  - {'name': 'Pinkstermaandag - Lundi de Pentecôte', 'variable_date': easter, 'offset': 50}
-  - {'name': 'Nationale feestdag van België - Fête nationale', 'fixed_date': [7, 21]}
-  - {'name': 'Onze-Lieve-Vrouw-Hemelvaart - Assomption', 'fixed_date': [8, 15]}
-  - {'name': 'Allerheiligen - Toussaint', 'fixed_date': [11, 1]}
-  - {'name': 'Wapenstilstand - Armistice', 'fixed_date': [11, 11]}
-  - {'name': 'Kerstmis - Noël', 'fixed_date': [12, 25]}
-
-# Source: https://nl.wikipedia.org/wiki/Schoolvakantie
-# Source: https://onderwijs.vlaanderen.be/nl/schoolvakanties
+- name: Nieuwjaar
+  fixed_date: [1, 1]
+- name: Pasen
+  fixed_date: [4, 20]
+- name: Paasmaandag
+  fixed_date: [4, 21]
+- name: Dag van de Arbeid
+  fixed_date: [5, 1]
+- name: O. L. H. Hemelvaart
+  fixed_date: [5, 29]
+- name: Pinksteren
+  fixed_date: [6, 8]
+- name: Pinkstermaandag
+  fixed_date: [6, 9]
+- name: Nationale feestdag
+  fixed_date: [7, 21]
+- name: O. L. V. Hemelvaart
+  fixed_date: [8, 15]
+- name: Allerheiligen
+  fixed_date: [11, 1]
+- name: Wapenstilstand
+  fixed_date: [11, 11]
+- name: Kerstmis
+  fixed_date: [12, 25]
 SH:
-  - name: 'Krokusvakantie - Vacances de carnaval'
-    '2020': [2, 24, 3, 1]
-    '2021': [2, 15, 2, 21]
-    '2022': [2, 28, 3, 6]
-    '2023': [2, 20, 2, 26]
-    '2024': [2, 12, 2, 18]
-    '2025': [3, 3, 3, 9]
-    '2026': [2, 16, 2, 22]
-    '2027': [2, 8, 2, 14]
-    '2028': [2, 28, 3, 5]
-    '2029': [2, 12, 2, 18]
-  - name: 'Paasvakantie - Vacances de pâques'
-    '2020': [4, 6, 4, 19]
-    '2021': [4, 5, 4, 18]
-    '2022': [4, 4, 4, 18]
-    '2023': [4, 3, 4, 16]
-    '2024': [4, 1, 4, 14]
-    '2025': [4, 7, 4, 21]
-    '2026': [4, 6, 4, 19]
-    '2027': [3, 29, 4, 11]
-    '2028': [4, 3, 4, 17]
-    '2029': [4, 2, 4, 15]
-  - name: 'Zomervakantie - Vacances d''été'
-    '2020': [7, 1, 8, 31]
-    '2021': [7, 1, 8, 31]
-    '2022': [7, 1, 8, 31]
-    '2023': [7, 1, 8, 31]
-    '2024': [7, 1, 8, 31]
-    '2025': [7, 1, 8, 31]
-    '2026': [7, 1, 8, 31]
-    '2027': [7, 1, 8, 31]
-    '2028': [7, 1, 8, 31]
-    '2029': [7, 1, 8, 31]
-  - name: 'Herfstvakantie - Vacances automne'
-    '2019': [10, 28, 11, 3]
-    # Exceptionaly two weeks due to Covid
-    '2020': [11, 2, 11, 15]
-    '2021': [11, 1, 11, 7]
-    '2022': [10, 31, 11, 6]
-    '2023': [10, 30, 11, 5]
-    '2024': [10, 28, 11, 3]
-    '2025': [10, 27, 11, 2]
-    '2026': [11, 2, 11, 8]
-    '2027': [11, 1, 11, 7]
-    '2028': [10, 30, 11, 5]
-  - name: 'Kerstvakantie - Vacances de Noël'
-    '2019': [12, 23, 1, 5]
-    '2020': [12, 21, 1, 3]
-    '2021': [12, 27, 1, 9]
-    '2022': [12, 26, 1, 8]
-    '2023': [12, 25, 1, 7]
-    '2024': [12, 23, 1, 5]
-    '2025': [12, 22, 1, 4]
-    '2026': [12, 21, 1, 3]
-    '2027': [12, 27, 1, 9]
-    '2028': [12, 25, 1, 7]
+- name: Krokusvakantie - Vacances de carnaval
+  '2020': [2, 24, 3, 1]
+  '2021': [2, 15, 2, 21]
+  '2022': [2, 28, 3, 6]
+  '2023': [2, 20, 2, 26]
+  '2024': [2, 12, 2, 18]
+  '2025': [3, 3, 3, 9]
+  '2026': [2, 16, 2, 22]
+- name: Paasvakantie - Vacances de pâques
+  '2020': [4, 6, 4, 19]
+  '2021': [4, 5, 4, 18]
+  '2022': [4, 4, 4, 18]
+  '2023': [4, 3, 4, 16]
+  '2024': [4, 1, 4, 14]
+  '2025': [4, 7, 4, 21]
+  '2026': [4, 6, 4, 19]
+- name: Zomervakantie - Vacances d'été
+  '2020': [7, 1, 8, 31]
+  '2021': [7, 1, 8, 31]
+  '2022': [7, 1, 8, 31]
+  '2023': [7, 1, 8, 31]
+  '2024': [7, 1, 8, 31]
+  '2025': [7, 1, 8, 31]
+  '2026': [7, 1, 8, 31]
+- name: Herfstvakantie - Vacances automne
+  '2019': [10, 28, 11, 3]
+  '2020': [11, 2, 11, 15]
+  '2021': [11, 1, 11, 7]
+  '2022': [10, 31, 11, 6]
+  '2023': [10, 30, 11, 5]
+  '2024': [10, 28, 11, 3]
+  '2025': [10, 27, 11, 2]
+- name: Kerstvakantie - Vacances de Noël
+  '2019': [12, 23, 1, 5]
+  '2020': [12, 21, 1, 3]
+  '2021': [12, 27, 1, 9]
+  '2022': [12, 26, 1, 8]
+  '2023': [12, 25, 1, 7]
+  '2024': [12, 23, 1, 5]
+  '2025': [12, 22, 1, 4]

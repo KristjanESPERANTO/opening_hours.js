@@ -1,0 +1,28 @@
+PH:
+- name: Anul Nou
+  fixed_date: [1, 1]
+- name: Nașterea lui Iisus Hristos (Crăciunul pe stil vechi)
+  fixed_date: [1, 7]
+- name: Nașterea lui Iisus Hristos (Crăciunul pe stil vechi)
+  fixed_date: [1, 8]
+- name: Ziua internatională a femeii
+  fixed_date: [3, 8]
+- name: Paștele
+  fixed_date: [4, 20]
+- name: Paștele
+  fixed_date: [4, 21]
+- name: Paștele blajinilor
+  fixed_date: [4, 28]
+- name: Ziua internaţională a solidarităţii oamenilor muncii
+  fixed_date: [5, 1]
+- name: Ziua Europei; Ziua Victoriei și a comemorării eroilor căzuţi pentru Independenţa
+    Patriei
+  fixed_date: [5, 9]
+- name: Ziua Ocrotirii Copilului
+  fixed_date: [6, 1]
+- name: Ziua independenţei Republicii Moldova
+  fixed_date: [8, 27]
+- name: Limba noastră
+  fixed_date: [8, 31]
+- name: Nașterea lui Iisus Hristos (Crăciunul pe stil nou)
+  fixed_date: [12, 25]

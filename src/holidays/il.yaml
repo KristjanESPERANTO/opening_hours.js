@@ -1,0 +1,19 @@
+PH:
+- name: פסח
+  fixed_date: [4, 13]
+- name: שביעי של פסח
+  fixed_date: [4, 19]
+- name: (נצפה) יום העצמאות
+  fixed_date: [5, 1]
+- name: שבועות
+  fixed_date: [6, 2]
+- name: ראש השנה
+  fixed_date: [9, 23]
+- name: ראש השנה
+  fixed_date: [9, 24]
+- name: יום כיפור
+  fixed_date: [10, 2]
+- name: סוכות
+  fixed_date: [10, 7]
+- name: שמחת תורה/שמיני עצרת
+  fixed_date: [10, 14]

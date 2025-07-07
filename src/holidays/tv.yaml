@@ -1,0 +1,53 @@
+PH:
+- name: Tausaga Fou
+  fixed_date: [1, 1]
+- name: Aso toe tu
+  fixed_date: [4, 18]
+- name: Toe Tu aso gafua
+  fixed_date: [4, 21]
+- name: Te Aso o te Tala Lei
+  fixed_date: [5, 12]
+- name: Asofanau Tupu
+  fixed_date: [6, 14]
+- name: Aso tupulaga
+  fixed_date: [8, 4]
+- name: Tutokotasi
+  fixed_date: [10, 1]
+- name: Tutokotasi
+  fixed_date: [10, 2]
+- name: Aso Tamaliki
+  fixed_date: [10, 13]
+- name: Kilisimasi
+  fixed_date: [12, 25]
+- name: Aso Faipele
+  fixed_date: [12, 26]
+- name: Te Aso o te Paula
+  fixed_date: [4, 23]
+  only_states: [Funafuti]
+- name: Aso o te matagi
+  fixed_date: [10, 21]
+  only_states: [Funafuti]
+- name: Te Aso o te Setema
+  fixed_date: [9, 17]
+  only_states: [Niutao]
+- name: Te Aso O Tutasi
+  fixed_date: [2, 11]
+  only_states: [Nukufetau]
+- name: Te Aso o te Tala Lei
+  fixed_date: [5, 10]
+  only_states: [Nukulaelae]
+- name: Te Po o Tefolaha
+  fixed_date: [1, 8]
+  only_states: [Nanumea]
+- name: Po Lahi
+  fixed_date: [2, 3]
+  only_states: [Nanumea]
+- name: Aho o te Fakavae
+  fixed_date: [4, 15]
+  only_states: [Nanumaga, Nanumanga]
+- name: Bogin te Ieka
+  fixed_date: [2, 16]
+  only_states: [Nui]
+- name: Te Aso Fiafia
+  fixed_date: [11, 25]
+  only_states: [Vaitupu]

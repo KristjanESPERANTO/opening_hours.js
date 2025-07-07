@@ -1,0 +1,33 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Spiritual Baptist Liberation Day
+  fixed_date: [3, 30]
+- name: Eid-Ul-Fitr
+  fixed_date: [3, 31]
+- name: Spiritual Baptist Liberation Day (observed)
+  fixed_date: [4, 1]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Indian Arrival Day
+  fixed_date: [5, 30]
+- name: Corpus Christi; Labour Day
+  fixed_date: [6, 19]
+- name: Corpus Christi (observed); Labour Day (observed)
+  fixed_date: [6, 20]
+- name: African Emancipation Day
+  fixed_date: [8, 1]
+- name: Independence Day
+  fixed_date: [8, 31]
+- name: Independence Day (observed)
+  fixed_date: [9, 1]
+- name: Republic Day
+  fixed_date: [9, 24]
+- name: Divali
+  fixed_date: [10, 20]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

@@ -1,0 +1,33 @@
+PH:
+- name: Taom-baovao
+  fixed_date: [1, 1]
+- name: Fetin'ny vehivavy
+  fixed_date: [3, 8]
+- name: Fetin'ny mahery fo
+  fixed_date: [3, 29]
+- name: Fetin'ny paska
+  fixed_date: [4, 20]
+- name: Alatsinain'ny paska
+  fixed_date: [4, 21]
+- name: Fetin'ny asa
+  fixed_date: [5, 1]
+- name: Fetin'ny reny
+  fixed_date: [5, 25]
+- name: Fiakaran'ny Jesosy kristy tany an-danitra
+  fixed_date: [5, 29]
+- name: Pentekosta
+  fixed_date: [6, 8]
+- name: Alatsinain'ny pentekosta
+  fixed_date: [6, 9]
+- name: Fetin'ny ray
+  fixed_date: [6, 15]
+- name: Fetin'ny fahaleovantena
+  fixed_date: [6, 26]
+- name: Fiakaran'ny Masina Maria tany an-danitra
+  fixed_date: [8, 15]
+- name: Fetin'ny olo-masina
+  fixed_date: [11, 1]
+- name: Fetin'ny Repoblika
+  fixed_date: [12, 11]
+- name: Fetin'ny noely
+  fixed_date: [12, 25]

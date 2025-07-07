@@ -1,0 +1,37 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Independence Day
+  fixed_date: [1, 31]
+- name: Day following Independence Day
+  fixed_date: [2, 1]
+- name: Day following Independence Day (observed)
+  fixed_date: [2, 3]
+- name: International Women's Day
+  fixed_date: [3, 8]
+- name: International Women's Day (observed)
+  fixed_date: [3, 10]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Easter Tuesday
+  fixed_date: [4, 22]
+- name: Constitution Day
+  fixed_date: [5, 17]
+- name: Constitution Day (observed)
+  fixed_date: [5, 19]
+- name: RONPHOS Handover
+  fixed_date: [7, 1]
+- name: Ibumin Earoeni Day
+  fixed_date: [8, 19]
+- name: Sir Hammer DeRoburt Day
+  fixed_date: [9, 25]
+- name: Angam Day
+  fixed_date: [10, 26]
+- name: Angam Day (observed)
+  fixed_date: [10, 27]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Day following Christmas
+  fixed_date: [12, 26]

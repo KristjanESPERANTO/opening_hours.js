@@ -1,0 +1,29 @@
+PH:
+- name: Yılbaşı
+  fixed_date: [1, 1]
+- name: Ramazan Bayramı
+  fixed_date: [3, 30]
+- name: Ramazan Bayramı
+  fixed_date: [3, 31]
+- name: Ramazan Bayramı
+  fixed_date: [4, 1]
+- name: Ulusal Egemenlik ve Çocuk Bayramı
+  fixed_date: [4, 23]
+- name: Emek ve Dayanışma Günü
+  fixed_date: [5, 1]
+- name: Atatürk'ü Anma, Gençlik ve Spor Bayramı
+  fixed_date: [5, 19]
+- name: Kurban Bayramı
+  fixed_date: [6, 6]
+- name: Kurban Bayramı
+  fixed_date: [6, 7]
+- name: Kurban Bayramı
+  fixed_date: [6, 8]
+- name: Kurban Bayramı
+  fixed_date: [6, 9]
+- name: Demokrasi ve Millî Birlik Günü
+  fixed_date: [7, 15]
+- name: Zafer Bayramı
+  fixed_date: [8, 30]
+- name: Cumhuriyet Bayramı
+  fixed_date: [10, 29]
