@@ -1,0 +1,25 @@
+PH:
+- name: Fête du Nouvel an
+  fixed_date: [1, 1]
+- name: Lendemain de la nuit Lailatoul Qadr
+  fixed_date: [3, 27]
+- name: Jour de l'Aïd el-Fitr
+  fixed_date: [3, 31]
+- name: Lundi de Pâques
+  fixed_date: [4, 21]
+- name: Fête du Travail
+  fixed_date: [5, 1]
+- name: Anniversaire de l'Union Africaine
+  fixed_date: [5, 25]
+- name: Jour de la Tabaski
+  fixed_date: [6, 7]
+- name: Lendemain de la Tabaski
+  fixed_date: [6, 8]
+- name: Assomption
+  fixed_date: [8, 15]
+- name: Lendemain de la nuit du Maoloud
+  fixed_date: [9, 5]
+- name: Fête anniversaire de l'indépendance de la Guinée
+  fixed_date: [10, 2]
+- name: Fête de Noël
+  fixed_date: [12, 25]

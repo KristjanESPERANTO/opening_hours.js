@@ -1,0 +1,23 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Grand Chief Sir Michael Somare Remembrance Day
+  fixed_date: [2, 26]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Sunday
+  fixed_date: [4, 20]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: King's Birthday
+  fixed_date: [6, 17]
+- name: Papua New Guinea Remembrance Day
+  fixed_date: [7, 23]
+- name: National Repentance Day
+  fixed_date: [8, 26]
+- name: Independence Day
+  fixed_date: [9, 16]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

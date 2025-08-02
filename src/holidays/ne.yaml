@@ -1,0 +1,35 @@
+PH:
+- name: Jour de l'An
+  fixed_date: [1, 1]
+- name: Laylat al-Qadr
+  fixed_date: [3, 27]
+- name: Korité
+  fixed_date: [3, 30]
+- name: Korité (observé)
+  fixed_date: [3, 31]
+- name: Lundi de Pâques
+  fixed_date: [4, 21]
+- name: Fête nationale de la Concorde
+  fixed_date: [4, 24]
+- name: Journée internationale du travail
+  fixed_date: [5, 1]
+- name: Tabaski
+  fixed_date: [6, 7]
+- name: Lendemain de la Tabaski
+  fixed_date: [6, 8]
+- name: Lendemain de la Tabaski (observé)
+  fixed_date: [6, 9]
+- name: Jour de l'An musulman
+  fixed_date: [6, 27]
+- name: Anniversaire du coup d'État du CNSP
+  fixed_date: [7, 26]
+- name: L'anniversaire de la proclamation de l'indépendance
+  fixed_date: [8, 3]
+- name: L'anniversaire de la proclamation de l'indépendance (observé)
+  fixed_date: [8, 4]
+- name: Mouloud
+  fixed_date: [9, 5]
+- name: Fête nationale
+  fixed_date: [12, 18]
+- name: Noël
+  fixed_date: [12, 25]

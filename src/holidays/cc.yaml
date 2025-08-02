@@ -1,0 +1,31 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Australia Day
+  fixed_date: [1, 26]
+- name: Australia Day (observed)
+  fixed_date: [1, 27]
+- name: Eid al-Fitr
+  fixed_date: [3, 31]
+- name: Act of Self Determination Day
+  fixed_date: [4, 6]
+- name: Act of Self Determination Day (observed)
+  fixed_date: [4, 7]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: ANZAC Day
+  fixed_date: [4, 25]
+- name: Eid al-Adha (observed)
+  fixed_date: [6, 6]
+- name: Eid al-Adha
+  fixed_date: [6, 7]
+- name: King's Birthday
+  fixed_date: [6, 9]
+- name: Prophet's Birthday
+  fixed_date: [9, 5]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

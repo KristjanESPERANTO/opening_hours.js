@@ -1,0 +1,29 @@
+PH:
+- name: Año Nuevo
+  fixed_date: [1, 1]
+- name: Lunes de Carnaval
+  fixed_date: [3, 3]
+- name: Martes de Carnaval
+  fixed_date: [3, 4]
+- name: Jueves Santo
+  fixed_date: [4, 17]
+- name: Viernes Santo
+  fixed_date: [4, 18]
+- name: Declaración de la Independencia
+  fixed_date: [4, 19]
+- name: Dia Mundial del Trabajador
+  fixed_date: [5, 1]
+- name: Batalla de Carabobo
+  fixed_date: [6, 24]
+- name: Día de la Independencia
+  fixed_date: [7, 5]
+- name: Natalicio de Simón Bolívar
+  fixed_date: [7, 24]
+- name: Día de la Resistencia Indígena
+  fixed_date: [10, 12]
+- name: Nochebuena
+  fixed_date: [12, 24]
+- name: Día de Navidad
+  fixed_date: [12, 25]
+- name: Fiesta de Fin de Año
+  fixed_date: [12, 31]

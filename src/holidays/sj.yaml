@@ -1,0 +1,25 @@
+PH:
+- name: Første nyttårsdag
+  fixed_date: [1, 1]
+- name: Skjærtorsdag
+  fixed_date: [4, 17]
+- name: Langfredag
+  fixed_date: [4, 18]
+- name: Første påskedag
+  fixed_date: [4, 20]
+- name: Andre påskedag
+  fixed_date: [4, 21]
+- name: Arbeidernes dag
+  fixed_date: [5, 1]
+- name: Grunnlovsdag
+  fixed_date: [5, 17]
+- name: Kristi himmelfartsdag
+  fixed_date: [5, 29]
+- name: Første pinsedag
+  fixed_date: [6, 8]
+- name: Andre pinsedag
+  fixed_date: [6, 9]
+- name: Første juledag
+  fixed_date: [12, 25]
+- name: Andre juledag
+  fixed_date: [12, 26]

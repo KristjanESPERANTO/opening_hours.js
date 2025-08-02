@@ -1,0 +1,39 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Three Kings Day
+  fixed_date: [1, 6]
+- name: Martin Luther King Jr. Day
+  fixed_date: [1, 20]
+- name: Presidents' Day
+  fixed_date: [2, 17]
+- name: Transfer Day
+  fixed_date: [3, 31]
+- name: Holy Thursday
+  fixed_date: [4, 17]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Memorial Day
+  fixed_date: [5, 26]
+- name: Juneteenth National Independence Day
+  fixed_date: [6, 19]
+- name: Emancipation Day
+  fixed_date: [7, 3]
+- name: Independence Day
+  fixed_date: [7, 4]
+- name: Labor Day
+  fixed_date: [9, 1]
+- name: Columbus Day and Puerto Rico Friendship Day
+  fixed_date: [10, 13]
+- name: Liberty Day
+  fixed_date: [11, 1]
+- name: Veterans Day
+  fixed_date: [11, 11]
+- name: Thanksgiving Day
+  fixed_date: [11, 27]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Christmas Second Day
+  fixed_date: [12, 26]

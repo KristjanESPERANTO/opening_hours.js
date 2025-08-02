@@ -1,0 +1,31 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Constitution Day
+  fixed_date: [1, 7]
+- name: Independence Day
+  fixed_date: [3, 6]
+- name: Eid ul-Fitr (estimated)
+  fixed_date: [3, 30]
+- name: Eid ul-Fitr (observed, estimated)
+  fixed_date: [3, 31]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: May Day
+  fixed_date: [5, 1]
+- name: Eid ul-Adha (estimated)
+  fixed_date: [6, 6]
+- name: Founders' Day
+  fixed_date: [8, 4]
+- name: Kwame Nkrumah Memorial Day
+  fixed_date: [9, 21]
+- name: Kwame Nkrumah Memorial Day (observed)
+  fixed_date: [9, 22]
+- name: Farmer's Day
+  fixed_date: [12, 5]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

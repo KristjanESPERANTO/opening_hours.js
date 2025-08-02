@@ -1,0 +1,31 @@
+PH:
+- name: Jour de l'an
+  fixed_date: [1, 1]
+- name: Journée de la Korité
+  fixed_date: [3, 30]
+- name: Journée de la Korité (observé)
+  fixed_date: [3, 31]
+- name: Fête de l'Indépendance
+  fixed_date: [4, 4]
+- name: Lundi de Pâques
+  fixed_date: [4, 21]
+- name: Fête du Travail
+  fixed_date: [5, 1]
+- name: Jeudi de l'Ascension
+  fixed_date: [5, 29]
+- name: Journée de la Tabaski (estimé)
+  fixed_date: [6, 6]
+- name: Lundi de Pentecôte
+  fixed_date: [6, 9]
+- name: Tamxarit (estimé)
+  fixed_date: [7, 5]
+- name: Grand Magal de Touba (estimé)
+  fixed_date: [8, 12]
+- name: Assomption
+  fixed_date: [8, 15]
+- name: Journée du Maouloud (estimé)
+  fixed_date: [9, 4]
+- name: Toussaint
+  fixed_date: [11, 1]
+- name: Noël
+  fixed_date: [12, 25]

@@ -1,0 +1,31 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Republic Day
+  fixed_date: [2, 23]
+- name: Phagwah
+  fixed_date: [3, 14]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Labour Day
+  fixed_date: [5, 1]
+- name: Arrival Day
+  fixed_date: [5, 5]
+- name: Independence Day
+  fixed_date: [5, 26]
+- name: Eid-Ul-Azha
+  fixed_date: [6, 7]
+- name: CARICOM Day
+  fixed_date: [7, 7]
+- name: Emancipation Day
+  fixed_date: [8, 1]
+- name: Youman Nabi
+  fixed_date: [9, 5]
+- name: Deepavali
+  fixed_date: [10, 20]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Day after Christmas
+  fixed_date: [12, 26]

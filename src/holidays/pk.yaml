@@ -1,0 +1,33 @@
+PH:
+- name: Kashmir Solidarity Day
+  fixed_date: [2, 5]
+- name: Pakistan Day
+  fixed_date: [3, 23]
+- name: Eid-ul-Fitr
+  fixed_date: [3, 31]
+- name: Eid-ul-Fitr
+  fixed_date: [4, 1]
+- name: Eid-ul-Fitr
+  fixed_date: [4, 2]
+- name: Labour Day
+  fixed_date: [5, 1]
+- name: Youm-e-Takbeer
+  fixed_date: [5, 28]
+- name: Eid-ul-Adha (estimated)
+  fixed_date: [6, 6]
+- name: Eid-ul-Adha (estimated)
+  fixed_date: [6, 7]
+- name: Eid-ul-Adha (estimated)
+  fixed_date: [6, 8]
+- name: Ashura (estimated)
+  fixed_date: [7, 4]
+- name: Ashura (estimated)
+  fixed_date: [7, 5]
+- name: Independence Day
+  fixed_date: [8, 14]
+- name: Eid Milad-un-Nabi (estimated)
+  fixed_date: [9, 4]
+- name: Iqbal Day
+  fixed_date: [11, 9]
+- name: Quaid-e-Azam Day
+  fixed_date: [12, 25]

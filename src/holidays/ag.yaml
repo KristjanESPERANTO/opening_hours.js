@@ -1,0 +1,25 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: Labour Day
+  fixed_date: [5, 5]
+- name: Whit Monday
+  fixed_date: [6, 9]
+- name: Carnival Monday
+  fixed_date: [8, 4]
+- name: Carnival Tuesday
+  fixed_date: [8, 5]
+- name: Independence Day
+  fixed_date: [11, 1]
+- name: Independence Day (observed)
+  fixed_date: [11, 3]
+- name: Sir Vere Cornwall Bird Snr. Day
+  fixed_date: [12, 9]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

@@ -1,0 +1,25 @@
+PH:
+- name: Aña Nobo
+  fixed_date: [1, 1]
+- name: Dialuna despues di Carnaval Grandi
+  fixed_date: [3, 3]
+- name: Bièrnèsantu
+  fixed_date: [4, 18]
+- name: Pasku di Resurekshon
+  fixed_date: [4, 20]
+- name: Di dos dia di Pasku di Resurekshon
+  fixed_date: [4, 21]
+- name: Dia di Rey
+  fixed_date: [4, 26]
+- name: Dia di Obrero
+  fixed_date: [5, 1]
+- name: Dia di Asenshon
+  fixed_date: [5, 29]
+- name: Dia di Himno i Bandera
+  fixed_date: [7, 2]
+- name: Dia di Pais Kòrsou
+  fixed_date: [10, 10]
+- name: Pasku di Nasementu
+  fixed_date: [12, 25]
+- name: Di dos dia di Pasku di Nasementu
+  fixed_date: [12, 26]

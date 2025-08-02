@@ -1,0 +1,35 @@
+PH:
+- name: رأس السنة الميلادية
+  fixed_date: [1, 1]
+- name: ذكرى تقديم وثيقة الاستقلال
+  fixed_date: [1, 11]
+- name: رأس السنة الأمازيغية
+  fixed_date: [1, 13]
+- name: (تقدير) عيد الفطر
+  fixed_date: [3, 30]
+- name: (تقدير) عيد الفطر
+  fixed_date: [3, 31]
+- name: عيد العمال
+  fixed_date: [5, 1]
+- name: (تقدير) عيد الأضحى
+  fixed_date: [6, 6]
+- name: (تقدير) عيد الأضحى
+  fixed_date: [6, 7]
+- name: (تقدير) رأس السنة الهجرية
+  fixed_date: [6, 26]
+- name: عيد العرش
+  fixed_date: [7, 30]
+- name: ذكرى استرجاع إقليم وادي الذهب
+  fixed_date: [8, 14]
+- name: ذكرى ثورة الملك و الشعب
+  fixed_date: [8, 20]
+- name: عيد الشباب
+  fixed_date: [8, 21]
+- name: (تقدير) عيد المولد النبوي
+  fixed_date: [9, 4]
+- name: (تقدير) عيد المولد النبوي
+  fixed_date: [9, 5]
+- name: ذكرى المسيرة الخضراء
+  fixed_date: [11, 6]
+- name: عيد الإستقلال
+  fixed_date: [11, 18]

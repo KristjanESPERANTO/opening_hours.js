@@ -1,0 +1,29 @@
+PH:
+- name: Nýársdagur
+  fixed_date: [1, 1]
+- name: Skírdagur
+  fixed_date: [4, 17]
+- name: Föstudagurinn langi
+  fixed_date: [4, 18]
+- name: Páskadagur
+  fixed_date: [4, 20]
+- name: Annar í páskum
+  fixed_date: [4, 21]
+- name: Sumardagurinn fyrsti
+  fixed_date: [4, 24]
+- name: Verkalýðsdagurinn
+  fixed_date: [5, 1]
+- name: Uppstigningardagur
+  fixed_date: [5, 29]
+- name: Hvítasunnudagur
+  fixed_date: [6, 8]
+- name: Annar í hvítasunnu
+  fixed_date: [6, 9]
+- name: Þjóðhátíðardagurinn
+  fixed_date: [6, 17]
+- name: Frídagur verslunarmanna
+  fixed_date: [8, 4]
+- name: Jóladagur
+  fixed_date: [12, 25]
+- name: Annar í jólum
+  fixed_date: [12, 26]

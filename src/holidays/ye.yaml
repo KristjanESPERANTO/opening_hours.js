@@ -1,0 +1,35 @@
+PH:
+- name: عيد الفطر
+  fixed_date: [3, 29]
+- name: عيد الفطر
+  fixed_date: [3, 30]
+- name: عيد الفطر
+  fixed_date: [3, 31]
+- name: عيد الفطر
+  fixed_date: [4, 1]
+- name: عيد العمال
+  fixed_date: [5, 1]
+- name: اليوم الوطني للجمهورية اليمنية
+  fixed_date: [5, 22]
+- name: عيد الأضحى (مُقدَّر)
+  fixed_date: [6, 5]
+- name: عيد الأضحى (مُقدَّر)
+  fixed_date: [6, 6]
+- name: عيد الأضحى (مُقدَّر)
+  fixed_date: [6, 7]
+- name: عيد الأضحى (مُقدَّر)
+  fixed_date: [6, 8]
+- name: عيد الأضحى (مُقدَّر)
+  fixed_date: [6, 9]
+- name: عيد الأضحى (مُقدَّر ملاحظة)
+  fixed_date: [6, 10]
+- name: عيد رأس السنة الهجرية (مُقدَّر)
+  fixed_date: [6, 26]
+- name: ثورة 26 سبتمبر المجيدة
+  fixed_date: [9, 26]
+- name: ثورة 26 سبتمبر المجيدة (ملاحظة)
+  fixed_date: [9, 28]
+- name: ثورة 14 أكتوبر المجيدة
+  fixed_date: [10, 14]
+- name: عيد الجلاء
+  fixed_date: [11, 30]

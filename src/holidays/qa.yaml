@@ -1,0 +1,19 @@
+PH:
+- name: عطلة رأس السنة
+  fixed_date: [1, 2]
+- name: اليوم الوطني للرياضة
+  fixed_date: [2, 11]
+- name: عيد الفطر
+  fixed_date: [3, 30]
+- name: عيد الفطر
+  fixed_date: [3, 31]
+- name: عيد الفطر
+  fixed_date: [4, 1]
+- name: عيد الأضحى (المقدرة)
+  fixed_date: [6, 6]
+- name: عيد الأضحى (المقدرة)
+  fixed_date: [6, 7]
+- name: عيد الأضحى (المقدرة)
+  fixed_date: [6, 8]
+- name: اليوم الوطني لقطر
+  fixed_date: [12, 18]

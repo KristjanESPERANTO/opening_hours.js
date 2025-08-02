@@ -1,0 +1,34 @@
+PH:
+- name: Mwaka Mpya
+  fixed_date: [1, 1]
+- name: Mapinduzi ya Zanzibar
+  fixed_date: [1, 12]
+- name: Eid El-Fitry (makisio)
+  fixed_date: [3, 30]
+- name: Siku ya kumbukumbu ya Rais wa Kwanza wa Serikali ya Mapinduzi Zanzibar Sheikh
+    Abeid Amani Karume
+  fixed_date: [4, 7]
+- name: Ijumaa Kuu
+  fixed_date: [4, 18]
+- name: Jumatatu ya Pasaka
+  fixed_date: [4, 21]
+- name: Muungano wa Tanganyika na Zanzibar
+  fixed_date: [4, 26]
+- name: Sikukuu ya Wafanyakazi
+  fixed_date: [5, 1]
+- name: Eid El-Hajj (makisio)
+  fixed_date: [6, 6]
+- name: Sabasaba
+  fixed_date: [7, 7]
+- name: Siku ya Wakulima
+  fixed_date: [8, 8]
+- name: Maulidi (makisio)
+  fixed_date: [9, 4]
+- name: Kumbukumbu ya Mwalimu Nyerere
+  fixed_date: [10, 14]
+- name: Uhuru na Jamhuri
+  fixed_date: [12, 9]
+- name: Kuzaliwa Kristo
+  fixed_date: [12, 25]
+- name: Siku ya Kupeana Zawadi
+  fixed_date: [12, 26]

@@ -1,0 +1,29 @@
+PH:
+- name: روز آزادی
+  fixed_date: [2, 15]
+- name: اول رمضان (برآورد شده)
+  fixed_date: [3, 1]
+- name: عید فطر (برآورد شده)
+  fixed_date: [3, 30]
+- name: عید فطر (برآورد شده)
+  fixed_date: [3, 31]
+- name: عید فطر (برآورد شده)
+  fixed_date: [4, 1]
+- name: روز پیروزی مجاهدین
+  fixed_date: [4, 28]
+- name: روز عرفه (برآورد شده)
+  fixed_date: [6, 5]
+- name: عید قربانی (برآورد شده)
+  fixed_date: [6, 6]
+- name: عید قربانی (برآورد شده)
+  fixed_date: [6, 7]
+- name: عید قربانی (برآورد شده)
+  fixed_date: [6, 8]
+- name: روز پیروزی امارت اسلامی
+  fixed_date: [8, 15]
+- name: روز استقلال افغانستان
+  fixed_date: [8, 19]
+- name: روز خروج آمریکایی ها
+  fixed_date: [8, 31]
+- name: میلاد پیامبر (برآورد شده)
+  fixed_date: [9, 4]

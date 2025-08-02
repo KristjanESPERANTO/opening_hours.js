@@ -1,0 +1,52 @@
+PH:
+- name: Año Nuevo
+  fixed_date: [1, 1]
+- name: Día de la Creación del Estado Plurinacional de Bolivia
+  fixed_date: [1, 22]
+- name: Carnaval
+  fixed_date: [3, 3]
+- name: Carnaval
+  fixed_date: [3, 4]
+- name: Viernes Santo
+  fixed_date: [4, 18]
+- name: Día del Trabajo
+  fixed_date: [5, 1]
+- name: Corpus Christi
+  fixed_date: [6, 19]
+- name: Año Nuevo Aymara Amazónico
+  fixed_date: [6, 21]
+- name: Día de la Independencia de Bolivia
+  fixed_date: [8, 6]
+- name: Día de la Dignidad Nacional
+  fixed_date: [10, 17]
+- name: Día de Todos los Difuntos
+  fixed_date: [11, 2]
+- name: Navidad
+  fixed_date: [12, 25]
+- name: Día del departamento de Beni
+  fixed_date: [11, 18]
+  only_states: [El Beni]
+- name: Día del departamento de Cochabamba
+  fixed_date: [9, 14]
+  only_states: [Cochabamba]
+- name: Día del departamento de Chuquisaca
+  fixed_date: [5, 25]
+  only_states: [Chuquisaca]
+- name: Día del departamento de La Paz
+  fixed_date: [7, 16]
+  only_states: [La Paz]
+- name: Día del departamento de Pando
+  fixed_date: [10, 11]
+  only_states: [Pando]
+- name: Carnaval de Oruro
+  fixed_date: [2, 28]
+  only_states: [Oruro]
+- name: Día del departamento de Potosí
+  fixed_date: [11, 10]
+  only_states: [Potosí]
+- name: Día del departamento de Santa Cruz
+  fixed_date: [9, 24]
+  only_states: [Santa Cruz]
+- name: La Tablada
+  fixed_date: [4, 15]
+  only_states: [Tarija]

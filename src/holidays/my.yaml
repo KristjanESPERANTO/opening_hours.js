@@ -1,0 +1,161 @@
+PH:
+- name: Tahun Baharu Cina
+  fixed_date: [1, 29]
+- name: Tahun Baharu Cina (Hari Kedua)
+  fixed_date: [1, 30]
+- name: Hari Raya Puasa
+  fixed_date: [3, 31]
+- name: Hari Raya Puasa (Hari Kedua)
+  fixed_date: [4, 1]
+- name: Hari Pekerja
+  fixed_date: [5, 1]
+- name: Hari Wesak
+  fixed_date: [5, 12]
+- name: Hari Keputeraan Rasmi Seri Paduka Baginda Yang di-Pertuan Agong
+  fixed_date: [6, 2]
+- name: Hari Raya Qurban
+  fixed_date: [6, 7]
+- name: Awal Muharam
+  fixed_date: [6, 27]
+- name: Hari Kebangsaan
+  fixed_date: [8, 31]
+- name: Cuti Hari Kebangsaan
+  fixed_date: [9, 1]
+- name: Hari Keputeraan Nabi Muhammad S.A.W.
+  fixed_date: [9, 5]
+- name: Hari Malaysia
+  fixed_date: [9, 16]
+- name: Hari Krismas
+  fixed_date: [12, 25]
+- name: Hari Thaipusam
+  fixed_date: [2, 11]
+  only_states: [Johor, JHR, Kedah, KDH, Negeri Sembilan, NSN, Pulau Pinang, PNG, Perak,
+    PRK, Selangor, SGR, Wilayah Persekutuan Kuala Lumpur, KUL, Wilayah Persekutuan
+      Putrajaya, PJY]
+- name: Awal Ramadan
+  fixed_date: [3, 2]
+  only_states: [Johor, JHR, Kedah, KDH]
+- name: Cuti Awal Ramadan
+  fixed_date: [3, 3]
+  only_states: [Johor, JHR, Kedah, KDH]
+- name: Hari Keputeraan Sultan Johor
+  fixed_date: [3, 23]
+  only_states: [Johor, JHR]
+- name: Hari Hol Almarhum Sultan Iskandar
+  fixed_date: [7, 31]
+  only_states: [Johor, JHR]
+- name: Hari Deepavali
+  fixed_date: [10, 20]
+  only_states: [Johor, JHR, Kedah, KDH, Kelantan, KTN, Melaka, MLK, Negeri Sembilan,
+    NSN, Pahang, PHG, Pulau Pinang, PNG, Perak, PRK, Perlis, PLS, Selangor, SGR, Terengganu,
+    TRG, Sabah, SBH, Sarawak, SWK, Wilayah Persekutuan Kuala Lumpur, KUL, Wilayah
+      Persekutuan Labuan, LBN, Wilayah Persekutuan Putrajaya, PJY]
+- name: Israk dan Mikraj
+  fixed_date: [1, 27]
+  only_states: [Kedah, KDH, Negeri Sembilan, NSN, Perlis, PLS, Terengganu, TRG]
+- name: Hari Raya Qurban (Hari Kedua)
+  fixed_date: [6, 8]
+  only_states: [Kedah, KDH, Kelantan, KTN, Perlis, PLS, Terengganu, TRG]
+- name: Cuti Hari Raya Qurban (Hari Kedua)
+  fixed_date: [6, 9]
+  only_states: [Kedah, KDH, Kelantan, KTN, Perlis, PLS, Terengganu, TRG]
+- name: Hari Keputeraan Sultan Kedah
+  fixed_date: [6, 15]
+  only_states: [Kedah, KDH]
+- name: Hari Nuzul Al-Quran
+  fixed_date: [3, 18]
+  only_states: [Kelantan, KTN, Pahang, PHG, Pulau Pinang, PNG, Perak, PRK, Perlis,
+    PLS, Selangor, SGR, Terengganu, TRG, Wilayah Persekutuan Kuala Lumpur, KUL, Wilayah
+      Persekutuan Labuan, LBN, Wilayah Persekutuan Putrajaya, PJY]
+- name: Hari Arafah
+  fixed_date: [6, 6]
+  only_states: [Kelantan, KTN, Terengganu, TRG]
+- name: Hari Keputeraan Sultan Kelantan
+  fixed_date: [9, 29]
+  only_states: [Kelantan, KTN]
+- name: Hari Keputeraan Sultan Kelantan
+  fixed_date: [9, 30]
+  only_states: [Kelantan, KTN]
+- name: Tahun Baharu
+  fixed_date: [1, 1]
+  only_states: [Melaka, MLK, Negeri Sembilan, NSN, Pahang, PHG, Pulau Pinang, PNG,
+    Perak, PRK, Selangor, SGR, Sabah, SBH, Sarawak, SWK, Wilayah Persekutuan Kuala
+      Lumpur, KUL, Wilayah Persekutuan Labuan, LBN, Wilayah Persekutuan Putrajaya,
+    PJY]
+- name: Hari Pengisytiharan Tarikh Kemerdekaan
+  fixed_date: [2, 20]
+  only_states: [Melaka, MLK]
+- name: Hari Raya Puasa (Hari Ketiga)
+  fixed_date: [4, 2]
+  only_states: [Melaka, MLK]
+- name: Hari Jadi Yang di-Pertua Negeri Melaka
+  fixed_date: [8, 24]
+  only_states: [Melaka, MLK]
+- name: Cuti Hari Jadi Yang di-Pertua Negeri Melaka
+  fixed_date: [8, 25]
+  only_states: [Melaka, MLK]
+- name: Hari Keputeraan Yang di-Pertuan Besar Negeri Sembilan
+  fixed_date: [1, 14]
+  only_states: [Negeri Sembilan, NSN]
+- name: Hari Hol Sultan Pahang
+  fixed_date: [5, 22]
+  only_states: [Pahang, PHG]
+- name: Hari Keputeraan Sultan Pahang
+  fixed_date: [7, 30]
+  only_states: [Pahang, PHG]
+- name: Hari Ulang Tahun Perisytiharan Tapak Warisan Dunia
+  fixed_date: [7, 7]
+  only_states: [Pulau Pinang, PNG]
+- name: Hari Jadi Yang di-Pertua Negeri Pulau Pinang
+  fixed_date: [7, 12]
+  only_states: [Pulau Pinang, PNG]
+- name: Hari Keputeraan Sultan Perak
+  fixed_date: [11, 7]
+  only_states: [Perak, PRK]
+- name: Hari Ulang Tahun Keputeraan Raja Perlis
+  fixed_date: [5, 17]
+  only_states: [Perlis, PLS]
+- name: Hari Keputeraan Sultan Selangor
+  fixed_date: [12, 11]
+  only_states: [Selangor, SGR]
+- name: Hari Ulang Tahun Pertabalan Sultan Terengganu
+  fixed_date: [3, 4]
+  only_states: [Terengganu, TRG]
+- name: Hari Keputeraan Sultan Terengganu
+  fixed_date: [4, 26]
+  only_states: [Terengganu, TRG]
+- name: Good Friday
+  fixed_date: [4, 18]
+  only_states: [Sabah, SBH, Sarawak, SWK]
+- name: Pesta Kaamatan
+  fixed_date: [5, 30]
+  only_states: [Sabah, SBH, Wilayah Persekutuan Labuan, LBN]
+- name: Pesta Kaamatan
+  fixed_date: [5, 31]
+  only_states: [Sabah, SBH, Wilayah Persekutuan Labuan, LBN]
+- name: Hari Jadi Yang di-Pertua Negeri Sabah
+  fixed_date: [10, 4]
+  only_states: [Sabah, SBH]
+- name: Christmas Eve
+  fixed_date: [12, 24]
+  only_states: [Sabah, SBH]
+- name: Perayaan Hari Gawai Dayak
+  fixed_date: [6, 1]
+  only_states: [Sarawak, SWK]
+- name: Hari Keputeraan Rasmi Seri Paduka Baginda Yang di-Pertuan Agong; Perayaan
+    Hari Gawai Dayak
+  fixed_date: [6, 2]
+  only_states: [Sarawak, SWK]
+- name: Cuti Perayaan Hari Gawai Dayak
+  fixed_date: [6, 3]
+  only_states: [Sarawak, SWK]
+- name: Hari Kemerdekaan Sarawak
+  fixed_date: [7, 22]
+  only_states: [Sarawak, SWK]
+- name: Hari Jadi Yang di-Pertua Negeri Sarawak
+  fixed_date: [10, 11]
+  only_states: [Sarawak, SWK]
+- name: Hari Wilayah Persekutuan
+  fixed_date: [2, 1]
+  only_states: [Wilayah Persekutuan Kuala Lumpur, KUL, Wilayah Persekutuan Labuan,
+    LBN, Wilayah Persekutuan Putrajaya, PJY]

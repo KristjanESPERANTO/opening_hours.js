@@ -1,0 +1,25 @@
+PH:
+- name: Նոր տարվա օր
+  fixed_date: [1, 1]
+- name: Նոր տարվա օր
+  fixed_date: [1, 2]
+- name: Սուրբ Ծնունդ եւ Հայտնություն
+  fixed_date: [1, 6]
+- name: Բանակի օր
+  fixed_date: [1, 28]
+- name: Կանանց տոն
+  fixed_date: [3, 8]
+- name: Եղեռնի զոհերի հիշատակի օր
+  fixed_date: [4, 24]
+- name: Աշխատանքի օր
+  fixed_date: [5, 1]
+- name: Հաղթանակի և Խաղաղության տոն
+  fixed_date: [5, 9]
+- name: Հանրապետության օր
+  fixed_date: [5, 28]
+- name: Սահմանադրության օր
+  fixed_date: [7, 5]
+- name: Անկախության օր
+  fixed_date: [9, 21]
+- name: Նոր տարվա գիշեր
+  fixed_date: [12, 31]

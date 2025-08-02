@@ -1,0 +1,27 @@
+PH:
+- name: Nouvel an
+  fixed_date: [1, 1]
+- name: Al Isra et Al Mirague (estimé)
+  fixed_date: [1, 27]
+- name: Eid al-Fitr (estimé)
+  fixed_date: [3, 30]
+- name: Eid al-Fitr deuxième jour (estimé)
+  fixed_date: [3, 31]
+- name: Fête du travail
+  fixed_date: [5, 1]
+- name: Arafat (estimé)
+  fixed_date: [6, 5]
+- name: Eid al-Adha (estimé)
+  fixed_date: [6, 6]
+- name: Eid al-Adha deuxième jour (estimé)
+  fixed_date: [6, 7]
+- name: Nouvel an musulman (estimé)
+  fixed_date: [6, 26]
+- name: Fête de l'indépendance
+  fixed_date: [6, 27]
+- name: Fête de l'indépendance deuxième jour
+  fixed_date: [6, 28]
+- name: Anniversaire du prophète Muhammad (estimé)
+  fixed_date: [9, 4]
+- name: Noël
+  fixed_date: [12, 25]

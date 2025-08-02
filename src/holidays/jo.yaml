@@ -1,0 +1,29 @@
+PH:
+- name: رأس السنة الميلادية
+  fixed_date: [1, 1]
+- name: (تقدير) ليلة المعراج
+  fixed_date: [1, 27]
+- name: (تقدير) عيد الفطر
+  fixed_date: [3, 30]
+- name: (تقدير) عطلة عيد الفطر
+  fixed_date: [3, 31]
+- name: (تقدير) عطلة عيد الفطر
+  fixed_date: [4, 1]
+- name: عيد العمال
+  fixed_date: [5, 1]
+- name: عيد الإستقلال
+  fixed_date: [5, 25]
+- name: (تقدير) يوم عرفة
+  fixed_date: [6, 5]
+- name: (تقدير) عيد الأضحى
+  fixed_date: [6, 6]
+- name: (تقدير) عطلة عيد الأضحى
+  fixed_date: [6, 7]
+- name: (تقدير) عطلة عيد الأضحى
+  fixed_date: [6, 8]
+- name: (تقدير) رأس السنة الهجرية
+  fixed_date: [6, 26]
+- name: (تقدير) عيد المولد النبوي
+  fixed_date: [9, 4]
+- name: عيد الميلاد المجيد
+  fixed_date: [12, 25]

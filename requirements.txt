@@ -1,4 +1,5 @@
 hc
+holidays
 yq
 yamllint
 html5validator

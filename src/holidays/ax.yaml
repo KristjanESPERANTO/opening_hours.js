@@ -1,0 +1,33 @@
+PH:
+- name: Uudenvuodenpäivä
+  fixed_date: [1, 1]
+- name: Loppiainen
+  fixed_date: [1, 6]
+- name: Pitkäperjantai
+  fixed_date: [4, 18]
+- name: Pääsiäispäivä
+  fixed_date: [4, 20]
+- name: Toinen pääsiäispäivä
+  fixed_date: [4, 21]
+- name: Vappu
+  fixed_date: [5, 1]
+- name: Helatorstai
+  fixed_date: [5, 29]
+- name: Helluntaipäivä
+  fixed_date: [6, 8]
+- name: Ahvenanmaan itsehallintopäivä
+  fixed_date: [6, 9]
+- name: Juhannusaatto
+  fixed_date: [6, 20]
+- name: Juhannuspäivä
+  fixed_date: [6, 21]
+- name: Pyhäinpäivä
+  fixed_date: [11, 1]
+- name: Itsenäisyyspäivä
+  fixed_date: [12, 6]
+- name: Jouluaatto
+  fixed_date: [12, 24]
+- name: Joulupäivä
+  fixed_date: [12, 25]
+- name: Tapaninpäivä
+  fixed_date: [12, 26]

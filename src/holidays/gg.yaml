@@ -1,0 +1,19 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Good Friday
+  fixed_date: [4, 18]
+- name: Easter Monday
+  fixed_date: [4, 21]
+- name: May Day Bank Holiday
+  fixed_date: [5, 5]
+- name: Liberation Day
+  fixed_date: [5, 9]
+- name: Spring Bank Holiday
+  fixed_date: [5, 26]
+- name: Summer Bank Holiday
+  fixed_date: [8, 25]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Boxing Day
+  fixed_date: [12, 26]

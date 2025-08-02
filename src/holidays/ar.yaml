@@ -1,29 +1,168 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=-34.60377&lon=-58.38159&zoom=16&addressdetails=1&accept-language=es'
-
-# https://www.argentina.gob.ar/feriados
-
+_nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=-34.60377&lon=-58.38159&zoom=16&addressdetails=1&accept-language=es
 PH:
-  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
-  - {'name': 'Carnaval', 'variable_date': easter, 'offset': -48}
-  - {'name': 'Carnaval', 'variable_date': easter, 'offset': -47}
-  - {'name': 'Día Nacional de la Memoria por la Verdad y la Justicia', 'fixed_date': [3, 24]}
-  - {'name': 'Viernes Santo', 'variable_date': easter, 'offset': -2}
-  - {'name': 'Feriado con fines turísticos', 'fixed_date': [4, 1]}
-  - {'name': 'Día del Veterano y de los Caídos en la Guerra de Malvinas', 'fixed_date': [4, 2]}
-  - {'name': 'Día del Trabajador', 'fixed_date': [5, 1]}
-  - {'name': 'Día de la Revolución de Mayo', 'fixed_date': [5, 25]}
-  # Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes - 17 de Junio - Dia variable, si cae martes o miecoles se mueve al lunes, si cae jueves o viernes se mueve al lunes siguiente. TODO
-  - {'name': 'Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes', 'fixed_date': [6, 17]}
-  - {'name': 'Paso a la Inmortalidad del General Manuel Belgrano', 'fixed_date': [6, 20]}
-  - {'name': 'Feriado con fines turísticos', 'fixed_date': [6, 21]}
-  - {'name': 'Día de la Independencia', 'fixed_date': [7, 9]}
-  # Paso a la Inmortalidad del Gral. José de San Martín - 17 de Agosto - Dia variable, si cae martes o miecoles se mueve al lunes, si cae jueves o viernes se mueve al lunes siguiente. TODO
-  - {'name': 'Paso a la Inmortalidad del Gral. José de San Martín', 'fixed_date': [8, 17]}
-  - {'name': 'Feriado con fines turísticos', 'fixed_date': [10, 11]}
-  - {'name': 'Día del Respeto a la Diversidad Cultural', 'fixed_date': [10, 12]}
-  # Día de la Soberanía Nacional - 20 de noviembre - Dia variable, si cae martes o miecoles se mueve al lunes, si cae jueves o viernes se mueve al lunes siguiente. TODO
-  - {'name': 'Día de la Soberanía Nacional', 'fixed_date': [11, 18]}
-  - {'name': 'Inmaculada Concepción de María', 'fixed_date': [12, 8]}
-  - {'name': 'Navidad', 'fixed_date': [12, 25]}
+- name: Año Nuevo
+  fixed_date: [1, 1]
+- name: Lunes de Carnaval
+  fixed_date: [3, 3]
+- name: Martes de Carnaval
+  fixed_date: [3, 4]
+- name: Día Nacional de la Memoria por la Verdad y la Justicia
+  fixed_date: [3, 24]
+- name: Día del Veterano y de los Caidos en la Guerra de Malvinas
+  fixed_date: [4, 2]
+- name: Jueves Santo
+  fixed_date: [4, 17]
+- name: Viernes Santo
+  fixed_date: [4, 18]
+- name: Día del Trabajo
+  fixed_date: [5, 1]
+- name: Feriado con fines turísticos
+  fixed_date: [5, 2]
+- name: Día de la Revolución de Mayo
+  fixed_date: [5, 25]
+- name: Paso a la Inmortalidad del General Don Martín Miguel de Güemes
+  fixed_date: [6, 16]
+- name: Paso a la Inmortalidad del General Don Manuel Belgrano
+  fixed_date: [6, 20]
+- name: Día de la Independencia
+  fixed_date: [7, 9]
+- name: Feriado con fines turísticos
+  fixed_date: [8, 15]
+- name: Paso a la Inmortalidad del General Don José de San Martín
+  fixed_date: [8, 17]
+- name: Día del Respeto a la Diversidad Cultural
+  fixed_date: [10, 12]
+- name: Feriado con fines turísticos
+  fixed_date: [11, 21]
+- name: Día de la Soberanía Nacional
+  fixed_date: [11, 24]
+- name: Inmaculada Concepción de María
+  fixed_date: [12, 8]
+- name: Navidad
+  fixed_date: [12, 25]
+- name: Aniversario de la Batalla de Salta
+  fixed_date: [2, 20]
+  only_states: [Salta]
+- name: Dia de la memoria del Guerrero de la Independencia y Gobernador de la Provincia
+    de Salta General Don Martín Miguel de Güemes
+  fixed_date: [6, 17]
+  only_states: [Salta]
+- name: Festividades del Señor y de la Virgen del Milagro
+  fixed_date: [9, 13]
+  only_states: [Salta]
+- name: Festividades del Señor y de la Virgen del Milagro
+  fixed_date: [9, 14]
+  only_states: [Salta]
+- name: Festividades del Señor y de la Virgen del Milagro
+  fixed_date: [9, 15]
+  only_states: [Salta]
+- name: Día de la Exaltación de la Santa Cruz
+  fixed_date: [5, 3]
+  only_states: [San Luis]
+- name: Día de San Luis Rey de Francia
+  fixed_date: [8, 25]
+  only_states: [San Luis]
+- name: Conmemoración de la Batalla de Caseros
+  fixed_date: [2, 3]
+  only_states: [Entre Ríos]
+- name: Día Nacional de la Memoria por la Verdad y la Justicia; Día Provincial de
+    la Memoria por la Verdad y la Justicia
+  fixed_date: [3, 24]
+  only_states: [Entre Ríos]
+- name: Día del Trabajador Estatal
+  fixed_date: [6, 27]
+  only_states: [Entre Ríos]
+- name: San Miguel Arcángel
+  fixed_date: [9, 29]
+  only_states: [Entre Ríos]
+- name: Día del fallecimiento de Juan Facundo Quiroga
+  fixed_date: [2, 16]
+  only_states: [La Rioja]
+- name: Día de la Autonomía Provincial
+  fixed_date: [3, 1]
+  only_states: [La Rioja]
+- name: Día Nacional de la Memoria por la Verdad y la Justicia; Día de la Memoria
+    por la Verdad y la Justicia
+  fixed_date: [3, 24]
+  only_states: [La Rioja]
+- name: Día de la fundación de La Rioja
+  fixed_date: [5, 20]
+  only_states: [La Rioja]
+- name: Día del Aniversario del Fallecimiento de Monseñor Enrique Angelelli
+  fixed_date: [8, 4]
+  only_states: [La Rioja]
+- name: Día del Aniversario del Fallecimiento de Ángel Vicente Peñaloza
+  fixed_date: [11, 12]
+  only_states: [La Rioja]
+- name: Día del Tinkunaco Riojano
+  fixed_date: [12, 31]
+  only_states: [La Rioja]
+- name: Día del Maestro
+  fixed_date: [9, 11]
+  only_states: [San Juan]
+- name: Natalicio de Fray Mamerto Esquiú
+  fixed_date: [5, 11]
+  only_states: [Catamarca]
+- name: Autonomía de Catamarca
+  fixed_date: [8, 25]
+  only_states: [Catamarca]
+- name: Día del Milagro
+  fixed_date: [9, 7]
+  only_states: [Catamarca]
+- name: Día del Apóstol Santiago
+  fixed_date: [7, 25]
+  only_states: [Mendoza]
+- name: Aniversario de la Batalla de Tucumán
+  fixed_date: [9, 24]
+  only_states: [Tucumán]
+- name: Plebiscito 1902 Trevelin
+  fixed_date: [4, 30]
+  only_states: [Chubut]
+- name: Aniversario del arribo de los primeros colonizadores galeses
+  fixed_date: [7, 28]
+  only_states: [Chubut]
+- name: Tehuelches y Mapuches declaran lealtad a la bandera Argentina
+  fixed_date: [11, 3]
+  only_states: [Chubut]
+- name: Día del Petróleo Nacional
+  fixed_date: [12, 13]
+  only_states: [Chubut]
+- name: Día de la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur
+  fixed_date: [6, 1]
+  only_states: [Tierra del Fuego]
+- name: Día del Genocidio Selk'Nam
+  fixed_date: [11, 25]
+  only_states: [Tierra del Fuego]
+- name: Día del Aniversario del Fallecimiento del General Manuel José Joaquín del
+    Corazón de Jesús Belgrano; Paso a la Inmortalidad del General Don Manuel Belgrano
+  fixed_date: [6, 20]
+  only_states: [Corrientes]
+- name: Día del Aniversario del Fallecimiento del General José Francisco de San Martín;
+    Paso a la Inmortalidad del General Don José de San Martín
+  fixed_date: [8, 17]
+  only_states: [Corrientes]
+- name: Día Grande de Jujuy
+  fixed_date: [4, 27]
+  only_states: [Jujuy]
+- name: Día de la Pachamama
+  fixed_date: [8, 1]
+  only_states: [Jujuy]
+- name: Día del Éxodo Jujeño
+  fixed_date: [8, 23]
+  only_states: [Jujuy]
+- name: Día de la Virgen del Rosario de Río Blanco y Paypaya
+  fixed_date: [10, 7]
+  only_states: [Jujuy]
+- name: Autonomía Política de Jujuy
+  fixed_date: [11, 18]
+  only_states: [Jujuy]
+- name: Homenaje al Patrono de la Provincia San Juan Bosco
+  fixed_date: [8, 16]
+  only_states: [Santa Cruz]
+- name: Día del Aniversario del Fallecimiento del ex Presidente de la Nación Doctor
+    Néstor Carlos Kirchner
+  fixed_date: [10, 27]
+  only_states: [Santa Cruz]
+- name: Conmemoración a los obreros fusilados en las Huelgas Patagónicas
+  fixed_date: [12, 7]
+  only_states: [Santa Cruz]

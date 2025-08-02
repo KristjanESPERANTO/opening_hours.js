@@ -1,0 +1,21 @@
+PH:
+- name: Triunfo de la Revolución
+  fixed_date: [1, 1]
+- name: Día de la Victoria
+  fixed_date: [1, 2]
+- name: Viernes Santo
+  fixed_date: [4, 18]
+- name: Día Internacional de los Trabajadores
+  fixed_date: [5, 1]
+- name: Conmemoración del asalto a Moncada
+  fixed_date: [7, 25]
+- name: Día de la Rebeldía Nacional
+  fixed_date: [7, 26]
+- name: Conmemoración del asalto a Moncada
+  fixed_date: [7, 27]
+- name: Inicio de las Guerras de Independencia
+  fixed_date: [10, 10]
+- name: Día de Navidad
+  fixed_date: [12, 25]
+- name: Fiesta de Fin de Año
+  fixed_date: [12, 31]

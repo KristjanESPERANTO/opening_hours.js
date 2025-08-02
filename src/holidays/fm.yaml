@@ -1,0 +1,78 @@
+PH:
+- name: New Year's Day
+  fixed_date: [1, 1]
+- name: Micronesian Culture and Tradition Day
+  fixed_date: [3, 31]
+- name: Federated States of Micronesia Day (observed)
+  fixed_date: [5, 9]
+- name: Federated States of Micronesia Day
+  fixed_date: [5, 10]
+- name: United Nations Day
+  fixed_date: [10, 24]
+- name: Independence Day
+  fixed_date: [11, 3]
+- name: FSM Veterans of Foreign Wars Day
+  fixed_date: [11, 11]
+- name: Presidents Day
+  fixed_date: [11, 23]
+- name: Presidents Day (observed)
+  fixed_date: [11, 24]
+- name: Christmas Day
+  fixed_date: [12, 25]
+- name: Kosrae State Constitution Day (observed)
+  fixed_date: [1, 10]
+  only_states: [Kosrae, Kusaie]
+- name: Kosrae State Constitution Day
+  fixed_date: [1, 11]
+  only_states: [Kosrae, Kusaie]
+- name: Good Friday
+  fixed_date: [4, 18]
+  only_states: [Kosrae, Kusaie, Pohnpei, Ponape]
+- name: Gospel Day
+  fixed_date: [8, 21]
+  only_states: [Kosrae, Kusaie]
+- name: Kosrae Liberation Day
+  fixed_date: [9, 8]
+  only_states: [Kosrae, Kusaie]
+- name: Independence Day; Self Government Day
+  fixed_date: [11, 3]
+  only_states: [Kosrae, Kusaie]
+- name: Thanksgiving Day
+  fixed_date: [11, 27]
+  only_states: [Kosrae, Kusaie]
+- name: Kosrae Disability Day
+  fixed_date: [12, 3]
+  only_states: [Kosrae, Kusaie]
+- name: Women's Day (observed)
+  fixed_date: [3, 7]
+  only_states: [Pohnpei, Ponape]
+- name: Women's Day
+  fixed_date: [3, 8]
+  only_states: [Pohnpei, Ponape]
+- name: Micronesian Culture and Tradition Day; Pohnpei Cultural Day
+  fixed_date: [3, 31]
+  only_states: [Pohnpei, Ponape]
+- name: Liberation Day
+  fixed_date: [9, 11]
+  only_states: [Pohnpei, Ponape]
+- name: Pohnpei Constitution Day (observed)
+  fixed_date: [11, 7]
+  only_states: [Pohnpei, Ponape]
+- name: Pohnpei Constitution Day
+  fixed_date: [11, 8]
+  only_states: [Pohnpei, Ponape]
+- name: State Charter Day
+  fixed_date: [9, 26]
+  only_states: [Chuuk, Truk]
+- name: Chuuk State Constitution Day
+  fixed_date: [10, 1]
+  only_states: [Chuuk, Truk]
+- name: Yap Day (observed)
+  fixed_date: [2, 28]
+  only_states: [Yap]
+- name: Yap Day
+  fixed_date: [3, 1]
+  only_states: [Yap]
+- name: Yap State Constitution Day
+  fixed_date: [12, 24]
+  only_states: [Yap]

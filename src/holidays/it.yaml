@@ -1,18 +1,332 @@
----
-
-_nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.9808038&lon=12.7662312&zoom=18&addressdetails=1&accept-language=it,en'
-
-# https://presidenza.governo.it/ufficio_cerimoniale/cerimoniale/giornate.html
+_nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=41.9808038&lon=12.7662312&zoom=18&addressdetails=1&accept-language=it,en
 PH:
-  - {'name': 'Capodanno', 'fixed_date': [1, 1]}
-  - {'name': 'Epifania', 'fixed_date': [1, 6]}
-  - {'name': 'Liberazione dal nazifascismo (1945)', 'fixed_date': [4, 25]}
-  - {'name': 'Pasqua', 'variable_date': easter}
-  - {'name': 'Lunedì di Pasqua', 'variable_date': easter, 'offset': 1}
-  - {'name': 'Festa del lavoro', 'fixed_date': [5, 1]}
-  - {'name': 'Festa della Repubblica', 'fixed_date': [6, 2]}
-  - {'name': 'Assunzione di Maria', 'fixed_date': [8, 15]}
-  - {'name': 'Ognissanti', 'fixed_date': [11, 1]}
-  - {'name': 'Immacolata Concezione', 'fixed_date': [12, 8]}
-  - {'name': 'Natale di Gesù', 'fixed_date': [12, 25]}
-  - {'name': 'Santo Stefano', 'fixed_date': [12, 26]}
+- name: Capodanno
+  fixed_date: [1, 1]
+- name: Epifania del Signore
+  fixed_date: [1, 6]
+- name: Pasqua di Resurrezione
+  fixed_date: [4, 20]
+- name: Lunedì dell'Angelo
+  fixed_date: [4, 21]
+- name: Festa della Liberazione
+  fixed_date: [4, 25]
+- name: Festa dei Lavoratori
+  fixed_date: [5, 1]
+- name: Festa della Repubblica
+  fixed_date: [6, 2]
+- name: Assunzione della Vergine
+  fixed_date: [8, 15]
+- name: Tutti i Santi
+  fixed_date: [11, 1]
+- name: Immacolata Concezione
+  fixed_date: [12, 8]
+- name: Natale
+  fixed_date: [12, 25]
+- name: Santo Stefano
+  fixed_date: [12, 26]
+- name: San Gerlando
+  fixed_date: [2, 25]
+  only_states: [Agrigento]
+- name: San Baudolino
+  fixed_date: [11, 10]
+  only_states: [Alessandria]
+- name: San Ciriaco
+  fixed_date: [5, 4]
+  only_states: [Ancona]
+- name: San Grato
+  fixed_date: [9, 7]
+  only_states: [Aosta]
+- name: Sant'Emidio
+  fixed_date: [8, 5]
+  only_states: [Ascoli Piceno]
+- name: San Massimo D'Aveia
+  fixed_date: [6, 10]
+  only_states: [L'Aquila]
+- name: San Donato D'Arezzo
+  fixed_date: [8, 7]
+  only_states: [Arezzo]
+- name: San Secondo di Asti
+  fixed_date: [5, 6]
+  only_states: [Asti]
+- name: San Modestino
+  fixed_date: [2, 14]
+  only_states: [Avellino]
+- name: San Nicola
+  fixed_date: [12, 6]
+  only_states: [Bari, Lecco, Sassari]
+- name: Sant'Alessandro di Bergamo
+  fixed_date: [8, 26]
+  only_states: [Bergamo]
+- name: San Martino
+  fixed_date: [11, 11]
+  only_states: [Belluno]
+- name: San Bartolomeo apostolo
+  fixed_date: [8, 24]
+  only_states: [Benevento]
+- name: San Petronio
+  fixed_date: [10, 4]
+  only_states: [Bologna]
+- name: San Lorenzo da Brindisi
+  fixed_date: [9, 7]
+  only_states: [Brindisi]
+- name: Santi Faustino e Giovita
+  fixed_date: [2, 15]
+  only_states: [Brescia]
+- name: San Nicola Pellegrino
+  fixed_date: [5, 3]
+  only_states: [Barletta-Andria-Trani]
+- name: San Riccardo di Andria
+  fixed_date: [9, 21]
+  only_states: [Barletta-Andria-Trani]
+- name: San Ruggero
+  fixed_date: [12, 30]
+  only_states: [Barletta-Andria-Trani]
+- name: Lunedì di Pentecoste
+  fixed_date: [6, 9]
+  only_states: [Bolzano]
+- name: Assunzione della Vergine; Maria Santissima Assunta
+  fixed_date: [8, 15]
+  only_states: [Bolzano, Fermo]
+- name: San Saturnino di Cagliari
+  fixed_date: [10, 30]
+  only_states: [Cagliari]
+- name: San Giorgio
+  fixed_date: [4, 23]
+  only_states: [Campobasso, Ferrara, Reggio Calabria]
+- name: San Sebastiano
+  fixed_date: [1, 20]
+  only_states: [Caserta]
+- name: San Giustino di Chieti
+  fixed_date: [5, 11]
+  only_states: [Chieti]
+- name: San Michele Arcangelo
+  fixed_date: [9, 29]
+  only_states: [Caltanissetta, Cuneo]
+- name: Sant'Abbondio
+  fixed_date: [8, 31]
+  only_states: [Como]
+- name: Sant'Omobono
+  fixed_date: [11, 13]
+  only_states: [Cremona]
+- name: Madonna del Pilerio
+  fixed_date: [2, 12]
+  only_states: [Cosenza]
+- name: Sant'Agata
+  fixed_date: [2, 5]
+  only_states: [Catania]
+- name: San Vitaliano
+  fixed_date: [7, 16]
+  only_states: [Catanzaro]
+- name: Madonna della Visitazione
+  fixed_date: [7, 2]
+  only_states: [Enna]
+- name: Madonna del Fuoco
+  fixed_date: [2, 4]
+  only_states: [Forli-Cesena, Forlì-Cesena, Forlì]
+- name: San Giovanni Battista
+  fixed_date: [6, 24]
+  only_states: [Forli-Cesena, Forlì-Cesena, Firenze, Genova, Monza e Brianza, Torino]
+- name: Madonna dei Sette Veli
+  fixed_date: [3, 22]
+  only_states: [Foggia]
+- name: Maria Santissima Assunta
+  fixed_date: [8, 16]
+  only_states: [Fermo]
+- name: San Silverio
+  fixed_date: [6, 20]
+  only_states: [Frosinone]
+- name: Santi Ilario e Taziano
+  fixed_date: [3, 16]
+  only_states: [Gorizia]
+- name: San Lorenzo
+  fixed_date: [8, 10]
+  only_states: [Grosseto]
+- name: San Leonardo da Porto Maurizio
+  fixed_date: [11, 26]
+  only_states: [Imperia]
+- name: San Pietro Celestino
+  fixed_date: [5, 19]
+  only_states: [Isernia]
+- name: San Dionigi
+  fixed_date: [10, 9]
+  only_states: [Crotone]
+- name: Sant'Oronzo
+  fixed_date: [8, 26]
+  only_states: [Lecce]
+- name: Santa Giulia
+  fixed_date: [5, 22]
+  only_states: [Livorno]
+- name: San Bassiano
+  fixed_date: [1, 19]
+  only_states: [Lodi]
+- name: Festa della Liberazione; San Marco Evangelista
+  fixed_date: [4, 25]
+  only_states: [Latina, Pordenone, Venezia]
+- name: Santa Maria Goretti
+  fixed_date: [7, 6]
+  only_states: [Latina]
+- name: San Paolino di Lucca
+  fixed_date: [7, 12]
+  only_states: [Lucca]
+- name: San Giuliano l'ospitaliere
+  fixed_date: [8, 31]
+  only_states: [Macerata]
+- name: Madonna della Lettera
+  fixed_date: [6, 3]
+  only_states: [Messina]
+- name: Sant'Ambrogio
+  fixed_date: [12, 7]
+  only_states: [Milano]
+- name: Sant'Anselmo da Baggio
+  fixed_date: [3, 18]
+  only_states: [Mantova]
+- name: San Geminiano
+  fixed_date: [1, 31]
+  only_states: [Modena]
+- name: San Francesco d'Assisi
+  fixed_date: [10, 4]
+  only_states: [Massa-Carrara, Perugia]
+- name: Madonna della Bruna
+  fixed_date: [7, 2]
+  only_states: [Matera]
+- name: San Gennaro
+  fixed_date: [9, 19]
+  only_states: [Napoli]
+- name: San Gaudenzio
+  fixed_date: [1, 22]
+  only_states: [Novara]
+- name: Nostra Signora della Neve
+  fixed_date: [8, 5]
+  only_states: [Nuoro]
+- name: Sant'Archelao
+  fixed_date: [2, 13]
+  only_states: [Oristano]
+- name: Santa Rosalia
+  fixed_date: [7, 15]
+  only_states: [Palermo]
+- name: Sant'Antonino di Piacenza
+  fixed_date: [7, 4]
+  only_states: [Piacenza]
+- name: Sant'Antonio di Padova
+  fixed_date: [6, 13]
+  only_states: [Padova]
+- name: San Cetteo
+  fixed_date: [10, 10]
+  only_states: [Pescara]
+- name: Santa Chiara d'Assisi
+  fixed_date: [8, 11]
+  only_states: [Perugia]
+- name: San Ranieri
+  fixed_date: [6, 17]
+  only_states: [Pisa]
+- name: Madonna delle Grazie
+  fixed_date: [9, 8]
+  only_states: [Pordenone]
+- name: Sant'Ilario di Poitiers
+  fixed_date: [1, 13]
+  only_states: [Parma]
+- name: San Jacopo
+  fixed_date: [7, 25]
+  only_states: [Pistoia]
+- name: San Crescentino
+  fixed_date: [6, 1]
+  only_states: [Pesaro e Urbino]
+- name: San Terenzio di Pesaro
+  fixed_date: [9, 24]
+  only_states: [Pesaro e Urbino]
+- name: San Siro
+  fixed_date: [12, 9]
+  only_states: [Pavia]
+- name: San Gerardo di Potenza
+  fixed_date: [5, 30]
+  only_states: [Potenza]
+- name: Sant'Apollinare
+  fixed_date: [7, 23]
+  only_states: [Ravenna]
+- name: San Prospero Vescovo
+  fixed_date: [11, 24]
+  only_states: [Reggio Emilia]
+- name: San Giorgio Martire
+  fixed_date: [4, 23]
+  only_states: [Ragusa]
+- name: San Giovanni Battista
+  fixed_date: [8, 29]
+  only_states: [Ragusa]
+- name: Santa Barbara
+  fixed_date: [12, 4]
+  only_states: [Rieti]
+- name: Santi Pietro e Paolo
+  fixed_date: [6, 29]
+  only_states: [Roma]
+- name: San Gaudenzio
+  fixed_date: [10, 14]
+  only_states: [Rimini]
+- name: San Bellino
+  fixed_date: [11, 26]
+  only_states: [Rovigo]
+- name: San Matteo Evangelista
+  fixed_date: [9, 21]
+  only_states: [Salerno]
+- name: Sant'Ansano
+  fixed_date: [12, 1]
+  only_states: [Siena]
+- name: San Gervasio e San Protasio
+  fixed_date: [6, 19]
+  only_states: [Sondrio]
+- name: San Giuseppe
+  fixed_date: [3, 19]
+  only_states: [La Spezia]
+- name: Santa Lucia
+  fixed_date: [12, 13]
+  only_states: [Siracusa]
+- name: San Ponziano
+  fixed_date: [5, 15]
+  only_states: [Sud Sardegna]
+- name: Nostra Signora della Misericordia
+  fixed_date: [3, 18]
+  only_states: [Savona]
+- name: San Cataldo
+  fixed_date: [5, 10]
+  only_states: [Taranto]
+- name: San Berardo da Pagliara
+  fixed_date: [12, 19]
+  only_states: [Teramo]
+- name: San Vigilio
+  fixed_date: [6, 26]
+  only_states: [Trento]
+- name: Sant'Alberto degli Abati
+  fixed_date: [8, 7]
+  only_states: [Trapani]
+- name: San Valentino
+  fixed_date: [2, 14]
+  only_states: [Terni]
+- name: San Giusto
+  fixed_date: [11, 3]
+  only_states: [Trieste]
+- name: San Liberale
+  fixed_date: [4, 27]
+  only_states: [Treviso]
+- name: Santi Ermacora e Fortunato
+  fixed_date: [7, 12]
+  only_states: [Udine]
+- name: San Vittore il Moro
+  fixed_date: [5, 8]
+  only_states: [Varese, Verbano-Cusio-Ossola]
+- name: Sant'Eusebio di Vercelli
+  fixed_date: [8, 1]
+  only_states: [Vercelli]
+- name: Madonna della Salute
+  fixed_date: [11, 21]
+  only_states: [Venezia]
+- name: Madonna di Monte Berico
+  fixed_date: [9, 8]
+  only_states: [Vicenza]
+- name: San Zeno
+  fixed_date: [5, 21]
+  only_states: [Verona]
+- name: Santa Rosa da Viterbo
+  fixed_date: [9, 4]
+  only_states: [Viterbo]
+- name: San Leoluca
+  fixed_date: [3, 1]
+  only_states: [Vibo Valentia]

@@ -1,0 +1,21 @@
+PH:
+- name: Jour de l'An
+  fixed_date: [1, 1]
+- name: Lundi de Pâques
+  fixed_date: [4, 21]
+- name: Fête du Travail
+  fixed_date: [5, 1]
+- name: Ascension
+  fixed_date: [5, 29]
+- name: Lundi de Pentecôte
+  fixed_date: [6, 9]
+- name: Fête de la Réconciliation
+  fixed_date: [6, 10]
+- name: Fête Nationale
+  fixed_date: [8, 15]
+- name: Toussaint
+  fixed_date: [11, 1]
+- name: Jour de la République
+  fixed_date: [11, 28]
+- name: Noël
+  fixed_date: [12, 25]

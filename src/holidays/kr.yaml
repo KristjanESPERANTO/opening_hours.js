@@ -1,0 +1,39 @@
+PH:
+- name: 신정연휴
+  fixed_date: [1, 1]
+- name: 임시공휴일
+  fixed_date: [1, 27]
+- name: 설날 전날
+  fixed_date: [1, 28]
+- name: 설날
+  fixed_date: [1, 29]
+- name: 설날 다음날
+  fixed_date: [1, 30]
+- name: 삼일절
+  fixed_date: [3, 1]
+- name: 삼일절 대체 휴일
+  fixed_date: [3, 3]
+- name: 부처님오신날; 어린이날
+  fixed_date: [5, 5]
+- name: 부처님오신날 대체 휴일; 어린이날 대체 휴일
+  fixed_date: [5, 6]
+- name: 대통령 선거일
+  fixed_date: [6, 3]
+- name: 현충일
+  fixed_date: [6, 6]
+- name: 광복절
+  fixed_date: [8, 15]
+- name: 개천절
+  fixed_date: [10, 3]
+- name: 추석 전날
+  fixed_date: [10, 5]
+- name: 추석
+  fixed_date: [10, 6]
+- name: 추석 다음날
+  fixed_date: [10, 7]
+- name: 추석 대체 휴일
+  fixed_date: [10, 8]
+- name: 한글날
+  fixed_date: [10, 9]
+- name: 기독탄신일
+  fixed_date: [12, 25]
