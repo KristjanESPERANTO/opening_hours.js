@@ -1,36 +1,22 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lon=15.977&lat=45.813&zoom=18&addressdetails=1&accept-language=hr,en
+
 PH:
-- name: Nova godina
-  fixed_date: [1, 1]
-- name: Bogojavljenje ili Sveta tri kralja
-  fixed_date: [1, 6]
-- name: Uskrs
-  fixed_date: [4, 20]
-- name: Uskrsni ponedjeljak
-  fixed_date: [4, 21]
-- name: Praznik rada
-  fixed_date: [5, 1]
-- name: Dan državnosti
-  fixed_date: [5, 30]
-- name: Tijelovo
-  fixed_date: [6, 19]
-- name: Dan antifašističke borbe
-  fixed_date: [6, 22]
-- name: Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja
-  fixed_date: [8, 5]
-- name: Velika Gospa
-  fixed_date: [8, 15]
-- name: Svi sveti
-  fixed_date: [11, 1]
-- name: Dan sjećanja na žrtve Domovinskog rata i Dan sjećanja na žrtvu Vukovara i
-    Škabrnje
-  fixed_date: [11, 18]
-- name: Božić
-  fixed_date: [12, 25]
-- name: Sveti Stjepan
-  fixed_date: [12, 26]
+  - {'name': 'Nova godina', 'fixed_date': [1, 1]}
+  - {'name': 'Bogojavljenje ili Sveta tri kralja', 'fixed_date': [1, 6]}
+  - {'name': 'Uskrs', 'fixed_date': [4, 20]}
+  - {'name': 'Uskrsni ponedjeljak', 'fixed_date': [4, 21]}
+  - {'name': 'Praznik rada', 'fixed_date': [5, 1]}
+  - {'name': 'Dan državnosti', 'fixed_date': [5, 30]}
+  - {'name': 'Tijelovo', 'fixed_date': [6, 19]}
+  - {'name': 'Dan antifašističke borbe', 'fixed_date': [6, 22]}
+  - {'name': 'Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja', 'fixed_date': [8, 5]}
+  - {'name': 'Velika Gospa', 'fixed_date': [8, 15]}
+  - {'name': 'Svi sveti', 'fixed_date': [11, 1]}
+  - {'name': 'Dan sjećanja na žrtve Domovinskog rata i Dan sjećanja na žrtvu Vukovara i Škabrnje', 'fixed_date': [11, 18]}
+  - {'name': 'Božić', 'fixed_date': [12, 25]}
+  - {'name': 'Sveti Stjepan', 'fixed_date': [12, 26]}
 SH:
 - name: Drugi dio zimskog odmora
   '2022': [2, 21, 2, 27]

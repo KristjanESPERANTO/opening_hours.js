@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: Le jour de l'An
-  fixed_date: [1, 1]
-- name: La Sainte Dévote
-  fixed_date: [1, 27]
-- name: Le lundi de Pâques
-  fixed_date: [4, 21]
-- name: Fête de la Travaille
-  fixed_date: [5, 1]
-- name: L'Ascension
-  fixed_date: [5, 29]
-- name: Le lundi de Pentecôte
-  fixed_date: [6, 9]
-- name: La Fête Dieu
-  fixed_date: [6, 19]
-- name: L'Assomption de Marie
-  fixed_date: [8, 15]
-- name: La Toussaint
-  fixed_date: [11, 1]
-- name: La Fête du Prince
-  fixed_date: [11, 19]
-- name: L'Immaculée Conception
-  fixed_date: [12, 8]
-- name: Noël
-  fixed_date: [12, 25]
+  - {'name': "Le jour de l'An", 'fixed_date': [1, 1]}
+  - {'name': 'La Sainte Dévote', 'fixed_date': [1, 27]}
+  - {'name': 'Le lundi de Pâques', 'fixed_date': [4, 21]}
+  - {'name': 'Fête de la Travaille', 'fixed_date': [5, 1]}
+  - {'name': "L'Ascension", 'fixed_date': [5, 29]}
+  - {'name': 'Le lundi de Pentecôte', 'fixed_date': [6, 9]}
+  - {'name': 'La Fête Dieu', 'fixed_date': [6, 19]}
+  - {'name': "L'Assomption de Marie", 'fixed_date': [8, 15]}
+  - {'name': 'La Toussaint', 'fixed_date': [11, 1]}
+  - {'name': 'La Fête du Prince', 'fixed_date': [11, 19]}
+  - {'name': "L'Immaculée Conception", 'fixed_date': [12, 8]}
+  - {'name': 'Noël', 'fixed_date': [12, 25]}

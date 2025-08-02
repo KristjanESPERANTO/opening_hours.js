@@ -378,22 +378,267 @@ With [1m[34mwarnings[39m[22m:
 "Variable times spanning midnight" for "Mo-Su sunset-sunrise": [1m[32mPASSED[39m[22m
 "Variable times spanning midnight" for "Mo-Su sunset-07:22": [1m[32mPASSED[39m[22m
 "Variable times spanning midnight" for "Mo-Su 19:00-sunrise": [1m[32mPASSED[39m[22m
-"Variable days: public holidays" for "PH": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahr' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-04-18 00:00', '2013-04-19 00:00', false, 'Karfreitag' ],
+[ '2013-04-21 00:00', '2013-04-22 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Erster Mai' ],
+[ '2013-05-29 00:00', '2013-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-06-09 00:00', '2013-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2013-06-19 00:00', '2013-06-20 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Erster Mai' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+expected:
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahrstag' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-03-29 00:00', '2013-03-30 00:00', false, 'Karfreitag' ],
+[ '2013-04-01 00:00', '2013-04-02 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2013-05-09 00:00', '2013-05-10 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-05-20 00:00', '2013-05-21 00:00', false, 'Pfingstmontag' ],
+[ '2013-05-30 00:00', '2013-05-31 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, '2. Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, '2. Weihnachtstag' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "holiday": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "holiday": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahr' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-04-18 00:00', '2013-04-19 00:00', false, 'Karfreitag' ],
+[ '2013-04-21 00:00', '2013-04-22 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Erster Mai' ],
+[ '2013-05-29 00:00', '2013-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-06-09 00:00', '2013-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2013-06-19 00:00', '2013-06-20 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Erster Mai' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+expected:
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahrstag' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-03-29 00:00', '2013-03-30 00:00', false, 'Karfreitag' ],
+[ '2013-04-01 00:00', '2013-04-02 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2013-05-09 00:00', '2013-05-10 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-05-20 00:00', '2013-05-21 00:00', false, 'Pfingstmontag' ],
+[ '2013-05-30 00:00', '2013-05-31 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, '2. Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, '2. Weihnachtstag' ],
 With [1m[34mwarnings[39m[22m:
 	*holiday <--- (Please use notation "PH" for "holiday".)
 	*holiday <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "holidays": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "holidays": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahr' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-04-18 00:00', '2013-04-19 00:00', false, 'Karfreitag' ],
+[ '2013-04-21 00:00', '2013-04-22 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Erster Mai' ],
+[ '2013-05-29 00:00', '2013-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-06-09 00:00', '2013-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2013-06-19 00:00', '2013-06-20 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Erster Mai' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+expected:
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahrstag' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-03-29 00:00', '2013-03-30 00:00', false, 'Karfreitag' ],
+[ '2013-04-01 00:00', '2013-04-02 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2013-05-09 00:00', '2013-05-10 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-05-20 00:00', '2013-05-21 00:00', false, 'Pfingstmontag' ],
+[ '2013-05-30 00:00', '2013-05-31 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, '2. Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, '2. Weihnachtstag' ],
 With [1m[34mwarnings[39m[22m:
 	*holidays <--- (Please use notation "PH" for "holidays".)
 	*holidays <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "public holidays": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "public holidays": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahr' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-04-18 00:00', '2013-04-19 00:00', false, 'Karfreitag' ],
+[ '2013-04-21 00:00', '2013-04-22 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Erster Mai' ],
+[ '2013-05-29 00:00', '2013-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-06-09 00:00', '2013-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2013-06-19 00:00', '2013-06-20 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Erster Mai' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+expected:
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahrstag' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-03-29 00:00', '2013-03-30 00:00', false, 'Karfreitag' ],
+[ '2013-04-01 00:00', '2013-04-02 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2013-05-09 00:00', '2013-05-10 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-05-20 00:00', '2013-05-21 00:00', false, 'Pfingstmontag' ],
+[ '2013-05-30 00:00', '2013-05-31 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, '2. Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, '2. Weihnachtstag' ],
 With [1m[34mwarnings[39m[22m:
 	*public holidays <--- (Please use notation "PH" for "public holidays".)
 	*public holidays <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "public holiday": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "public holiday": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahr' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-04-18 00:00', '2013-04-19 00:00', false, 'Karfreitag' ],
+[ '2013-04-21 00:00', '2013-04-22 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Erster Mai' ],
+[ '2013-05-29 00:00', '2013-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-06-09 00:00', '2013-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2013-06-19 00:00', '2013-06-20 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Erster Mai' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Erster Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Zweiter Weihnachtstag' ],
+expected:
+[ '2013-01-01 00:00', '2013-01-02 00:00', false, 'Neujahrstag' ],
+[ '2013-01-06 00:00', '2013-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2013-03-29 00:00', '2013-03-30 00:00', false, 'Karfreitag' ],
+[ '2013-04-01 00:00', '2013-04-02 00:00', false, 'Ostermontag' ],
+[ '2013-05-01 00:00', '2013-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2013-05-09 00:00', '2013-05-10 00:00', false, 'Christi Himmelfahrt' ],
+[ '2013-05-20 00:00', '2013-05-21 00:00', false, 'Pfingstmontag' ],
+[ '2013-05-30 00:00', '2013-05-31 00:00', false, 'Fronleichnam' ],
+[ '2013-10-03 00:00', '2013-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2013-11-01 00:00', '2013-11-02 00:00', false, 'Allerheiligen' ],
+[ '2013-12-25 00:00', '2013-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2013-12-26 00:00', '2013-12-27 00:00', false, '2. Weihnachtstag' ],
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-04-18 00:00', '2014-04-19 00:00', false, 'Karfreitag' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Ostermontag' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Tag der Arbeit' ],
+[ '2014-05-29 00:00', '2014-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2014-06-09 00:00', '2014-06-10 00:00', false, 'Pfingstmontag' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Fronleichnam' ],
+[ '2014-10-03 00:00', '2014-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Allerheiligen' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, '1. Weihnachtstag' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, '2. Weihnachtstag' ],
 With [1m[34mwarnings[39m[22m:
 	*public holiday <--- (Please use notation "PH" for "public holiday".)
 	*public holiday <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
@@ -409,17 +654,51 @@ With [1m[34mwarnings[39m[22m:
 "Variable days: Germany school holidays. Rheinland-Pfalz" for "SH": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*SH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "open; PH off": [1m[32mPASSED[39m[22m
-"Variable days: public holidays (with time range)" for "PH 12:00-13:00": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "open; PH off": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2013-04-01 00:00', '2013-04-18 00:00', false, undefined ],
+[ '2013-04-19 00:00', '2013-04-21 00:00', false, undefined ],
+[ '2013-04-22 00:00', '2013-05-01 00:00', false, undefined ],
+[ '2013-05-02 00:00', '2013-05-11 00:00', false, undefined ],
+expected:
+[ '2013-04-02 00:00', '2013-05-01 00:00', false, undefined ],
+[ '2013-05-02 00:00', '2013-05-09 00:00', false, undefined ],
+[ '2013-05-10 00:00', '2013-05-11 00:00', false, undefined ],
+"Variable days: public holidays (with time range)" for "PH 12:00-13:00": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2012-01-01 12:00', '2012-01-01 13:00', false, 'Neujahr' ],
+[ '2012-01-06 12:00', '2012-01-06 13:00', false, 'Heilige Drei Könige' ],
+expected:
+[ '2012-01-01 12:00', '2012-01-01 13:00', false, 'Neujahrstag' ],
+[ '2012-01-06 12:00', '2012-01-06 13:00', false, 'Heilige Drei Könige' ],
 "Variable days: public holidays (with time range)" for "PH 12:00-13:00 open "this comment should override the holiday name which is returned as comment if PH matches."": [1m[32mPASSED[39m[22m
-"PH: Only if PH is Wednesday" for "PH We,Fr": [1m[32mPASSED[39m[22m
+"PH: Only if PH is Wednesday" for "PH We,Fr": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2012-01-06 00:00', '2012-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2012-04-18 00:00', '2012-04-19 00:00', false, 'Karfreitag' ],
+[ '2012-10-03 00:00', '2012-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+expected:
+[ '2012-01-06 00:00', '2012-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2012-04-06 00:00', '2012-04-07 00:00', false, 'Karfreitag' ],
+[ '2012-10-03 00:00', '2012-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
 With [1m[34mwarnings[39m[22m:
 	*PH We,Fr <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"PH: Only if PH is Wednesday" for "PH: We,Fr": [1m[32mPASSED[39m[22m
+"PH: Only if PH is Wednesday" for "PH: We,Fr": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2012-01-06 00:00', '2012-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2012-04-18 00:00', '2012-04-19 00:00', false, 'Karfreitag' ],
+[ '2012-10-03 00:00', '2012-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+expected:
+[ '2012-01-06 00:00', '2012-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2012-04-06 00:00', '2012-04-07 00:00', false, 'Karfreitag' ],
+[ '2012-10-03 00:00', '2012-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
 With [1m[34mwarnings[39m[22m:
 	*PH:  <--- (Please don’t use ":" after holiday.)
 	*PH: We,Fr <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"PH: Only if PH is Wednesday" for " We,Fr: PH": [1m[32mPASSED[39m[22m
+"PH: Only if PH is Wednesday" for " We,Fr: PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2012-01-06 00:00', '2012-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2012-04-18 00:00', '2012-04-19 00:00', false, 'Karfreitag' ],
+[ '2012-10-03 00:00', '2012-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
+expected:
+[ '2012-01-06 00:00', '2012-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2012-04-06 00:00', '2012-04-07 00:00', false, 'Karfreitag' ],
+[ '2012-10-03 00:00', '2012-10-04 00:00', false, 'Tag der Deutschen Einheit' ],
 With [1m[34mwarnings[39m[22m:
 	* We,Fr: PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 	*PH <--- (The selector "holiday" was switched with the selector "weekday" for readability and compatibility reasons.)
@@ -462,39 +741,100 @@ With [1m[34mwarnings[39m[22m:
 "SH" for "SH Mo-Fr": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*SH Mo-Fr <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "PH +1 day": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "PH +1 day": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-11-02 00:00', '2014-11-03 00:00', false, 'Day after Allerheiligen' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Day after Erster Weihnachtstag' ],
+[ '2014-12-27 00:00', '2014-12-28 00:00', false, 'Day after Zweiter Weihnachtstag' ],
+[ '2015-01-02 00:00', '2015-01-03 00:00', false, 'Day after Neujahr' ],
+[ '2015-01-07 00:00', '2015-01-08 00:00', false, 'Day after Heilige Drei Könige' ],
+expected:
+[ '2014-11-02 00:00', '2014-11-03 00:00', false, 'Day after Allerheiligen' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Day after 1. Weihnachtstag' ],
+[ '2014-12-27 00:00', '2014-12-28 00:00', false, 'Day after 2. Weihnachtstag' ],
+[ '2015-01-02 00:00', '2015-01-03 00:00', false, 'Day after Neujahrstag' ],
+[ '2015-01-07 00:00', '2015-01-08 00:00', false, 'Day after Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*PH +1 day <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "day after public holiday": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "day after public holiday": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-11-02 00:00', '2014-11-03 00:00', false, 'Day after Allerheiligen' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Day after Erster Weihnachtstag' ],
+[ '2014-12-27 00:00', '2014-12-28 00:00', false, 'Day after Zweiter Weihnachtstag' ],
+[ '2015-01-02 00:00', '2015-01-03 00:00', false, 'Day after Neujahr' ],
+[ '2015-01-07 00:00', '2015-01-08 00:00', false, 'Day after Heilige Drei Könige' ],
+expected:
+[ '2014-11-02 00:00', '2014-11-03 00:00', false, 'Day after Allerheiligen' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Day after 1. Weihnachtstag' ],
+[ '2014-12-27 00:00', '2014-12-28 00:00', false, 'Day after 2. Weihnachtstag' ],
+[ '2015-01-02 00:00', '2015-01-03 00:00', false, 'Day after Neujahrstag' ],
+[ '2015-01-07 00:00', '2015-01-08 00:00', false, 'Day after Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*day after public holiday <--- (Please use notation "PH +1 day" for "day after public holiday".)
 	*day after public holiday <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "one day after public holiday": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "one day after public holiday": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-11-02 00:00', '2014-11-03 00:00', false, 'Day after Allerheiligen' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Day after Erster Weihnachtstag' ],
+[ '2014-12-27 00:00', '2014-12-28 00:00', false, 'Day after Zweiter Weihnachtstag' ],
+[ '2015-01-02 00:00', '2015-01-03 00:00', false, 'Day after Neujahr' ],
+[ '2015-01-07 00:00', '2015-01-08 00:00', false, 'Day after Heilige Drei Könige' ],
+expected:
+[ '2014-11-02 00:00', '2014-11-03 00:00', false, 'Day after Allerheiligen' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Day after 1. Weihnachtstag' ],
+[ '2014-12-27 00:00', '2014-12-28 00:00', false, 'Day after 2. Weihnachtstag' ],
+[ '2015-01-02 00:00', '2015-01-03 00:00', false, 'Day after Neujahrstag' ],
+[ '2015-01-07 00:00', '2015-01-08 00:00', false, 'Day after Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*one day after public holiday <--- (Please use notation "PH +1 day" for "one day after public holiday".)
 	*one day after public holiday <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "PH -1 day Mo-We": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "PH -1 day Mo-We": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*PH -1 day Mo-We <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "Mo-We PH -1 day": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "Mo-We PH -1 day": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*Mo-We PH -1 day <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 	*PH -1 day <--- (The selector "holiday" was switched with the selector "weekday" for readability and compatibility reasons.)
 	*PH -1 day Mo-We <--- (The selector "weekday" was switched with the selector "holiday" for readability and compatibility reasons.)
-"Variable days: public holidays" for "day before public holiday Mo-We": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "day before public holiday Mo-We": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*day before public holiday <--- (Please use notation "PH -1 day" for "day before public holiday".)
 	*day before public holiday Mo-We <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "one day before public holiday Mo-We": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "one day before public holiday Mo-We": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*one day before public holiday <--- (Please use notation "PH -1 day" for "one day before public holiday".)
 	*one day before public holiday Mo-We <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "Variable days: public holidays" for "SH PH -1 day Mo-We": [1m[31mFAILED[39m[22m, bad duration(s): 864000000,0, expected 259200000,0, bad intervals: 
 [ '2014-10-27 00:00', '2014-10-30 00:00', false, 'Herbstferien' ],
 [ '2014-12-22 00:00', '2014-12-24 00:00', false, 'Weihnachtsferien' ],
-[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
 [ '2014-12-29 00:00', '2014-12-31 00:00', false, 'Weihnachtsferien' ],
-[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
 [ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 expected:
 [ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
@@ -515,17 +855,61 @@ expected:
 With [1m[34mwarnings[39m[22m:
 	*PH -1 day SH  <--- (You have used 2 not connected holiday ranges in one rule. This is probably an error. Equal selector types can (and should) always be written in conjunction separated by comma. Example for time ranges "12:00-13:00,15:00-18:00". Example for weekdays "Mo-We,Fr". Rules can be separated by ";".)
 	*PH -1 day SH Mo-We <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "PH -1 day": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "PH -1 day": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before Zweiter Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before 2. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*PH -1 day <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "PH-1day": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "PH-1day": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before Zweiter Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before 2. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*PH-1day <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "day before public holiday": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "day before public holiday": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before Zweiter Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before 2. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*day before public holiday <--- (Please use notation "PH -1 day" for "day before public holiday".)
 	*day before public holiday <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: public holidays" for "one day before public holiday": [1m[32mPASSED[39m[22m
+"Variable days: public holidays" for "one day before public holiday": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before Erster Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before Zweiter Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahr' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
+expected:
+[ '2014-10-31 00:00', '2014-11-01 00:00', false, 'Day before Allerheiligen' ],
+[ '2014-12-24 00:00', '2014-12-25 00:00', false, 'Day before 1. Weihnachtstag' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Day before 2. Weihnachtstag' ],
+[ '2014-12-31 00:00', '2015-01-01 00:00', false, 'Day before Neujahrstag' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Day before Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*one day before public holiday <--- (Please use notation "PH -1 day" for "one day before public holiday".)
 	*one day before public holiday <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
@@ -540,23 +924,101 @@ With [1m[34mwarnings[39m[22m:
 With [1m[34mwarnings[39m[22m:
 	*2014  <--- (The year is in the past.)
 	*2014 SH We <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,PH": [1m[32mPASSED[39m[22m
+"Variable days: school holidays" for "SH,PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*SH,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "2014 SH,PH": [1m[32mPASSED[39m[22m
+"Variable days: school holidays" for "2014 SH,PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*2014  <--- (The year is in the past.)
 	*2014 SH,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "Jan-Feb SH,PH": [1m[32mPASSED[39m[22m
+"Variable days: school holidays" for "Jan-Feb SH,PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*Jan-Feb SH,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "Su,SH,PH": [1m[32mPASSED[39m[22m
+"Variable days: school holidays" for "Su,SH,PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*Su,SH,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Su,PH": [1m[32mPASSED[39m[22m
+"Variable days: school holidays" for "SH,Su,PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*SH,Su,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,PH,Su": [1m[32mPASSED[39m[22m
+"Variable days: school holidays" for "SH,PH,Su": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*SH,PH,Su <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "Variable days: school holidays" for "PH,Su,SH": [1m[31mFAILED[39m[22m, bad intervals: 
@@ -580,61 +1042,294 @@ expected:
 [ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*PH,Su,SH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonntag und an Feiertagen": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonntag und an Feiertagen": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,Su,PH", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonntag <--- (Please use the English abbreviation "Su" for "sonntag".)
 	*SH,Sonntag und <--- (Please use notation "," for "und".)
 	*SH,Sonntag und an Feiertagen <--- (Please use the English written "PH" for "an feiertagen".)
 	*SH,Sonntag und an Feiertagen <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonn und Feiertag": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonn und Feiertag": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonn und Feiertag <--- (Please use notation "PH,Su" for "sonn und feiertag".)
 	*SH,Sonn und Feiertag <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonn und Feiertags": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonn und Feiertags": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonn und Feiertags <--- (Please use notation "PH,Su" for "sonn und feiertags".)
 	*SH,Sonn und Feiertags <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonn- und Feiertags": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonn- und Feiertags": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonn- und Feiertags <--- (Please use notation "PH,Su" for "sonn- und feiertags".)
 	*SH,Sonn- und Feiertags <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonn- und Feiertage": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonn- und Feiertage": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonn- und Feiertage <--- (Please use notation "PH,Su" for "sonn- und feiertage".)
 	*SH,Sonn- und Feiertage <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonn-/Feiertag": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonn-/Feiertag": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonn-/Feiertag <--- (Please use notation "PH,Su" for "sonn-/feiertag".)
 	*SH,Sonn-/Feiertag <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH,Sonn-/Feiertags": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH,Sonn-/Feiertags": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH,Sonn-/Feiertags <--- (Please use notation "PH,Su" for "sonn-/feiertags".)
 	*SH,Sonn-/Feiertags <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH und nur Sonn-/Feiertags": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH und nur Sonn-/Feiertags": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH und <--- (Please use notation "," for "und".)
 	*SH und nur Sonn-/Feiertags <--- (Please use notation "PH,Su" for "nur sonn-/feiertags".)
 	*SH und nur Sonn-/Feiertags <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH und Sonn-/Feiertags": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH und Sonn-/Feiertags": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH und <--- (Please use notation "," for "und".)
 	*SH und Sonn-/Feiertags <--- (Please use notation "PH,Su" for "sonn-/feiertags".)
 	*SH und Sonn-/Feiertags <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: school holidays" for "SH und an Sonn- und Feiertagen": [1m[32mPASSED[39m[22m, [1m[33mexcept[39m[22m prettifyValue
+"Variable days: school holidays" for "SH und an Sonn- und Feiertagen": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-05 00:00', false, 'Weihnachtsferien' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-12 00:00', '2014-01-13 00:00', false, undefined ],
+[ '2014-01-19 00:00', '2014-01-20 00:00', false, undefined ],
+[ '2014-01-26 00:00', '2014-01-27 00:00', false, undefined ],
+[ '2014-02-02 00:00', '2014-02-03 00:00', false, undefined ],
+[ '2014-02-09 00:00', '2014-02-10 00:00', false, undefined ],, bad prettified value: "SH,PH,Su", expected either value or "Su,SH,PH"
 With [1m[34mwarnings[39m[22m:
 	*SH und <--- (Please use notation "," for "und".)
 	*SH und an Sonn- und Feiertagen <--- (Please use notation "PH,Su" for "an sonn- und feiertagen".)
 	*SH und an Sonn- und Feiertagen <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Everyday including public holidays" for "Mo-Su,PH": [1m[32mPASSED[39m[22m
+"Variable days: Everyday including public holidays" for "Mo-Su,PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-07 00:00', '2014-01-15 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-07 00:00', '2014-01-15 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*Mo-Su,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Everyday including public holidays" for "PH,Mo-Su": [1m[32mPASSED[39m[22m
+"Variable days: Everyday including public holidays" for "PH,Mo-Su": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahr' ],
+[ '2014-01-02 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-07 00:00', '2014-01-15 00:00', false, undefined ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Neujahrstag' ],
+[ '2014-01-02 00:00', '2014-01-06 00:00', false, undefined ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Heilige Drei Könige' ],
+[ '2014-01-07 00:00', '2014-01-15 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*PH,Mo-Su <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "SH(summer holiday) workaround" for "Jul-Sep SH": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*Jul-Sep SH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Italian public holidays" for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Italian public holidays" for "PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Capodanno' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Epifania del Signore' ],
+[ '2014-04-20 00:00', '2014-04-21 00:00', false, 'Pasqua di Resurrezione' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Lunedì dell'Angelo' ],
+[ '2014-04-25 00:00', '2014-04-26 00:00', false, 'Festa della Liberazione' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Festa dei Lavoratori' ],
+[ '2014-06-02 00:00', '2014-06-03 00:00', false, 'Festa della Repubblica' ],
+[ '2014-08-15 00:00', '2014-08-16 00:00', false, 'Assunzione della Vergine' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Tutti i Santi' ],
+[ '2014-12-08 00:00', '2014-12-09 00:00', false, 'Immacolata Concezione' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Natale' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Santo Stefano' ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Capodanno' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Epifania' ],
+[ '2014-04-20 00:00', '2014-04-21 00:00', false, 'Pasqua' ],
+[ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Lunedì di Pasqua' ],
+[ '2014-04-25 00:00', '2014-04-26 00:00', false, 'Liberazione dal nazifascismo (1945)' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Festa del lavoro' ],
+[ '2014-06-02 00:00', '2014-06-03 00:00', false, 'Festa della Repubblica' ],
+[ '2014-08-15 00:00', '2014-08-16 00:00', false, 'Assunzione di Maria' ],
+[ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Ognissanti' ],
+[ '2014-12-08 00:00', '2014-12-09 00:00', false, 'Immacolata Concezione' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Natale di Gesù' ],
+[ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Santo Stefano' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 An error occurred during evaluation of the value "SH". Please submit a pull request: https://github.com/opening-hours/opening_hours.js. School holiday not defined for the year 2018.
@@ -642,7 +1337,36 @@ An error occurred during evaluation of the value "SH". Please submit a pull requ
 "SH for Austria" for "SH": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*SH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Russian common public holidays" for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Russian common public holidays" for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 1641540000,0, expected 1209600000,0, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-07 00:00', false, 'Новогодние каникулы' ],
+[ '2014-01-07 00:00', '2014-01-08 00:00', false, 'Рождество Христово' ],
+[ '2014-01-08 00:00', '2014-01-09 00:00', false, 'Новогодние каникулы' ],
+[ '2014-02-23 00:00', '2014-02-24 00:00', false, 'День защитника Отечества' ],
+[ '2014-03-08 00:00', '2014-03-09 00:00', false, 'Международный женский день' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Праздник Весны и Труда' ],
+[ '2014-05-02 00:00', '2014-05-03 00:00', false, 'Выходной (перенесено с 04.01.2025)' ],
+[ '2014-05-08 00:00', '2014-05-09 00:00', false, 'Выходной (перенесено с 23.02.2025)' ],
+[ '2014-05-09 00:00', '2014-05-10 00:00', false, 'День Победы' ],
+[ '2014-06-12 00:00', '2014-06-13 00:00', false, 'День России' ],
+[ '2014-06-13 00:00', '2014-06-14 00:00', false, 'Выходной (перенесено с 08.03.2025)' ],
+[ '2014-11-03 00:00', '2014-11-04 00:00', false, 'Выходной (перенесено с 01.11.2025)' ],
+[ '2014-11-04 00:00', '2014-11-05 00:00', false, 'День народного единства' ],
+[ '2014-12-31 00:00', '2014-12-31 23:59', false, 'Выходной (перенесено с 05.01.2025)' ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, '1. Новогодние каникулы' ],
+[ '2014-01-02 00:00', '2014-01-03 00:00', false, '2. Новогодние каникулы' ],
+[ '2014-01-03 00:00', '2014-01-04 00:00', false, '3. Новогодние каникулы' ],
+[ '2014-01-04 00:00', '2014-01-05 00:00', false, '4. Новогодние каникулы' ],
+[ '2014-01-05 00:00', '2014-01-06 00:00', false, '5. Новогодние каникулы' ],
+[ '2014-01-06 00:00', '2014-01-07 00:00', false, '6. Новогодние каникулы' ],
+[ '2014-01-07 00:00', '2014-01-08 00:00', false, 'Рождество Христово' ],
+[ '2014-01-08 00:00', '2014-01-09 00:00', false, '8. Новогодние каникулы' ],
+[ '2014-02-23 00:00', '2014-02-24 00:00', false, 'День защитника Отечества' ],
+[ '2014-03-08 00:00', '2014-03-09 00:00', false, 'Международный женский день' ],
+[ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Праздник Весны и Труда' ],
+[ '2014-05-09 00:00', '2014-05-10 00:00', false, 'День Победы' ],
+[ '2014-06-12 00:00', '2014-06-13 00:00', false, 'День России' ],
+[ '2014-11-04 00:00', '2014-11-05 00:00', false, 'День народного единства' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "Variable days: Russian public holidays. Republic of Tatarstan" for "PH": [1m[32mPASSED[39m[22m
@@ -702,7 +1426,26 @@ With [1m[34mwarnings[39m[22m:
 "Variable days: Russian public holidays. Komi Republic" for "PH": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: United States common public holidays" for "PH": [1m[32mPASSED[39m[22m
+"Variable days: United States common public holidays" for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 950400000,0, expected 604800000,0, bad intervals: 
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'New Year's Day' ],
+[ '2014-01-20 00:00', '2014-01-21 00:00', false, 'Martin Luther King Jr. Day' ],
+[ '2014-02-17 00:00', '2014-02-18 00:00', false, 'Washington's Birthday' ],
+[ '2014-05-26 00:00', '2014-05-27 00:00', false, 'Memorial Day' ],
+[ '2014-06-19 00:00', '2014-06-20 00:00', false, 'Juneteenth National Independence Day' ],
+[ '2014-07-04 00:00', '2014-07-05 00:00', false, 'Independence Day' ],
+[ '2014-09-01 00:00', '2014-09-02 00:00', false, 'Labor Day' ],
+[ '2014-10-13 00:00', '2014-10-14 00:00', false, 'Columbus Day' ],
+[ '2014-11-11 00:00', '2014-11-12 00:00', false, 'Veterans Day' ],
+[ '2014-11-27 00:00', '2014-11-28 00:00', false, 'Thanksgiving Day' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Christmas Day' ],
+expected:
+[ '2014-01-01 00:00', '2014-01-02 00:00', false, 'New Year's Day' ],
+[ '2014-05-26 00:00', '2014-05-27 00:00', false, 'Memorial Day' ],
+[ '2014-07-04 00:00', '2014-07-05 00:00', false, 'Independence Day' ],
+[ '2014-09-01 00:00', '2014-09-02 00:00', false, 'Labor Day' ],
+[ '2014-11-11 00:00', '2014-11-12 00:00', false, 'Veterans Day' ],
+[ '2014-11-27 00:00', '2014-11-28 00:00', false, 'Thanksgiving' ],
+[ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Christmas Day' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "Variable days: United States public holidays. Alabama" for "PH": [1m[32mPASSED[39m[22m
@@ -864,22 +1607,341 @@ With [1m[34mwarnings[39m[22m:
 "Variable days: United States public holidays. Wyoming" for "PH": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Czech Republic public holidays." for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Czech Republic public holidays." for "PH": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Den obnovy samostatného českého státu; Nový rok' ],
+[ '2015-04-18 00:00', '2015-04-19 00:00', false, 'Velký pátek' ],
+[ '2015-04-21 00:00', '2015-04-22 00:00', false, 'Velikonoční pondělí' ],
+[ '2015-05-01 00:00', '2015-05-02 00:00', false, 'Svátek práce' ],
+[ '2015-05-08 00:00', '2015-05-09 00:00', false, 'Den vítězství' ],
+[ '2015-07-05 00:00', '2015-07-06 00:00', false, 'Den slovanských věrozvěstů Cyrila a Metoděje' ],
+[ '2015-07-06 00:00', '2015-07-07 00:00', false, 'Den upálení mistra Jana Husa' ],
+[ '2015-09-28 00:00', '2015-09-29 00:00', false, 'Den české státnosti' ],
+[ '2015-10-28 00:00', '2015-10-29 00:00', false, 'Den vzniku samostatného československého státu' ],
+[ '2015-11-17 00:00', '2015-11-18 00:00', false, 'Den boje za svobodu a demokracii a Mezinárodní den studentstva' ],
+[ '2015-12-24 00:00', '2015-12-25 00:00', false, 'Štědrý den' ],
+[ '2015-12-25 00:00', '2015-12-26 00:00', false, '1. svátek vánoční' ],
+[ '2015-12-26 00:00', '2015-12-27 00:00', false, '2. svátek vánoční' ],
+expected:
+[ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Den obnovy samostatného českého státu' ],
+[ '2015-04-03 00:00', '2015-04-04 00:00', false, 'Velký pátek' ],
+[ '2015-04-06 00:00', '2015-04-07 00:00', false, 'Velikonoční pondělí' ],
+[ '2015-05-01 00:00', '2015-05-02 00:00', false, 'Svátek práce' ],
+[ '2015-05-08 00:00', '2015-05-09 00:00', false, 'Den vítězství' ],
+[ '2015-07-05 00:00', '2015-07-06 00:00', false, 'Den slovanských věrozvěstů Cyrila a Metoděje' ],
+[ '2015-07-06 00:00', '2015-07-07 00:00', false, 'Den upálení mistra Jana Husa' ],
+[ '2015-09-28 00:00', '2015-09-29 00:00', false, 'Den české státnosti' ],
+[ '2015-10-28 00:00', '2015-10-29 00:00', false, 'Den vzniku samostatného československého státu' ],
+[ '2015-11-17 00:00', '2015-11-18 00:00', false, 'Den boje za svobodu a demokracii' ],
+[ '2015-12-24 00:00', '2015-12-25 00:00', false, 'Štědrý den' ],
+[ '2015-12-25 00:00', '2015-12-26 00:00', false, '1. svátek vánoční' ],
+[ '2015-12-26 00:00', '2015-12-27 00:00', false, '2. svátek vánoční' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Swedish public holidays." for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Swedish public holidays." for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 5702340000,0, expected 1123200000,0, bad intervals: 
+[ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Nyårsdagen' ],
+[ '2015-01-05 00:00', '2015-01-06 00:00', false, 'Söndag' ],
+[ '2015-01-06 00:00', '2015-01-07 00:00', false, 'Trettondedag jul' ],
+[ '2015-01-12 00:00', '2015-01-13 00:00', false, 'Söndag' ],
+[ '2015-01-19 00:00', '2015-01-20 00:00', false, 'Söndag' ],
+[ '2015-01-26 00:00', '2015-01-27 00:00', false, 'Söndag' ],
+[ '2015-02-02 00:00', '2015-02-03 00:00', false, 'Söndag' ],
+[ '2015-02-09 00:00', '2015-02-10 00:00', false, 'Söndag' ],
+[ '2015-02-16 00:00', '2015-02-17 00:00', false, 'Söndag' ],
+[ '2015-02-23 00:00', '2015-02-24 00:00', false, 'Söndag' ],
+[ '2015-03-02 00:00', '2015-03-03 00:00', false, 'Söndag' ],
+[ '2015-03-09 00:00', '2015-03-10 00:00', false, 'Söndag' ],
+[ '2015-03-16 00:00', '2015-03-17 00:00', false, 'Söndag' ],
+[ '2015-03-23 00:00', '2015-03-24 00:00', false, 'Söndag' ],
+[ '2015-03-30 00:00', '2015-03-31 00:00', false, 'Söndag' ],
+[ '2015-04-06 00:00', '2015-04-07 00:00', false, 'Söndag' ],
+[ '2015-04-13 00:00', '2015-04-14 00:00', false, 'Söndag' ],
+[ '2015-04-18 00:00', '2015-04-19 00:00', false, 'Långfredagen' ],
+[ '2015-04-20 00:00', '2015-04-21 00:00', false, 'Påskdagen; Söndag' ],
+[ '2015-04-21 00:00', '2015-04-22 00:00', false, 'Annandag påsk' ],
+[ '2015-04-27 00:00', '2015-04-28 00:00', false, 'Söndag' ],
+[ '2015-05-01 00:00', '2015-05-02 00:00', false, 'Första maj' ],
+[ '2015-05-04 00:00', '2015-05-05 00:00', false, 'Söndag' ],
+[ '2015-05-11 00:00', '2015-05-12 00:00', false, 'Söndag' ],
+[ '2015-05-18 00:00', '2015-05-19 00:00', false, 'Söndag' ],
+[ '2015-05-25 00:00', '2015-05-26 00:00', false, 'Söndag' ],
+[ '2015-05-29 00:00', '2015-05-30 00:00', false, 'Kristi himmelsfärdsdag' ],
+[ '2015-06-01 00:00', '2015-06-02 00:00', false, 'Söndag' ],
+[ '2015-06-06 00:00', '2015-06-07 00:00', false, 'Sveriges nationaldag' ],
+[ '2015-06-08 00:00', '2015-06-09 00:00', false, 'Pingstdagen; Söndag' ],
+[ '2015-06-15 00:00', '2015-06-16 00:00', false, 'Söndag' ],
+[ '2015-06-20 00:00', '2015-06-21 00:00', false, 'Midsommarafton' ],
+[ '2015-06-21 00:00', '2015-06-22 00:00', false, 'Midsommardagen' ],
+[ '2015-06-22 00:00', '2015-06-23 00:00', false, 'Söndag' ],
+[ '2015-06-29 00:00', '2015-06-30 00:00', false, 'Söndag' ],
+[ '2015-07-06 00:00', '2015-07-07 00:00', false, 'Söndag' ],
+[ '2015-07-13 00:00', '2015-07-14 00:00', false, 'Söndag' ],
+[ '2015-07-20 00:00', '2015-07-21 00:00', false, 'Söndag' ],
+[ '2015-07-27 00:00', '2015-07-28 00:00', false, 'Söndag' ],
+[ '2015-08-03 00:00', '2015-08-04 00:00', false, 'Söndag' ],
+[ '2015-08-10 00:00', '2015-08-11 00:00', false, 'Söndag' ],
+[ '2015-08-17 00:00', '2015-08-18 00:00', false, 'Söndag' ],
+[ '2015-08-24 00:00', '2015-08-25 00:00', false, 'Söndag' ],
+[ '2015-08-31 00:00', '2015-09-01 00:00', false, 'Söndag' ],
+[ '2015-09-07 00:00', '2015-09-08 00:00', false, 'Söndag' ],
+[ '2015-09-14 00:00', '2015-09-15 00:00', false, 'Söndag' ],
+[ '2015-09-21 00:00', '2015-09-22 00:00', false, 'Söndag' ],
+[ '2015-09-28 00:00', '2015-09-29 00:00', false, 'Söndag' ],
+[ '2015-10-05 00:00', '2015-10-06 00:00', false, 'Söndag' ],
+[ '2015-10-12 00:00', '2015-10-13 00:00', false, 'Söndag' ],
+[ '2015-10-19 00:00', '2015-10-20 00:00', false, 'Söndag' ],
+[ '2015-10-26 00:00', '2015-10-27 00:00', false, 'Söndag' ],
+[ '2015-11-01 00:00', '2015-11-02 00:00', false, 'Alla helgons dag' ],
+[ '2015-11-02 00:00', '2015-11-03 00:00', false, 'Söndag' ],
+[ '2015-11-09 00:00', '2015-11-10 00:00', false, 'Söndag' ],
+[ '2015-11-16 00:00', '2015-11-17 00:00', false, 'Söndag' ],
+[ '2015-11-23 00:00', '2015-11-24 00:00', false, 'Söndag' ],
+[ '2015-11-30 00:00', '2015-12-01 00:00', false, 'Söndag' ],
+[ '2015-12-07 00:00', '2015-12-08 00:00', false, 'Söndag' ],
+[ '2015-12-14 00:00', '2015-12-15 00:00', false, 'Söndag' ],
+[ '2015-12-21 00:00', '2015-12-22 00:00', false, 'Söndag' ],
+[ '2015-12-24 00:00', '2015-12-25 00:00', false, 'Julafton' ],
+[ '2015-12-25 00:00', '2015-12-26 00:00', false, 'Juldagen' ],
+[ '2015-12-26 00:00', '2015-12-27 00:00', false, 'Annandag jul' ],
+[ '2015-12-28 00:00', '2015-12-29 00:00', false, 'Söndag' ],
+[ '2015-12-31 00:00', '2015-12-31 23:59', false, 'Nyårsafton' ],
+expected:
+[ '2015-01-01 00:00', '2015-01-02 00:00', false, 'nyårsdagen' ],
+[ '2015-01-06 00:00', '2015-01-07 00:00', false, 'trettondedag jul' ],
+[ '2015-04-03 00:00', '2015-04-04 00:00', false, 'långfredagen' ],
+[ '2015-04-05 00:00', '2015-04-06 00:00', false, 'påskdagen' ],
+[ '2015-04-06 00:00', '2015-04-07 00:00', false, 'annandag påsk' ],
+[ '2015-05-01 00:00', '2015-05-02 00:00', false, 'första maj' ],
+[ '2015-05-14 00:00', '2015-05-15 00:00', false, 'Kristi himmelsfärdsdag' ],
+[ '2015-05-24 00:00', '2015-05-25 00:00', false, 'pingstdagen' ],
+[ '2015-06-06 00:00', '2015-06-07 00:00', false, 'nationaldagen' ],
+[ '2015-06-20 00:00', '2015-06-21 00:00', false, 'midsommardagen' ],
+[ '2015-10-31 00:00', '2015-11-01 00:00', false, 'alla helgons dag' ],
+[ '2015-12-25 00:00', '2015-12-26 00:00', false, 'juldagen' ],
+[ '2015-12-26 00:00', '2015-12-27 00:00', false, 'annandag jul' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Weekday in given week." for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Weekday in given week." for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 2419200000,0, expected 172800000,0, bad intervals: 
+[ '2016-06-15 00:00', '2016-06-16 00:00', false, 'Söndag' ],
+[ '2016-06-20 00:00', '2016-06-21 00:00', false, 'Midsommarafton' ],
+[ '2016-06-21 00:00', '2016-06-22 00:00', false, 'Midsommardagen' ],
+[ '2016-06-22 00:00', '2016-06-23 00:00', false, 'Söndag' ],
+[ '2016-06-29 00:00', '2016-06-30 00:00', false, 'Söndag' ],
+[ '2016-07-06 00:00', '2016-07-07 00:00', false, 'Söndag' ],
+[ '2016-07-13 00:00', '2016-07-14 00:00', false, 'Söndag' ],
+[ '2016-07-20 00:00', '2016-07-21 00:00', false, 'Söndag' ],
+[ '2016-07-27 00:00', '2016-07-28 00:00', false, 'Söndag' ],
+[ '2016-08-03 00:00', '2016-08-04 00:00', false, 'Söndag' ],
+[ '2016-08-10 00:00', '2016-08-11 00:00', false, 'Söndag' ],
+[ '2016-08-17 00:00', '2016-08-18 00:00', false, 'Söndag' ],
+[ '2016-08-24 00:00', '2016-08-25 00:00', false, 'Söndag' ],
+[ '2016-08-31 00:00', '2016-09-01 00:00', false, 'Söndag' ],
+[ '2016-09-07 00:00', '2016-09-08 00:00', false, 'Söndag' ],
+[ '2016-09-14 00:00', '2016-09-15 00:00', false, 'Söndag' ],
+[ '2016-09-21 00:00', '2016-09-22 00:00', false, 'Söndag' ],
+[ '2016-09-28 00:00', '2016-09-29 00:00', false, 'Söndag' ],
+[ '2016-10-05 00:00', '2016-10-06 00:00', false, 'Söndag' ],
+[ '2016-10-12 00:00', '2016-10-13 00:00', false, 'Söndag' ],
+[ '2016-10-19 00:00', '2016-10-20 00:00', false, 'Söndag' ],
+[ '2016-10-26 00:00', '2016-10-27 00:00', false, 'Söndag' ],
+[ '2016-11-01 00:00', '2016-11-02 00:00', false, 'Alla helgons dag' ],
+[ '2016-11-02 00:00', '2016-11-03 00:00', false, 'Söndag' ],
+[ '2016-11-09 00:00', '2016-11-10 00:00', false, 'Söndag' ],
+[ '2016-11-16 00:00', '2016-11-17 00:00', false, 'Söndag' ],
+[ '2016-11-23 00:00', '2016-11-24 00:00', false, 'Söndag' ],
+[ '2016-11-30 00:00', '2016-12-01 00:00', false, 'Söndag' ],
+expected:
+[ '2016-06-25 00:00', '2016-06-26 00:00', false, 'midsommardagen' ],
+[ '2016-11-05 00:00', '2016-11-06 00:00', false, 'alla helgons dag' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Weekday in given week." for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Weekday in given week." for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 2419200000,0, expected 172800000,0, bad intervals: 
+[ '2017-06-15 00:00', '2017-06-16 00:00', false, 'Söndag' ],
+[ '2017-06-20 00:00', '2017-06-21 00:00', false, 'Midsommarafton' ],
+[ '2017-06-21 00:00', '2017-06-22 00:00', false, 'Midsommardagen' ],
+[ '2017-06-22 00:00', '2017-06-23 00:00', false, 'Söndag' ],
+[ '2017-06-29 00:00', '2017-06-30 00:00', false, 'Söndag' ],
+[ '2017-07-06 00:00', '2017-07-07 00:00', false, 'Söndag' ],
+[ '2017-07-13 00:00', '2017-07-14 00:00', false, 'Söndag' ],
+[ '2017-07-20 00:00', '2017-07-21 00:00', false, 'Söndag' ],
+[ '2017-07-27 00:00', '2017-07-28 00:00', false, 'Söndag' ],
+[ '2017-08-03 00:00', '2017-08-04 00:00', false, 'Söndag' ],
+[ '2017-08-10 00:00', '2017-08-11 00:00', false, 'Söndag' ],
+[ '2017-08-17 00:00', '2017-08-18 00:00', false, 'Söndag' ],
+[ '2017-08-24 00:00', '2017-08-25 00:00', false, 'Söndag' ],
+[ '2017-08-31 00:00', '2017-09-01 00:00', false, 'Söndag' ],
+[ '2017-09-07 00:00', '2017-09-08 00:00', false, 'Söndag' ],
+[ '2017-09-14 00:00', '2017-09-15 00:00', false, 'Söndag' ],
+[ '2017-09-21 00:00', '2017-09-22 00:00', false, 'Söndag' ],
+[ '2017-09-28 00:00', '2017-09-29 00:00', false, 'Söndag' ],
+[ '2017-10-05 00:00', '2017-10-06 00:00', false, 'Söndag' ],
+[ '2017-10-12 00:00', '2017-10-13 00:00', false, 'Söndag' ],
+[ '2017-10-19 00:00', '2017-10-20 00:00', false, 'Söndag' ],
+[ '2017-10-26 00:00', '2017-10-27 00:00', false, 'Söndag' ],
+[ '2017-11-01 00:00', '2017-11-02 00:00', false, 'Alla helgons dag' ],
+[ '2017-11-02 00:00', '2017-11-03 00:00', false, 'Söndag' ],
+[ '2017-11-09 00:00', '2017-11-10 00:00', false, 'Söndag' ],
+[ '2017-11-16 00:00', '2017-11-17 00:00', false, 'Söndag' ],
+[ '2017-11-23 00:00', '2017-11-24 00:00', false, 'Söndag' ],
+[ '2017-11-30 00:00', '2017-12-01 00:00', false, 'Söndag' ],
+expected:
+[ '2017-06-24 00:00', '2017-06-25 00:00', false, 'midsommardagen' ],
+[ '2017-11-04 00:00', '2017-11-05 00:00', false, 'alla helgons dag' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: New Zealand public holidays." for "PH": [1m[32mPASSED[39m[22m
+"Variable days: New Zealand public holidays." for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 2851200000,0, expected 2592000000,0, bad intervals: 
+[ '2020-01-01 00:00', '2020-01-02 00:00', false, 'New Year's Day' ],
+[ '2020-01-02 00:00', '2020-01-03 00:00', false, 'Day after New Year's Day' ],
+[ '2020-02-06 00:00', '2020-02-07 00:00', false, 'Waitangi Day' ],
+[ '2020-04-18 00:00', '2020-04-19 00:00', false, 'Good Friday' ],
+[ '2020-04-21 00:00', '2020-04-22 00:00', false, 'Easter Monday' ],
+[ '2020-04-25 00:00', '2020-04-26 00:00', false, 'Anzac Day' ],
+[ '2020-06-02 00:00', '2020-06-03 00:00', false, 'King's Birthday' ],
+[ '2020-06-20 00:00', '2020-06-21 00:00', false, 'Matariki' ],
+[ '2020-10-27 00:00', '2020-10-28 00:00', false, 'Labour Day' ],
+[ '2020-12-25 00:00', '2020-12-26 00:00', false, 'Christmas Day' ],
+[ '2020-12-26 00:00', '2020-12-27 00:00', false, 'Boxing Day' ],
+[ '2021-01-01 00:00', '2021-01-02 00:00', false, 'New Year's Day' ],
+[ '2021-01-02 00:00', '2021-01-03 00:00', false, 'Day after New Year's Day' ],
+[ '2021-02-06 00:00', '2021-02-07 00:00', false, 'Waitangi Day' ],
+[ '2021-04-18 00:00', '2021-04-19 00:00', false, 'Good Friday' ],
+[ '2021-04-21 00:00', '2021-04-22 00:00', false, 'Easter Monday' ],
+[ '2021-04-25 00:00', '2021-04-26 00:00', false, 'Anzac Day' ],
+[ '2021-06-02 00:00', '2021-06-03 00:00', false, 'King's Birthday' ],
+[ '2021-06-20 00:00', '2021-06-21 00:00', false, 'Matariki' ],
+[ '2021-10-27 00:00', '2021-10-28 00:00', false, 'Labour Day' ],
+[ '2021-12-25 00:00', '2021-12-26 00:00', false, 'Christmas Day' ],
+[ '2021-12-26 00:00', '2021-12-27 00:00', false, 'Boxing Day' ],
+[ '2022-01-01 00:00', '2022-01-02 00:00', false, 'New Year's Day' ],
+[ '2022-01-02 00:00', '2022-01-03 00:00', false, 'Day after New Year's Day' ],
+[ '2022-02-06 00:00', '2022-02-07 00:00', false, 'Waitangi Day' ],
+[ '2022-04-18 00:00', '2022-04-19 00:00', false, 'Good Friday' ],
+[ '2022-04-21 00:00', '2022-04-22 00:00', false, 'Easter Monday' ],
+[ '2022-04-25 00:00', '2022-04-26 00:00', false, 'Anzac Day' ],
+[ '2022-06-02 00:00', '2022-06-03 00:00', false, 'King's Birthday' ],
+[ '2022-06-20 00:00', '2022-06-21 00:00', false, 'Matariki' ],
+[ '2022-10-27 00:00', '2022-10-28 00:00', false, 'Labour Day' ],
+[ '2022-12-25 00:00', '2022-12-26 00:00', false, 'Christmas Day' ],
+[ '2022-12-26 00:00', '2022-12-27 00:00', false, 'Boxing Day' ],
+expected:
+[ '2020-01-01 00:00', '2020-01-01 24:00', false, 'New Year's Day' ],
+[ '2020-01-02 00:00', '2020-01-02 24:00', false, 'Day after New Year's Day' ],
+[ '2020-02-06 00:00', '2020-02-06 24:00', false, 'Waitangi Day' ],
+[ '2020-04-10 00:00', '2020-04-10 24:00', false, 'Good Friday' ],
+[ '2020-04-13 00:00', '2020-04-13 24:00', false, 'Easter Monday' ],
+[ '2020-04-25 00:00', '2020-04-25 24:00', false, 'Anzac Day' ],
+[ '2020-06-01 00:00', '2020-06-01 24:00', false, 'Queen's Birthday' ],
+[ '2020-10-26 00:00', '2020-10-26 24:00', false, 'Labour Day' ],
+[ '2020-12-25 00:00', '2020-12-25 24:00', false, 'Christmas Day' ],
+[ '2020-12-26 00:00', '2020-12-26 24:00', false, 'Boxing Day' ],
+[ '2021-01-01 00:00', '2021-01-01 24:00', false, 'New Year's Day' ],
+[ '2021-01-02 00:00', '2021-01-02 24:00', false, 'Day after New Year's Day' ],
+[ '2021-02-06 00:00', '2021-02-06 24:00', false, 'Waitangi Day' ],
+[ '2021-04-02 00:00', '2021-04-02 24:00', false, 'Good Friday' ],
+[ '2021-04-05 00:00', '2021-04-05 24:00', false, 'Easter Monday' ],
+[ '2021-04-25 00:00', '2021-04-25 24:00', false, 'Anzac Day' ],
+[ '2021-06-07 00:00', '2021-06-07 24:00', false, 'Queen's Birthday' ],
+[ '2021-10-25 00:00', '2021-10-25 24:00', false, 'Labour Day' ],
+[ '2021-12-25 00:00', '2021-12-25 24:00', false, 'Christmas Day' ],
+[ '2021-12-26 00:00', '2021-12-26 24:00', false, 'Boxing Day' ],
+[ '2022-01-01 00:00', '2022-01-01 24:00', false, 'New Year's Day' ],
+[ '2022-01-02 00:00', '2022-01-02 24:00', false, 'Day after New Year's Day' ],
+[ '2022-02-06 00:00', '2022-02-06 24:00', false, 'Waitangi Day' ],
+[ '2022-04-15 00:00', '2022-04-15 24:00', false, 'Good Friday' ],
+[ '2022-04-18 00:00', '2022-04-18 24:00', false, 'Easter Monday' ],
+[ '2022-04-25 00:00', '2022-04-25 24:00', false, 'Anzac Day' ],
+[ '2022-06-06 00:00', '2022-06-06 24:00', false, 'Queen's Birthday' ],
+[ '2022-10-24 00:00', '2022-10-24 24:00', false, 'Labour Day' ],
+[ '2022-12-25 00:00', '2022-12-25 24:00', false, 'Christmas Day' ],
+[ '2022-12-26 00:00', '2022-12-26 24:00', false, 'Boxing Day' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Ireland public holidays." for "PH": [1m[32mPASSED[39m[22m
+"Variable days: Ireland public holidays." for "PH": [1m[31mFAILED[39m[22m, bad duration(s): 3459600000,0, expected 3974400000,0, bad intervals: 
+[ '2017-01-01 00:00', '2017-01-02 00:00', false, 'New Year's Day' ],
+[ '2017-02-03 00:00', '2017-02-04 00:00', false, 'Saint Brigid's Day' ],
+[ '2017-03-17 00:00', '2017-03-18 00:00', false, 'Saint Patrick's Day' ],
+[ '2017-04-21 00:00', '2017-04-22 00:00', false, 'Easter Monday' ],
+[ '2017-05-05 00:00', '2017-05-06 00:00', false, 'May Day' ],
+[ '2017-06-02 00:00', '2017-06-03 00:00', false, 'June Bank Holiday' ],
+[ '2017-08-04 00:00', '2017-08-05 00:00', false, 'August Bank Holiday' ],
+[ '2017-10-27 00:00', '2017-10-28 00:00', false, 'October Bank Holiday' ],
+[ '2017-12-25 00:00', '2017-12-26 00:00', false, 'Christmas Day' ],
+[ '2017-12-26 00:00', '2017-12-27 00:00', false, 'Saint Stephen's Day' ],
+[ '2018-01-01 00:00', '2018-01-02 00:00', false, 'New Year's Day' ],
+[ '2018-02-03 00:00', '2018-02-04 00:00', false, 'Saint Brigid's Day' ],
+[ '2018-03-17 00:00', '2018-03-18 00:00', false, 'Saint Patrick's Day' ],
+[ '2018-04-21 00:00', '2018-04-22 00:00', false, 'Easter Monday' ],
+[ '2018-05-05 00:00', '2018-05-06 00:00', false, 'May Day' ],
+[ '2018-06-02 00:00', '2018-06-03 00:00', false, 'June Bank Holiday' ],
+[ '2018-08-04 00:00', '2018-08-05 00:00', false, 'August Bank Holiday' ],
+[ '2018-10-27 00:00', '2018-10-28 00:00', false, 'October Bank Holiday' ],
+[ '2018-12-25 00:00', '2018-12-26 00:00', false, 'Christmas Day' ],
+[ '2018-12-26 00:00', '2018-12-27 00:00', false, 'Saint Stephen's Day' ],
+[ '2019-01-01 00:00', '2019-01-02 00:00', false, 'New Year's Day' ],
+[ '2019-02-03 00:00', '2019-02-04 00:00', false, 'Saint Brigid's Day' ],
+[ '2019-03-17 00:00', '2019-03-18 00:00', false, 'Saint Patrick's Day' ],
+[ '2019-04-21 00:00', '2019-04-22 00:00', false, 'Easter Monday' ],
+[ '2019-05-05 00:00', '2019-05-06 00:00', false, 'May Day' ],
+[ '2019-06-02 00:00', '2019-06-03 00:00', false, 'June Bank Holiday' ],
+[ '2019-08-04 00:00', '2019-08-05 00:00', false, 'August Bank Holiday' ],
+[ '2019-10-27 00:00', '2019-10-28 00:00', false, 'October Bank Holiday' ],
+[ '2019-12-25 00:00', '2019-12-26 00:00', false, 'Christmas Day' ],
+[ '2019-12-26 00:00', '2019-12-27 00:00', false, 'Saint Stephen's Day' ],
+[ '2020-01-01 00:00', '2020-01-02 00:00', false, 'New Year's Day' ],
+[ '2020-02-03 00:00', '2020-02-04 00:00', false, 'Saint Brigid's Day' ],
+[ '2020-03-17 00:00', '2020-03-18 00:00', false, 'Saint Patrick's Day' ],
+[ '2020-04-21 00:00', '2020-04-22 00:00', false, 'Easter Monday' ],
+[ '2020-05-05 00:00', '2020-05-06 00:00', false, 'May Day' ],
+[ '2020-06-02 00:00', '2020-06-03 00:00', false, 'June Bank Holiday' ],
+[ '2020-08-04 00:00', '2020-08-05 00:00', false, 'August Bank Holiday' ],
+[ '2020-10-27 00:00', '2020-10-28 00:00', false, 'October Bank Holiday' ],
+[ '2020-12-25 00:00', '2020-12-26 00:00', false, 'Christmas Day' ],
+[ '2020-12-26 00:00', '2020-12-27 00:00', false, 'Saint Stephen's Day' ],
+expected:
+[ '2017-01-01 00:00', '2017-01-02 00:00', false, 'New Year’s Day' ],
+[ '2017-03-17 00:00', '2017-03-18 00:00', false, 'St Patrick’s Day' ],
+[ '2017-04-14 00:00', '2017-04-15 00:00', false, 'Good Friday' ],
+[ '2017-04-17 00:00', '2017-04-18 00:00', false, 'Easter Monday' ],
+[ '2017-05-01 00:00', '2017-05-02 00:00', false, 'May Bank Holiday' ],
+[ '2017-06-05 00:00', '2017-06-06 00:00', false, 'June Bank Holiday' ],
+[ '2017-08-07 00:00', '2017-08-08 00:00', false, 'August Bank Holiday' ],
+[ '2017-10-30 00:00', '2017-10-31 00:00', false, 'October Bank Holiday (Halloween)' ],
+[ '2017-12-25 00:00', '2017-12-26 00:00', false, 'Christmas' ],
+[ '2017-12-26 00:00', '2017-12-27 00:00', false, 'St Stephen’s Day' ],
+[ '2017-12-27 00:00', '2017-12-28 00:00', false, 'Bank Holiday' ],
+[ '2018-01-01 00:00', '2018-01-02 00:00', false, 'New Year’s Day' ],
+[ '2018-03-17 00:00', '2018-03-18 00:00', false, 'St Patrick’s Day' ],
+[ '2018-03-19 00:00', '2018-03-20 00:00', false, 'St Patrick’s Day' ],
+[ '2018-03-30 00:00', '2018-03-31 00:00', false, 'Good Friday' ],
+[ '2018-04-02 00:00', '2018-04-03 00:00', false, 'Easter Monday' ],
+[ '2018-05-07 00:00', '2018-05-08 00:00', false, 'May Bank Holiday' ],
+[ '2018-06-04 00:00', '2018-06-05 00:00', false, 'June Bank Holiday' ],
+[ '2018-08-06 00:00', '2018-08-07 00:00', false, 'August Bank Holiday' ],
+[ '2018-10-29 00:00', '2018-10-30 00:00', false, 'October Bank Holiday (Halloween)' ],
+[ '2018-12-25 00:00', '2018-12-26 00:00', false, 'Christmas' ],
+[ '2018-12-26 00:00', '2018-12-27 00:00', false, 'St Stephen’s Day' ],
+[ '2018-12-27 00:00', '2018-12-28 00:00', false, 'Bank Holiday' ],
+[ '2019-01-01 00:00', '2019-01-02 00:00', false, 'New Year’s Day' ],
+[ '2019-03-17 00:00', '2019-03-19 00:00', false, 'St Patrick’s Day' ],
+[ '2019-04-19 00:00', '2019-04-20 00:00', false, 'Good Friday' ],
+[ '2019-04-22 00:00', '2019-04-23 00:00', false, 'Easter Monday' ],
+[ '2019-05-06 00:00', '2019-05-07 00:00', false, 'May Bank Holiday' ],
+[ '2019-06-03 00:00', '2019-06-04 00:00', false, 'June Bank Holiday' ],
+[ '2019-08-05 00:00', '2019-08-06 00:00', false, 'August Bank Holiday' ],
+[ '2019-10-28 00:00', '2019-10-29 00:00', false, 'October Bank Holiday (Halloween)' ],
+[ '2019-12-25 00:00', '2019-12-26 00:00', false, 'Christmas' ],
+[ '2019-12-26 00:00', '2019-12-27 00:00', false, 'St Stephen’s Day' ],
+[ '2019-12-27 00:00', '2019-12-28 00:00', false, 'Bank Holiday' ],
+[ '2020-01-01 00:00', '2020-01-02 00:00', false, 'New Year’s Day' ],
+[ '2020-03-17 00:00', '2020-03-18 00:00', false, 'St Patrick’s Day' ],
+[ '2020-04-10 00:00', '2020-04-11 00:00', false, 'Good Friday' ],
+[ '2020-04-13 00:00', '2020-04-14 00:00', false, 'Easter Monday' ],
+[ '2020-05-04 00:00', '2020-05-05 00:00', false, 'May Bank Holiday' ],
+[ '2020-06-01 00:00', '2020-06-02 00:00', false, 'June Bank Holiday' ],
+[ '2020-08-03 00:00', '2020-08-04 00:00', false, 'August Bank Holiday' ],
+[ '2020-10-26 00:00', '2020-10-27 00:00', false, 'October Bank Holiday (Halloween)' ],
+[ '2020-12-25 00:00', '2020-12-26 00:00', false, 'Christmas' ],
+[ '2020-12-26 00:00', '2020-12-27 00:00', false, 'St Stephen’s Day' ],
+[ '2020-12-27 00:00', '2020-12-28 00:00', false, 'Bank Holiday' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "Weekdays" for "Mo,Th,Sa,Su 10:00-12:00": [1m[32mPASSED[39m[22m
@@ -1454,21 +2516,90 @@ With [1m[34mwarnings[39m[22m:
 "Real world example: Was not processed right (test over a full year)" for "Nov-Mar off; Apr,May,Sep,Oct Tu-Su 10:00-14:30; Jun Tu-Su 09:00-16:00; Jul,Aug Tu-Su 10:00-17:00": [1m[32mPASSED[39m[22m
 "Real world example: Was not processed right (test over a full year)" for "Nov-Mar off; Apr,May,Sep,Oct 10:00-14:30; Jun 09:00-16:00; Jul,Aug 10:00-17:00; Mo off": [1m[32mPASSED[39m[22m
 "Real world example: Was not processed right" for "Tu 10:00-12:00, Fr 16:00-18:00; unknown": [1m[35mCRASHED[39m[22m, reason: TypeError: Cannot read properties of undefined (reading '0')
-"Real world example: Problem with <additional_rule_separator> in holiday parser" for "PH; Aug-Sep 00:00-24:00": [1m[32mPASSED[39m[22m
+"Real world example: Problem with <additional_rule_separator> in holiday parser" for "PH; Aug-Sep 00:00-24:00": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Neujahr' ],
+[ '2015-01-06 00:00', '2015-01-07 00:00', false, 'Heilige Drei Könige' ],
+expected:
+[ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Neujahrstag' ],
+[ '2015-01-06 00:00', '2015-01-07 00:00', false, 'Heilige Drei Könige' ],
 With [1m[34mwarnings[39m[22m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Real world example: Problem with <additional_rule_separator> in holiday parser" for "We off; Mo,Tu,Th-Su,PH; Jun-Aug We 11:00-14:00,17:00+": [1m[32mPASSED[39m[22m
+"Real world example: Problem with <additional_rule_separator> in holiday parser" for "We off; Mo,Tu,Th-Su,PH; Jun-Aug We 11:00-14:00,17:00+": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2015-05-25 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-05-29 00:00', false, undefined ],
+[ '2015-05-29 00:00', '2015-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2015-05-30 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-09 00:00', false, undefined ],
+[ '2015-06-09 00:00', '2015-06-10 00:00', false, 'Pfingstmontag' ],
+expected:
+[ '2015-05-25 00:00', '2015-05-26 00:00', false, 'Pfingstmontag' ],
+[ '2015-05-26 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-05 00:00', false, 'Fronleichnam' ],
+[ '2015-06-05 00:00', '2015-06-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*We off; Mo,Tu,Th-Su,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Real world example: Problem with <additional_rule_separator> in holiday parser" for "We off; Mo,Tu,Th-Su,PH; Sommer We 11:00-14:00,17:00+": [1m[32mPASSED[39m[22m
+"Real world example: Problem with <additional_rule_separator> in holiday parser" for "We off; Mo,Tu,Th-Su,PH; Sommer We 11:00-14:00,17:00+": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2015-05-25 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-05-29 00:00', false, undefined ],
+[ '2015-05-29 00:00', '2015-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2015-05-30 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-09 00:00', false, undefined ],
+[ '2015-06-09 00:00', '2015-06-10 00:00', false, 'Pfingstmontag' ],
+expected:
+[ '2015-05-25 00:00', '2015-05-26 00:00', false, 'Pfingstmontag' ],
+[ '2015-05-26 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-05 00:00', false, 'Fronleichnam' ],
+[ '2015-06-05 00:00', '2015-06-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*We off; Mo,Tu,Th-Su,PH; Sommer <--- (Assuming "Jun-Aug" for "sommer".)
 	*We off; Mo,Tu,Th-Su,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Real world example: Problem with <additional_rule_separator> in holiday parser" for "We off; Mo,Tu,Th-Su,PH; sommer We 11:00-14:00,17:00+": [1m[32mPASSED[39m[22m
+"Real world example: Problem with <additional_rule_separator> in holiday parser" for "We off; Mo,Tu,Th-Su,PH; sommer We 11:00-14:00,17:00+": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2015-05-25 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-05-29 00:00', false, undefined ],
+[ '2015-05-29 00:00', '2015-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2015-05-30 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-09 00:00', false, undefined ],
+[ '2015-06-09 00:00', '2015-06-10 00:00', false, 'Pfingstmontag' ],
+expected:
+[ '2015-05-25 00:00', '2015-05-26 00:00', false, 'Pfingstmontag' ],
+[ '2015-05-26 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-05 00:00', false, 'Fronleichnam' ],
+[ '2015-06-05 00:00', '2015-06-10 00:00', false, undefined ],
 With [1m[34mwarnings[39m[22m:
 	*We off; Mo,Tu,Th-Su,PH; sommer <--- (Assuming "Jun-Aug" for "sommer".)
 	*We off; Mo,Tu,Th-Su,PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Real world example: Problem with <additional_rule_separator> in holiday parser" for "Mo,Tu,Th-Su,PH 00:00-24:00; Jun-Aug We 11:00-14:00,17:00+": [1m[32mPASSED[39m[22m
+"Real world example: Problem with <additional_rule_separator> in holiday parser" for "Mo,Tu,Th-Su,PH 00:00-24:00; Jun-Aug We 11:00-14:00,17:00+": [1m[31mFAILED[39m[22m, bad intervals: 
+[ '2015-05-25 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-05-29 00:00', false, undefined ],
+[ '2015-05-29 00:00', '2015-05-30 00:00', false, 'Christi Himmelfahrt' ],
+[ '2015-05-30 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-09 00:00', false, undefined ],
+[ '2015-06-09 00:00', '2015-06-10 00:00', false, 'Pfingstmontag' ],
+expected:
+[ '2015-05-25 00:00', '2015-05-26 00:00', false, 'Pfingstmontag' ],
+[ '2015-05-26 00:00', '2015-05-27 00:00', false, undefined ],
+[ '2015-05-28 00:00', '2015-06-03 00:00', false, undefined ],
+[ '2015-06-03 11:00', '2015-06-03 14:00', false, undefined ],
+[ '2015-06-03 17:00', '2015-06-04 03:00', true, 'Specified as open end. Closing time was guessed.' ],
+[ '2015-06-04 03:00', '2015-06-05 00:00', false, 'Fronleichnam' ],
+[ '2015-06-05 00:00', '2015-06-10 00:00', false, undefined ],
 "Real world example: Problem with daylight saving?" for "Mo-Su,PH 15:00-03:00; easter -2 days 15:00-24:00": [1m[32mPASSED[39m[22m
 With [1m[34mwarnings[39m[22m:
 	*Mo-Su,PH 15:00-03:00; easter -2 days 15:00-24:00 <--- (This rule overwrites parts of the previous rule. This happens because normal rules apply to the whole day and overwrite any definition made by previous rules. You can make this rule an additional rule by using a "," instead of the normal ";" to separate the rules. Note that the overwriting can also be desirable in which case you can ignore this warning.)

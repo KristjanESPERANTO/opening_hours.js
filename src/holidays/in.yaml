@@ -1,170 +1,62 @@
 ---
 
 PH:
-- name: Republic Day
-  fixed_date: [1, 26]
-- name: Maha Shivaratri
-  fixed_date: [2, 26]
-- name: Id-ul-Fitr
-  fixed_date: [3, 31]
-- name: Mahavir Jayanti
-  fixed_date: [4, 10]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Buddha Purnima
-  fixed_date: [5, 12]
-- name: Bakrid
-  fixed_date: [6, 7]
-- name: Muharram
-  fixed_date: [7, 6]
-- name: Independence Day
-  fixed_date: [8, 15]
-- name: Janmashtami
-  fixed_date: [8, 16]
-- name: Milad-un-Nabi
-  fixed_date: [9, 5]
-- name: Dussehra; Gandhi Jayanti
-  fixed_date: [10, 2]
-- name: Diwali
-  fixed_date: [10, 20]
-- name: Guru Nanak Jayanti
-  fixed_date: [11, 5]
-- name: Christmas
-  fixed_date: [12, 25]
-- name: Dr. B. R. Ambedkar's Jayanti
-  fixed_date: [4, 14]
-  only_states: [Andaman and Nicobar Islands, Andhra Pradesh, Bihar, Bihār, Chhattisgarh,
-    Chhattīsgarh, Chandigarh, Chandīgarh, Goa, Gujarat, Gujarāt, Himachal Pradesh,
-    Himāchal Pradesh, Haryana, Haryāna, Jharkhand, Jhārkhand, Jammu and Kashmir, Jammu
-      and Kashmīr, Karnataka, Karnātaka, Kerala, Ladakh, Ladākh, Maharashtra, Mahārāshtra,
-    Madhya Pradesh, Odisha, Punjab, Puducherry, Rajasthan, Rājasthān, Sikkim, Telangana,
-    Telangāna, Uttarakhand, Uttarākhand, Uttar Pradesh, West Bengal]
-- name: Andhra Pradesh Foundation Day
-  fixed_date: [11, 1]
-  only_states: [Andhra Pradesh]
-- name: Magh Bihu
-  fixed_date: [1, 14]
-  only_states: [Assam]
-- name: Assam Day
-  fixed_date: [12, 2]
-  only_states: [Assam]
-- name: Bihar Day
-  fixed_date: [3, 22]
-  only_states: [Bihar, Bihār]
-- name: Chhath Puja
-  fixed_date: [10, 28]
-  only_states: [Bihar, Bihār, Delhi, Jharkhand, Jhārkhand, Uttar Pradesh]
-- name: Chhattisgarh Foundation Day
-  fixed_date: [11, 1]
-  only_states: [Chhattisgarh, Chhattīsgarh]
-- name: Goa Liberation Day
-  fixed_date: [12, 19]
-  only_states: [Goa]
-- name: Uttarayan
-  fixed_date: [1, 14]
-  only_states: [Gujarat, Gujarāt]
-- name: Gujarat Day
-  fixed_date: [5, 1]
-  only_states: [Gujarat, Gujarāt]
-- name: Sardar Vallabhbhai Patel Jayanti
-  fixed_date: [10, 31]
-  only_states: [Gujarat, Gujarāt]
-- name: Himachal Day
-  fixed_date: [4, 15]
-  only_states: [Himachal Pradesh, Himāchal Pradesh]
-- name: Haryana Foundation Day
-  fixed_date: [11, 1]
-  only_states: [Haryana, Haryāna]
-- name: Jharkhand Formation Day
-  fixed_date: [11, 15]
-  only_states: [Jharkhand, Jhārkhand]
-- name: Karnataka Rajyotsava
-  fixed_date: [11, 1]
-  only_states: [Karnataka, Karnātaka]
-- name: Milad-un-Nabi; Onam
-  fixed_date: [9, 5]
-  only_states: [Kerala]
-- name: Kerala Foundation Day
-  fixed_date: [11, 1]
-  only_states: [Kerala]
-- name: Chhatrapati Shivaji Maharaj Jayanti
-  fixed_date: [2, 19]
-  only_states: [Maharashtra, Mahārāshtra]
-- name: Gudi Padwa
-  fixed_date: [3, 30]
-  only_states: [Maharashtra, Mahārāshtra]
-- name: Maharashtra Day
-  fixed_date: [5, 1]
-  only_states: [Maharashtra, Mahārāshtra]
-- name: Madhya Pradesh Foundation Day
-  fixed_date: [11, 1]
-  only_states: [Madhya Pradesh]
-- name: Mizoram State Day
-  fixed_date: [2, 20]
-  only_states: [Mizoram]
-- name: Nagaland State Inauguration Day
-  fixed_date: [12, 1]
-  only_states: [Nagaland, Nāgāland]
-- name: Odisha Day (Utkala Dibasa)
-  fixed_date: [4, 1]
-  only_states: [Odisha]
-- name: Maha Vishuva Sankranti / Pana Sankranti
-  fixed_date: [4, 15]
-  only_states: [Odisha]
-- name: Guru Gobind Singh Jayanti
-  fixed_date: [1, 6]
-  only_states: [Punjab]
-- name: Lohri
-  fixed_date: [1, 13]
-  only_states: [Punjab]
-- name: Vaisakhi
-  fixed_date: [4, 13]
-  only_states: [Punjab]
-- name: Punjab Day
-  fixed_date: [11, 1]
-  only_states: [Punjab]
-- name: Guru Gobind Singh Jayanti
-  fixed_date: [12, 27]
-  only_states: [Punjab]
-- name: Janmashtami; Puducherry De Jure Transfer Day
-  fixed_date: [8, 16]
-  only_states: [Puducherry]
-- name: Puducherry Liberation Day
-  fixed_date: [11, 1]
-  only_states: [Puducherry]
-- name: Rajasthan Day
-  fixed_date: [3, 30]
-  only_states: [Rajasthan, Rājasthān]
-- name: Maharana Pratap Jayanti
-  fixed_date: [6, 15]
-  only_states: [Rajasthan, Rājasthān]
-- name: Sikkim State Day
-  fixed_date: [5, 16]
-  only_states: [Sikkim]
-- name: Pongal
-  fixed_date: [1, 14]
-  only_states: [Tamil Nadu, Tamil Nādu]
-- name: Thiruvalluvar Day / Mattu Pongal
-  fixed_date: [1, 15]
-  only_states: [Tamil Nadu, Tamil Nādu]
-- name: Uzhavar Thirunal
-  fixed_date: [1, 16]
-  only_states: [Tamil Nadu, Tamil Nādu]
-- name: Dr. B. R. Ambedkar's Jayanti; Puthandu (Tamil New Year)
-  fixed_date: [4, 14]
-  only_states: [Tamil Nadu, Tamil Nādu]
-- name: Telangana Formation Day
-  fixed_date: [6, 2]
-  only_states: [Telangana, Telangāna]
-- name: Bathukamma Festival
-  fixed_date: [10, 6]
-  only_states: [Telangana, Telangāna]
-- name: UP Formation Day
-  fixed_date: [1, 24]
-  only_states: [Uttar Pradesh]
-- name: Pohela Boishakh
-  fixed_date: [4, 15]
-  only_states: [West Bengal]
-- name: Rabindra Jayanti
-  fixed_date: [5, 9]
-  only_states: [West Bengal]
+  - {'name': 'Republic Day', 'fixed_date': [1, 26]}
+  - {'name': 'Maha Shivaratri', 'fixed_date': [2, 26]}
+  - {'name': 'Id-ul-Fitr', 'fixed_date': [3, 31]}
+  - {'name': 'Mahavir Jayanti', 'fixed_date': [4, 10]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Buddha Purnima', 'fixed_date': [5, 12]}
+  - {'name': 'Bakrid', 'fixed_date': [6, 7]}
+  - {'name': 'Muharram', 'fixed_date': [7, 6]}
+  - {'name': 'Independence Day', 'fixed_date': [8, 15]}
+  - {'name': 'Janmashtami', 'fixed_date': [8, 16]}
+  - {'name': 'Milad-un-Nabi', 'fixed_date': [9, 5]}
+  - {'name': 'Dussehra; Gandhi Jayanti', 'fixed_date': [10, 2]}
+  - {'name': 'Diwali', 'fixed_date': [10, 20]}
+  - {'name': 'Guru Nanak Jayanti', 'fixed_date': [11, 5]}
+  - {'name': 'Christmas', 'fixed_date': [12, 25]}
+  - {'name': "Dr. B. R. Ambedkar's Jayanti", 'fixed_date': [4, 14], 'only_states': ['Andaman and Nicobar Islands', 'Andhra Pradesh', 'Bihar', 'Bihār', 'Chhattisgarh', 'Chhattīsgarh', 'Chandigarh', 'Chandīgarh', 'Goa', 'Gujarat', 'Gujarāt', 'Himachal Pradesh', 'Himāchal Pradesh', 'Haryana', 'Haryāna', 'Jharkhand', 'Jhārkhand', 'Jammu and Kashmir', 'Jammu and Kashmīr', 'Karnataka', 'Karnātaka', 'Kerala', 'Ladakh', 'Ladākh', 'Maharashtra', 'Mahārāshtra', 'Madhya Pradesh', 'Odisha', 'Punjab', 'Puducherry', 'Rajasthan', 'Rājasthān', 'Sikkim', 'Telangana', 'Telangāna', 'Uttarakhand', 'Uttarākhand', 'Uttar Pradesh', 'West Bengal']}
+  - {'name': 'Andhra Pradesh Foundation Day', 'fixed_date': [11, 1], 'only_states': ['Andhra Pradesh']}
+  - {'name': 'Magh Bihu', 'fixed_date': [1, 14], 'only_states': ['Assam']}
+  - {'name': 'Assam Day', 'fixed_date': [12, 2], 'only_states': ['Assam']}
+  - {'name': 'Bihar Day', 'fixed_date': [3, 22], 'only_states': ['Bihar', 'Bihār']}
+  - {'name': 'Chhath Puja', 'fixed_date': [10, 28], 'only_states': ['Bihar', 'Bihār', 'Delhi', 'Jharkhand', 'Jhārkhand', 'Uttar Pradesh']}
+  - {'name': 'Chhattisgarh Foundation Day', 'fixed_date': [11, 1], 'only_states': ['Chhattisgarh', 'Chhattīsgarh']}
+  - {'name': 'Goa Liberation Day', 'fixed_date': [12, 19], 'only_states': ['Goa']}
+  - {'name': 'Uttarayan', 'fixed_date': [1, 14], 'only_states': ['Gujarat', 'Gujarāt']}
+  - {'name': 'Gujarat Day', 'fixed_date': [5, 1], 'only_states': ['Gujarat', 'Gujarāt']}
+  - {'name': 'Sardar Vallabhbhai Patel Jayanti', 'fixed_date': [10, 31], 'only_states': ['Gujarat', 'Gujarāt']}
+  - {'name': 'Himachal Day', 'fixed_date': [4, 15], 'only_states': ['Himachal Pradesh', 'Himāchal Pradesh']}
+  - {'name': 'Haryana Foundation Day', 'fixed_date': [11, 1], 'only_states': ['Haryana', 'Haryāna']}
+  - {'name': 'Jharkhand Formation Day', 'fixed_date': [11, 15], 'only_states': ['Jharkhand', 'Jhārkhand']}
+  - {'name': 'Karnataka Rajyotsava', 'fixed_date': [11, 1], 'only_states': ['Karnataka', 'Karnātaka']}
+  - {'name': 'Milad-un-Nabi; Onam', 'fixed_date': [9, 5], 'only_states': ['Kerala']}
+  - {'name': 'Kerala Foundation Day', 'fixed_date': [11, 1], 'only_states': ['Kerala']}
+  - {'name': 'Chhatrapati Shivaji Maharaj Jayanti', 'fixed_date': [2, 19], 'only_states': ['Maharashtra', 'Mahārāshtra']}
+  - {'name': 'Gudi Padwa', 'fixed_date': [3, 30], 'only_states': ['Maharashtra', 'Mahārāshtra']}
+  - {'name': 'Maharashtra Day', 'fixed_date': [5, 1], 'only_states': ['Maharashtra', 'Mahārāshtra']}
+  - {'name': 'Madhya Pradesh Foundation Day', 'fixed_date': [11, 1], 'only_states': ['Madhya Pradesh']}
+  - {'name': 'Mizoram State Day', 'fixed_date': [2, 20], 'only_states': ['Mizoram']}
+  - {'name': 'Nagaland State Inauguration Day', 'fixed_date': [12, 1], 'only_states': ['Nagaland', 'Nāgāland']}
+  - {'name': 'Odisha Day (Utkala Dibasa)', 'fixed_date': [4, 1], 'only_states': ['Odisha']}
+  - {'name': 'Maha Vishuva Sankranti / Pana Sankranti', 'fixed_date': [4, 15], 'only_states': ['Odisha']}
+  - {'name': 'Guru Gobind Singh Jayanti', 'fixed_date': [1, 6], 'only_states': ['Punjab']}
+  - {'name': 'Lohri', 'fixed_date': [1, 13], 'only_states': ['Punjab']}
+  - {'name': 'Vaisakhi', 'fixed_date': [4, 13], 'only_states': ['Punjab']}
+  - {'name': 'Punjab Day', 'fixed_date': [11, 1], 'only_states': ['Punjab']}
+  - {'name': 'Guru Gobind Singh Jayanti', 'fixed_date': [12, 27], 'only_states': ['Punjab']}
+  - {'name': 'Janmashtami; Puducherry De Jure Transfer Day', 'fixed_date': [8, 16], 'only_states': ['Puducherry']}
+  - {'name': 'Puducherry Liberation Day', 'fixed_date': [11, 1], 'only_states': ['Puducherry']}
+  - {'name': 'Rajasthan Day', 'fixed_date': [3, 30], 'only_states': ['Rajasthan', 'Rājasthān']}
+  - {'name': 'Maharana Pratap Jayanti', 'fixed_date': [6, 15], 'only_states': ['Rajasthan', 'Rājasthān']}
+  - {'name': 'Sikkim State Day', 'fixed_date': [5, 16], 'only_states': ['Sikkim']}
+  - {'name': 'Pongal', 'fixed_date': [1, 14], 'only_states': ['Tamil Nadu', 'Tamil Nādu']}
+  - {'name': 'Thiruvalluvar Day / Mattu Pongal', 'fixed_date': [1, 15], 'only_states': ['Tamil Nadu', 'Tamil Nādu']}
+  - {'name': 'Uzhavar Thirunal', 'fixed_date': [1, 16], 'only_states': ['Tamil Nadu', 'Tamil Nādu']}
+  - {'name': "Dr. B. R. Ambedkar's Jayanti; Puthandu (Tamil New Year)", 'fixed_date': [4, 14], 'only_states': ['Tamil Nadu', 'Tamil Nādu']}
+  - {'name': 'Telangana Formation Day', 'fixed_date': [6, 2], 'only_states': ['Telangana', 'Telangāna']}
+  - {'name': 'Bathukamma Festival', 'fixed_date': [10, 6], 'only_states': ['Telangana', 'Telangāna']}
+  - {'name': 'UP Formation Day', 'fixed_date': [1, 24], 'only_states': ['Uttar Pradesh']}
+  - {'name': 'Pohela Boishakh', 'fixed_date': [4, 15], 'only_states': ['West Bengal']}
+  - {'name': 'Rabindra Jayanti', 'fixed_date': [5, 9], 'only_states': ['West Bengal']}

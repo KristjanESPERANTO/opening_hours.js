@@ -1,25 +1,14 @@
 ---
 
 PH:
-- name: Jour de l'an
-  fixed_date: [1, 1]
-- name: Lundi de Pâques
-  fixed_date: [4, 21]
-- name: Fête du Travail
-  fixed_date: [5, 1]
-- name: Fête de la Victoire
-  fixed_date: [5, 8]
-- name: Ascension
-  fixed_date: [5, 29]
-- name: Lundi de Pentecôte
-  fixed_date: [6, 9]
-- name: Fête nationale
-  fixed_date: [7, 14]
-- name: Assomption
-  fixed_date: [8, 15]
-- name: Toussaint
-  fixed_date: [11, 1]
-- name: Armistice
-  fixed_date: [11, 11]
-- name: Noël
-  fixed_date: [12, 25]
+  - {'name': "Jour de l'an", 'fixed_date': [1, 1]}
+  - {'name': 'Lundi de Pâques', 'fixed_date': [4, 21]}
+  - {'name': 'Fête du Travail', 'fixed_date': [5, 1]}
+  - {'name': 'Fête de la Victoire', 'fixed_date': [5, 8]}
+  - {'name': 'Ascension', 'fixed_date': [5, 29]}
+  - {'name': 'Lundi de Pentecôte', 'fixed_date': [6, 9]}
+  - {'name': 'Fête nationale', 'fixed_date': [7, 14]}
+  - {'name': 'Assomption', 'fixed_date': [8, 15]}
+  - {'name': 'Toussaint', 'fixed_date': [11, 1]}
+  - {'name': 'Armistice', 'fixed_date': [11, 11]}
+  - {'name': 'Noël', 'fixed_date': [12, 25]}

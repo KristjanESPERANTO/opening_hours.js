@@ -1,23 +1,13 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Martin Luther King Jr. Day
-  fixed_date: [1, 20]
-- name: Washington's Birthday
-  fixed_date: [2, 17]
-- name: Memorial Day
-  fixed_date: [5, 26]
-- name: Juneteenth National Independence Day
-  fixed_date: [6, 19]
-- name: Independence Day
-  fixed_date: [7, 4]
-- name: Labor Day
-  fixed_date: [9, 1]
-- name: Veterans Day
-  fixed_date: [11, 11]
-- name: Thanksgiving Day
-  fixed_date: [11, 27]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Martin Luther King Jr. Day', 'fixed_date': [1, 20]}
+  - {'name': "Washington's Birthday", 'fixed_date': [2, 17]}
+  - {'name': 'Memorial Day', 'fixed_date': [5, 26]}
+  - {'name': 'Juneteenth National Independence Day', 'fixed_date': [6, 19]}
+  - {'name': 'Independence Day', 'fixed_date': [7, 4]}
+  - {'name': 'Labor Day', 'fixed_date': [9, 1]}
+  - {'name': 'Veterans Day', 'fixed_date': [11, 11]}
+  - {'name': 'Thanksgiving Day', 'fixed_date': [11, 27]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

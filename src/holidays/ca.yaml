@@ -1,81 +1,30 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Canada Day
-  fixed_date: [7, 1]
-- name: Labour Day
-  fixed_date: [9, 1]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Family Day
-  fixed_date: [2, 17]
-  only_states: [Alberta, British Columbia, Colombie-Britannique, New Brunswick, Nouveau-Brunswick,
-    Ontario, Saskatchewan]
-- name: Victoria Day
-  fixed_date: [5, 19]
-  only_states: [Alberta, British Columbia, Colombie-Britannique, Manitoba, Northwest
-      Territories, Territoires du Nord-Ouest, Nunavut, Ontario, Saskatchewan, Yukon]
-- name: Thanksgiving Day
-  fixed_date: [10, 13]
-  only_states: [Alberta, British Columbia, Colombie-Britannique, Manitoba, Northwest
-      Territories, Territoires du Nord-Ouest, Nunavut, Ontario, Quebec, Québec, Saskatchewan,
-    Yukon]
-- name: Remembrance Day
-  fixed_date: [11, 11]
-  only_states: [Alberta, British Columbia, Colombie-Britannique, New Brunswick, Nouveau-Brunswick,
-    Newfoundland and Labrador, Terre-Neuve-et-Labrador, Nova Scotia, Nouvelle-Écosse,
-    Northwest Territories, Territoires du Nord-Ouest, Nunavut, Prince Edward Island,
-    Île-du-Prince-Édouard, Saskatchewan, Yukon]
-- name: British Columbia Day
-  fixed_date: [8, 4]
-  only_states: [British Columbia, Colombie-Britannique]
-- name: National Day for Truth and Reconciliation
-  fixed_date: [9, 30]
-  only_states: [British Columbia, Colombie-Britannique, Northwest Territories, Territoires
-      du Nord-Ouest, Nunavut, Prince Edward Island, Île-du-Prince-Édouard, Yukon]
-- name: Louis Riel Day
-  fixed_date: [2, 17]
-  only_states: [Manitoba]
-- name: New Brunswick Day
-  fixed_date: [8, 4]
-  only_states: [New Brunswick, Nouveau-Brunswick]
-- name: Canada Day; Memorial Day
-  fixed_date: [7, 1]
-  only_states: [Newfoundland and Labrador, Terre-Neuve-et-Labrador]
-- name: Heritage Day
-  fixed_date: [2, 17]
-  only_states: [Nova Scotia, Nouvelle-Écosse]
-- name: National Aboriginal Day
-  fixed_date: [6, 21]
-  only_states: [Northwest Territories, Territoires du Nord-Ouest, Yukon]
-- name: Civic Holiday
-  fixed_date: [8, 4]
-  only_states: [Northwest Territories, Territoires du Nord-Ouest, Nunavut]
-- name: Nunavut Day
-  fixed_date: [7, 9]
-  only_states: [Nunavut]
-- name: Boxing Day
-  fixed_date: [12, 26]
-  only_states: [Ontario]
-- name: Islander Day
-  fixed_date: [2, 17]
-  only_states: [Prince Edward Island, Île-du-Prince-Édouard]
-- name: National Patriots' Day
-  fixed_date: [5, 19]
-  only_states: [Quebec, Québec]
-- name: Saint Jean Baptiste Day
-  fixed_date: [6, 24]
-  only_states: [Quebec, Québec]
-- name: Saskatchewan Day
-  fixed_date: [8, 4]
-  only_states: [Saskatchewan]
-- name: Discovery Day
-  fixed_date: [8, 18]
-  only_states: [Yukon]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Canada Day', 'fixed_date': [7, 1]}
+  - {'name': 'Labour Day', 'fixed_date': [9, 1]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Family Day', 'fixed_date': [2, 17], 'only_states': ['Alberta', 'British Columbia', 'Colombie-Britannique', 'New Brunswick', 'Nouveau-Brunswick', 'Ontario', 'Saskatchewan']}
+  - {'name': 'Victoria Day', 'fixed_date': [5, 19], 'only_states': ['Alberta', 'British Columbia', 'Colombie-Britannique', 'Manitoba', 'Northwest Territories', 'Territoires du Nord-Ouest', 'Nunavut', 'Ontario', 'Saskatchewan', 'Yukon']}
+  - {'name': 'Thanksgiving Day', 'fixed_date': [10, 13], 'only_states': ['Alberta', 'British Columbia', 'Colombie-Britannique', 'Manitoba', 'Northwest Territories', 'Territoires du Nord-Ouest', 'Nunavut', 'Ontario', 'Quebec', 'Québec', 'Saskatchewan', 'Yukon']}
+  - {'name': 'Remembrance Day', 'fixed_date': [11, 11], 'only_states': ['Alberta', 'British Columbia', 'Colombie-Britannique', 'New Brunswick', 'Nouveau-Brunswick', 'Newfoundland and Labrador', 'Terre-Neuve-et-Labrador', 'Nova Scotia', 'Nouvelle-Écosse', 'Northwest Territories', 'Territoires du Nord-Ouest', 'Nunavut', 'Prince Edward Island', 'Île-du-Prince-Édouard', 'Saskatchewan', 'Yukon']}
+  - {'name': 'British Columbia Day', 'fixed_date': [8, 4], 'only_states': ['British Columbia', 'Colombie-Britannique']}
+  - {'name': 'National Day for Truth and Reconciliation', 'fixed_date': [9, 30], 'only_states': ['British Columbia', 'Colombie-Britannique', 'Northwest Territories', 'Territoires du Nord-Ouest', 'Nunavut', 'Prince Edward Island', 'Île-du-Prince-Édouard', 'Yukon']}
+  - {'name': 'Louis Riel Day', 'fixed_date': [2, 17], 'only_states': ['Manitoba']}
+  - {'name': 'New Brunswick Day', 'fixed_date': [8, 4], 'only_states': ['New Brunswick', 'Nouveau-Brunswick']}
+  - {'name': 'Canada Day; Memorial Day', 'fixed_date': [7, 1], 'only_states': ['Newfoundland and Labrador', 'Terre-Neuve-et-Labrador']}
+  - {'name': 'Heritage Day', 'fixed_date': [2, 17], 'only_states': ['Nova Scotia', 'Nouvelle-Écosse']}
+  - {'name': 'National Aboriginal Day', 'fixed_date': [6, 21], 'only_states': ['Northwest Territories', 'Territoires du Nord-Ouest', 'Yukon']}
+  - {'name': 'Civic Holiday', 'fixed_date': [8, 4], 'only_states': ['Northwest Territories', 'Territoires du Nord-Ouest', 'Nunavut']}
+  - {'name': 'Nunavut Day', 'fixed_date': [7, 9], 'only_states': ['Nunavut']}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26], 'only_states': ['Ontario']}
+  - {'name': 'Islander Day', 'fixed_date': [2, 17], 'only_states': ['Prince Edward Island', 'Île-du-Prince-Édouard']}
+  - {'name': "National Patriots' Day", 'fixed_date': [5, 19], 'only_states': ['Quebec', 'Québec']}
+  - {'name': 'Saint Jean Baptiste Day', 'fixed_date': [6, 24], 'only_states': ['Quebec', 'Québec']}
+  - {'name': 'Saskatchewan Day', 'fixed_date': [8, 4], 'only_states': ['Saskatchewan']}
+  - {'name': 'Discovery Day', 'fixed_date': [8, 18], 'only_states': ['Yukon']}
 Alberta:
   PH:
   - name: New Year's Day

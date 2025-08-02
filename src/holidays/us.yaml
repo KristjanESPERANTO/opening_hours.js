@@ -1,301 +1,108 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=32.3673&lon=-86.2983&zoom=18&addressdetails=1&accept-language=en
+
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Martin Luther King Jr. Day
-  fixed_date: [1, 20]
-- name: Washington's Birthday
-  fixed_date: [2, 17]
-- name: Memorial Day
-  fixed_date: [5, 26]
-- name: Juneteenth National Independence Day
-  fixed_date: [6, 19]
-- name: Independence Day
-  fixed_date: [7, 4]
-- name: Labor Day
-  fixed_date: [9, 1]
-- name: Columbus Day
-  fixed_date: [10, 13]
-- name: Veterans Day
-  fixed_date: [11, 11]
-- name: Thanksgiving Day
-  fixed_date: [11, 27]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Presidents' Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Alaska, California, Hawaii, Idaho, Maryland, Oklahoma, Pennsylvania,
-    Puerto Rico, Texas, 'Virgin Islands, U.S.', Vermont, Washington, West Virginia]
-- name: Seward's Day
-  fixed_date: [3, 31]
-  only_states: [Alaska]
-- name: Indigenous Peoples' Day
-  fixed_date: [10, 13]
-  only_states: [Alaska, District of Columbia, Maine, Nebraska, New Mexico, Virginia]
-- name: Alaska Day (observed)
-  fixed_date: [10, 17]
-  only_states: [Alaska]
-- name: Alaska Day
-  fixed_date: [10, 18]
-  only_states: [Alaska]
-- name: Martin Luther King Jr. Day; Martin Luther King, Jr & Robert E. Lee's Birthday
-  fixed_date: [1, 20]
-  only_states: [Alabama]
-- name: George Washington & Thomas Jefferson's Birthday; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Alabama]
-- name: Confederate Memorial Day
-  fixed_date: [4, 28]
-  only_states: [Alabama, Mississippi, South Carolina]
-- name: Jefferson Davis Birthday
-  fixed_date: [6, 2]
-  only_states: [Alabama]
-- name: Columbus Day / American Indian Heritage Day / Fraternal Day
-  fixed_date: [10, 13]
-  only_states: [Alabama]
-- name: George Washington's Birthday and Daisy Gatson Bates Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Arkansas]
-- name: American Samoa Flag Day
-  fixed_date: [4, 17]
-  only_states: [American Samoa]
-- name: Manu'a Islands Cession Day
-  fixed_date: [7, 16]
-  only_states: [American Samoa]
-- name: White Sunday
-  fixed_date: [10, 12]
-  only_states: [American Samoa]
-- name: Dr. Martin Luther King Jr. / Civil Rights Day; Martin Luther King Jr. Day
-  fixed_date: [1, 20]
-  only_states: [Arizona, New Hampshire]
-- name: Lincoln/Washington Presidents' Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Arizona]
-- name: Susan B. Anthony Day
-  fixed_date: [2, 15]
-  only_states: [California, Florida, New York, Wisconsin]
-- name: Cesar Chavez Day
-  fixed_date: [3, 31]
-  only_states: [California, Colorado, Texas]
-- name: Day After Thanksgiving
-  fixed_date: [11, 28]
-  only_states: [California, Delaware, Michigan, North Carolina, New Hampshire, Oklahoma,
-    Pennsylvania, West Virginia]
-- name: Washington's Birthday; Washington-Lincoln Day
-  fixed_date: [2, 17]
-  only_states: [Colorado, Ohio]
-- name: Frances Xavier Cabrini Day
-  fixed_date: [10, 6]
-  only_states: [Colorado]
-- name: Lincoln's Birthday
-  fixed_date: [2, 12]
-  only_states: [Connecticut, Iowa, Illinois, New Jersey, New York]
-- name: Good Friday
-  fixed_date: [4, 18]
-  only_states: [Connecticut, Delaware, Guam, Indiana, Kentucky, Louisiana, Northern
-      Mariana Islands, North Carolina, New Jersey, Puerto Rico, Tennessee, Texas,
-    'Virgin Islands, U.S.']
-- name: Inauguration Day; Martin Luther King Jr. Day
-  fixed_date: [1, 20]
-  only_states: [District of Columbia, Louisiana, Maryland, Virginia]
-- name: Emancipation Day
-  fixed_date: [4, 16]
-  only_states: [District of Columbia]
-- name: Friday After Thanksgiving
-  fixed_date: [11, 28]
-  only_states: [Florida, Texas]
-- name: State Holiday
-  fixed_date: [4, 28]
-  only_states: [Georgia]
-- name: State Holiday
-  fixed_date: [11, 28]
-  only_states: [Georgia]
-- name: Washington's Birthday
-  fixed_date: [12, 26]
-  only_states: [Georgia, Indiana]
-- name: Guam Discovery Day
-  fixed_date: [3, 3]
-  only_states: [Guam]
-- name: Liberation Day (Guam)
-  fixed_date: [7, 21]
-  only_states: [Guam]
-- name: All Souls' Day
-  fixed_date: [11, 2]
-  only_states: [Guam]
-- name: Lady of Camarin Day
-  fixed_date: [12, 8]
-  only_states: [Guam]
-- name: Prince Jonah Kuhio Kalanianaole Day
-  fixed_date: [3, 26]
-  only_states: [Hawaii]
-- name: Kamehameha Day
-  fixed_date: [6, 11]
-  only_states: [Hawaii]
-- name: Statehood Day
-  fixed_date: [8, 15]
-  only_states: [Hawaii]
-- name: Martin Luther King Jr. / Idaho Human Rights Day; Martin Luther King Jr. Day
-  fixed_date: [1, 20]
-  only_states: [Idaho]
-- name: Casimir Pulaski Day
-  fixed_date: [3, 3]
-  only_states: [Illinois]
-- name: Primary Election Day
-  fixed_date: [5, 6]
-  only_states: [Indiana]
-- name: Election Day
-  fixed_date: [11, 4]
-  only_states: [Indiana, New York]
-- name: Lincoln's Birthday
-  fixed_date: [11, 28]
-  only_states: [Indiana]
-- name: Christmas Eve
-  fixed_date: [12, 24]
-  only_states: [Kansas, Michigan, North Carolina, Texas, Wisconsin]
-- name: New Year's Eve
-  fixed_date: [12, 31]
-  only_states: [Kentucky, Michigan, Wisconsin]
-- name: Mardi Gras
-  fixed_date: [3, 4]
-  only_states: [Louisiana]
-- name: Evacuation Day
-  fixed_date: [3, 17]
-  only_states: [Massachusetts]
-- name: Patriots' Day
-  fixed_date: [4, 21]
-  only_states: [Massachusetts, Maine]
-- name: American Indian Heritage Day
-  fixed_date: [11, 28]
-  only_states: [Maryland]
-- name: Washington's Birthday; Washington's and Lincoln's Birthday
-  fixed_date: [2, 17]
-  only_states: [Minnesota]
-- name: Truman Day
-  fixed_date: [5, 8]
-  only_states: [Missouri]
-- name: Commonwealth Covenant Day
-  fixed_date: [3, 24]
-  only_states: [Northern Mariana Islands]
-- name: Commonwealth Cultural Day
-  fixed_date: [10, 13]
-  only_states: [Northern Mariana Islands]
-- name: Citizenship Day
-  fixed_date: [11, 4]
-  only_states: [Northern Mariana Islands]
-- name: Constitution Day
-  fixed_date: [12, 8]
-  only_states: [Northern Mariana Islands]
-- name: Dr. Martin Luther King Jr. and Robert E. Lee's Birthdays; Martin Luther King
-    Jr. Day
-  fixed_date: [1, 20]
-  only_states: [Mississippi]
-- name: Lincoln's and Washington's Birthdays; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Montana]
-- name: Day After Christmas
-  fixed_date: [12, 26]
-  only_states: [North Carolina, Texas]
-- name: Arbor Day
-  fixed_date: [4, 25]
-  only_states: [Nebraska]
-- name: Presidents Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [New Jersey, Oregon]
-- name: Presidents' Day
-  fixed_date: [11, 28]
-  only_states: [New Mexico]
-- name: Nevada Day
-  fixed_date: [10, 31]
-  only_states: [Nevada]
-- name: Family Day
-  fixed_date: [11, 28]
-  only_states: [Nevada]
-- name: Epiphany
-  fixed_date: [1, 6]
-  only_states: [Puerto Rico]
-- name: Emancipation Day
-  fixed_date: [3, 22]
-  only_states: [Puerto Rico]
-- name: Constitution Day
-  fixed_date: [7, 25]
-  only_states: [Puerto Rico]
-- name: Discovery Day
-  fixed_date: [11, 19]
-  only_states: [Puerto Rico]
-- name: Victory Day
-  fixed_date: [8, 11]
-  only_states: [Rhode Island]
-- name: Indigenous Peoples' Day / Columbus Day
-  fixed_date: [10, 13]
-  only_states: [Rhode Island]
-- name: President's Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [South Carolina, Tennessee, Wyoming]
-- name: Native Americans' Day
-  fixed_date: [10, 13]
-  only_states: [South Dakota]
-- name: Confederate Memorial Day
-  fixed_date: [1, 19]
-  only_states: [Texas]
-- name: Texas Independence Day
-  fixed_date: [3, 2]
-  only_states: [Texas]
-- name: San Jacinto Day
-  fixed_date: [4, 21]
-  only_states: [Texas]
-- name: Emancipation Day In Texas; Juneteenth National Independence Day
-  fixed_date: [6, 19]
-  only_states: [Texas]
-- name: Lyndon Baines Johnson Day
-  fixed_date: [8, 27]
-  only_states: [Texas]
-- name: Washington and Lincoln Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Utah]
-- name: Pioneer Day
-  fixed_date: [7, 24]
-  only_states: [Utah]
-- name: George Washington Day; Washington's Birthday
-  fixed_date: [2, 17]
-  only_states: [Virginia]
-- name: Three Kings Day
-  fixed_date: [1, 6]
-  only_states: ['Virgin Islands, U.S.']
-- name: Transfer Day
-  fixed_date: [3, 31]
-  only_states: ['Virgin Islands, U.S.']
-- name: Holy Thursday
-  fixed_date: [4, 17]
-  only_states: ['Virgin Islands, U.S.']
-- name: Easter Monday
-  fixed_date: [4, 21]
-  only_states: ['Virgin Islands, U.S.']
-- name: Emancipation Day
-  fixed_date: [7, 3]
-  only_states: ['Virgin Islands, U.S.']
-- name: Columbus Day and Puerto Rico Friendship Day
-  fixed_date: [10, 13]
-  only_states: ['Virgin Islands, U.S.']
-- name: Liberty Day
-  fixed_date: [11, 1]
-  only_states: ['Virgin Islands, U.S.']
-- name: Christmas Second Day
-  fixed_date: [12, 26]
-  only_states: ['Virgin Islands, U.S.']
-- name: Town Meeting Day
-  fixed_date: [3, 4]
-  only_states: [Vermont]
-- name: Bennington Battle Day (observed)
-  fixed_date: [8, 15]
-  only_states: [Vermont]
-- name: Bennington Battle Day
-  fixed_date: [8, 16]
-  only_states: [Vermont]
-- name: West Virginia Day
-  fixed_date: [6, 20]
-  only_states: [West Virginia]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Martin Luther King Jr. Day', 'fixed_date': [1, 20]}
+  - {'name': "Washington's Birthday", 'fixed_date': [2, 17]}
+  - {'name': 'Memorial Day', 'fixed_date': [5, 26]}
+  - {'name': 'Juneteenth National Independence Day', 'fixed_date': [6, 19]}
+  - {'name': 'Independence Day', 'fixed_date': [7, 4]}
+  - {'name': 'Labor Day', 'fixed_date': [9, 1]}
+  - {'name': 'Columbus Day', 'fixed_date': [10, 13]}
+  - {'name': 'Veterans Day', 'fixed_date': [11, 11]}
+  - {'name': 'Thanksgiving Day', 'fixed_date': [11, 27]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': "Presidents' Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Alaska', 'California', 'Hawaii', 'Idaho', 'Maryland', 'Oklahoma', 'Pennsylvania', 'Puerto Rico', 'Texas', 'Virgin Islands, U.S.', 'Vermont', 'Washington', 'West Virginia']}
+  - {'name': "Seward's Day", 'fixed_date': [3, 31], 'only_states': ['Alaska']}
+  - {'name': "Indigenous Peoples' Day", 'fixed_date': [10, 13], 'only_states': ['Alaska', 'District of Columbia', 'Maine', 'Nebraska', 'New Mexico', 'Virginia']}
+  - {'name': 'Alaska Day (observed)', 'fixed_date': [10, 17], 'only_states': ['Alaska']}
+  - {'name': 'Alaska Day', 'fixed_date': [10, 18], 'only_states': ['Alaska']}
+  - {'name': "Martin Luther King Jr. Day; Martin Luther King, Jr & Robert E. Lee's Birthday", 'fixed_date': [1, 20], 'only_states': ['Alabama']}
+  - {'name': "George Washington & Thomas Jefferson's Birthday; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Alabama']}
+  - {'name': 'Confederate Memorial Day', 'fixed_date': [4, 28], 'only_states': ['Alabama', 'Mississippi', 'South Carolina']}
+  - {'name': 'Jefferson Davis Birthday', 'fixed_date': [6, 2], 'only_states': ['Alabama']}
+  - {'name': 'Columbus Day / American Indian Heritage Day / Fraternal Day', 'fixed_date': [10, 13], 'only_states': ['Alabama']}
+  - {'name': "George Washington's Birthday and Daisy Gatson Bates Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Arkansas']}
+  - {'name': 'American Samoa Flag Day', 'fixed_date': [4, 17], 'only_states': ['American Samoa']}
+  - {'name': "Manu'a Islands Cession Day", 'fixed_date': [7, 16], 'only_states': ['American Samoa']}
+  - {'name': 'White Sunday', 'fixed_date': [10, 12], 'only_states': ['American Samoa']}
+  - {'name': 'Dr. Martin Luther King Jr. / Civil Rights Day; Martin Luther King Jr. Day', 'fixed_date': [1, 20], 'only_states': ['Arizona', 'New Hampshire']}
+  - {'name': "Lincoln/Washington Presidents' Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Arizona']}
+  - {'name': 'Susan B. Anthony Day', 'fixed_date': [2, 15], 'only_states': ['California', 'Florida', 'New York', 'Wisconsin']}
+  - {'name': 'Cesar Chavez Day', 'fixed_date': [3, 31], 'only_states': ['California', 'Colorado', 'Texas']}
+  - {'name': 'Day After Thanksgiving', 'fixed_date': [11, 28], 'only_states': ['California', 'Delaware', 'Michigan', 'North Carolina', 'New Hampshire', 'Oklahoma', 'Pennsylvania', 'West Virginia']}
+  - {'name': "Washington's Birthday; Washington-Lincoln Day", 'fixed_date': [2, 17], 'only_states': ['Colorado', 'Ohio']}
+  - {'name': 'Frances Xavier Cabrini Day', 'fixed_date': [10, 6], 'only_states': ['Colorado']}
+  - {'name': "Lincoln's Birthday", 'fixed_date': [2, 12], 'only_states': ['Connecticut', 'Iowa', 'Illinois', 'New Jersey', 'New York']}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18], 'only_states': ['Connecticut', 'Delaware', 'Guam', 'Indiana', 'Kentucky', 'Louisiana', 'Northern Mariana Islands', 'North Carolina', 'New Jersey', 'Puerto Rico', 'Tennessee', 'Texas', 'Virgin Islands, U.S.']}
+  - {'name': 'Inauguration Day; Martin Luther King Jr. Day', 'fixed_date': [1, 20], 'only_states': ['District of Columbia', 'Louisiana', 'Maryland', 'Virginia']}
+  - {'name': 'Emancipation Day', 'fixed_date': [4, 16], 'only_states': ['District of Columbia']}
+  - {'name': 'Friday After Thanksgiving', 'fixed_date': [11, 28], 'only_states': ['Florida', 'Texas']}
+  - {'name': 'State Holiday', 'fixed_date': [4, 28], 'only_states': ['Georgia']}
+  - {'name': 'State Holiday', 'fixed_date': [11, 28], 'only_states': ['Georgia']}
+  - {'name': "Washington's Birthday", 'fixed_date': [12, 26], 'only_states': ['Georgia', 'Indiana']}
+  - {'name': 'Guam Discovery Day', 'fixed_date': [3, 3], 'only_states': ['Guam']}
+  - {'name': 'Liberation Day (Guam)', 'fixed_date': [7, 21], 'only_states': ['Guam']}
+  - {'name': "All Souls' Day", 'fixed_date': [11, 2], 'only_states': ['Guam']}
+  - {'name': 'Lady of Camarin Day', 'fixed_date': [12, 8], 'only_states': ['Guam']}
+  - {'name': 'Prince Jonah Kuhio Kalanianaole Day', 'fixed_date': [3, 26], 'only_states': ['Hawaii']}
+  - {'name': 'Kamehameha Day', 'fixed_date': [6, 11], 'only_states': ['Hawaii']}
+  - {'name': 'Statehood Day', 'fixed_date': [8, 15], 'only_states': ['Hawaii']}
+  - {'name': 'Martin Luther King Jr. / Idaho Human Rights Day; Martin Luther King Jr. Day', 'fixed_date': [1, 20], 'only_states': ['Idaho']}
+  - {'name': 'Casimir Pulaski Day', 'fixed_date': [3, 3], 'only_states': ['Illinois']}
+  - {'name': 'Primary Election Day', 'fixed_date': [5, 6], 'only_states': ['Indiana']}
+  - {'name': 'Election Day', 'fixed_date': [11, 4], 'only_states': ['Indiana', 'New York']}
+  - {'name': "Lincoln's Birthday", 'fixed_date': [11, 28], 'only_states': ['Indiana']}
+  - {'name': 'Christmas Eve', 'fixed_date': [12, 24], 'only_states': ['Kansas', 'Michigan', 'North Carolina', 'Texas', 'Wisconsin']}
+  - {'name': "New Year's Eve", 'fixed_date': [12, 31], 'only_states': ['Kentucky', 'Michigan', 'Wisconsin']}
+  - {'name': 'Mardi Gras', 'fixed_date': [3, 4], 'only_states': ['Louisiana']}
+  - {'name': 'Evacuation Day', 'fixed_date': [3, 17], 'only_states': ['Massachusetts']}
+  - {'name': "Patriots' Day", 'fixed_date': [4, 21], 'only_states': ['Massachusetts', 'Maine']}
+  - {'name': 'American Indian Heritage Day', 'fixed_date': [11, 28], 'only_states': ['Maryland']}
+  - {'name': "Washington's Birthday; Washington's and Lincoln's Birthday", 'fixed_date': [2, 17], 'only_states': ['Minnesota']}
+  - {'name': 'Truman Day', 'fixed_date': [5, 8], 'only_states': ['Missouri']}
+  - {'name': 'Commonwealth Covenant Day', 'fixed_date': [3, 24], 'only_states': ['Northern Mariana Islands']}
+  - {'name': 'Commonwealth Cultural Day', 'fixed_date': [10, 13], 'only_states': ['Northern Mariana Islands']}
+  - {'name': 'Citizenship Day', 'fixed_date': [11, 4], 'only_states': ['Northern Mariana Islands']}
+  - {'name': 'Constitution Day', 'fixed_date': [12, 8], 'only_states': ['Northern Mariana Islands']}
+  - {'name': "Dr. Martin Luther King Jr. and Robert E. Lee's Birthdays; Martin Luther King Jr. Day", 'fixed_date': [1, 20], 'only_states': ['Mississippi']}
+  - {'name': "Lincoln's and Washington's Birthdays; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Montana']}
+  - {'name': 'Day After Christmas', 'fixed_date': [12, 26], 'only_states': ['North Carolina', 'Texas']}
+  - {'name': 'Arbor Day', 'fixed_date': [4, 25], 'only_states': ['Nebraska']}
+  - {'name': "Presidents Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['New Jersey', 'Oregon']}
+  - {'name': "Presidents' Day", 'fixed_date': [11, 28], 'only_states': ['New Mexico']}
+  - {'name': 'Nevada Day', 'fixed_date': [10, 31], 'only_states': ['Nevada']}
+  - {'name': 'Family Day', 'fixed_date': [11, 28], 'only_states': ['Nevada']}
+  - {'name': 'Epiphany', 'fixed_date': [1, 6], 'only_states': ['Puerto Rico']}
+  - {'name': 'Emancipation Day', 'fixed_date': [3, 22], 'only_states': ['Puerto Rico']}
+  - {'name': 'Constitution Day', 'fixed_date': [7, 25], 'only_states': ['Puerto Rico']}
+  - {'name': 'Discovery Day', 'fixed_date': [11, 19], 'only_states': ['Puerto Rico']}
+  - {'name': 'Victory Day', 'fixed_date': [8, 11], 'only_states': ['Rhode Island']}
+  - {'name': "Indigenous Peoples' Day / Columbus Day", 'fixed_date': [10, 13], 'only_states': ['Rhode Island']}
+  - {'name': "President's Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['South Carolina', 'Tennessee', 'Wyoming']}
+  - {'name': "Native Americans' Day", 'fixed_date': [10, 13], 'only_states': ['South Dakota']}
+  - {'name': 'Confederate Memorial Day', 'fixed_date': [1, 19], 'only_states': ['Texas']}
+  - {'name': 'Texas Independence Day', 'fixed_date': [3, 2], 'only_states': ['Texas']}
+  - {'name': 'San Jacinto Day', 'fixed_date': [4, 21], 'only_states': ['Texas']}
+  - {'name': 'Emancipation Day In Texas; Juneteenth National Independence Day', 'fixed_date': [6, 19], 'only_states': ['Texas']}
+  - {'name': 'Lyndon Baines Johnson Day', 'fixed_date': [8, 27], 'only_states': ['Texas']}
+  - {'name': "Washington and Lincoln Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Utah']}
+  - {'name': 'Pioneer Day', 'fixed_date': [7, 24], 'only_states': ['Utah']}
+  - {'name': "George Washington Day; Washington's Birthday", 'fixed_date': [2, 17], 'only_states': ['Virginia']}
+  - {'name': 'Three Kings Day', 'fixed_date': [1, 6], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Transfer Day', 'fixed_date': [3, 31], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Holy Thursday', 'fixed_date': [4, 17], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Emancipation Day', 'fixed_date': [7, 3], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Columbus Day and Puerto Rico Friendship Day', 'fixed_date': [10, 13], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Liberty Day', 'fixed_date': [11, 1], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Christmas Second Day', 'fixed_date': [12, 26], 'only_states': ['Virgin Islands, U.S.']}
+  - {'name': 'Town Meeting Day', 'fixed_date': [3, 4], 'only_states': ['Vermont']}
+  - {'name': 'Bennington Battle Day (observed)', 'fixed_date': [8, 15], 'only_states': ['Vermont']}
+  - {'name': 'Bennington Battle Day', 'fixed_date': [8, 16], 'only_states': ['Vermont']}
+  - {'name': 'West Virginia Day', 'fixed_date': [6, 20], 'only_states': ['West Virginia']}
 Alabama:
   _state_code: al
   _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=32.3673&lon=-86.2983&zoom=18&addressdetails=1&accept-language=en

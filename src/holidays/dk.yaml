@@ -1,24 +1,15 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=55.670249&lon=10.3333283&zoom=18&addressdetails=1&accept-language=da,en
+
 PH:
-- name: Nytårsdag
-  fixed_date: [1, 1]
-- name: Skærtorsdag
-  fixed_date: [4, 17]
-- name: Langfredag
-  fixed_date: [4, 18]
-- name: Påskedag
-  fixed_date: [4, 20]
-- name: Anden påskedag
-  fixed_date: [4, 21]
-- name: Kristi himmelfartsdag
-  fixed_date: [5, 29]
-- name: Pinsedag
-  fixed_date: [6, 8]
-- name: Anden pinsedag
-  fixed_date: [6, 9]
-- name: Juledag
-  fixed_date: [12, 25]
-- name: Anden juledag
-  fixed_date: [12, 26]
+  - {'name': 'Nytårsdag', 'fixed_date': [1, 1]}
+  - {'name': 'Skærtorsdag', 'fixed_date': [4, 17]}
+  - {'name': 'Langfredag', 'fixed_date': [4, 18]}
+  - {'name': 'Påskedag', 'fixed_date': [4, 20]}
+  - {'name': 'Anden påskedag', 'fixed_date': [4, 21]}
+  - {'name': 'Kristi himmelfartsdag', 'fixed_date': [5, 29]}
+  - {'name': 'Pinsedag', 'fixed_date': [6, 8]}
+  - {'name': 'Anden pinsedag', 'fixed_date': [6, 9]}
+  - {'name': 'Juledag', 'fixed_date': [12, 25]}
+  - {'name': 'Anden juledag', 'fixed_date': [12, 26]}

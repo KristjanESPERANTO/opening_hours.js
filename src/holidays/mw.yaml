@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: John Chilembwe Day
-  fixed_date: [1, 15]
-- name: Martyrs Day
-  fixed_date: [3, 3]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Kamuzu Day
-  fixed_date: [5, 14]
-- name: Independence Day
-  fixed_date: [7, 6]
-- name: Independence Day (observed)
-  fixed_date: [7, 7]
-- name: Mother's Day
-  fixed_date: [10, 15]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'John Chilembwe Day', 'fixed_date': [1, 15]}
+  - {'name': 'Martyrs Day', 'fixed_date': [3, 3]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Kamuzu Day', 'fixed_date': [5, 14]}
+  - {'name': 'Independence Day', 'fixed_date': [7, 6]}
+  - {'name': 'Independence Day (observed)', 'fixed_date': [7, 7]}
+  - {'name': "Mother's Day", 'fixed_date': [10, 15]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

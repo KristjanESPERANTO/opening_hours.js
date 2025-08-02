@@ -1,17 +1,10 @@
 ---
 
 PH:
-- name: International Mother's language Day
-  fixed_date: [2, 21]
-- name: Sheikh Mujibur Rahman's Birthday and Children's Day
-  fixed_date: [3, 17]
-- name: Independence Day
-  fixed_date: [3, 26]
-- name: Bengali New Year's Day
-  fixed_date: [4, 14]
-- name: May Day
-  fixed_date: [5, 1]
-- name: National Mourning Day
-  fixed_date: [8, 15]
-- name: Victory Day
-  fixed_date: [12, 16]
+  - {'name': "International Mother's language Day", 'fixed_date': [2, 21]}
+  - {'name': "Sheikh Mujibur Rahman's Birthday and Children's Day", 'fixed_date': [3, 17]}
+  - {'name': 'Independence Day', 'fixed_date': [3, 26]}
+  - {'name': "Bengali New Year's Day", 'fixed_date': [4, 14]}
+  - {'name': 'May Day', 'fixed_date': [5, 1]}
+  - {'name': 'National Mourning Day', 'fixed_date': [8, 15]}
+  - {'name': 'Victory Day', 'fixed_date': [12, 16]}

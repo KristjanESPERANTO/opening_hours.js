@@ -1,91 +1,32 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm
+
 PH:
-- name: Neujahrstag
-  fixed_date: [1, 1]
-- name: Auffahrt
-  fixed_date: [5, 29]
-- name: Nationalfeiertag
-  fixed_date: [8, 1]
-- name: Weihnachten
-  fixed_date: [12, 25]
-- name: Berchtoldstag
-  fixed_date: [1, 2]
-  only_states: [Aargau, Bern, Berne, Jura, Luzern, Thurgau, Vaud, Zürich]
-- name: Karfreitag
-  fixed_date: [4, 18]
-  only_states: [Aargau, Appenzell Innerrhoden, Appenzell Ausserrhoden, Bern, Berne,
-    Basel-Landschaft, Basel-Stadt, Freiburg, Fribourg, Genève, Glarus, Jura, Luzern,
-    Neuchâtel, Nidwalden, Obwalden, Sankt Gallen, Schaffhausen, Solothurn, Schwyz,
-    Thurgau, Uri, Vaud, Zug, Zürich]
-- name: Ostermontag
-  fixed_date: [4, 21]
-  only_states: [Aargau, Appenzell Innerrhoden, Appenzell Ausserrhoden, Bern, Berne,
-    Basel-Landschaft, Basel-Stadt, Genève, Glarus, Graubünden, Grigioni, Grischun,
-    Jura, Luzern, Sankt Gallen, Schaffhausen, Schwyz, Thurgau, Ticino, Uri, Vaud,
-    Zürich]
-- name: Tag der Arbeit
-  fixed_date: [5, 1]
-  only_states: [Aargau, Basel-Landschaft, Basel-Stadt, Jura, Neuchâtel, Schaffhausen,
-    Thurgau, Ticino, Zürich]
-- name: Pfingstmontag
-  fixed_date: [6, 9]
-  only_states: [Aargau, Appenzell Innerrhoden, Appenzell Ausserrhoden, Bern, Berne,
-    Basel-Landschaft, Basel-Stadt, Genève, Glarus, Graubünden, Grigioni, Grischun,
-    Jura, Luzern, Sankt Gallen, Schaffhausen, Schwyz, Thurgau, Ticino, Uri, Vaud,
-    Zürich]
-- name: Fronleichnam
-  fixed_date: [6, 19]
-  only_states: [Aargau, Appenzell Innerrhoden, Jura, Luzern, Neuchâtel, Nidwalden,
-    Obwalden, Schwyz, Ticino, Uri, Valais, Wallis, Zug]
-- name: Mariä Himmelfahrt
-  fixed_date: [8, 15]
-  only_states: [Aargau, Appenzell Innerrhoden, Jura, Luzern, Nidwalden, Obwalden,
-    Schwyz, Ticino, Uri, Valais, Wallis, Zug]
-- name: Allerheiligen
-  fixed_date: [11, 1]
-  only_states: [Aargau, Appenzell Innerrhoden, Glarus, Jura, Luzern, Nidwalden, Obwalden,
-    Sankt Gallen, Schwyz, Ticino, Uri, Valais, Wallis, Zug]
-- name: Mariä Empfängnis
-  fixed_date: [12, 8]
-  only_states: [Aargau, Appenzell Innerrhoden, Luzern, Nidwalden, Obwalden, Schwyz,
-    Ticino, Uri, Valais, Wallis, Zug]
-- name: Stephanstag
-  fixed_date: [12, 26]
-  only_states: [Aargau, Appenzell Innerrhoden, Appenzell Ausserrhoden, Bern, Berne,
-    Basel-Landschaft, Basel-Stadt, Glarus, Graubünden, Grigioni, Grischun, Luzern,
-    Sankt Gallen, Schaffhausen, Schwyz, Thurgau, Ticino, Uri, Zürich]
-- name: Genfer Bettag
-  fixed_date: [9, 11]
-  only_states: [Genève]
-- name: Wiederherstellung der Republik
-  fixed_date: [12, 31]
-  only_states: [Genève]
-- name: Näfelser Fahrt
-  fixed_date: [4, 3]
-  only_states: [Glarus]
-- name: Fest der Unabhängigkeit
-  fixed_date: [6, 23]
-  only_states: [Jura]
-- name: Jahrestag der Ausrufung der Republik
-  fixed_date: [3, 1]
-  only_states: [Neuchâtel]
-- name: Josefstag
-  fixed_date: [3, 19]
-  only_states: [Nidwalden, Schwyz, Ticino, Uri, Valais, Wallis]
-- name: Bruder Klaus
-  fixed_date: [9, 25]
-  only_states: [Obwalden]
-- name: Heilige Drei Könige
-  fixed_date: [1, 6]
-  only_states: [Schwyz, Ticino, Uri]
-- name: Peter und Paul
-  fixed_date: [6, 29]
-  only_states: [Ticino]
-- name: Bettagsmontag
-  fixed_date: [9, 22]
-  only_states: [Vaud]
+  - {'name': 'Neujahrstag', 'fixed_date': [1, 1]}
+  - {'name': 'Auffahrt', 'fixed_date': [5, 29]}
+  - {'name': 'Nationalfeiertag', 'fixed_date': [8, 1]}
+  - {'name': 'Weihnachten', 'fixed_date': [12, 25]}
+  - {'name': 'Berchtoldstag', 'fixed_date': [1, 2], 'only_states': ['Aargau', 'Bern', 'Berne', 'Jura', 'Luzern', 'Thurgau', 'Vaud', 'Zürich']}
+  - {'name': 'Karfreitag', 'fixed_date': [4, 18], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Appenzell Ausserrhoden', 'Bern', 'Berne', 'Basel-Landschaft', 'Basel-Stadt', 'Freiburg', 'Fribourg', 'Genève', 'Glarus', 'Jura', 'Luzern', 'Neuchâtel', 'Nidwalden', 'Obwalden', 'Sankt Gallen', 'Schaffhausen', 'Solothurn', 'Schwyz', 'Thurgau', 'Uri', 'Vaud', 'Zug', 'Zürich']}
+  - {'name': 'Ostermontag', 'fixed_date': [4, 21], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Appenzell Ausserrhoden', 'Bern', 'Berne', 'Basel-Landschaft', 'Basel-Stadt', 'Genève', 'Glarus', 'Graubünden', 'Grigioni', 'Grischun', 'Jura', 'Luzern', 'Sankt Gallen', 'Schaffhausen', 'Schwyz', 'Thurgau', 'Ticino', 'Uri', 'Vaud', 'Zürich']}
+  - {'name': 'Tag der Arbeit', 'fixed_date': [5, 1], 'only_states': ['Aargau', 'Basel-Landschaft', 'Basel-Stadt', 'Jura', 'Neuchâtel', 'Schaffhausen', 'Thurgau', 'Ticino', 'Zürich']}
+  - {'name': 'Pfingstmontag', 'fixed_date': [6, 9], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Appenzell Ausserrhoden', 'Bern', 'Berne', 'Basel-Landschaft', 'Basel-Stadt', 'Genève', 'Glarus', 'Graubünden', 'Grigioni', 'Grischun', 'Jura', 'Luzern', 'Sankt Gallen', 'Schaffhausen', 'Schwyz', 'Thurgau', 'Ticino', 'Uri', 'Vaud', 'Zürich']}
+  - {'name': 'Fronleichnam', 'fixed_date': [6, 19], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Jura', 'Luzern', 'Neuchâtel', 'Nidwalden', 'Obwalden', 'Schwyz', 'Ticino', 'Uri', 'Valais', 'Wallis', 'Zug']}
+  - {'name': 'Mariä Himmelfahrt', 'fixed_date': [8, 15], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Jura', 'Luzern', 'Nidwalden', 'Obwalden', 'Schwyz', 'Ticino', 'Uri', 'Valais', 'Wallis', 'Zug']}
+  - {'name': 'Allerheiligen', 'fixed_date': [11, 1], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Glarus', 'Jura', 'Luzern', 'Nidwalden', 'Obwalden', 'Sankt Gallen', 'Schwyz', 'Ticino', 'Uri', 'Valais', 'Wallis', 'Zug']}
+  - {'name': 'Mariä Empfängnis', 'fixed_date': [12, 8], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Luzern', 'Nidwalden', 'Obwalden', 'Schwyz', 'Ticino', 'Uri', 'Valais', 'Wallis', 'Zug']}
+  - {'name': 'Stephanstag', 'fixed_date': [12, 26], 'only_states': ['Aargau', 'Appenzell Innerrhoden', 'Appenzell Ausserrhoden', 'Bern', 'Berne', 'Basel-Landschaft', 'Basel-Stadt', 'Glarus', 'Graubünden', 'Grigioni', 'Grischun', 'Luzern', 'Sankt Gallen', 'Schaffhausen', 'Schwyz', 'Thurgau', 'Ticino', 'Uri', 'Zürich']}
+  - {'name': 'Genfer Bettag', 'fixed_date': [9, 11], 'only_states': ['Genève']}
+  - {'name': 'Wiederherstellung der Republik', 'fixed_date': [12, 31], 'only_states': ['Genève']}
+  - {'name': 'Näfelser Fahrt', 'fixed_date': [4, 3], 'only_states': ['Glarus']}
+  - {'name': 'Fest der Unabhängigkeit', 'fixed_date': [6, 23], 'only_states': ['Jura']}
+  - {'name': 'Jahrestag der Ausrufung der Republik', 'fixed_date': [3, 1], 'only_states': ['Neuchâtel']}
+  - {'name': 'Josefstag', 'fixed_date': [3, 19], 'only_states': ['Nidwalden', 'Schwyz', 'Ticino', 'Uri', 'Valais', 'Wallis']}
+  - {'name': 'Bruder Klaus', 'fixed_date': [9, 25], 'only_states': ['Obwalden']}
+  - {'name': 'Heilige Drei Könige', 'fixed_date': [1, 6], 'only_states': ['Schwyz', 'Ticino', 'Uri']}
+  - {'name': 'Peter und Paul', 'fixed_date': [6, 29], 'only_states': ['Ticino']}
+  - {'name': 'Bettagsmontag', 'fixed_date': [9, 22], 'only_states': ['Vaud']}
 Aargau: {_nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&state=Aargau&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm',
   _state_code: ag}
 Appenzell Ausserrhoden: {_nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&state=Appenzell%20Ausserrhoden&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm',

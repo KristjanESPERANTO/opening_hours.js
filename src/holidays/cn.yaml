@@ -1,45 +1,27 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=%E4%B8%AD%E5%9B%BD&&zoom=18&addressdetails=1&limit=1&accept-language=zh,en
+
 PH:
-- name: 元旦
-  fixed_date: [1, 1]
-- name: 农历除夕
-  fixed_date: [1, 28]
-- name: 春节
-  fixed_date: [1, 29]
-- name: 春节
-  fixed_date: [1, 30]
-- name: 春节
-  fixed_date: [1, 31]
-- name: 休息日（2025-01-26日起取代）
-  fixed_date: [2, 3]
-- name: 休息日（2025-02-08日起取代）
-  fixed_date: [2, 4]
-- name: 清明节
-  fixed_date: [4, 4]
-- name: 劳动节
-  fixed_date: [5, 1]
-- name: 劳动节
-  fixed_date: [5, 2]
-- name: 休息日（2025-04-27日起取代）
-  fixed_date: [5, 5]
-- name: 端午节
-  fixed_date: [5, 31]
-- name: 端午节（观察日）
-  fixed_date: [6, 2]
-- name: 国庆节
-  fixed_date: [10, 1]
-- name: 国庆节
-  fixed_date: [10, 2]
-- name: 国庆节
-  fixed_date: [10, 3]
-- name: 中秋节
-  fixed_date: [10, 6]
-- name: 休息日（2025-09-28日起取代）
-  fixed_date: [10, 7]
-- name: 休息日（2025-10-11日起取代）
-  fixed_date: [10, 8]
+  - {'name': '元旦', 'fixed_date': [1, 1]}
+  - {'name': '农历除夕', 'fixed_date': [1, 28]}
+  - {'name': '春节', 'fixed_date': [1, 29]}
+  - {'name': '春节', 'fixed_date': [1, 30]}
+  - {'name': '春节', 'fixed_date': [1, 31]}
+  - {'name': '休息日（2025-01-26日起取代）', 'fixed_date': [2, 3]}
+  - {'name': '休息日（2025-02-08日起取代）', 'fixed_date': [2, 4]}
+  - {'name': '清明节', 'fixed_date': [4, 4]}
+  - {'name': '劳动节', 'fixed_date': [5, 1]}
+  - {'name': '劳动节', 'fixed_date': [5, 2]}
+  - {'name': '休息日（2025-04-27日起取代）', 'fixed_date': [5, 5]}
+  - {'name': '端午节', 'fixed_date': [5, 31]}
+  - {'name': '端午节（观察日）', 'fixed_date': [6, 2]}
+  - {'name': '国庆节', 'fixed_date': [10, 1]}
+  - {'name': '国庆节', 'fixed_date': [10, 2]}
+  - {'name': '国庆节', 'fixed_date': [10, 3]}
+  - {'name': '中秋节', 'fixed_date': [10, 6]}
+  - {'name': '休息日（2025-09-28日起取代）', 'fixed_date': [10, 7]}
+  - {'name': '休息日（2025-10-11日起取代）', 'fixed_date': [10, 8]}
 西藏自治区:
   _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&state=%E8%A5%BF%E8%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA&zoom=1&addressdetails=1&limit=1&accept-language=zh,en
   PH:

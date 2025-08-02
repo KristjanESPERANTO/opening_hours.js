@@ -1,23 +1,13 @@
 ---
 
 PH:
-- name: Dia da Fraternidade universal
-  fixed_date: [1, 1]
-- name: Dia dos Heróis Moçambicanos
-  fixed_date: [2, 3]
-- name: Dia da Mulher Moçambicana
-  fixed_date: [4, 7]
-- name: Dia Internacional dos Trabalhadores
-  fixed_date: [5, 1]
-- name: Dia da Independência Nacional
-  fixed_date: [6, 25]
-- name: Dia da Vitória
-  fixed_date: [9, 7]
-- name: Dia da Vitória (ponte)
-  fixed_date: [9, 8]
-- name: Dia das Forças Armadas de Libertação Nacional
-  fixed_date: [9, 25]
-- name: Dia da Paz e Reconciliação
-  fixed_date: [10, 4]
-- name: Dia da Família
-  fixed_date: [12, 25]
+  - {'name': 'Dia da Fraternidade universal', 'fixed_date': [1, 1]}
+  - {'name': 'Dia dos Heróis Moçambicanos', 'fixed_date': [2, 3]}
+  - {'name': 'Dia da Mulher Moçambicana', 'fixed_date': [4, 7]}
+  - {'name': 'Dia Internacional dos Trabalhadores', 'fixed_date': [5, 1]}
+  - {'name': 'Dia da Independência Nacional', 'fixed_date': [6, 25]}
+  - {'name': 'Dia da Vitória', 'fixed_date': [9, 7]}
+  - {'name': 'Dia da Vitória (ponte)', 'fixed_date': [9, 8]}
+  - {'name': 'Dia das Forças Armadas de Libertação Nacional', 'fixed_date': [9, 25]}
+  - {'name': 'Dia da Paz e Reconciliação', 'fixed_date': [10, 4]}
+  - {'name': 'Dia da Família', 'fixed_date': [12, 25]}

@@ -1,39 +1,24 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/reverse?format=json&lat=47.4821&lon=19.0640&zoom=18&addressdetails=1&accept-language=hu,en
+
 PH:
-- name: Újév
-  fixed_date: [1, 1]
-- name: Nemzeti ünnep
-  fixed_date: [3, 15]
-- name: Nagypéntek
-  fixed_date: [4, 18]
-- name: Húsvét
-  fixed_date: [4, 20]
-- name: Húsvét Hétfő
-  fixed_date: [4, 21]
-- name: A Munka ünnepe
-  fixed_date: [5, 1]
-- name: Pihenőnap (2025. 05. 17.-től helyettesítve)
-  fixed_date: [5, 2]
-- name: Pünkösd
-  fixed_date: [6, 8]
-- name: Pünkösdhétfő
-  fixed_date: [6, 9]
-- name: Az államalapítás ünnepe
-  fixed_date: [8, 20]
-- name: Nemzeti ünnep
-  fixed_date: [10, 23]
-- name: Pihenőnap (2025. 10. 18.-től helyettesítve)
-  fixed_date: [10, 24]
-- name: Mindenszentek
-  fixed_date: [11, 1]
-- name: Pihenőnap (2025. 12. 13.-től helyettesítve)
-  fixed_date: [12, 24]
-- name: Karácsony
-  fixed_date: [12, 25]
-- name: Karácsony másnapja
-  fixed_date: [12, 26]
+  - {'name': 'Újév', 'fixed_date': [1, 1]}
+  - {'name': 'Nemzeti ünnep', 'fixed_date': [3, 15]}
+  - {'name': 'Nagypéntek', 'fixed_date': [4, 18]}
+  - {'name': 'Húsvét', 'fixed_date': [4, 20]}
+  - {'name': 'Húsvét Hétfő', 'fixed_date': [4, 21]}
+  - {'name': 'A Munka ünnepe', 'fixed_date': [5, 1]}
+  - {'name': 'Pihenőnap (2025. 05. 17.-től helyettesítve)', 'fixed_date': [5, 2]}
+  - {'name': 'Pünkösd', 'fixed_date': [6, 8]}
+  - {'name': 'Pünkösdhétfő', 'fixed_date': [6, 9]}
+  - {'name': 'Az államalapítás ünnepe', 'fixed_date': [8, 20]}
+  - {'name': 'Nemzeti ünnep', 'fixed_date': [10, 23]}
+  - {'name': 'Pihenőnap (2025. 10. 18.-től helyettesítve)', 'fixed_date': [10, 24]}
+  - {'name': 'Mindenszentek', 'fixed_date': [11, 1]}
+  - {'name': 'Pihenőnap (2025. 12. 13.-től helyettesítve)', 'fixed_date': [12, 24]}
+  - {'name': 'Karácsony', 'fixed_date': [12, 25]}
+  - {'name': 'Karácsony másnapja', 'fixed_date': [12, 26]}
 SH:
 - name: őszi szünet
   '2014': [10, 23, 11, 2]

@@ -1,17 +1,10 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día de la Constitución
-  fixed_date: [2, 3]
-- name: Natalicio de Benito Juárez
-  fixed_date: [3, 17]
-- name: Día del Trabajo
-  fixed_date: [5, 1]
-- name: Día de la Independencia
-  fixed_date: [9, 16]
-- name: Día de la Revolución
-  fixed_date: [11, 17]
-- name: Navidad
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día de la Constitución', 'fixed_date': [2, 3]}
+  - {'name': 'Natalicio de Benito Juárez', 'fixed_date': [3, 17]}
+  - {'name': 'Día del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Día de la Independencia', 'fixed_date': [9, 16]}
+  - {'name': 'Día de la Revolución', 'fixed_date': [11, 17]}
+  - {'name': 'Navidad', 'fixed_date': [12, 25]}

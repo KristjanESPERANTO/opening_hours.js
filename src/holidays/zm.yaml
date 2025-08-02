@@ -1,35 +1,19 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: International Women's Day
-  fixed_date: [3, 8]
-- name: Youth Day
-  fixed_date: [3, 12]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Holy Saturday
-  fixed_date: [4, 19]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Kenneth Kaunda Day
-  fixed_date: [4, 28]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Africa Freedom Day
-  fixed_date: [5, 25]
-- name: Africa Freedom Day (observed)
-  fixed_date: [5, 26]
-- name: Heroes' Day
-  fixed_date: [7, 7]
-- name: Unity Day
-  fixed_date: [7, 8]
-- name: Farmers' Day
-  fixed_date: [8, 4]
-- name: National Prayer Day
-  fixed_date: [10, 18]
-- name: Independence Day
-  fixed_date: [10, 24]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': "International Women's Day", 'fixed_date': [3, 8]}
+  - {'name': 'Youth Day', 'fixed_date': [3, 12]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Holy Saturday', 'fixed_date': [4, 19]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Kenneth Kaunda Day', 'fixed_date': [4, 28]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Africa Freedom Day', 'fixed_date': [5, 25]}
+  - {'name': 'Africa Freedom Day (observed)', 'fixed_date': [5, 26]}
+  - {'name': "Heroes' Day", 'fixed_date': [7, 7]}
+  - {'name': 'Unity Day', 'fixed_date': [7, 8]}
+  - {'name': "Farmers' Day", 'fixed_date': [8, 4]}
+  - {'name': 'National Prayer Day', 'fixed_date': [10, 18]}
+  - {'name': 'Independence Day', 'fixed_date': [10, 24]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

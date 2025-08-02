@@ -1,31 +1,17 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: The Anniversary of the Birth of Hamilton Lavity Stoutt
-  fixed_date: [3, 3]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Whit Monday
-  fixed_date: [6, 9]
-- name: Sovereign's Birthday
-  fixed_date: [6, 13]
-- name: Virgin Islands Day
-  fixed_date: [7, 7]
-- name: Emancipation Monday
-  fixed_date: [8, 4]
-- name: Emancipation Tuesday
-  fixed_date: [8, 5]
-- name: Emancipation Wednesday
-  fixed_date: [8, 6]
-- name: Heroes and Foreparents Day
-  fixed_date: [10, 20]
-- name: The Great March of 1949 and Restoration Day
-  fixed_date: [11, 24]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'The Anniversary of the Birth of Hamilton Lavity Stoutt', 'fixed_date': [3, 3]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Whit Monday', 'fixed_date': [6, 9]}
+  - {'name': "Sovereign's Birthday", 'fixed_date': [6, 13]}
+  - {'name': 'Virgin Islands Day', 'fixed_date': [7, 7]}
+  - {'name': 'Emancipation Monday', 'fixed_date': [8, 4]}
+  - {'name': 'Emancipation Tuesday', 'fixed_date': [8, 5]}
+  - {'name': 'Emancipation Wednesday', 'fixed_date': [8, 6]}
+  - {'name': 'Heroes and Foreparents Day', 'fixed_date': [10, 20]}
+  - {'name': 'The Great March of 1949 and Restoration Day', 'fixed_date': [11, 24]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

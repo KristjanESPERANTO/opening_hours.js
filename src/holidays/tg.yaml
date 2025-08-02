@@ -1,29 +1,16 @@
 ---
 
 PH:
-- name: Jour de l'an
-  fixed_date: [1, 1]
-- name: Ramadan
-  fixed_date: [3, 1]
-- name: l'Aïd El-Fitr
-  fixed_date: [3, 30]
-- name: Lundi de Pâques
-  fixed_date: [4, 21]
-- name: Fête de l'indépendance
-  fixed_date: [4, 27]
-- name: Fête du travail
-  fixed_date: [5, 1]
-- name: Fête de l'Ascension
-  fixed_date: [5, 29]
-- name: Tabaski
-  fixed_date: [6, 7]
-- name: Lundi de Pentecôte
-  fixed_date: [6, 9]
-- name: Fête des Martyrs
-  fixed_date: [6, 21]
-- name: Assomption
-  fixed_date: [8, 15]
-- name: Toussaint
-  fixed_date: [11, 1]
-- name: Noël
-  fixed_date: [12, 25]
+  - {'name': "Jour de l'an", 'fixed_date': [1, 1]}
+  - {'name': 'Ramadan', 'fixed_date': [3, 1]}
+  - {'name': "l'Aïd El-Fitr", 'fixed_date': [3, 30]}
+  - {'name': 'Lundi de Pâques', 'fixed_date': [4, 21]}
+  - {'name': "Fête de l'indépendance", 'fixed_date': [4, 27]}
+  - {'name': 'Fête du travail', 'fixed_date': [5, 1]}
+  - {'name': "Fête de l'Ascension", 'fixed_date': [5, 29]}
+  - {'name': 'Tabaski', 'fixed_date': [6, 7]}
+  - {'name': 'Lundi de Pentecôte', 'fixed_date': [6, 9]}
+  - {'name': 'Fête des Martyrs', 'fixed_date': [6, 21]}
+  - {'name': 'Assomption', 'fixed_date': [8, 15]}
+  - {'name': 'Toussaint', 'fixed_date': [11, 1]}
+  - {'name': 'Noël', 'fixed_date': [12, 25]}

@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: uusaasta
-  fixed_date: [1, 1]
-- name: iseseisvuspäev
-  fixed_date: [2, 24]
-- name: suur reede
-  fixed_date: [4, 18]
-- name: ülestõusmispühade 1. püha
-  fixed_date: [4, 20]
-- name: kevadpüha
-  fixed_date: [5, 1]
-- name: nelipühade 1. püha
-  fixed_date: [6, 8]
-- name: võidupüha
-  fixed_date: [6, 23]
-- name: jaanipäev
-  fixed_date: [6, 24]
-- name: taasiseseisvumispäev
-  fixed_date: [8, 20]
-- name: jõululaupäev
-  fixed_date: [12, 24]
-- name: esimene jõulupüha
-  fixed_date: [12, 25]
-- name: teine jõulupüha
-  fixed_date: [12, 26]
+  - {'name': 'uusaasta', 'fixed_date': [1, 1]}
+  - {'name': 'iseseisvuspäev', 'fixed_date': [2, 24]}
+  - {'name': 'suur reede', 'fixed_date': [4, 18]}
+  - {'name': 'ülestõusmispühade 1. püha', 'fixed_date': [4, 20]}
+  - {'name': 'kevadpüha', 'fixed_date': [5, 1]}
+  - {'name': 'nelipühade 1. püha', 'fixed_date': [6, 8]}
+  - {'name': 'võidupüha', 'fixed_date': [6, 23]}
+  - {'name': 'jaanipäev', 'fixed_date': [6, 24]}
+  - {'name': 'taasiseseisvumispäev', 'fixed_date': [8, 20]}
+  - {'name': 'jõululaupäev', 'fixed_date': [12, 24]}
+  - {'name': 'esimene jõulupüha', 'fixed_date': [12, 25]}
+  - {'name': 'teine jõulupüha', 'fixed_date': [12, 26]}

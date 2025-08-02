@@ -1,33 +1,18 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Eid-el-Fitr (estimated)
-  fixed_date: [3, 30]
-- name: Eid-el-Fitr Holiday (estimated)
-  fixed_date: [3, 31]
-- name: Eid-el-Fitr (estimated) (observed)
-  fixed_date: [4, 1]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Workers' Day
-  fixed_date: [5, 1]
-- name: Eid-el-Kabir (estimated)
-  fixed_date: [6, 6]
-- name: Eid-el-Kabir Holiday (estimated)
-  fixed_date: [6, 7]
-- name: Eid-el-Kabir Holiday (estimated) (observed)
-  fixed_date: [6, 9]
-- name: Democracy Day
-  fixed_date: [6, 12]
-- name: Eid-el-Mawlid (estimated)
-  fixed_date: [9, 4]
-- name: Independence Day
-  fixed_date: [10, 1]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Boxing Day
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Eid-el-Fitr (estimated)', 'fixed_date': [3, 30]}
+  - {'name': 'Eid-el-Fitr Holiday (estimated)', 'fixed_date': [3, 31]}
+  - {'name': 'Eid-el-Fitr (estimated) (observed)', 'fixed_date': [4, 1]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': "Workers' Day", 'fixed_date': [5, 1]}
+  - {'name': 'Eid-el-Kabir (estimated)', 'fixed_date': [6, 6]}
+  - {'name': 'Eid-el-Kabir Holiday (estimated)', 'fixed_date': [6, 7]}
+  - {'name': 'Eid-el-Kabir Holiday (estimated) (observed)', 'fixed_date': [6, 9]}
+  - {'name': 'Democracy Day', 'fixed_date': [6, 12]}
+  - {'name': 'Eid-el-Mawlid (estimated)', 'fixed_date': [9, 4]}
+  - {'name': 'Independence Day', 'fixed_date': [10, 1]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Boxing Day', 'fixed_date': [12, 26]}

@@ -1,41 +1,21 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Sábado Santo
-  fixed_date: [4, 19]
-- name: Día Nacional del Trabajo
-  fixed_date: [5, 1]
-- name: Día de las Glorias Navales
-  fixed_date: [5, 21]
-- name: Día Nacional de los Pueblos Indígenas
-  fixed_date: [6, 20]
-- name: San Pedro y San Pablo
-  fixed_date: [6, 29]
-- name: Virgen del Carmen
-  fixed_date: [7, 16]
-- name: Asunción de la Virgen
-  fixed_date: [8, 15]
-- name: Día de la Independencia
-  fixed_date: [9, 18]
-- name: Día de las Glorias del Ejército
-  fixed_date: [9, 19]
-- name: Día del Encuentro de dos Mundos
-  fixed_date: [10, 12]
-- name: Día Nacional de las Iglesias Evangélicas y Protestantes
-  fixed_date: [10, 31]
-- name: Día de Todos los Santos
-  fixed_date: [11, 1]
-- name: La Inmaculada Concepción
-  fixed_date: [12, 8]
-- name: Navidad
-  fixed_date: [12, 25]
-- name: Asalto y Toma del Morro de Arica
-  fixed_date: [6, 7]
-  only_states: [Arica y Parinacota]
-- name: Nacimiento del Prócer de la Independencia (Chillán y Chillán Viejo)
-  fixed_date: [8, 20]
-  only_states: [Ñuble]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Sábado Santo', 'fixed_date': [4, 19]}
+  - {'name': 'Día Nacional del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Día de las Glorias Navales', 'fixed_date': [5, 21]}
+  - {'name': 'Día Nacional de los Pueblos Indígenas', 'fixed_date': [6, 20]}
+  - {'name': 'San Pedro y San Pablo', 'fixed_date': [6, 29]}
+  - {'name': 'Virgen del Carmen', 'fixed_date': [7, 16]}
+  - {'name': 'Asunción de la Virgen', 'fixed_date': [8, 15]}
+  - {'name': 'Día de la Independencia', 'fixed_date': [9, 18]}
+  - {'name': 'Día de las Glorias del Ejército', 'fixed_date': [9, 19]}
+  - {'name': 'Día del Encuentro de dos Mundos', 'fixed_date': [10, 12]}
+  - {'name': 'Día Nacional de las Iglesias Evangélicas y Protestantes', 'fixed_date': [10, 31]}
+  - {'name': 'Día de Todos los Santos', 'fixed_date': [11, 1]}
+  - {'name': 'La Inmaculada Concepción', 'fixed_date': [12, 8]}
+  - {'name': 'Navidad', 'fixed_date': [12, 25]}
+  - {'name': 'Asalto y Toma del Morro de Arica', 'fixed_date': [6, 7], 'only_states': ['Arica y Parinacota']}
+  - {'name': 'Nacimiento del Prócer de la Independencia (Chillán y Chillán Viejo)', 'fixed_date': [8, 20], 'only_states': ['Ñuble']}

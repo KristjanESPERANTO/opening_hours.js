@@ -1,29 +1,16 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Human Rights Day
-  fixed_date: [3, 21]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Family Day
-  fixed_date: [4, 21]
-- name: Freedom Day
-  fixed_date: [4, 27]
-- name: Freedom Day (observed)
-  fixed_date: [4, 28]
-- name: Workers' Day
-  fixed_date: [5, 1]
-- name: Youth Day
-  fixed_date: [6, 16]
-- name: National Women's Day
-  fixed_date: [8, 9]
-- name: Heritage Day
-  fixed_date: [9, 24]
-- name: Day of Reconciliation
-  fixed_date: [12, 16]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: Day of Goodwill
-  fixed_date: [12, 26]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Human Rights Day', 'fixed_date': [3, 21]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Family Day', 'fixed_date': [4, 21]}
+  - {'name': 'Freedom Day', 'fixed_date': [4, 27]}
+  - {'name': 'Freedom Day (observed)', 'fixed_date': [4, 28]}
+  - {'name': "Workers' Day", 'fixed_date': [5, 1]}
+  - {'name': 'Youth Day', 'fixed_date': [6, 16]}
+  - {'name': "National Women's Day", 'fixed_date': [8, 9]}
+  - {'name': 'Heritage Day', 'fixed_date': [9, 24]}
+  - {'name': 'Day of Reconciliation', 'fixed_date': [12, 16]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'Day of Goodwill', 'fixed_date': [12, 26]}

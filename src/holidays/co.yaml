@@ -1,37 +1,20 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día de los Reyes Magos
-  fixed_date: [1, 6]
-- name: Día de San José (observado)
-  fixed_date: [3, 24]
-- name: Jueves Santo
-  fixed_date: [4, 17]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Día del Trabajo
-  fixed_date: [5, 1]
-- name: Ascensión del señor (observado)
-  fixed_date: [6, 2]
-- name: Corpus Christi (observado)
-  fixed_date: [6, 23]
-- name: Sagrado Corazón (observado); San Pedro y San Pablo (observado)
-  fixed_date: [6, 30]
-- name: Día de la Independencia
-  fixed_date: [7, 20]
-- name: Batalla de Boyacá
-  fixed_date: [8, 7]
-- name: La Asunción (observado)
-  fixed_date: [8, 18]
-- name: Día de la Raza (observado)
-  fixed_date: [10, 13]
-- name: Día de Todos los Santos (observado)
-  fixed_date: [11, 3]
-- name: Independencia de Cartagena (observado)
-  fixed_date: [11, 17]
-- name: La Inmaculada Concepción
-  fixed_date: [12, 8]
-- name: Navidad
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día de los Reyes Magos', 'fixed_date': [1, 6]}
+  - {'name': 'Día de San José (observado)', 'fixed_date': [3, 24]}
+  - {'name': 'Jueves Santo', 'fixed_date': [4, 17]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Día del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Ascensión del señor (observado)', 'fixed_date': [6, 2]}
+  - {'name': 'Corpus Christi (observado)', 'fixed_date': [6, 23]}
+  - {'name': 'Sagrado Corazón (observado); San Pedro y San Pablo (observado)', 'fixed_date': [6, 30]}
+  - {'name': 'Día de la Independencia', 'fixed_date': [7, 20]}
+  - {'name': 'Batalla de Boyacá', 'fixed_date': [8, 7]}
+  - {'name': 'La Asunción (observado)', 'fixed_date': [8, 18]}
+  - {'name': 'Día de la Raza (observado)', 'fixed_date': [10, 13]}
+  - {'name': 'Día de Todos los Santos (observado)', 'fixed_date': [11, 3]}
+  - {'name': 'Independencia de Cartagena (observado)', 'fixed_date': [11, 17]}
+  - {'name': 'La Inmaculada Concepción', 'fixed_date': [12, 8]}
+  - {'name': 'Navidad', 'fixed_date': [12, 25]}

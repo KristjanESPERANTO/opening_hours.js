@@ -1,29 +1,16 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Youth Day (observed)
-  fixed_date: [3, 14]
-- name: Youth Day
-  fixed_date: [3, 15]
-- name: Senior Citizens Day
-  fixed_date: [5, 5]
-- name: President's Day
-  fixed_date: [6, 1]
-- name: President's Day (observed)
-  fixed_date: [6, 2]
-- name: Constitution Day
-  fixed_date: [7, 9]
-- name: Labor Day
-  fixed_date: [9, 1]
-- name: Independence Day
-  fixed_date: [10, 1]
-- name: United Nations Day
-  fixed_date: [10, 24]
-- name: Thanksgiving Day
-  fixed_date: [11, 27]
-- name: Family Day
-  fixed_date: [11, 28]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Youth Day (observed)', 'fixed_date': [3, 14]}
+  - {'name': 'Youth Day', 'fixed_date': [3, 15]}
+  - {'name': 'Senior Citizens Day', 'fixed_date': [5, 5]}
+  - {'name': "President's Day", 'fixed_date': [6, 1]}
+  - {'name': "President's Day (observed)", 'fixed_date': [6, 2]}
+  - {'name': 'Constitution Day', 'fixed_date': [7, 9]}
+  - {'name': 'Labor Day', 'fixed_date': [9, 1]}
+  - {'name': 'Independence Day', 'fixed_date': [10, 1]}
+  - {'name': 'United Nations Day', 'fixed_date': [10, 24]}
+  - {'name': 'Thanksgiving Day', 'fixed_date': [11, 27]}
+  - {'name': 'Family Day', 'fixed_date': [11, 28]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

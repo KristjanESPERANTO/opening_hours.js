@@ -1,37 +1,20 @@
 ---
 
 PH:
-- name: Dia do Ano Novo
-  fixed_date: [1, 1]
-- name: Dia do Início da Luta Armada de Libertação Nacional (ponte)
-  fixed_date: [2, 3]
-- name: Dia do Início da Luta Armada de Libertação Nacional
-  fixed_date: [2, 4]
-- name: Dia do Carnaval (ponte)
-  fixed_date: [3, 3]
-- name: Dia do Carnaval
-  fixed_date: [3, 4]
-- name: Dia Internacional da Mulher
-  fixed_date: [3, 8]
-- name: Dia da Libertação da África Austral
-  fixed_date: [3, 23]
-- name: Dia da Paz e Reconciliação Nacional
-  fixed_date: [4, 4]
-- name: Sexta-Feira Santa
-  fixed_date: [4, 18]
-- name: Dia Internacional do Trabalhador
-  fixed_date: [5, 1]
-- name: Dia Internacional do Trabalhador (ponte)
-  fixed_date: [5, 2]
-- name: Dia do Fundador da Nação e do Herói Nacional
-  fixed_date: [9, 17]
-- name: Dia dos Finados
-  fixed_date: [11, 2]
-- name: Dia da Independência Nacional (ponte)
-  fixed_date: [11, 10]
-- name: Dia da Independência Nacional
-  fixed_date: [11, 11]
-- name: Dia de Natal e da Família
-  fixed_date: [12, 25]
-- name: Dia de Natal e da Família (ponte)
-  fixed_date: [12, 26]
+  - {'name': 'Dia do Ano Novo', 'fixed_date': [1, 1]}
+  - {'name': 'Dia do Início da Luta Armada de Libertação Nacional (ponte)', 'fixed_date': [2, 3]}
+  - {'name': 'Dia do Início da Luta Armada de Libertação Nacional', 'fixed_date': [2, 4]}
+  - {'name': 'Dia do Carnaval (ponte)', 'fixed_date': [3, 3]}
+  - {'name': 'Dia do Carnaval', 'fixed_date': [3, 4]}
+  - {'name': 'Dia Internacional da Mulher', 'fixed_date': [3, 8]}
+  - {'name': 'Dia da Libertação da África Austral', 'fixed_date': [3, 23]}
+  - {'name': 'Dia da Paz e Reconciliação Nacional', 'fixed_date': [4, 4]}
+  - {'name': 'Sexta-Feira Santa', 'fixed_date': [4, 18]}
+  - {'name': 'Dia Internacional do Trabalhador', 'fixed_date': [5, 1]}
+  - {'name': 'Dia Internacional do Trabalhador (ponte)', 'fixed_date': [5, 2]}
+  - {'name': 'Dia do Fundador da Nação e do Herói Nacional', 'fixed_date': [9, 17]}
+  - {'name': 'Dia dos Finados', 'fixed_date': [11, 2]}
+  - {'name': 'Dia da Independência Nacional (ponte)', 'fixed_date': [11, 10]}
+  - {'name': 'Dia da Independência Nacional', 'fixed_date': [11, 11]}
+  - {'name': 'Dia de Natal e da Família', 'fixed_date': [12, 25]}
+  - {'name': 'Dia de Natal e da Família (ponte)', 'fixed_date': [12, 26]}

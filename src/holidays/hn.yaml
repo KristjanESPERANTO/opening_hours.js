@@ -1,25 +1,14 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Día de las Américas
-  fixed_date: [4, 14]
-- name: Jueves Santo
-  fixed_date: [4, 17]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Sábado de Gloria
-  fixed_date: [4, 19]
-- name: Día del Trabajo
-  fixed_date: [5, 1]
-- name: Día de la Independencia
-  fixed_date: [9, 15]
-- name: Semana Morazánica
-  fixed_date: [10, 1]
-- name: Semana Morazánica
-  fixed_date: [10, 2]
-- name: Semana Morazánica
-  fixed_date: [10, 3]
-- name: Navidad
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Día de las Américas', 'fixed_date': [4, 14]}
+  - {'name': 'Jueves Santo', 'fixed_date': [4, 17]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Sábado de Gloria', 'fixed_date': [4, 19]}
+  - {'name': 'Día del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Día de la Independencia', 'fixed_date': [9, 15]}
+  - {'name': 'Semana Morazánica', 'fixed_date': [10, 1]}
+  - {'name': 'Semana Morazánica', 'fixed_date': [10, 2]}
+  - {'name': 'Semana Morazánica', 'fixed_date': [10, 3]}
+  - {'name': 'Navidad', 'fixed_date': [12, 25]}

@@ -1,63 +1,26 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Holy Saturday
-  fixed_date: [4, 19]
-- name: Easter Monday
-  fixed_date: [4, 21]
-- name: Whit Monday
-  fixed_date: [6, 9]
-- name: King's Birthday
-  fixed_date: [6, 13]
-- name: Independence Day
-  fixed_date: [7, 7]
-- name: Christmas Day
-  fixed_date: [12, 25]
-- name: National Day of Thanksgiving
-  fixed_date: [12, 26]
-- name: Central Province Day
-  fixed_date: [6, 29]
-  only_states: [Central]
-- name: Central Province Day (observed)
-  fixed_date: [6, 30]
-  only_states: [Central]
-- name: Choiseul Province Day
-  fixed_date: [2, 25]
-  only_states: [Choiseul]
-- name: Guadalcanal Province Day
-  fixed_date: [8, 1]
-  only_states: [Guadalcanal]
-- name: Isabel Province Day
-  fixed_date: [6, 2]
-  only_states: [Isabel]
-- name: Makira-Ulawa Province Day
-  fixed_date: [8, 3]
-  only_states: [Makira-Ulawa]
-- name: Makira-Ulawa Province Day (observed)
-  fixed_date: [8, 4]
-  only_states: [Makira-Ulawa]
-- name: Malaita Province Day
-  fixed_date: [8, 15]
-  only_states: [Malaita]
-- name: Rennell and Bellona Province Day
-  fixed_date: [7, 20]
-  only_states: [Rennell and Bellona]
-- name: Rennell and Bellona Province Day (observed)
-  fixed_date: [7, 21]
-  only_states: [Rennell and Bellona]
-- name: Temotu Province Day
-  fixed_date: [6, 8]
-  only_states: [Temotu]
-- name: Temotu Province Day (observed); Whit Monday
-  fixed_date: [6, 9]
-  only_states: [Temotu]
-- name: Western Province Day
-  fixed_date: [12, 7]
-  only_states: [Western]
-- name: Western Province Day (observed)
-  fixed_date: [12, 8]
-  only_states: [Western]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Holy Saturday', 'fixed_date': [4, 19]}
+  - {'name': 'Easter Monday', 'fixed_date': [4, 21]}
+  - {'name': 'Whit Monday', 'fixed_date': [6, 9]}
+  - {'name': "King's Birthday", 'fixed_date': [6, 13]}
+  - {'name': 'Independence Day', 'fixed_date': [7, 7]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}
+  - {'name': 'National Day of Thanksgiving', 'fixed_date': [12, 26]}
+  - {'name': 'Central Province Day', 'fixed_date': [6, 29], 'only_states': ['Central']}
+  - {'name': 'Central Province Day (observed)', 'fixed_date': [6, 30], 'only_states': ['Central']}
+  - {'name': 'Choiseul Province Day', 'fixed_date': [2, 25], 'only_states': ['Choiseul']}
+  - {'name': 'Guadalcanal Province Day', 'fixed_date': [8, 1], 'only_states': ['Guadalcanal']}
+  - {'name': 'Isabel Province Day', 'fixed_date': [6, 2], 'only_states': ['Isabel']}
+  - {'name': 'Makira-Ulawa Province Day', 'fixed_date': [8, 3], 'only_states': ['Makira-Ulawa']}
+  - {'name': 'Makira-Ulawa Province Day (observed)', 'fixed_date': [8, 4], 'only_states': ['Makira-Ulawa']}
+  - {'name': 'Malaita Province Day', 'fixed_date': [8, 15], 'only_states': ['Malaita']}
+  - {'name': 'Rennell and Bellona Province Day', 'fixed_date': [7, 20], 'only_states': ['Rennell and Bellona']}
+  - {'name': 'Rennell and Bellona Province Day (observed)', 'fixed_date': [7, 21], 'only_states': ['Rennell and Bellona']}
+  - {'name': 'Temotu Province Day', 'fixed_date': [6, 8], 'only_states': ['Temotu']}
+  - {'name': 'Temotu Province Day (observed); Whit Monday', 'fixed_date': [6, 9], 'only_states': ['Temotu']}
+  - {'name': 'Western Province Day', 'fixed_date': [12, 7], 'only_states': ['Western']}
+  - {'name': 'Western Province Day (observed)', 'fixed_date': [12, 8], 'only_states': ['Western']}

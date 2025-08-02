@@ -1,25 +1,14 @@
 ---
 
 PH:
-- name: Ukiortaaq
-  fixed_date: [1, 1]
-- name: Sisamanngortoq illernartoq
-  fixed_date: [4, 17]
-- name: Tallimanngorneq tannaartoq
-  fixed_date: [4, 18]
-- name: Poorskip ullua
-  fixed_date: [4, 20]
-- name: Poorskip-aappaa
-  fixed_date: [4, 21]
-- name: Ulloq qinuffiusoq
-  fixed_date: [5, 16]
-- name: Qilaliarfik
-  fixed_date: [5, 29]
-- name: Piinsip ullua
-  fixed_date: [6, 8]
-- name: Piinsip-aappaa
-  fixed_date: [6, 9]
-- name: Juullip ullua
-  fixed_date: [12, 25]
-- name: Juullip-aappaa
-  fixed_date: [12, 26]
+  - {'name': 'Ukiortaaq', 'fixed_date': [1, 1]}
+  - {'name': 'Sisamanngortoq illernartoq', 'fixed_date': [4, 17]}
+  - {'name': 'Tallimanngorneq tannaartoq', 'fixed_date': [4, 18]}
+  - {'name': 'Poorskip ullua', 'fixed_date': [4, 20]}
+  - {'name': 'Poorskip-aappaa', 'fixed_date': [4, 21]}
+  - {'name': 'Ulloq qinuffiusoq', 'fixed_date': [5, 16]}
+  - {'name': 'Qilaliarfik', 'fixed_date': [5, 29]}
+  - {'name': 'Piinsip ullua', 'fixed_date': [6, 8]}
+  - {'name': 'Piinsip-aappaa', 'fixed_date': [6, 9]}
+  - {'name': 'Juullip ullua', 'fixed_date': [12, 25]}
+  - {'name': 'Juullip-aappaa', 'fixed_date': [12, 26]}

@@ -1,25 +1,14 @@
 ---
 
 PH:
-- name: Año Nuevo
-  fixed_date: [1, 1]
-- name: Jueves Santo
-  fixed_date: [4, 17]
-- name: Viernes Santo
-  fixed_date: [4, 18]
-- name: Sábado Santo
-  fixed_date: [4, 19]
-- name: Día del Trabajo
-  fixed_date: [5, 1]
-- name: Día del Ejército
-  fixed_date: [6, 30]
-- name: Día de la Asunción
-  fixed_date: [8, 15]
-- name: Día de la Independencia
-  fixed_date: [9, 15]
-- name: Día de la Revolución
-  fixed_date: [10, 20]
-- name: Día de Todos los Santos
-  fixed_date: [11, 1]
-- name: Día de Navidad
-  fixed_date: [12, 25]
+  - {'name': 'Año Nuevo', 'fixed_date': [1, 1]}
+  - {'name': 'Jueves Santo', 'fixed_date': [4, 17]}
+  - {'name': 'Viernes Santo', 'fixed_date': [4, 18]}
+  - {'name': 'Sábado Santo', 'fixed_date': [4, 19]}
+  - {'name': 'Día del Trabajo', 'fixed_date': [5, 1]}
+  - {'name': 'Día del Ejército', 'fixed_date': [6, 30]}
+  - {'name': 'Día de la Asunción', 'fixed_date': [8, 15]}
+  - {'name': 'Día de la Independencia', 'fixed_date': [9, 15]}
+  - {'name': 'Día de la Revolución', 'fixed_date': [10, 20]}
+  - {'name': 'Día de Todos los Santos', 'fixed_date': [11, 1]}
+  - {'name': 'Día de Navidad', 'fixed_date': [12, 25]}

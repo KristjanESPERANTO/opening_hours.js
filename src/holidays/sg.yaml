@@ -1,27 +1,15 @@
 ---
 
 PH:
-- name: New Year's Day
-  fixed_date: [1, 1]
-- name: Chinese New Year
-  fixed_date: [1, 29]
-- name: Chinese New Year
-  fixed_date: [1, 30]
-- name: Hari Raya Puasa
-  fixed_date: [3, 31]
-- name: Good Friday
-  fixed_date: [4, 18]
-- name: Labour Day
-  fixed_date: [5, 1]
-- name: Polling Day
-  fixed_date: [5, 3]
-- name: Vesak Day
-  fixed_date: [5, 12]
-- name: Hari Raya Haji
-  fixed_date: [6, 7]
-- name: National Day
-  fixed_date: [8, 9]
-- name: Deepavali
-  fixed_date: [10, 20]
-- name: Christmas Day
-  fixed_date: [12, 25]
+  - {'name': "New Year's Day", 'fixed_date': [1, 1]}
+  - {'name': 'Chinese New Year', 'fixed_date': [1, 29]}
+  - {'name': 'Chinese New Year', 'fixed_date': [1, 30]}
+  - {'name': 'Hari Raya Puasa', 'fixed_date': [3, 31]}
+  - {'name': 'Good Friday', 'fixed_date': [4, 18]}
+  - {'name': 'Labour Day', 'fixed_date': [5, 1]}
+  - {'name': 'Polling Day', 'fixed_date': [5, 3]}
+  - {'name': 'Vesak Day', 'fixed_date': [5, 12]}
+  - {'name': 'Hari Raya Haji', 'fixed_date': [6, 7]}
+  - {'name': 'National Day', 'fixed_date': [8, 9]}
+  - {'name': 'Deepavali', 'fixed_date': [10, 20]}
+  - {'name': 'Christmas Day', 'fixed_date': [12, 25]}

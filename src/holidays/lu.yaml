@@ -1,29 +1,19 @@
 ---
 
 _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Luxembourg&zoom=18&addressdetails=1&limit=1&accept-language=lb,fr,de,en
+
 PH:
-- name: Neijoerschdag
-  fixed_date: [1, 1]
-- name: Ouschterméindeg
-  fixed_date: [4, 21]
-- name: Dag vun der Aarbecht
-  fixed_date: [5, 1]
-- name: Europadag
-  fixed_date: [5, 9]
-- name: Christi Himmelfaart
-  fixed_date: [5, 29]
-- name: Péngschtméindeg
-  fixed_date: [6, 9]
-- name: Nationalfeierdag
-  fixed_date: [6, 23]
-- name: Léiffrawëschdag
-  fixed_date: [8, 15]
-- name: Allerhellgen
-  fixed_date: [11, 1]
-- name: Chrëschtdag
-  fixed_date: [12, 25]
-- name: Stiefesdag
-  fixed_date: [12, 26]
+  - {'name': 'Neijoerschdag', 'fixed_date': [1, 1]}
+  - {'name': 'Ouschterméindeg', 'fixed_date': [4, 21]}
+  - {'name': 'Dag vun der Aarbecht', 'fixed_date': [5, 1]}
+  - {'name': 'Europadag', 'fixed_date': [5, 9]}
+  - {'name': 'Christi Himmelfaart', 'fixed_date': [5, 29]}
+  - {'name': 'Péngschtméindeg', 'fixed_date': [6, 9]}
+  - {'name': 'Nationalfeierdag', 'fixed_date': [6, 23]}
+  - {'name': 'Léiffrawëschdag', 'fixed_date': [8, 15]}
+  - {'name': 'Allerhellgen', 'fixed_date': [11, 1]}
+  - {'name': 'Chrëschtdag', 'fixed_date': [12, 25]}
+  - {'name': 'Stiefesdag', 'fixed_date': [12, 26]}
 SH:
 - name: Allerhellegen - Allerheiligenurlaub - Congé de la Toussaint
   '2023': [10, 28, 11, 5]
