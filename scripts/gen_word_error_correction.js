@@ -19,7 +19,6 @@
  * }}} */
 
 const moment = require('moment');
-const CountryLanguage = require('country-language');
 const fs = require('node:fs');
 
 /* https://stackoverflow.com/a/1961068/2239985 */
@@ -108,10 +107,18 @@ function getCharArray(list) {
 }
 
 function getNativeLang(lang_code) {
-   const cl_object = CountryLanguage.getLanguage(lang_code.replace(/-.*/, ''));
-   if (typeof cl_object === 'object') {
-      return cl_object.nativeName[0] + ' (' + lang_code + ', ' + cl_object.name[0] + ')';
-   } else {
+   try {
+      const baseLanguage = lang_code.replace(/-.*/, '');
+      const displayNames = new Intl.DisplayNames([baseLanguage], { type: 'language' });
+      const englishDisplayNames = new Intl.DisplayNames(['en'], { type: 'language' });
+      
+      const nativeName = displayNames.of(baseLanguage);
+      const englishName = englishDisplayNames.of(baseLanguage);
+      
+      return `${nativeName} (${lang_code}, ${englishName})`;
+   } catch {
+      // Fallback for unknown languages
+      console.warn(`Unknown language code: ${lang_code}`);
       return lang_code;
    }
 }

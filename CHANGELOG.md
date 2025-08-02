@@ -114,6 +114,7 @@ work hours!
 - refactor: optimize simple_index.html ([#502](https://github.com/opening-hours/opening_hours.js/pull/502))
 - refactor: overload getStateString for better return type ([#504](https://github.com/opening-hours/opening_hours.js/pull/504))
 - refactor: replace deprecated `optimist` with `yargs` for command line argument parsing ([#515](https://github.com/opening-hours/opening_hours.js/pull/515))
+- refactor: replace deprecated `country-language` with integrated `Intl.DisplayNames` ([#517](https://github.com/opening-hours/opening_hours.js/pull/517))
 
 - Public holiday definitions updated:
   - France ([#470](https://github.com/opening-hours/opening_hours.js/pull/470))
