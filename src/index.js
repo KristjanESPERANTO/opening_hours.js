@@ -2572,6 +2572,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             throw t('no country code');
         }
 
+        // Fallback zu lokalen Holiday-Definitionen
         if (!holiday_definitions[location_cc]) {
             throw formatLibraryBugMessage(t('no holiday definition', {
                 'name': type_of_holidays,

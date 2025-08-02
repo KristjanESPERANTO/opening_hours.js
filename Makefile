@@ -483,12 +483,19 @@ osm-tag-data-gen-stats-sort:
 	done
 ## }}}
 
+## Generate holiday YAML files from date-holidays package {{{
+.PHONY: generate-holidays
+generate-holidays:
+	$(NODEJS) scripts/generate_holidays_hybrid.js
+
+## }}}
+
 build/opening_hours.js: build/opening_hours.min.js
-build/opening_hours.min.js:
+build/opening_hours.min.js: generate-holidays
 	DEPS=NO node_modules/.bin/rollup -c
 
 build/opening_hours+deps.js: build/opening_hours+deps.min.js
-build/opening_hours+deps.min.js:
+build/opening_hours+deps.min.js: generate-holidays
 	DEPS=YES node_modules/.bin/rollup -c
 
 README.html:

@@ -46,6 +46,7 @@
     "benchmark": "make benchmark",
     "interactive_testing": "make run-interactive_testing",
     "regex_search": "make run-regex_search",
+    "generate-holidays": "node scripts/generate_holidays_hybrid.js",
     "prepare": "husky",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
@@ -53,6 +54,7 @@
     "check-updates": "npm-check-updates --reject colors --upgrade"
   },
   "dependencies": {
+    "date-holidays": "^3.24.4",
     "i18next": "^25.3.2",
     "i18next-browser-languagedetector": "^8.2.0",
     "suncalc": "^1.9.0"
