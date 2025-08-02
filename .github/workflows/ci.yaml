@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run linter tests
-        run: npm run lint
+        run: node --run lint
 
   commitlint:
     runs-on: ubuntu-latest
