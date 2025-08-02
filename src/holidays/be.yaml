@@ -1,3 +1,5 @@
+---
+
 _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Belgium&zoom=18&addressdetails=1&limit=1&accept-language=nl,fr,de,en
 PH:
 - name: Nieuwjaar

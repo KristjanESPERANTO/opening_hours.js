@@ -1,3 +1,5 @@
+---
+
 _nominatim_url: https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm
 PH:
 - name: Neujahrstag
