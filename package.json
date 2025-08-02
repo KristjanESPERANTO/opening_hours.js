@@ -42,7 +42,7 @@
     "test": "make check-full",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "osm-tag-data-check": "make osm-tag-data-check",
+    "osm-tag-data-taginfo-check": "make osm-tag-data-taginfo-check",
     "benchmark": "make benchmark",
     "interactive_testing": "make run-interactive_testing",
     "regex_search": "make run-regex_search",
