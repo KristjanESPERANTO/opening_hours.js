@@ -75,8 +75,14 @@ list:
 
 ## defaults {{{
 .PHONY: build
-build: build/opening_hours.js \
-		build/opening_hours+deps.js
+build: build/opening_hours+deps.min.js
+
+build/opening_hours.js \
+build/opening_hours.min.js \
+build/opening_hours.esm.mjs \
+build/opening_hours+deps.js \
+build/opening_hours+deps.min.js: src/index.js
+	node_modules/.bin/rollup -c
 
 .PHONY: check
 check: qa-quick check-fast check-package.json
@@ -131,11 +137,11 @@ ready-for-hosting: dependencies-get build/opening_hours+deps.min.js
 
 ## command line programs {{{
 .PHONY: run-regex_search
-run-regex_search: export.$(SEARCH).json interactive_testing.js regex_search.py
-	$(NODEJS) regex_search.py "$<"
+run-regex_search: export.$(SEARCH).json ./scripts/interactive_testing.js scripts/regex_search.py
+	python3 ./scripts/regex_search.py "$<"
 
 .PHONY: run-interactive_testing
-run-interactive_testing: interactive_testing.js opening_hours.js
+run-interactive_testing: ./scripts/interactive_testing.js ./build/opening_hours.js
 	$(NODEJS) "$<" --locale "$(CHECK_LANG)"
 ## }}}
 
@@ -207,7 +213,7 @@ benchmark-%.js: build/%.js scripts/benchmark.mjs
 
 .PHONY: check-package.json
 check-package.json: package.json
-	./node_modules/package-json-validator/lib/bin/pjv.mjs --warnings --recommendations --filename "$<"
+	./node_modules/package-json-validator/lib/bin/pjv.js --warnings --recommendations --filename "$<"
 
 .PHONY: check-holidays
 check-holidays: scripts/PH_SH_exporter.js
@@ -226,19 +232,24 @@ check-html:
 
 ## release {{{
 
-# Run `npx commit-and-tag-version`.
+.PHONY: release-prepare
+release-prepare: package.json taginfo.json check-holidays doctoc check
 
 .PHONY: release-local
 release-local: package.json
-	git tag --sign --local-user "$(RELEASE_OPENPGP_FINGERPRINT)" --message "chore(release): $(shell jq --raw-output '.version' $<)" "v$(shell jq --raw-output '.version' $<)"
+	npx commit-and-tag-version
+	$(MAKE) $(MAKE_OPTIONS) release-local-resign-tag
+
+# Recreate git tag signed with release key because commit-and-tag-version cannot use a different key for signing the tag.
+.PHONY: release-local-resign-tag
+release-local-resign-tag: package.json
+	git tag --delete "v$(shell jq --raw-output '.version' $<)"
+	git tag --sign --local-user="$(RELEASE_OPENPGP_FINGERPRINT)" --message="chore(release): $(shell jq --raw-output '.version' $<)" "v$(shell jq --raw-output '.version' $<)"
 
 .PHONY: release-publish
-# First source file is referenced!
-# Might be better: https://docs.npmjs.com/cli/version
 release-publish:
 	git push --follow-tags
 	npm publish
-	@echo "Manually create release on https://github.com/opening-hours/opening_hours.js/releases"
 	# $(MAKE) $(MAKE_OPTIONS) publish-website-on-all-servers
 
 .PHONY: release
@@ -482,14 +493,6 @@ osm-tag-data-gen-stats-sort:
 		mv "$$file.tmp" "$$file"; \
 	done
 ## }}}
-
-build/opening_hours.js: build/opening_hours.min.js
-build/opening_hours.min.js:
-	DEPS=NO node_modules/.bin/rollup -c
-
-build/opening_hours+deps.js: build/opening_hours+deps.min.js
-build/opening_hours+deps.min.js:
-	DEPS=YES node_modules/.bin/rollup -c
 
 README.html:
 
