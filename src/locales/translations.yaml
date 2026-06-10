@@ -160,9 +160,9 @@ de:
     conf param tag key missing: "Der optional_conf_parm[\"tag_key\"] fehlt, ist aber notwendig wegen optional_conf_parm[\"map_value\"]."
     conf param mode invalid: "Der optional_conf_parm[\"mode\"]-Parameter ist eine ungültige Zahl. Gegeben: {{given}}, erwartet: Eine der Zahlen: {{allowed}}."
     conf param unknown type: "Der optional_conf_parm[\"{{key}}\"] Parameter hat einen unbekannten Typ. Gegeben: {{given}}, erwartet: {{expected}}."
-    library bug: "Bei der Auswertung des Wertes \"{{value}}\" ist ein Fehler aufgetreten. Bitte melde diesen Fehler oder korrigiere diesen mittels eines Pull Requests oder Patches: {{-url}}.{{message}}"
-    library bug PR only: "Bei der Auswertung des Wertes \"{{value}}\" ist ein Fehler aufgetreten. Du kannst dies korrigieren, indem du das Problem löst und in Form eines Pull Requests oder Patches zum Projekt beiträgst: {{-url}}.{{message}}"
-    use multi: "Du hast {{count}} {{-part2}} Einzelne Regeln können mit \";\" getrennt werden."
+    library bug: "Bei der Auswertung des Wertes \"{{value}}\" ist ein Fehler aufgetreten. Bitte melde diesen Fehler oder korrigiere diesen mittels eines Pull Requests oder Patches: {{url}}.{{message}}"
+    library bug PR only: "Bei der Auswertung des Wertes \"{{value}}\" ist ein Fehler aufgetreten. Du kannst dies korrigieren, indem du das Problem löst und in Form eines Pull Requests oder Patches zum Projekt beiträgst: {{url}}.{{message}}"
+    use multi: "Du hast {{count}} {{part2}} Einzelne Regeln können mit \";\" getrennt werden."
     selector multi 2a: "{{what}} in einer Regel benutzt. Du kannst nur einen davon je Regel verwenden"
     selector multi 2b: "nicht verbundene {{what}} in einer Regel benutzt. Das ist vermutlich ein Fehler. Gleiche Selektoren können (und sollten) immer zusammen und durch Kommas getrennt geschrieben werden. Beispiel für Zeitspannen \"12:00-13:00,15:00-18:00\". Beispiel für Wochentage \"Mo-We,Fr\"."
     selector state: "Status-Schlüsselwörter (offen, geschlossen)"
@@ -176,7 +176,7 @@ de:
     strange 24/7: "Du hast 24/7 in einer Art verwendet, welche wahrscheinlich nicht als \"24 Stunden, 7 Tage die Woche\" interpretiert wird. Der Richtigkeit halber solltest du \"open\" oder \"closed\" für diese Regel verwenden und dann die Ausnahmen angeben um das selbe Ziel zu erreichen. So ist es klarer – zum Beispiel \"open; Mo 12:00-14:00 off\"."
     public holiday: >-
       Es wurde keine Regel für "PH" (feiertags) angegeben.
-      Dies ist nicht sehr aussagekräftig.{{-part2}} Bitte füge die Regel "PH off" an, wenn die Einrichtung an allen Feiertagen geschlossen ist oder schreibe "Sa,Su,PH 12:00-16:00" um auszudrücken, dass Samstags, Sonntags und feiertags von 12:00-16:00 geöffnet ist.
+      Dies ist nicht sehr aussagekräftig.{{part2}} Bitte füge die Regel "PH off" an, wenn die Einrichtung an allen Feiertagen geschlossen ist oder schreibe "Sa,Su,PH 12:00-16:00" um auszudrücken, dass Samstags, Sonntags und feiertags von 12:00-16:00 geöffnet ist.
       Bei einer Öffnungszeit wie "Fr-Sa 18:00-06:00" ist Vorsicht geboten, da "PH off" auf 00:00-24:00 zutrifft.
       Hier kann "Fr-Sa 18:00-06:00; PH 18:00-06:00 off" verwendet werden.
       Falls die Einrichtung täglich und an Feiertagen geöffnet ist, kann dies explizit mittels "Mo-Su,PH" ausgedrückt werden.
@@ -197,7 +197,7 @@ de:
     number -5 to 5: "Zahl zwischen -5 und 5 (außer 0) erwartet."
     one weekday constraint: "Du kannst höchstens einen beschränkten Wochentag in einer Monats-Spanne verwenden"
     range constrained weekdays: "Du kannst keine Wochentags-Spanne als Beschränkung in einer Monats-Spanne verwenden"
-    expected: "\"{{-symbol}}\" erwartet."
+    expected: "\"{{symbol}}\" erwartet."
     range zero: "Du kannst keine {{type}}-Spanne mit Periode \"0\" verwenden."
     period one year+: "Bitte verwende keine {{type}}-Spannen mit Periode \"1\". Wenn du ausdrücken willst, das eine Einrichtung ab einem bestimmten Jahr immer offen ist, benutze bitte \"<year>+\"."
     period one: "Bitte verwende keine {{type}}-Spannen mit Periode \"1\"."
@@ -257,7 +257,7 @@ de:
     open end: "Angegeben als \"open end\". Schließzeit wurde geraten."
     date parameter needed: "Datumsparameter nötig."
     'assuming ok for ko': '"{{ko}}" wird als "{{ok}}" interpretiert.'
-    'please use ok for ko': 'Bitte verwende "{{-ok}}" anstelle von "{{-ko}}".'
+    'please use ok for ko': 'Bitte verwende "{{ok}}" anstelle von "{{ko}}".'
     'please use ok for similar looking ko': 'Please use notation "{{ok}}" for "{{ko}}". Those characters look very similar but are not the same!'
     'rant degree sign used for zero': 'Beachte das dies ein Gradzeichen ist, welches als (hochgestellte) Null missbraucht wurde. Eine hochgestellte Null ist in Unicode definiert (°) und wäre angebrachter/einheitlicher an dieser Stelle. Allerdings ist die Verwendung von nicht ASCII Ziffern nicht erlaubt.'
     'please use English written ok for ko': 'Bitte benutze die englische Schreibweise "{{ok}}" für "{{ko}}".'
@@ -275,7 +275,7 @@ de:
     'please use ok for missing data': 'Bitte verwende eine FIXME Notiz.'
     'please use 24 hours time for ko': 'Bitte verwende 24 Stunden Zeitangaben anstelle der veralteten 12 Stunden Variante. Falls die 12 Stunden Variante verwendet wird ist eventuelle eine Konvertierung notwendig.'
     'please use restriction comment time for ko': 'Es sieht so aus also möchtest du zusätzliche Einschränkungen für eine Öffnungszeit geben. Falls sich dies nicht mit der Syntax ausdrücken lässt können Kommentare verwendet werden. Zusätzlich sollte eventuell das Schlüsselwort `open` benutzt werden. Beispiel: open "Nur Frauen".'
-    'please use ok for typographically correct': 'Bitte verwende "{{-ok}}" für "{{ko}}". Auch wenn "{{ko}}" typografisch korrekt ist, ist dies in der opening_hours Syntax nicht definiert. Korrekte Typographie sollte auf Anwendungsebene sichergestellt werden …'
+    'please use ok for typographically correct': 'Bitte verwende "{{ok}}" für "{{ko}}". Auch wenn "{{ko}}" typografisch korrekt ist, ist dies in der opening_hours Syntax nicht definiert. Korrekte Typographie sollte auf Anwendungsebene sichergestellt werden …'
   pretty:
     'off': "geschlossen"
     SH: "Schulferien"
@@ -283,7 +283,7 @@ de:
 eo:
   texts:
     'assuming ok for ko': '"{{ko}}" estas interpretita kiel "{{ok}}".'
-    'please use ok for ko': 'Bonvolu uzi la esprimon "{{-ok}}" anstataŭ "{{ko}}".'
+    'please use ok for ko': 'Bonvolu uzi la esprimon "{{ok}}" anstataŭ "{{ko}}".'
     'please use English abbreviation ok for ko': 'Bonvolu uzi la anglan mallongigon "{{ok}}" für "{{ko}}".'
   pretty:
     'off': "fermita"
