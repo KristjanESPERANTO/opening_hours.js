@@ -74,6 +74,7 @@
 'outside current day': 'Time range starts outside of the current day'
 'two midnights': 'Time spanning more than two midnights not supported'
 'without minutes': 'Time range without minutes specified. Not very explicit! Please use this syntax instead "{{syntax}}".'
+'ambiguous single digit hour': 'Single-digit hour "{{hour}}" without leading zero — could mean {{hour}} (in the morning) or {{hour_pm}} (after midday). Add a leading zero like "0{{hour}}" or change it to "{{hour_pm}}" to be explicit.'
 'outside day': 'Time range starts outside of the current day'
 'zero calculation': 'Adding zero in a variable time calculation does not change the variable time. Please omit the calculation (example: "sunrise-(sunset-00:00)").'
 'calculation syntax': 'Calculation with variable time is not in the right syntax'

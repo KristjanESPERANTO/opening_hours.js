@@ -5245,6 +5245,24 @@ test.addShouldWarn('Value not ideal (probably wrong). Should throw a warning. wa
 test.addShouldWarn('Value not ideal (probably wrong). Should throw a warning. warnings_severity: 5, "tag_key": "opening_hours"', [
         'Mo-Fr 08:00-16:00',
     ], nominatim_default, 'not only test', { 'warnings_severity': 5, 'tag_key': 'opening_hours' });
+
+test.addShouldWarn('Ambiguous single-digit hours without leading zeros', [
+        'Tu-Sa 9:00-6:00',
+        'Su-Mo 11:00-6:00',
+        '9:00-1:00',
+        'Mo 8:00-5:00',
+    ], nominatim_default);
+
+test.addShouldNotWarn('Unambiguous single-digit start hours (end >= 12)', [
+        'Mo 8:00-22:00',
+        '9:00-15:00',
+        '7:00-13:00',
+    ], nominatim_default);
+
+test.addShouldNotWarn('No warning when leading zeros are present', [
+        '09:00-06:00',
+        'Tu-Sa 09:00-06:00',
+    ], nominatim_default);
 // }}}
 
 // getStructuredWarnings: machine-readable warning objects {{{
@@ -5722,6 +5740,7 @@ function opening_hours_test() {
     this.tests_should_fail = [];
     this.tests_should_warn = [];
     this.tests_structured_warnings = [];
+    this.tests_should_not_warn = [];
     this.tests_comp_matching_rule = [];
     this.tests_prettify_value = [];
     this.tests_equal_to = [];
@@ -5767,6 +5786,54 @@ function opening_hours_test() {
         }
 
         return crashed;
+    }; /* }}} */
+
+    this.runSingleTestShouldNotWarn = function(test_data_object) { /* {{{ */
+        const name           = test_data_object[0];
+        let value            = test_data_object[1];
+        const nominatim_data = test_data_object[2];
+        const oh_mode        = test_data_object[3];
+        let ignored = typeof value !== 'string';
+        if (ignored) {
+            this.ignored.push(value);
+            ignored = value[1];
+            value   = value[0];
+        }
+
+        let warnings, oh;
+        let crashed = false;
+        try {
+            oh = new opening_hours(value, nominatim_data, oh_mode);
+            warnings = oh.getWarnings();
+        } catch (err) {
+            crashed = err;
+        }
+
+        let passed = false;
+        let str = '"' + name + '" for "'
+            + (typeof value === 'string'
+                ? value.replace('\n', '*newline*')
+                : value
+            )
+            + '": ';
+        if (!crashed && warnings.length === 0) {
+            str += c.passed('PASSED');
+            passed = true;
+            if (this.show_passing_tests)
+                console.log(str);
+        } else if (ignored) {
+            str += c.ignored('IGNORED') + ', reason: ' + ignored;
+            passed = true;
+            console.log(str);
+            this.print_warnings(warnings);
+        } else {
+            str += c.failed('FAILED');
+            console.warn(str);
+            this.print_warnings(warnings);
+            if (this.show_error_warnings)
+                console.error(crashed + '\n');
+        }
+        return passed;
     }; /* }}} */
 
     this.runSingleTestShouldThrowWarning = function(test_data_object) { /* {{{ */
@@ -6208,6 +6275,7 @@ function opening_hours_test() {
             this.tests_should_fail.length +
             this.tests_should_warn.length +
             this.tests_structured_warnings.length +
+            this.tests_should_not_warn.length +
             this.tests_comp_matching_rule.length +
             this.tests_prettify_value.length +
             this.tests_equal_to.length +
@@ -6224,6 +6292,10 @@ function opening_hours_test() {
         }
         for (let test = 0; test < this.tests_structured_warnings.length; test++) {
             if (this.runSingleTestStructuredWarnings(this.tests_structured_warnings[test]))
+                success++;
+        }
+        for (let test = 0; test < this.tests_should_not_warn.length; test++) {
+            if (this.runSingleTestShouldNotWarn(this.tests_should_not_warn[test]))
                 success++;
         }
         for (let test = 0; test < this.tests_should_fail.length; test++) {
@@ -6351,6 +6423,23 @@ function opening_hours_test() {
         oh_mode = get_oh_mode_parameter(oh_mode);
 
         this.tests_structured_warnings.push([name, value, expected_types, nominatim_data, oh_mode]);
+    };
+    // }}}
+
+    // add test which should NOT give a warning {{{
+    this.addShouldNotWarn = function(name, values, nominatim_data, last, oh_mode) {
+        if (this.last === true)  {
+            return;
+        }
+        this.handle_only_test(last);
+
+        oh_mode = get_oh_mode_parameter(oh_mode);
+
+        if (typeof values === 'string')
+            this.tests_should_not_warn.push([name, values, nominatim_data, oh_mode]);
+        else
+            for (let value_ind = 0; value_ind < values.length; value_ind++)
+                this.tests_should_not_warn.push([name, values[value_ind], nominatim_data, oh_mode]);
     };
     // }}}
 

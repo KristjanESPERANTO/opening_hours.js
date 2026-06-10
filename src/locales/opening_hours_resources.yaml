@@ -91,6 +91,7 @@ de:
       outside current day: "Zeitspanne beginnt außerhalb des aktuellen Tages"
       two midnights: "Zeitspanne welche mehrmals Mitternacht beinhaltet wird nicht unterstützt"
       without minutes: "Zeitspanne ohne Minutenangabe angegeben. Das ist nicht sehr eindeutig! Bitte verwende stattdessen folgende Syntax \"{{syntax}}\"."
+      ambiguous single digit hour: 'Einstellige Stunde "{{hour}}" ohne führende Null — könnte {{hour}} Uhr (morgens) oder {{hour_pm}} Uhr (nachmittags) bedeuten. Führende Null ergänzen, z.B. "0{{hour}}", oder auf "{{hour_pm}}" ändern, um dies eindeutig zu machen.'
       outside day: "Die Zeitspanne beginnt außerhalb des aktuellen Tages"
       zero calculation: "Das Hinzufügen von 0 in einer variablen Zeitberechnung ändert die variable Zeit nicht. Bitte entferne die Zeitberechnung (Beispiel: \"sunrise-(sunset-00:00)\")."
       calculation syntax: "Berechnung mit variabler Zeit hat nicht die korrekte Syntax"
