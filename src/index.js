@@ -3191,6 +3191,22 @@ export default function(value, nominatim_object, optional_conf_parm) {
             r.date = shifted;
         });
 
+        /* Pass 2b: apply substitute_rule — additive substitutes.
+         * The original date stays a holiday; an extra entry is appended when
+         * the original falls on one of the trigger weekdays.
+         * Unlike shift_rule there is no collision detection: the substitute
+         * day is always added (the original never moves).
+         */
+        const substitute_extras = [];
+        resolved.forEach(function (r) {
+            if (!r.holiday.substitute_rule) return;
+            const shifter = compileShiftRule(r.holiday.substitute_rule);
+            const subst = shifter(r.date);
+            if (subst.getTime() === r.date.getTime()) return; // no match → no extra day
+            substitute_extras.push({ date: subst, holiday: r.holiday });
+        });
+        substitute_extras.forEach(function (extra) { resolved.push(extra); });
+
         /* Pass 3: apply add_days uniformly and sort. */
         let sorted_holidays = resolved.map(function (r) {
             let d = r.date;
