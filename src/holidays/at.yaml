@@ -4,7 +4,7 @@
 
 _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lon=16.3725042&lat=48.2083537&zoom=18&addressdetails=1&accept-language=de,en'
 
-PH:  # https://de.wikipedia.org/wiki/Feiertage_in_%C3%96sterreich
+PH:
   - {'name': 'Neujahr', 'fixed_date': [1, 1]}
   - {'name': 'Heilige Drei Könige', 'fixed_date': [1, 6]}
   - {'name': 'Ostermontag', 'variable_date': easter, 'offset': 1}

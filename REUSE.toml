@@ -34,3 +34,9 @@ SPDX-License-Identifier = "LGPL-3.0-only"
 path = "src/holidays/nominatim_cache/*.yaml"
 SPDX-FileCopyrightText = "OpenStreetMap contributors"
 SPDX-License-Identifier = "ODbL-1.0"
+
+# Submodule: date-holidays — used for PH data generation
+[[annotations]]
+path = "submodules/date-holidays/**"
+SPDX-FileCopyrightText = "date-holidays contributors"
+SPDX-License-Identifier = "ISC AND CC-BY-3.0"

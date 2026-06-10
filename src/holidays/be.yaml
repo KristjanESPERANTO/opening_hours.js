@@ -4,9 +4,6 @@
 
 _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Belgium&zoom=18&addressdetails=1&limit=1&accept-language=nl,fr,de,en'
 
-# https://www.emploi.belgique.be/fr/themes/international/detachement/conditions-de-travail-respecter-en-cas-de-detachement-en-2
-# https://www.werk.belgie.be/nl/themas/internationaal/detachering/na-te-leven-arbeidsvoorwaarden-geval-van-detachering-naar-3
-# https://nl.wikipedia.org/wiki/Feestdagen_in_Belgi%C3%AB
 PH:
   - {'name': 'Nieuwjaar - Nouvel An', 'fixed_date': [1, 1]}
   - {'name': 'Paasmaandag - Lundi de Pâques', 'variable_date': easter, 'offset': 1}
