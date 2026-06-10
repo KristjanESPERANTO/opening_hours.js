@@ -18,14 +18,14 @@ const terserConfig = {
 };
 
 const globals = {
-    'suncalc': 'SunCalc'
+    'sunrise-sunset-js': 'sunriseSunsetJs'
 };
 
 // Build configuration without bundled dependencies
 const configWithoutDeps = {
     input: './src/index.js',
     plugins: [yamlPlugin],
-    external: ['suncalc'],
+    external: ['sunrise-sunset-js'],
     output: [
         // ESM build
         {
