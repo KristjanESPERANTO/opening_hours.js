@@ -31,6 +31,8 @@ en:
     'holiday ranges': 'holiday ranges'
     'months': months
     'weekdays': weekdays
+    'time ranges': 'time ranges'
+    'week ranges': 'week ranges'
     'ranges': ranges
     'default state': 'This rule which changes the default state (which is closed) for all following rules is not the first rule. The rule will overwrite all previous rules. It can be legitimate to change the default state to open for example and then only specify for which times the facility is closed.'
     'vague': 'This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.'
@@ -210,6 +212,7 @@ de:
     period continue: "Die Zeitspannen-Periode geht nicht wie erwartet weiter. Beispiel \"/01:30\"."
     time range mode: "{{libraryname}} wurde im \"Zeitspannen-Modus\" aufgerufen. Zeitpunkt gefunden."
     time ranges: "Zeitspannen"
+    week ranges: "Wochen-Spannen"
     holiday ranges: "Feiertagen"
     point in time mode: "{{libraryname}} wurde im \"Zeitpunkt-Modus\" aufgerufen. Zeitspanne gefunden."
     outside current day: "Zeitspanne beginnt außerhalb des aktuellen Tages"
