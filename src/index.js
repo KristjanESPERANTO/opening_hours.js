@@ -1294,16 +1294,51 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }
         });
 
+        const locale_probe_month_date = new Date(2018, 0, 1);      // Jan 01 2018
+        const locale_probe_weekday_date = new Date(2017, 0, 1);    // Sunday, Jan 01 2017
+        const locale_probe_monthday_date = new Date(2018, 2, 6);   // Mar 06 2018
+
         // use months, weekdays for locales 'en' and 'all'
         // otherwise use Date.toLocaleString, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
         const _is_en_or_all = (user_conf['locale'] === 'en' || user_conf['locale'] === 'all') && user_conf['date_format'] === 'short';
         const months_local = _is_en_or_all ? months : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function(month) {
-            return new Date(2018, month - 1, 1).toLocaleString(user_conf['locale'], {month: user_conf['date_format']});
+            return new Date(locale_probe_month_date.getFullYear(), month - 1, locale_probe_month_date.getDate()).toLocaleString(user_conf['locale'], {month: user_conf['date_format']});
         });
         const weekdays_local = _is_en_or_all ? weekdays : [1, 2, 3, 4, 5, 6, 7].map(function(weekday) {
-            // 2017-01-01 is Sunday
-            return new Date(2017, 0, weekday).toLocaleString(user_conf['locale'], {weekday: user_conf['date_format']});
+            // locale_probe_weekday_date is a Sunday
+            return new Date(locale_probe_weekday_date.getFullYear(), locale_probe_weekday_date.getMonth(), weekday).toLocaleString(user_conf['locale'], {weekday: user_conf['date_format']});
         });
+
+        // Preserve current behavior if locale order cannot be determined.
+        user_conf.day_before_month = false;
+        user_conf.day_month_separator = ' ';
+        if (typeof Intl === 'object' && typeof Intl.DateTimeFormat === 'function') {
+            try {
+                const parts = new Intl.DateTimeFormat(user_conf['locale'], {
+                    day: 'numeric',
+                    month: user_conf['date_format'],
+                }).formatToParts(locale_probe_monthday_date);
+                const day_index = parts.findIndex(function(part) {
+                    return part.type === 'day';
+                });
+                const month_index = parts.findIndex(function(part) {
+                    return part.type === 'month';
+                });
+                if (day_index !== -1 && month_index !== -1) {
+                    user_conf.day_before_month = day_index < month_index;
+                    if (user_conf.day_before_month) {
+                        const separator = parts.slice(day_index + 1, month_index).map(function(part) {
+                            return part.value;
+                        }).join('');
+                        if (separator !== '') {
+                            user_conf.day_month_separator = separator;
+                        }
+                    }
+                }
+            } catch {
+                // Keep fallback order if locale is unsupported in runtime.
+            }
+        }
 
         for (let nrule = 0; nrule < new_tokens.length; nrule++) {
             if (new_tokens[nrule][0].length === 0) continue;
@@ -4106,7 +4141,16 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     && matchTokens(tokens, at-1, 'year')) {
                 prettified_value += ' ' + tokens[at][0];
             } else if (matchTokens(tokens, at, 'month')) {
-                prettified_value += months[[tokens[at][0]]];
+                if (selector_type === 'month'
+                        && conf.day_before_month
+                        && at + 1 <= selector_end
+                        && matchTokens(tokens, at+1, 'number')) {
+                    const day = tokens[at+1][0].toString();
+                    prettified_value += day + conf.day_month_separator + months[[tokens[at][0]]];
+                    at += 1;
+                } else {
+                    prettified_value += months[[tokens[at][0]]];
+                }
                 if (at + 1 <= selector_end && matchTokens(tokens, at+1, 'weekday'))
                     prettified_value += ' ';
             } else if (at + 2 <= selector_end
