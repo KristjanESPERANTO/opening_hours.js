@@ -1468,6 +1468,24 @@ export default function(value, nominatim_object, optional_conf_parm) {
     function parseGroup(tokens, at, rule, nrule) {
         let rule_modifier_specified = false;
 
+        function isPlainFullYearMonthdayRange(tokens, at) {
+            if (matchTokens(tokens, at, 'year'))
+                return false;
+            if (!matchTokens(tokens, at, 'month', 'number', '-', 'month', 'number'))
+                return false;
+
+            const from_month = tokens[at][0];
+            const from_day = tokens[at + 1][0];
+            const to_month = tokens[at + 3][0];
+            const to_day = tokens[at + 4][0];
+
+            if (!(from_month === 0 && from_day === 1 && to_month === 11 && to_day === 31))
+                return false;
+
+            return !matchTokens(tokens, at + 5, '/', 'number')
+                && !matchTokens(tokens, at + 5, ',');
+        }
+
         // console.log(tokens); // useful for debugging of tokenize
         let last_selector = [];
         while (at < tokens.length) {
@@ -1491,9 +1509,11 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     || matchTokens(tokens, at, 'year', 'month', 'number')
                     || matchTokens(tokens, at, 'year', 'event')
                     || matchTokens(tokens, at, 'event')) {
+                const is_full_year_monthday_range = isPlainFullYearMonthdayRange(tokens, at);
 
                 at = parseMonthdayRange(tokens, at, nrule);
-                week_stable = false;
+                if (!is_full_year_monthday_range)
+                    week_stable = false;
             } else if (matchTokens(tokens, at, 'year')) {
                 at = parseYearRange(tokens, at);
                 week_stable = false;
