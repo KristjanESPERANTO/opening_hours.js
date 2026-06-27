@@ -728,7 +728,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                 'interpreted_as_year', t('interpreted as year', {number:  Number(tmp[1])})
                         ]);
                 } else {
-                    curr_rule_tokens.push([Number(tmp[1]), 'number', value.length ]);
+                    const num_token = [Number(tmp[1]), 'number', value.length];
+                    if (tmp[1].length === 1) num_token.singleDigit = true;
+                    curr_rule_tokens.push(num_token);
                 }
 
                 value = value.substr(tmp[1].length + (typeof tmp[2] === 'string' ? tmp[2].length : 0));
@@ -1853,6 +1855,23 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     } else {
                         if (has_normal_time[1]) {
                             minutes_to = getMinutesByHoursMinutes(tokens, nrule, at_end_time);
+                            if (!done_with_warnings
+                                    && has_normal_time[0]
+                                    && tokens[at][0] < 12
+                                    && tokens[at_end_time].singleDigit && tokens[at_end_time][0] < 12) {
+                                if (tokens[at].singleDigit) {
+                                    const fromHour = tokens[at][0];
+                                    parsing_warnings.push([nrule, at, t('ambiguous single digit hour', {
+                                        'hour':    fromHour,
+                                        'hour_pm': fromHour + 12,
+                                    })]);
+                                }
+                                const toHour = tokens[at_end_time][0];
+                                parsing_warnings.push([nrule, at_end_time, t('ambiguous single digit hour', {
+                                    'hour':    toHour,
+                                    'hour_pm': toHour + 12,
+                                })]);
+                            }
                         } else {
                             timevar_string[1] = tokens[at_end_time+has_time_var_calc[1]][0];
                             minutes_to = word_value_replacement[timevar_string[1]];
