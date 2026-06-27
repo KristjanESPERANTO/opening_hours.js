@@ -375,7 +375,9 @@ With [34m[1mwarnings[22m[39m:
 	*daylight <--- (Please use notation "sunrise-sunset" for "daylight".)
 "Variable times calculation with coordinates" for "(sunrise+02:00)-sunset": [32m[1mPASSED[22m[39m
 "Variable times which moves over fix end time" for "sunrise-08:02": [32m[1mPASSED[22m[39m
+"Variable times boundary: first non-empty day" for "sunrise-08:02": [32m[1mPASSED[22m[39m
 "Variable times which moves over fix end time" for "sunrise-08:00": [32m[1mPASSED[22m[39m
+"Variable times boundary: zero-length is excluded" for "sunrise-08:00": [32m[1mPASSED[22m[39m
 "Variable times which moves over fix end time" for "sunrise-07:58": [32m[1mPASSED[22m[39m
 "Variable times which moves over fix end time" for "sunrise-06:00": [32m[1mPASSED[22m[39m
 "Variable times which moves over fix end time" for "sunrise-05:59": [32m[1mPASSED[22m[39m
