@@ -3,6 +3,7 @@
 import { defineConfig, globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import js from '@eslint/js'
+import jsdoc from 'eslint-plugin-jsdoc';
 import markdown from '@eslint/markdown'
 import stylistic from '@stylistic/eslint-plugin'
 import tseslint from 'typescript-eslint'
@@ -11,7 +12,7 @@ export default defineConfig([
   globalIgnores(['build/*', 'submodules/*', '**/yohours_model.js', 'src/holidays/generated-openholidays.js']),
   {
     files: ['**/*.js', '**/*.mjs'],
-    extends: [js.configs.recommended],
+    extends: [js.configs.recommended, jsdoc.configs['flat/recommended'],],
     plugins: { '@stylistic': stylistic },
     languageOptions: {
       ecmaVersion: 'latest',
