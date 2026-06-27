@@ -546,7 +546,7 @@ Almost everything from opening_hours definition is supported, as well as some ex
 
 - **WARN:** Supports space as time interval separator, i.e. `Mo 12:00-14:00,16:00-20:00` and `Mo 12:00-14:00 16:00-20:00` are the same thing
 - **WARN:** Supports dot as time separator (`12.00-16.00`)
-- Complete support for dawn/sunrise/sunset/dusk (variable times) keywords (`10:00-sunset`, `dawn-dusk`). To calculate the correct values, the latitude and longitude are required which are included in the JSON returned by [Nominatim] \(see in the [Library API][ohlib.library-api] how to provide it\). The calculation is done by [suncalc].
+- Complete support for dawn/sunrise/sunset/dusk (variable times) keywords (`10:00-sunset`, `dawn-dusk`). To calculate the correct values, the latitude and longitude are required which are included in the JSON returned by [Nominatim] \(see in the [Library API][ohlib.library-api] how to provide it\). The calculation is done by [sunrise-sunset-js].
 
   If the coordinates are missing, constant times will be used (dawn: '05:30', sunrise: '06:00', sunset: '18:00', dusk: '18:30').
 
@@ -865,7 +865,7 @@ See also:
 <!-- Links {{{ -->
 
 [nominatim]: https://wiki.openstreetmap.org/wiki/Nominatim#Reverse_Geocoding_.2F_Address_lookup
-[suncalc]: https://github.com/mourner/suncalc
+[sunrise-sunset-js]: https://github.com/udivankin/sunrise-sunset
 [fossgis-project]: https://wiki.openstreetmap.org/wiki/FOSSGIS/Server/Projects/opening_hours.js
 [releases on github]: /../../releases
 [key:opening_hours]: https://wiki.openstreetmap.org/wiki/Key:opening_hours

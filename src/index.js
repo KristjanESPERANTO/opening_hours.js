@@ -32,9 +32,25 @@
  */
 import * as holiday_definitions from './holidays/index';
 import word_error_correction from './locales/word_error_correction.yaml';
-
-import SunCalc from 'suncalc';
+import { getSunrise, getSunset, getTwilight } from 'sunrise-sunset-js';
 import { translate } from './locales/i18n';
+
+function getSunTimes(date, lat, lon) {
+    // sunrise-sunset-js uses the UTC portion of the Date to determine the calendar day.
+    // We must therefore pass UTC midnight of the local calendar day so the library
+    // computes solar times for the correct date regardless of the system timezone.
+    const localDay = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const timezone = -date.getTimezoneOffset() / 60;
+    // Nominatim YAML values are parsed as strings; sunrise-sunset-js requires numbers.
+    const opts = { timezone };
+    const twilight = getTwilight(+lat, +lon, localDay, opts);
+    return {
+        dawn:    twilight?.civilDawn ?? null,
+        sunrise: getSunrise(+lat, +lon, localDay, opts),
+        sunset:  getSunset(+lat, +lon, localDay, opts),
+        dusk:    twilight?.civilDusk ?? null,
+    };
+}
 
 export default function(value, nominatim_object, optional_conf_parm) {
     // Short constants {{{
@@ -1926,12 +1942,14 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                             if (timevar_string[0]) {
-                                const date_from = SunCalc.getTimes(date, lat, lon)[timevar_string[0]];
-                                minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
+                                const date_from = getSunTimes(date, lat, lon)[timevar_string[0]];
+                                if (date_from !== null)
+                                    minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
                             }
                             if (timevar_string[1]) {
-                                const date_to = SunCalc.getTimes(date, lat, lon)[timevar_string[1]];
-                                minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
+                                const date_to = getSunTimes(date, lat, lon)[timevar_string[1]];
+                                if (date_to !== null)
+                                    minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
                                 minutes_to += minutes_in_day;
                                 // Needs to be added because it was added by
                                 // normal times: if (minutes_to < minutes_from)
@@ -1970,8 +1988,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                 const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                                 if (timevar_string[1]) {
-                                    const date_to = SunCalc.getTimes(date, lat, lon)[timevar_string[1]];
-                                    minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
+                                    const date_to = getSunTimes(date, lat, lon)[timevar_string[1]];
+                                    if (date_to !== null)
+                                        minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
                                     // minutes_in_day does not need to be added.
                                     // For normal times in it was added in: if (minutes_to < // minutes_from)
                                     // above the selector construction and
@@ -2001,12 +2020,14 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                             if (timevar_string[0]) {
-                                const date_from = SunCalc.getTimes(date, lat, lon)[timevar_string[0]];
-                                minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
+                                const date_from = getSunTimes(date, lat, lon)[timevar_string[0]];
+                                if (date_from !== null)
+                                    minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
                             }
                             if (timevar_string[1]) {
-                                const date_to = SunCalc.getTimes(date, lat, lon)[timevar_string[1]];
-                                minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
+                                const date_to = getSunTimes(date, lat, lon)[timevar_string[1]];
+                                if (date_to !== null)
+                                    minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
                             } else if (is_point_in_time && typeof point_in_time_period !== 'number') {
                                 minutes_to = minutes_from + 1;
                             }
