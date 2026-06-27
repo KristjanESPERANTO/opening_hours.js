@@ -401,6 +401,39 @@ function generateWarningsHTML(warnings) {
            `<div class="warning_error_message">${warnings.join('\n')}</div></div>`;
 }
 
+function isCurrentDayPublicHoliday(evaluationDate) {
+    try {
+        const phCheck = new opening_hours('PH', nominatim, {
+            'locale': i18next.language
+        });
+        const phIterator = phCheck.getIterator(evaluationDate);
+        return phIterator.getState() === true && phIterator.getUnknown() === false;
+    } catch {
+        return false;
+    }
+}
+
+function hasMissingPublicHolidayWarning(oh) {
+    if (typeof oh.getStructuredWarnings !== 'function') {
+        return false;
+    }
+
+    return oh.getStructuredWarnings().some(warning => warning.type === 'public_holiday');
+}
+
+function generateCurrentPublicHolidayNoticeHTML(oh, evaluationDate) {
+    if (!hasMissingPublicHolidayWarning(oh)) {
+        return '';
+    }
+
+    if (!isCurrentDayPublicHoliday(evaluationDate)) {
+        return '';
+    }
+
+    return `<div class="warning">${i18next.t('texts.filter.error')}` +
+           `<div class="warning_error_message">${i18next.t('texts.current day public holiday missing')}</div></div>`;
+}
+
 function generateValueTooLongHTML(prettified, value) {
     if (prettified.length <= OSM_MAX_VALUE_LENGTH) return '';
 
@@ -542,6 +575,8 @@ export async function Evaluate (offset = 0, reset) {
         }
 
         // Append warnings if any
+        showWarningsOrErrors.innerHTML += generateCurrentPublicHolidayNoticeHTML(oh, date);
+
         const warnings = oh.getWarnings();
         showWarningsOrErrors.innerHTML += generateWarningsHTML(warnings);
 

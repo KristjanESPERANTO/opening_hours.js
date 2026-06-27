@@ -80,6 +80,7 @@ export const resources = { // English is fallback language.
                 'map is showing': 'This map is showing objects with the tag <a rel="external" href="{{wikiUrl}}">opening_hours</a> as colored circles:',
                 'error': 'The value could not be parsed',
                 'warning': 'If there appeared warnings during evaluation, a blue {{sign}} will show up in the status icon.',
+                'current day public holiday missing': 'Today is a public holiday at the selected location, but this value has no explicit PH rule. The shown status may be misleading for today.',
                 'map filter': 'There are a few filters which can be applied to find and fix mistakes (QA) or to just display open or closed facilities:',
                 'data source': 'The overlay data comes from {{OSMStartaTag}} and is queried using the {{APIaTag}}. The map is {{OSMaTag}}.',
                 'mode 0': 'Only time ranges are accepted (tags opening_hours, lit)',
