@@ -510,6 +510,13 @@ src/locales/word_error_correction.yaml: scripts/gen_word_error_correction.mjs
 	@echo "Generating word error correction data..."
 	$(NODEJS) scripts/gen_word_error_correction.mjs >/dev/null
 
+## Generate holiday YAML files from date-holidays package {{{
+.PHONY: generate-holidays
+generate-holidays:
+	$(NODEJS) scripts/generate_holidays_hybrid.js
+
+## }}}
+
 README.html:
 
 %.html: %.md

@@ -849,7 +849,28 @@ With [34m[1mwarnings[22m[39m:
 "Variable days: Argentina public holidays. 2022 (collision: Güemes 06-17 Fri would shift to 06-20 but collides with Belgrano)" for "PH": [32m[1mPASSED[22m[39m
 With [34m[1mwarnings[22m[39m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
-"Variable days: Australia national PH. 2033 (substitute_rule: New Year on Saturday → Monday substitute; Christmas on Sunday → Tuesday substitute)" for "PH": [32m[1mPASSED[22m[39m
+"Variable days: Australia national PH. 2033 (substitute_rule: New Year on Saturday → Monday substitute; Christmas on Sunday → Tuesday substitute)" for "PH": [31m[1mFAILED[22m[39m, bad duration(s): 950400000,0, expected 777600000,0, bad intervals: 
+[ '2033-01-01 00:00', '2033-01-02 00:00', false, 'New Year's Day' ],
+[ '2033-01-03 00:00', '2033-01-04 00:00', false, 'New Year's Day' ],
+[ '2033-01-26 00:00', '2033-01-27 00:00', false, 'Australia Day' ],
+[ '2033-04-15 00:00', '2033-04-16 00:00', false, 'Good Friday' ],
+[ '2033-04-16 00:00', '2033-04-17 00:00', false, 'Easter Saturday' ],
+[ '2033-04-17 00:00', '2033-04-18 00:00', false, 'Easter Sunday' ],
+[ '2033-04-18 00:00', '2033-04-19 00:00', false, 'Easter Monday' ],
+[ '2033-04-25 00:00', '2033-04-26 00:00', false, 'Anzac Day' ],
+[ '2033-12-25 00:00', '2033-12-26 00:00', false, 'Christmas Day' ],
+[ '2033-12-26 00:00', '2033-12-27 00:00', false, 'Boxing Day' ],
+[ '2033-12-27 00:00', '2033-12-28 00:00', false, 'Christmas Day' ],
+expected:
+[ '2033-01-01 00:00', '2033-01-02 00:00', false, 'New Year's Day' ],
+[ '2033-01-03 00:00', '2033-01-04 00:00', false, 'New Year's Day' ],
+[ '2033-01-26 00:00', '2033-01-27 00:00', false, 'Australia Day' ],
+[ '2033-04-15 00:00', '2033-04-16 00:00', false, 'Good Friday' ],
+[ '2033-04-18 00:00', '2033-04-19 00:00', false, 'Easter Monday' ],
+[ '2033-04-25 00:00', '2033-04-26 00:00', false, 'Anzac Day' ],
+[ '2033-12-25 00:00', '2033-12-26 00:00', false, 'Christmas Day' ],
+[ '2033-12-26 00:00', '2033-12-27 00:00', false, 'Boxing Day' ],
+[ '2033-12-27 00:00', '2033-12-28 00:00', false, 'Christmas Day' ],
 With [34m[1mwarnings[22m[39m:
 	*PH <--- (This rule is not very explicit because there is no time selector being used. A time selector is the part specifying hours when the object is opened, for example "10:00-19:00". Please add a time selector to this rule or use a comment to make it more explicit.)
 "Variable days: Australia national PH. 2034 (substitute_rule: New Year on Sunday → adjacent Monday substitute merges into 2-day range)" for "PH": [32m[1mPASSED[22m[39m
@@ -2624,7 +2645,7 @@ The optional_conf_parm["tag_key"] is missing, required by optional_conf_parm["ma
 "getNextChange skips comment-only boundary at end of off "renovation" overlay (#523)" for "Mo-Sa 08:00-21:00; Su "some 08:00-16:00"; PH off; 2025 Jul 27 - 2025 Sep 24 off "renovacija"": [32m[1mPASSED[22m[39m
 "getNextChange skips PH comment inside contiguous open range (#489)" for "Jul-Aug Mo-Su,PH 00:00-24:00": [32m[1mPASSED[22m[39m
 "getNextChange returns undefined when state never changes" for "24/7": [32m[1mPASSED[22m[39m
-992/992 tests passed. 0 did not pass.
+991/992 tests passed. 1 did not pass.
 41 tests where (partly) ignored, sorted by commonness:
 * 26: prettifyValue (most of the cases this is used to test if values with selectors in wrong order or wrong symbols (error tolerance) are evaluated correctly)
 * 11: not implemented yet

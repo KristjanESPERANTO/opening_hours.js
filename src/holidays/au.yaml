@@ -4,12 +4,12 @@
 
 _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=-35.2809&lon=149.1300&zoom=16&addressdetails=1&accept-language=en'
 
-# https://en.wikipedia.org/wiki/Public_holidays_in_Australia
-# Partial holidays excluded
 PH:
   - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if saturday,sunday then next monday'}
-  - {'name': 'Australia Day', 'fixed_date': [1, 26]}
+  - {'name': 'Australia Day', 'fixed_date': [1, 26], 'shift_rule': 'if saturday,sunday then next monday'}
   - {'name': 'Good Friday', 'variable_date': easter, 'offset': -2}
+  - {'name': 'Easter Saturday', 'variable_date': easter, 'offset': -1}
+  - {'name': 'Easter Sunday', 'variable_date': easter}
   - {'name': 'Easter Monday', 'variable_date': easter, 'offset': 1}
   - {'name': 'Anzac Day', 'fixed_date': [4, 25]}
   - {'name': 'Christmas Day', 'fixed_date': [12, 25], 'substitute_rule': 'if saturday then next monday if sunday then next tuesday'}
@@ -97,7 +97,6 @@ PH:
     - {'name': 'King''s Birthday', 'variable_date': firstJuneMonday, 'offset': 7}
     - {'name': 'Labour Day', 'variable_date': firstOctoberMonday}
     - {'name': 'Christmas Day', 'fixed_date': [12, 25], 'shift_rule': 'if saturday then next monday if sunday then next tuesday'}
-    - {'name': 'Boxing Day', 'fixed_date': [12, 26], 'substitute_rule': 'if saturday then next monday if sunday then next tuesday'}
     - {'name': 'Proclamation Day', 'fixed_date': [12, 26], 'substitute_rule': 'if saturday then next monday if sunday then next tuesday'}
 
 'Tasmania':
