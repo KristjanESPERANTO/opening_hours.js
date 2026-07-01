@@ -11,9 +11,9 @@ PH:  # https://en.wikipedia.org/wiki/Public_holidays_in_Norway
   - {'name': 'Første påskedag', 'variable_date': easter}
   - {'name': 'Andre påskedag', 'variable_date': easter, 'offset': 1}
   - {'name': 'Arbeidernes dag', 'fixed_date': [5, 1]}
-  - {'name': 'Kristi himmelfartsdag', 'variable_date': easter, 'offset': 39}
   - {'name': 'Grunnlovsdagen', 'fixed_date': [5, 17]}
+  - {'name': 'Kristi himmelfartsdag', 'variable_date': easter, 'offset': 39}
   - {'name': 'Første pinsedag', 'variable_date': easter, 'offset': 49}
   - {'name': 'Andre pinsedag', 'variable_date': easter, 'offset': 50}
-  - {'name': 'Første juledag', 'fixed_date': [12, 25]}
+  - {'name': 'Første Juledag', 'fixed_date': [12, 25]}
   - {'name': 'Andre juledag', 'fixed_date': [12, 26]}

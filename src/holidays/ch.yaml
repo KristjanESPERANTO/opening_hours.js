@@ -5,28 +5,33 @@
 _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm'
 
 PH:  # https://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz, https://www.bj.admin.ch/dam/data/bj/publiservice/service/zivilprozessrecht/kant-feiertage.pdf
-  - {'name': "Neujahrstag/Nouvel an/Capo d'anno", 'fixed_date': [1, 1]}
-  - {'name': 'Berchtoldstag/2 janvier', 'fixed_date': [1, 2], 'only_states': [Zürich, Bern, Luzern, Obwalden, Nidwalden, Glarus, Zug, Freiburg, Solothurn, Schaffhausen, Graubünden, Aargau, Thurgau, Waadt, Neuenburg, Genf, Jura, Sankt Gallen, Wallis]}
-  - {'name': 'Heilige Drei Könige/Epifania', 'fixed_date': [1, 6], 'only_states': [Uri, Schwyz, Graubünden, Tessin]}
-  - {'name': 'Instauration de la République', 'fixed_date': [3, 1], 'only_states': [Neuenburg]}
-  - {'name': 'Josefstag/Saint-Joseph/San Giuseppe', 'fixed_date': [3, 19], 'only_states': [Luzern, Uri, Schwyz, Nidwalden, Zug, Graubünden, Tessin, Wallis]}
-  - {'name': 'Karfreitag/Vendredi saint', 'variable_date': easter, 'offset': -2, 'only_states': [Zürich, Bern, Luzern, Uri, Schwyz, Obwalden, Nidwalden, Glarus, Zug, Freiburg, Solothurn, Basel-Stadt, Basel-Landschaft, Schaffhausen, Appenzell Ausserrhoden, Appenzell Innerrhoden, Sankt Gallen, Graubünden, Aargau, Thurgau, Waadt, Neuenburg, Genf, Jura]}
-  - {'name': 'Ostermontag/Lundi de Pâques/Lunedi di Pasqua', 'variable_date': easter, 'offset': 1, 'only_states': [Zürich, Bern, Luzern, Uri, Schwyz, Obwalden, Nidwalden, Glarus, Zug, Freiburg, Solothurn, Basel-Stadt, Basel-Landschaft, Schaffhausen, Appenzell Ausserrhoden, Appenzell Innerrhoden, Sankt Gallen, Graubünden, Aargau, Thurgau, Tessin, Waadt, Neuenburg, Genf, Jura, Wallis]}
-  - {'name': 'Tag der Arbeit/Festa dei lavoratori', 'fixed_date': [5, 1], 'only_states': [Zürich, Freiburg, Solothurn, Basel-Stadt, Basel-Landschaft, Schaffhausen, Aargau, Thurgau, Tessin, Neuenburg, Jura]}
+  - {'name': 'Neujahr/Nouvel An/Capodanno', 'fixed_date': [1, 1]}
+  - {'name': 'Berchtoldstag/2 janvier', 'fixed_date': [1, 2], 'only_states': [Aargau, Bern, Jura, Thurgau, Waadt]}
+  - {'name': 'Heilige Drei Könige/l''Épiphanie/Epifania', 'fixed_date': [1, 6], 'only_states': [Schwyz, Tessin, Uri]}
+  - {'name': 'Jahrestag Ausrufung der Republik/Instauration de la République', 'fixed_date': [3, 1], 'only_states': [Neuenburg]}
+  - {'name': 'Josefstag/San Giuseppe', 'fixed_date': [3, 19], 'only_states': [Nidwalden, Schwyz, Solothurn, Tessin, Uri, Wallis]}
+  - {'name': 'Karfreitag/Vendredi saint/Venerdì santo', 'variable_date': easter, 'offset': -2, 'only_states': [Aargau, Appenzell Ausserrhoden, Appenzell Innerrhoden, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Genf, Glarus, Graubünden, Jura, Luzern, Neuenburg, Nidwalden, Obwalden, Schaffhausen, Schwyz, Solothurn, St. Gallen, Thurgau, Uri, Waadt, Zug, Zürich]}
+  - {'name': 'Ostersonntag/Pâques/Domenica di Pasqua', 'variable_date': easter}
+  - {'name': 'Ostermontag/Lundi de Pâques/Lunedì dell’Angelo', 'variable_date': easter, 'offset': 1}
+  - {'name': 'Tag der Arbeit/Fête du travail/Festa del Lavoro', 'fixed_date': [5, 1], 'only_states': [Aargau, Basel-Landschaft, Basel-Stadt, Jura, Neuenburg, Schaffhausen, Tessin, Thurgau, Zürich]}
   - {'name': 'Auffahrt/Ascension/Ascensione', 'variable_date': easter, 'offset': 39}
-  - {'name': 'Pfingstmontag/Lundi de Pentecôte/Lunedi di Pentecoste', 'variable_date': easter, 'offset': 50, 'only_states': [Zürich, Bern, Luzern, Uri, Schwyz, Obwalden, Nidwalden, Glarus, Zug, Freiburg, Solothurn, Basel-Stadt, Basel-Landschaft, Schaffhausen, Appenzell Ausserrhoden, Appenzell Innerrhoden, Sankt Gallen, Graubünden, Aargau, Thurgau, Tessin, Waadt, Neuenburg, Genf, Jura, Wallis]}
-  - {'name': 'Fronleichnam/Fête-Dieu/Corpus domini', 'variable_date': easter, 'offset': 60, 'only_states': [Luzern, Uri, Schwyz, Obwalden, Nidwalden, Zug, Freiburg, Solothurn, Basel-Landschaft, Appenzell Innerrhoden, Graubünden, Aargau, Tessin, Wallis, Neuenburg, Jura]}
-  - {'name': 'Commémoration du plébiscite jurassien', 'fixed_date': [6, 23], 'only_states': [Jura]}
-  - {'name': 'San Pietro e Paolo', 'fixed_date': [6, 29], 'only_states': [Tessin]}
-  - {'name': 'Bundesfeiertag/Jour de la fête nationale/Giorno festivo federale', 'fixed_date': [8, 1]}
-  - {'name': 'Mariä Himmelfahrt/Assomption/Assunzione', 'fixed_date': [8, 15], 'only_states': [Luzern, Uri, Schwyz, Obwalden, Nidwalden, Zug, Freiburg, Solothurn, Basel-Landschaft, Appenzell Innerrhoden, Graubünden, Aargau, Tessin, Wallis, Jura]}
+  - {'name': 'Pfingstsonntag/Pentecôte/Pentecoste', 'variable_date': easter, 'offset': 49}
+  - {'name': 'Pfingstmontag/Lundi de Pentecôte/Lunedì di Pentecoste', 'variable_date': easter, 'offset': 50}
+  - {'name': 'Fronleichnam/la Fête-Dieu/Corpus Domini', 'variable_date': easter, 'offset': 60, 'only_states': [Aargau, Appenzell Innerrhoden, Freiburg, Jura, Luzern, Neuenburg, Nidwalden, Obwalden, Schwyz, Solothurn, Tessin, Uri, Wallis, Zug]}
+  - {'name': 'Fest der Unabhängigkeit/Plébiscite jurassien', 'fixed_date': [6, 23], 'only_states': [Jura]}
+  - {'name': 'Peter und Paul/Saint Pierre et Paul/Santi Pietro e Paolo', 'fixed_date': [6, 29], 'only_states': [Tessin]}
+  - {'name': 'Bundesfeiertag/Fête nationale/Giorno festivo federale', 'fixed_date': [8, 1]}
+  - {'name': 'Mariä Himmelfahrt/Assomption/Assunzione', 'fixed_date': [8, 15], 'only_states': [Aargau, Appenzell Innerrhoden, Freiburg, Jura, Luzern, Nidwalden, Obwalden, Schwyz, Solothurn, Tessin, Uri, Wallis, Zug]}
+  - {'name': 'Eidg. Dank-, Buss- und Bettag/Jeûne fédéral/Digiuno federale', 'variable_date': firstSeptemberSunday, 'offset': 14, 'only_states': [Aargau, Appenzell Ausserrhoden, Appenzell Innerrhoden, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Graubünden, Jura, Luzern, Neuenburg, Nidwalden, Obwalden, Schaffhausen, Schwyz, Solothurn, St. Gallen, Tessin, Thurgau, Uri, Waadt, Wallis, Zug, Zürich]}
   - {'name': 'Mauritiustag', 'fixed_date': [9, 22], 'only_states': [Appenzell Innerrhoden]}
-  - {'name': 'Bruderklausenfest', 'fixed_date': [9, 25], 'only_states': [Obwalden]}
-  - {'name': 'Allerheiligen/Toussaint/Ognissanti', 'fixed_date': [11, 1], 'only_states': [Luzern, Uri, Schwyz, Obwalden, Nidwalden, Glarus, Zug, Freiburg, Solothurn, Appenzell Innerrhoden, Sankt Gallen, Graubünden, Aargau, Tessin, Wallis, Jura]}
-  - {'name': 'Mariä Empfängnis/Immaculée Conception/Ognissanti', 'fixed_date': [12, 8], 'only_states': [Luzern, Uri, Schwyz, Obwalden, Nidwalden, Zug, Freiburg, Solothurn, Appenzell Innerrhoden, Graubünden, Aargau, Tessin, Wallis]}
+  - {'name': 'Bruderklausenfest/Saint-Nicholas-de-Flüe', 'fixed_date': [9, 25], 'only_states': [Obwalden]}
+  - {'name': 'Allerheiligen/Toussaint/Ognissanti', 'fixed_date': [11, 1], 'only_states': [Aargau, Appenzell Innerrhoden, Freiburg, Glarus, Jura, Luzern, Nidwalden, Obwalden, Schwyz, Solothurn, St. Gallen, Tessin, Uri, Wallis, Zug]}
+  - {'name': 'Mariä Empfängnis/Immaculée Conception/Immacolata Concezione', 'fixed_date': [12, 8], 'only_states': [Aargau, Freiburg, Luzern, Nidwalden, Obwalden, Schwyz, Tessin, Uri, Wallis, Zug]}
+  - {'name': 'Heiliger Abend/Veille de Noël', 'fixed_date': [12, 24], 'only_states': [Glarus]}
   - {'name': 'Weihnachtstag/Noël/Natale', 'fixed_date': [12, 25]}
-  - {'name': 'Stephanstag/Saint-Etienne/Santo Stefano', 'fixed_date': [12, 26], 'only_states': [Zürich, Bern, Luzern, Uri, Schwyz, Obwalden, Nidwalden, Glarus, Zug, Freiburg, Solothurn, Basel-Stadt, Basel-Landschaft, Schaffhausen, Appenzell Ausserrhoden, Appenzell Innerrhoden, Sankt Gallen, Graubünden, Aargau, Thurgau, Tessin, Wallis]}
-  - {'name': 'Restauration de la République', 'fixed_date': [12, 31], 'only_states': [Genf]}
+  - {'name': 'Stephanstag/Saint-Etienne/Santo Stefano', 'fixed_date': [12, 26], 'only_states': [Aargau, Appenzell Innerrhoden, Basel-Landschaft, Basel-Stadt, Bern, Freiburg, Genf, Glarus, Graubünden, Luzern, Neuenburg, Nidwalden, Obwalden, Schaffhausen, Schwyz, Solothurn, St. Gallen, Tessin, Thurgau, Wallis, Zug, Zürich]}
+  - {'name': 'Silvester/Saint-Sylvestre/Ultimo dell’anno', 'fixed_date': [12, 31], 'only_states': [Glarus]}
+  - {'name': 'Wiederherstellung der Republik/Restauration de la République', 'fixed_date': [12, 31], 'only_states': [Genf]}
 
 Aargau:
   _state_code: ag
@@ -100,9 +105,9 @@ Solothurn:
   _state_code: so
   _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&state=Solothurn&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm'
 
-Sankt Gallen:
+St. Gallen:
   _state_code: sg
-  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&state=Sankt%20Gallen&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=Schweiz&state=St.+Gallen&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm'
 
 Tessin:
   _state_code: ti

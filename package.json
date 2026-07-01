@@ -61,6 +61,7 @@
     "benchmark": "make benchmark",
     "interactive_testing": "make run-interactive_testing",
     "regex_search": "make run-regex_search",
+    "generate-holidays": "node scripts/generate_holidays_hybrid.js",
     "prepare": "husky",
     "readme": "doctoc README.md --title \"## Table of Contents\"",
     "check-updates": "npm-check-updates --upgrade"
