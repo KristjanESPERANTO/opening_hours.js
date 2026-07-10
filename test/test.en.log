@@ -1787,9 +1787,6 @@ With [34m[1mwarnings[22m[39m:
 With [34m[1mwarnings[22m[39m:
 	*Mo-Fr 10:00-20:00 open; We <--- (The selector "weekday" was switched with the selector "time" for readability and compatibility reasons.)
 	*Mo-Fr 10:00-20:00 open; We 10:00-16:00 <--- (The selector "time" was switched with the selector "weekday" for readability and compatibility reasons.)
-"Error tolerance: ambiguous words (listopad)" for "listopad 12:00-18:00": [32m[1mPASSED[22m[39m
-With [34m[1mwarnings[22m[39m:
-	*listopad <--- (Word "listopad" is ambiguous: Nov (Czech) or Oct (Croatian) or Nov (Polish). Please specify language context or use English month name.)
 "Value not ideal (probably wrong). Should throw a warning." for "Mo[2] - 0 days; 00:23-00:42 unknown "warning at correct position?"": [32m[1mPASSED[22m[39m
 With [34m[1mwarnings[22m[39m:
 	*Mo[2] - 0 days <--- (Adding 0 does not change the date. Please omit this.)
@@ -1835,7 +1832,7 @@ With [34m[1mwarnings[22m[39m:
 	*Mo 12:00-14:00 16:00-18:00 20:00-22:00 <--- (You have used 3 not connected time ranges in one rule. This is probably an error. Equal selector types can (and should) always be written in conjunction separated by comma. Example for time ranges "12:00-13:00,15:00-18:00". Example for weekdays "Mo-We,Fr". Rules can be separated by ";".)
 "Value not ideal (probably wrong). Should throw a warning." for "Mo-So 08:00-22:00; 00:23-00:42 unknown "warning at correct position?"": [32m[1mPASSED[22m[39m
 With [34m[1mwarnings[22m[39m:
-	*Mo-So <--- (Please use the English abbreviation "Su" for "so". Note that it might also mean Saturday in Polish.)
+	*Mo-So <--- (Please use the English abbreviation "Su" for "so". Note that "so" can also mean Sa (cs, sk) in other languages.)
 "Value not ideal (probably wrong). Should throw a warning." for "Mo Tu Fr; 00:23-00:42 unknown "warning at correct position?"": [32m[1mPASSED[22m[39m
 With [34m[1mwarnings[22m[39m:
 	*Mo Tu Fr <--- (You have used 3 not connected weekdays in one rule. This is probably an error. Equal selector types can (and should) always be written in conjunction separated by comma. Example for time ranges "12:00-13:00,15:00-18:00". Example for weekdays "Mo-We,Fr". Rules can be separated by ";".)
@@ -2091,8 +2088,14 @@ We off; Mo,Tu,Th-Su,PH; primavera <--- (Season words are ambiguous. Please use e
 "Incorrect syntax which should throw an error" for "Mo-Fr 17:00-12:00; Sa-Su 24:00-12:00": [32m[1mPASSED[22m[39m
 Mo-Fr 17:00-12:00; Sa-Su 24:00 <--- (Time range starts outside of the current day)
 
+"Error tolerance: ambiguous cross-locale word rejected without locale/location (listopad)" for "listopad 12:00-18:00": [32m[1mPASSED[22m[39m
+ <--- (Token "listopad" is ambiguous across languages (Nov (cs), Oct (hr), Nov (pl)). Use a canonical abbreviation (Jan, Feb, Mar, … Dec) or set the intended locale.)
+
+"#588: locale-mismatched weekday token rejected (Mo-Tr)" for "Mo-Tr 17:00-20:00": [32m[1mPASSED[22m[39m
+Mo- <--- (Token "tr" is not valid for locale "en"; it only matches We (lt). Use a canonical abbreviation (Mo, Tu, We, Th, Fr, Sa, Su) or set the intended locale.)
+
 "Incorrect syntax which should throw an error" for "sdasdlasdj a3reaw": [32m[1mPASSED[22m[39m
-sd <--- (Unexpected token: "s" This means that the syntax is not valid at that point or it is currently not supported.) sdasdlasdj a <--- (Please use notation "-" for "a".); sdasdlasdj a3reaw <--- (Assuming "We" for "w".)
+sd <--- (Unexpected token: "s" This means that the syntax is not valid at that point or it is currently not supported.) sdasdlasdj <--- (Please use the English abbreviation "Th" for "dj".); sdasdlasdj a <--- (Please use notation "-" for "a".); sdasdlasdj a3reaw <--- (Assuming "We" for "w".)
 
 "Incorrect syntax which should throw an error" for "": [32m[1mPASSED[22m[39m
 The value contains nothing meaningful which can be parsed.
@@ -2374,10 +2377,10 @@ Tu 23:59-48:00+ <--- (Time spanning more than two midnights not supported)
 』t <--- (Unexpected token: "』" This means that the syntax is not valid at that point or it is currently not supported.) 
 
 "Incorrect syntax which should throw an error" for "』testing"; 00:23-00:42 unknown "warning at correct position?"": [32m[1mPASSED[22m[39m
-』t <--- (Unexpected token: "』" This means that the syntax is not valid at that point or it is currently not supported.) 』testing"; 00:23-00:42 unknown "warning at <--- (Please use the English abbreviation "Tu" for "t".); 』testing"; 00:23-00:42 unknown "warning at correct <--- (Please use the English abbreviation "Tu" for "t".); 』testing"; 00:23-00:42 unknown "warning at correct position <--- (Please use the English abbreviation "Jan" for "ion".); 』testing"; 00:23-00:42 unknown "warning at correct position? <--- (Please consider adding a FIXME tag instead.)
+』t <--- (Unexpected token: "』" This means that the syntax is not valid at that point or it is currently not supported.) 』testing"; 00:23-00:42 unknown "warning at <--- (Please use the English abbreviation "Tu" for "t".); 』testing"; 00:23-00:42 unknown "warning at correct <--- (Please use the English abbreviation "Tu" for "t".); 』testing"; 00:23-00:42 unknown "warning at correct position <--- (Please use the English abbreviation "We" for "on".); 』testing"; 00:23-00:42 unknown "warning at correct position? <--- (Please consider adding a FIXME tag instead.)
 
 "Incorrect syntax which should throw an error" for ""testing«; 00:23-00:42 unknown "warning at correct position?"": [32m[1mPASSED[22m[39m
-"testing«; 00:23-00:42 unknown "wa <--- (Unexpected token: "w" This means that the syntax is not valid at that point or it is currently not supported.) "testing«; 00:23-00:42 unknown "warning at <--- (Please use the English abbreviation "Tu" for "t".); "testing«; 00:23-00:42 unknown "warning at correct <--- (Please use the English abbreviation "Tu" for "t".); "testing«; 00:23-00:42 unknown "warning at correct position <--- (Please use the English abbreviation "Jan" for "ion".); "testing«; 00:23-00:42 unknown "warning at correct position? <--- (Please consider adding a FIXME tag instead.)
+"testing«; 00:23-00:42 unknown "wa <--- (Unexpected token: "w" This means that the syntax is not valid at that point or it is currently not supported.) "testing«; 00:23-00:42 unknown "warning at <--- (Please use the English abbreviation "Tu" for "t".); "testing«; 00:23-00:42 unknown "warning at correct <--- (Please use the English abbreviation "Tu" for "t".); "testing«; 00:23-00:42 unknown "warning at correct position <--- (Please use the English abbreviation "We" for "on".); "testing«; 00:23-00:42 unknown "warning at correct position? <--- (Please consider adding a FIXME tag instead.)
 
 "Incorrect syntax which should throw an error" for " || open; 00:23-00:42 unknown "warning at correct position?"": [32m[1mPASSED[22m[39m
  || <--- (Rule before fallback rule does not contain anything useful)
@@ -2654,7 +2657,7 @@ The optional_conf_parm["tag_key"] is missing, required by optional_conf_parm["ma
 "getNextChange skips comment-only boundary at end of off "renovation" overlay (#523)" for "Mo-Sa 08:00-21:00; Su "some 08:00-16:00"; PH off; 2025 Jul 27 - 2025 Sep 24 off "renovacija"": [32m[1mPASSED[22m[39m
 "getNextChange skips PH comment inside contiguous open range (#489)" for "Jul-Aug Mo-Su,PH 00:00-24:00": [32m[1mPASSED[22m[39m
 "getNextChange returns undefined when state never changes" for "24/7": [32m[1mPASSED[22m[39m
-1019/1019 tests passed. 0 did not pass.
+1020/1020 tests passed. 0 did not pass.
 41 tests where (partly) ignored, sorted by commonness:
 * 26: prettifyValue (most of the cases this is used to test if values with selectors in wrong order or wrong symbols (error tolerance) are evaluated correctly)
 * 11: not implemented yet

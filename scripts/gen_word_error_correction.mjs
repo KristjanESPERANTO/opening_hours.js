@@ -7,12 +7,12 @@
 /**
  * Word Error Correction Generator
  *
- * Generates a comprehensive multilingual word error correction database for the opening_hours.js library.
- * Combines manual corrections with automatically generated corrections from CLDR locale data.
+ * Generates multilingual word-correction data used by opening_hours.js.
+ * Preserves manual corrections and derives ambiguity warnings from CLDR locale data.
  *
  * Features:
  * - Uses pinned CLDR package data for deterministic generation
- * - Extracts localized weekday and month names (long and short forms)
+ * - Scans localized weekday and month terms (long and short forms)
  * - Detects ambiguous words with different meanings across languages
  * - Generates warnings for conflicts (e.g., "listopad": Oct in Croatian vs Nov in Czech/Polish)
  *
@@ -24,9 +24,12 @@
  * Output:
  * - src/locales/word_error_correction.yaml containing:
  *   • All manual corrections (preserved as-is)
- *   • Automatically generated corrections for weekdays and months
  *   • "Ambiguous words" section with conflict warnings
  *   • Source/version metadata for reproducible generation
+ *
+ * Weekday/month names are resolved by the locale resolver at runtime,
+ * so this generator no longer emits them as flat corrections.
+ * CLDR is still analyzed here to detect genuinely ambiguous words.
  */
 
 import fs from 'node:fs';
@@ -59,12 +62,6 @@ function readJson(filePath) {
 
 function normalizeTerm(term) {
     return String(term || '').trim().toLowerCase();
-}
-
-// Escape regex special chars in auto-generated keys so dots/etc. stay literal.
-// Manual correction keys can still be regex patterns.
-function escapeRegexCharacters(str) {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function sortedKeys(obj) {
@@ -226,66 +223,12 @@ for (const word of sortedKeys(ambiguousWords)) {
 }
 console.log(`  → Ambiguous words tracked: ${Object.keys(ambiguousWords).length}`);
 
-// 5. Generate automatic corrections for all supported languages
-const existingKeys = new Set();
-for (const category of Object.keys(manualCorrections)) {
-    for (const key of Object.keys(manualCorrections[category])) {
-        existingKeys.add(normalizeTerm(key));
-    }
-}
-
-console.log('\n► Generating automatic corrections...');
-console.log(`  → Found ${existingKeys.size} existing manual correction keys to avoid conflicts`);
-let totalAutoCorrections = 0;
-let numericKeysFiltered = 0;
-let existingKeysFiltered = 0;
-let ambiguousKeysFiltered = 0;
-
-function tryAddCorrection(rawKey, replacement) {
-    const localValue = normalizeTerm(rawKey);
-    if (!localValue || localValue === replacement.toLowerCase()) {
-        return false;
-    }
-    if (/^\d+$/.test(localValue)) {
-        numericKeysFiltered++;
-        return false;
-    }
-    if (existingKeys.has(localValue)) {
-        existingKeysFiltered++;
-        return false;
-    }
-    if (ambiguousWords[localValue]) {
-        ambiguousKeysFiltered++;
-        return false;
-    }
-    const escapedKey = escapeRegexCharacters(localValue);
-    if (finalData[autoCategory][escapedKey]) {
-        return false;
-    }
-    finalData[autoCategory][escapedKey] = replacement;
-    totalAutoCorrections++;
-    return true;
-}
-
-for (const { locale, terms } of localeTerms) {
-    let localeCount = 0;
-    for (const { raw, meaning } of terms) {
-        if (tryAddCorrection(raw, meaning)) {
-            localeCount++;
-        }
-    }
-    if (localeCount > 0) {
-        console.log(`    ✓ ${locale}: ${localeCount} corrections`);
-    }
-}
+// 5. Weekday/month names are no longer auto-generated as flat corrections.
+// They are resolved by the locale resolver at runtime, while this generator
+// keeps manual corrections and ambiguity warnings only.
 
 finalData[autoCategory] = sortObject(finalData[autoCategory]);
 finalData[ambiguousWordsCategory] = sortObject(finalData[ambiguousWordsCategory]);
-
-console.log(`  → Total automatic corrections: ${totalAutoCorrections}`);
-console.log(`  → Numeric keys filtered out: ${numericKeysFiltered}`);
-console.log(`  → Existing manual keys avoided: ${existingKeysFiltered}`);
-console.log(`  → Ambiguous words excluded: ${ambiguousKeysFiltered}`);
 
 // 6. Write final YAML structure
 console.log('\n► Writing output file...');

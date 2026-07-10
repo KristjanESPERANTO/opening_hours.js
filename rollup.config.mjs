@@ -4,6 +4,7 @@ import common from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import yaml from '@rollup/plugin-yaml';
+import json from '@rollup/plugin-json';
 
 // YAML plugin only for non-holiday files (e.g., word_error_correction.yaml)
 // Holiday data now comes from generated-openholidays.js
@@ -24,7 +25,7 @@ const globals = {
 // Build configuration without bundled dependencies
 const configWithoutDeps = {
     input: './src/index.js',
-    plugins: [yamlPlugin],
+    plugins: [yamlPlugin, json()],
     external: ['suncalc'],
     output: [
         // ESM build
@@ -59,6 +60,7 @@ const configWithDeps = {
         nodeResolve(),
         common(),
         yamlPlugin,
+        json(),
     ],
     output: [
         // UMD build (with dependencies)

@@ -36,6 +36,11 @@ import word_error_correction from './locales/word_error_correction.yaml';
 import { getTimes } from 'suncalc';
 import { translate } from './locales/i18n';
 
+import { resolveRange } from './locale-resolver/resolver.mjs';
+import { regionLanguages } from './locale-resolver/region-languages.mjs';
+import { normalizeToken } from './locale-resolver/normalize.mjs';
+import resolver_layers from './locale-resolver/layers.json';
+
 export default function(value, nominatim_object, optional_conf_parm) {
     // Short constants {{{
     const word_value_replacement = { // If the correct values can not be calculated.
@@ -577,6 +582,111 @@ export default function(value, nominatim_object, optional_conf_parm) {
         const all_tokens     = [];
         let curr_rule_tokens = [];
 
+        // Two-phase locale resolver: collect the raw lexemes of the weekday/month
+        // operands per rule, then resolve each group together (Pass B). Grouping
+        // per rule gives cross-token coherence (e.g. понедельник-пятница) that a
+        // greedy single-token pass cannot, and the POI country adds the geo tier.
+        const resolver_region_langs = regionLanguages(location_cc, resolver_layers);
+        const range_meaning_index = { weekday: weekdays, month: months };
+        let curr_rule_range_raw = { weekday: [], month: [] };
+        const recordRangeTerm = (raw, range_type, token_index, warning_index) => {
+            if (range_type === 'weekday' || range_type === 'month') {
+                curr_rule_range_raw[range_type].push({
+                    raw,
+                    token_index,
+                    warning_index: typeof warning_index === 'number' ? warning_index : null,
+                });
+            }
+        };
+        const finalizeRuleRanges = () => {
+            for (const range_type of ['weekday', 'month']) {
+                const entries = curr_rule_range_raw[range_type];
+                if (entries.length === 0) {
+                    continue;
+                }
+                const res = resolveRange(entries.map(entry => entry.raw), {
+                    locale: parser_locale,
+                    type: range_type,
+                    layers: resolver_layers,
+                    regionLangs: resolver_region_langs,
+                });
+                res.tokens.forEach((resolved, index) => {
+                    // Reject foreign/ambiguous tokens the resolver actively rejects,
+                    // but defer 'unknown' ones to the manual correction table.
+                    if (resolved.confidence === 'error' && resolved.kind !== 'unknown') {
+                        const token = curr_rule_tokens[entries[index].token_index];
+                        const at = token ? token[2] : -1;
+                        throw formatWarnErrorMessage(-1, at, resolved.message);
+                    }
+                    // Correct the token to the context-resolved meaning, overriding a
+                    // locale-blind flat-map guess (e.g. `ne`→Su becomes Th at a Sesotho
+                    // location). The resolver — not the greedy map — is authoritative.
+                    if (resolved.meaning && resolved.kind !== 'unknown') {
+                        const meaning_index = range_meaning_index[range_type].indexOf(resolved.meaning);
+                        const token = curr_rule_tokens[entries[index].token_index];
+                        if (meaning_index >= 0 && token && token[1] === range_type) {
+                            const overridden = token[0] !== meaning_index;
+                            if (overridden) {
+                                token[0] = meaning_index;
+                            }
+                            // Rewrite the correction warning when the resolver overrode the
+                            // meaning, or append an auto-generated note when the lexeme is
+                            // cross-locale ambiguous (e.g. `so` = Su here, Sa elsewhere).
+                            const has_note = Array.isArray(resolved.alternatives) && resolved.alternatives.length > 0;
+                            if (overridden || has_note) {
+                                const raw_lexeme = entries[index].raw;
+                                let message = t('please use English abbreviation ok for ko',
+                                    { ko: raw_lexeme, ok: resolved.meaning });
+                                if (has_note) {
+                                    const alternatives = resolved.alternatives
+                                        .map(alt => alt.meaning + ' (' + alt.langs.join(', ') + ')')
+                                        .join('; ');
+                                    message += ' ' + t('ambiguous elsewhere', { ko: raw_lexeme, alternatives });
+                                }
+                                // Rewrite exactly the warning this token produced (tracked
+                                // by index), so a repeated lexeme in the same rule cannot
+                                // patch the wrong occurrence.
+                                const warn_idx = entries[index].warning_index;
+                                if (warn_idx !== null && warn_idx >= 0 && warn_idx < parsing_warnings.length) {
+                                    const warning = parsing_warnings[warn_idx];
+                                    if (warning[2] === 'word_error_correction'
+                                        && typeof warning[3] === 'string') {
+                                        warning[3] = message;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            curr_rule_range_raw = { weekday: [], month: [] };
+        };
+
+        // Recognise a word the flat map does not know but the cross-locale index
+        // does (e.g. an ambiguous foreign weekday like `ne`). Returns a provisional
+        // { index, type }; finalizeRuleRanges resolves the real meaning by context.
+        const recognizeRangeToken = (word) => {
+            const candidates = resolver_layers.crossLocale[normalizeToken(word)];
+            if (!candidates) {
+                return null;
+            }
+            const weekday = candidates.find(candidate => candidate.type === 'weekday');
+            const month = candidates.find(candidate => candidate.type === 'month');
+            // The same lexeme can be a weekday in one language and a month in
+            // another. Without grammatical context we cannot commit to a type
+            // here, so defer to the normal error handling instead of guessing.
+            if (weekday && month) {
+                return null;
+            }
+            if (weekday) {
+                return { index: weekdays.indexOf(weekday.meaning), type: 'weekday' };
+            }
+            if (month) {
+                return { index: months.indexOf(month.meaning), type: 'month' };
+            }
+            return null;
+        };
+
         let last_rule_fallback_terminated = false;
 
         while (value !== '') {
@@ -594,6 +704,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }
             if (typeof token_from_map === 'object') {
                 curr_rule_tokens.push(token_from_map.concat([value.length]));
+                recordRangeTerm(tmp[1], token_from_map[1], curr_rule_tokens.length - 1);
                 value = value.substr(tmp[1].length);
             } else if ((tmp = value.match(/^\s+/))) {
                 // whitespace is ignored
@@ -605,6 +716,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             } else if (/^;/.test(value)) {
                 // semicolon terminates rule.
                 // Next token belong to a new rule.
+                finalizeRuleRanges();
                 all_tokens.push([ curr_rule_tokens, last_rule_fallback_terminated, value.length ]);
                 value = value.substr(1);
 
@@ -666,10 +778,18 @@ export default function(value, nominatim_object, optional_conf_parm) {
                  * if used in cases like 'mo12:00-14:00' (when keyword is followed by number).
                  */
                 const lower_word = tmp[1].toLowerCase();
+                const warn_count_before = parsing_warnings.length;
                 let correct_val = returnCorrectWordOrToken(lower_word, value.length);
+                // A word_error_correction warning, if any, is the last one pushed by
+                // returnCorrectWordOrToken; remember its index so the resolver can
+                // rewrite exactly this warning later (not a same-word duplicate).
+                const correction_warning_index = parsing_warnings.length > warn_count_before
+                    ? parsing_warnings.length - 1
+                    : null;
                 // console.log('Error tolerance for string "' + tmp[1] + '" returned "' + correct_val + '".');
                 if (typeof correct_val === 'object') {
                     curr_rule_tokens.push([ correct_val[0], correct_val[1], value.length ]);
+                    recordRangeTerm(lower_word, correct_val[1], curr_rule_tokens.length - 1);
                     value = value.substr(tmp[0].length);
                 } else if (typeof correct_val === 'string') {
                     if (correct_val === 'am' || correct_val === 'pm') {
@@ -708,21 +828,47 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         curr_rule_tokens.push([correct_tokens[0][i][0], correct_tokens[0][i][1], value.length]);
                         // value.length - tmp[0].length does not have the desired effect for all test cases.
                     }
+                    if (correct_tokens[0].length === 1) {
+                        recordRangeTerm(lower_word, correct_tokens[0][0][1], curr_rule_tokens.length - 1, correction_warning_index);
+                    }
 
                     value = value.substr(tmp[0].length);
                     // value = correct_val + value.substr(tmp[0].length);
                     // Does not work because it would generate the wrong length for formatWarnErrorMessage.
                 } else {
-                    if (ambiguous_season_words.has(lower_word)) {
+                    const recognized = recognizeRangeToken(lower_word);
+                    if (recognized && recognized.index >= 0) {
+                        // Not in the flat map, but the cross-locale index recognises it
+                        // as a weekday/month name. Push provisionally; finalizeRuleRanges
+                        // resolves the actual meaning by locale/geo/coherence or rejects it.
+                        curr_rule_tokens.push([recognized.index, recognized.type, value.length]);
+                        // Emit the same "use the English abbreviation" hint the flat map
+                        // used to; finalizeRuleRanges rewrites it if the resolved meaning
+                        // differs from this provisional one.
+                        let recognition_warning_index = null;
+                        if (!done_with_warnings) {
+                            const provisional = (recognized.type === 'weekday' ? weekdays : months)[recognized.index];
+                            recognition_warning_index = parsing_warnings.length;
+                            parsing_warnings.push([
+                                -1,
+                                value.length - lower_word.length,
+                                'word_error_correction',
+                                t('please use English abbreviation ok for ko', { ko: lower_word, ok: provisional }),
+                            ]);
+                        }
+                        recordRangeTerm(lower_word, recognized.type, curr_rule_tokens.length - 1, recognition_warning_index);
+                        value = value.substr(tmp[0].length);
+                    } else if (ambiguous_season_words.has(lower_word)) {
                         throw formatWarnErrorMessage(
                             -1,
                             value.length - tmp[0].length,
                             t('season words ambiguous')
                         );
+                    } else {
+                        // No correction available. Insert as single character token and let the parser handle the error.
+                        curr_rule_tokens.push([value[0].toLowerCase(), value[0].toLowerCase(), value.length - 1 ]);
+                        value = value.substr(1);
                     }
-                    // No correction available. Insert as single character token and let the parser handle the error.
-                    curr_rule_tokens.push([value[0].toLowerCase(), value[0].toLowerCase(), value.length - 1 ]);
-                    value = value.substr(1);
                 }
                 if (typeof tmp[2] === 'string' && tmp[2] !== '' && !done_with_warnings) {
                     parsing_warnings.push([ -1, value.length, 'omit_ko', t('omit ko', {'ko': tmp[2]})]);
@@ -754,6 +900,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     throw formatWarnErrorMessage(-1, value.length - 2, t('rule before fallback empty'));
                 }
 
+                finalizeRuleRanges();
                 all_tokens.push([ curr_rule_tokens, last_rule_fallback_terminated, value.length ]);
                 curr_rule_tokens = [];
                 // curr_rule_tokens = [ [ '||', 'rule separator', value.length  ] ];
@@ -800,6 +947,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }
         }
 
+        finalizeRuleRanges();
         all_tokens.push([ curr_rule_tokens, last_rule_fallback_terminated ]);
 
         return all_tokens;

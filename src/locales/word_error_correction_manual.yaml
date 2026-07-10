@@ -143,8 +143,6 @@
   # German
   ostern: easter
 
-'please use English abbreviation ok for so':
-  so: Su
 'please use English abbreviation ok for ko':
   # weekday: Good source: https://www.omniglot.com/language/time/days.htm
   sun: Su
@@ -155,7 +153,6 @@
   tuesdays?: Tu
   weds?: We
   wednesdays?: We
-  thu: Th
   thurs?: Th
   thursdays?: Th
   fri: Fr
@@ -164,27 +161,20 @@
   saturdays?: Sa
 
   # German
-  son: Su
   sonn-: Su
   sonntags?: Su
   montags?: Mo
-  di: Tu
   die?: Tu
   dienstags?: Tu
-  mi: We
   mit?: We
   mittwochs?: We
   don?: Th
   donnerstags?: Th
-  fre: Fr
   freitags?: Fr
-  sam: Sa
   samstags?: Sa
 
   # French
-  dim: Su
   lun?: Mo
-  mer: We
   jeu?: Th
   ven?: Fr
 
@@ -195,56 +185,30 @@
   woe?: We
   vri?: Fr
   zat?: Sa
-  # Czech
-  ne: Su
-  po: Mo
-  út: Tu
-  st: We
-  čt: Th
-  pá: Fr
 
   # Indonesian
-  selasa: Su
-  rabu: Mo
   kami: Tu
-  jumat: We
-  sabtu: Th
-  minggu: Fr
-  senin: Sa
 
   # Swedish
   söndagar: Su
-  ma: Mo
   lördagar: Sa
 
   # Polish
-  niedz: Su
-  n: Su
   ndz: Su
   poniedzialek: Mo
-  pon: Mo
-  pn: Mo
-  wt: Tu
   sroda: We
-  śr: We
   sr: We
-  czw: Th
   cz: Th
   piatek: Fr
-  pt: Fr
-  sob: Sa
 
   # Russian
-  Вс: Su
   'voskresen''ye': Su
-  Пн: Mo
   'ponedel''nik': Mo
   vtornik: Tu
   chetverk: Th
   pyatnitsa: Fr
   subbota: Sa
   # Italian
-  dom: Su
   domenica?: Su
   domeniche?: Su
   lunedì?: Mo
@@ -252,28 +216,19 @@
   martedì?: Tu
   mer?: We
   mercoledì?: We
-  gio: Th
   giovedì?: Th
-  ven: Fr
   venerdì?: Fr
-  sab: Sa
   sabato?: Sa
 
   # month
-  jänner: Jan  # Austria
   june?: Jun
   july?: Jul
-  sept: Sep
 
   # German
   märz?: Mar
   maerz: Mar
-  okt: Oct
-  dez: Dec
 
   # French
-  fév: Feb
-  avr: Apr
   aoû: Aug
 
   # Italian

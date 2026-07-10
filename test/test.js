@@ -5143,8 +5143,12 @@ test.addTest('Error tolerance: languages with Unicode characters (Georgian, Thai
         [ '2012-10-05 09:00', '2012-10-05 17:00' ],
     ], 1000 * 60 * 60 * 8 * 5, 0, true, {}, 'not last test');
 
-test.addShouldWarn('Error tolerance: ambiguous words (listopad)', [
+test.addShouldFail('Error tolerance: ambiguous cross-locale word rejected without locale/location (listopad)', [
         'listopad 12:00-18:00',
+    ], nominatim_default, 'not last test');
+
+test.addShouldFail('#588: locale-mismatched weekday token rejected (Mo-Tr)', [
+        'Mo-Tr 17:00-20:00',
     ], nominatim_default, 'not last test');
 
 test.addTest('Error tolerance: month names in different languages (long form)', [
