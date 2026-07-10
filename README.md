@@ -318,13 +318,15 @@ function getReadableState(startString, endString, oh, past) {
     7: debug
     ```
 
-    - `locale (type: string, default: 'en')`: Defines the locale for errors and warnings. Currently, only 'en' (English) and 'de' (German) are supported.
+    - `locale (type: string, default: 'en')`: Defines the locale for errors and warnings. Currently, 'en' (English), 'de' (German), and 'fr' (French) are supported.
 
     - additional_rule_separator (type boolean, default true)`: Allows to disable the "additional_rule_separator not used after time wrapping midnight" check giving rise to the warning "This rule overwrites parts of the previous rule. This happens because normal rules apply to the whole day and overwrite any definition made by previous rules. You can make this rule an additional rule by using a "," instead of the normal ";" to separate the rules. Note that the overwriting can also be desirable in which case you can ignore this warning."
 
 - `let warnings = oh.getWarnings();`
 
   Get warnings which appeared during parsing as human readable string array with one element per violation. Almost all warnings can be auto-corrected and are probably interpreted as intended by the mapper. However, this is not a granite of course.
+
+  Weekday and month words from multiple languages are tolerated when the meaning is unambiguous in context. Ambiguous or locale-mismatched combinations can produce warnings or parse errors (for example mixed range endpoints from different languages).
 
   This function performs some additional testing and can thus also theoretically throw an error like all other functions which parse the time.
 
