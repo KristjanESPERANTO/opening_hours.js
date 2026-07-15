@@ -8,6 +8,68 @@ SPDX-License-Identifier: LGPL-3.0-only
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.14.0](https://github.com/opening-hours/opening_hours.js/compare/v3.13.0...v3.14.0) (2026-07-15)
+
+
+### Features
+
+* add getStructuredWarnings() ([15594f7](https://github.com/opening-hours/opening_hours.js/commit/15594f71880242cc23ce4b6eb10851c39e181bf4)), closes [#583](https://github.com/opening-hours/opening_hours.js/issues/583)
+* **holidays:** support substitute_rule for additive substitutes ([8ea7edc](https://github.com/opening-hours/opening_hours.js/commit/8ea7edc2b6dcbac0be785a9e0a4aee1ef796c00f))
+* **i18n:** enable French (fr) locale for getComment() and warnings ([fa29a40](https://github.com/opening-hours/opening_hours.js/commit/fa29a40f4db4ba9e128e95eb08d347279f9d083d))
+* resolve weekday/month names by locale and location ([ebefb0d](https://github.com/opening-hours/opening_hours.js/commit/ebefb0d8b3e82be51a963e2990d0230608e47f62))
+* support substitute_name for substitute rule holidays ([4945ce2](https://github.com/opening-hours/opening_hours.js/commit/4945ce2f92dccfe506cf0414d90b8a351462c792))
+* warn on ambiguous single-digit end hours ([9e6eb58](https://github.com/opening-hours/opening_hours.js/commit/9e6eb582a55f1e60399a88990fae7fe79d46b3f2))
+
+
+### Bug Fixes
+
+* **i18n:** accept underscore in locale separator ([8535fce](https://github.com/opening-hours/opening_hours.js/commit/8535fce95d05ff4519f40a31f65ce17277c52424)), closes [#480](https://github.com/opening-hours/opening_hours.js/issues/480)
+* **parser:** reject ambiguous season words ([964d173](https://github.com/opening-hours/opening_hours.js/commit/964d173f255d172574f616392dfd51d4279907ce))
+* **parser:** reject mixed monthday/week comma rules ([6756dce](https://github.com/opening-hours/opening_hours.js/commit/6756dcee3cfa514963e07043bb14840c34aa8c3f))
+* **prettify:** keep bare-hour ranges semantically stable ([068e860](https://github.com/opening-hours/opening_hours.js/commit/068e86086bacb5def5c782fd7dea14bd2e90fd39))
+* **prettify:** keep comment-state prettify order ([cf393ea](https://github.com/opening-hours/opening_hours.js/commit/cf393eab386062e2a9e2f3d707a5ce990a1792a6))
+* **prettify:** keep comment-state prettify order stable ([4daa35a](https://github.com/opening-hours/opening_hours.js/commit/4daa35a0439831b74425fc7971a5e79e66fe71e1))
+* **prettify:** keep prettify order for additional off rules ([ecb464d](https://github.com/opening-hours/opening_hours.js/commit/ecb464d2b57b9514c1e9c7fec15f4f38925a19a6))
+* **prettify:** translate grouped PH/SH tokens ([b594110](https://github.com/opening-hours/opening_hours.js/commit/b594110254760d17fa59b2d6127169d86a50b9f1))
+
+
+### Data Updates
+
+* **ar:** add missing shift_rule ([02045d4](https://github.com/opening-hours/opening_hours.js/commit/02045d4ecd030e57b73a6886b6f6f8b57e3c96c1))
+* **au:** add missing shift_rule + format ([07b36c8](https://github.com/opening-hours/opening_hours.js/commit/07b36c84b38a9c8ccbd97c72e28f9a24aa85e340))
+* **au:** apply substitute_rule for AU national PH ([8b28469](https://github.com/opening-hours/opening_hours.js/commit/8b2846949ed8f52f0cf45e3abe2d211910fb64db))
+* **br:** add state codes and nominatim URLs for Brazilian states ([75a743c](https://github.com/opening-hours/opening_hours.js/commit/75a743c2e4a53b2aea79709c5a29295d0723384c))
+* **by:** add missing holiday 'Радунiца' ([2164fbf](https://github.com/opening-hours/opening_hours.js/commit/2164fbf4a7c5947fd5690a3e60c48441765fc63b))
+* **ch:** move _state_code before _nominatim_url for constancy ([42bb79a](https://github.com/opening-hours/opening_hours.js/commit/42bb79afb9f7a956837f36232f176e8409442151))
+* **gb:** add substitute rules and names for GB public holidays ([09fd81f](https://github.com/opening-hours/opening_hours.js/commit/09fd81f249d912476d9b50dab1566df0457bb89a))
+* **gb:** fix Summer bank holiday variable date to first August Monday for Scotland ([40501ff](https://github.com/opening-hours/opening_hours.js/commit/40501ff1ddeb116943c9348b6bad1408cf4d0c20))
+* **gr:** add Whit Monday and tidy up Greek holidays ([c38aeb1](https://github.com/opening-hours/opening_hours.js/commit/c38aeb12da7ef5478757dc559bb8ff0ad15d143f))
+* **hr:** align holiday names with legal wording ([63c7203](https://github.com/opening-hours/opening_hours.js/commit/63c72033d802a1ce1b01cab2f3b2f03fdcf2c937))
+* **locales:** add complete French (fr) translation ([2b0ce34](https://github.com/opening-hours/opening_hours.js/commit/2b0ce34b12596cbd5f8d180ba8310d204167b7a7))
+* **lv:** add substitute rules for public holidays ([dd015c9](https://github.com/opening-hours/opening_hours.js/commit/dd015c91fe138e3e6410852d60260dea4a424170))
+* **mc:** add substitute rules for public holidays ([3f8ec61](https://github.com/opening-hours/opening_hours.js/commit/3f8ec61dd276e93555908af8111236d27a3a6893))
+* **na:** add substitute rules and names for NA public holidays ([67344da](https://github.com/opening-hours/opening_hours.js/commit/67344dab9bd1e058dd3973ed4c03672e05a0d34e))
+* **nz:** add substitute rules for public holidays ([12492fd](https://github.com/opening-hours/opening_hours.js/commit/12492fdcb5ac1ce727fe3ce47b350d9845e30e42))
+* **rs:** add shift rules for public holidays and second 'Дан државности Србије' ([20ef8fc](https://github.com/opening-hours/opening_hours.js/commit/20ef8fcbbc2ac81ff37e220a8231f160ab5de832))
+* update generated holidays file ([b24807c](https://github.com/opening-hours/opening_hours.js/commit/b24807ca4ea62e41f5e6eb9498d8541d8006e257))
+* update openholidaysapi to latest commit ([8f2934f](https://github.com/opening-hours/opening_hours.js/commit/8f2934fe77b62356819c90b90460ca53e05f9492))
+* **za:** add substitute rules and names for ZA public holidays ([0ade21f](https://github.com/opening-hours/opening_hours.js/commit/0ade21f8ccd1efd4cbd34beedc0df0f9df3cb994))
+
+
+### Documentation
+
+* **holidays:** document substitute_rule ([6e4a06a](https://github.com/opening-hours/opening_hours.js/commit/6e4a06a2723e2dbe9e63e4db9643dc47a88a12c1))
+* **locales:** update i18n file references ([93092f4](https://github.com/opening-hours/opening_hours.js/commit/93092f4caed063a33387da5f244c12e861e795bf))
+
+
+### Code Refactoring
+
+* **i18n:** flatten translation namespace ([a5f9227](https://github.com/opening-hours/opening_hours.js/commit/a5f9227f55727a3c9bc39c5e0a6e21da2978b060))
+* **i18n:** merge lang into translations ([e59aace](https://github.com/opening-hours/opening_hours.js/commit/e59aacead189a6b6cc70bf3509f126ceebf37d84))
+* **i18n:** simplify translations ([ac00b52](https://github.com/opening-hours/opening_hours.js/commit/ac00b523103d803f07c21468fe7a4c1779682fa6))
+* **locales:** switch generator from Intl to CLDR ([37a0527](https://github.com/opening-hours/opening_hours.js/commit/37a0527efdbb73d60011e97d852a0a9519d31860))
+* update suncalc to v2 ([234c44b](https://github.com/opening-hours/opening_hours.js/commit/234c44bc71dd4a467f970e9231ab25c9706840be))
+
 ## [3.13.0](https://github.com/opening-hours/opening_hours.js/compare/v3.12.0...v3.13.0) (2026-06-06)
 
 
