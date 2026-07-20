@@ -11935,7 +11935,7 @@ export const na = {
 };
 
 export const nl = {
-  PH: [{"name":"Nieuwjaarsdag","fixed_date":[1,1]},{"name":"Goede vrijdag","variable_date":"easter","offset":-2},{"name":"Tweede Paasdag","variable_date":"easter","offset":1},{"name":"Koningsdag","fixed_date":[4,27]},{"name":"Bevrijdingsdag","fixed_date":[5,5]},{"name":"Hemelvaartsdag","variable_date":"easter","offset":39},{"name":"Tweede Pinksterdag","variable_date":"easter","offset":50},{"name":"Eerste Kerstdag","fixed_date":[12,25]},{"name":"Tweede Kerstdag","fixed_date":[12,26]}],
+  PH: [{"name":"Nieuwjaarsdag","fixed_date":[1,1]},{"name":"Goede vrijdag","variable_date":"easter","offset":-2},{"name":"Tweede Paasdag","variable_date":"easter","offset":1},{"name":"Koningsdag","fixed_date":[4,27],"shift_rule":"if sunday then previous saturday"},{"name":"Bevrijdingsdag","fixed_date":[5,5]},{"name":"Hemelvaartsdag","variable_date":"easter","offset":39},{"name":"Tweede Pinksterdag","variable_date":"easter","offset":50},{"name":"Eerste Kerstdag","fixed_date":[12,25]},{"name":"Tweede Kerstdag","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=52.3702&lon=4.8952&zoom=18&addressdetails=1&accept-language=nl,en",
   "MI": {
     SH: [
