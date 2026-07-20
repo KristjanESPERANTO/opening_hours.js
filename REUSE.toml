@@ -35,3 +35,42 @@ SPDX-License-Identifier = "LGPL-3.0-only"
 path = "src/holidays/nominatim_cache/*.yaml"
 SPDX-FileCopyrightText = "OpenStreetMap contributors"
 SPDX-License-Identifier = "ODbL-1.0"
+
+# Submodule: date-holidays — used for PH data generation
+# Upstream licenses holiday data under CC-BY-SA-3.0 and code under ISC.
+[[annotations]]
+path = [
+  "submodules/date-holidays/data/countries/*.yaml",
+  "submodules/date-holidays/data/holidays.json",
+]
+SPDX-FileCopyrightText = "date-holidays contributors"
+SPDX-License-Identifier = "CC-BY-SA-3.0"
+
+[[annotations]]
+path = [
+  "submodules/date-holidays/CHANGELOG.md",
+  "submodules/date-holidays/commitlint.config.cjs",
+  "submodules/date-holidays/CONTRIBUTING.md",
+  "submodules/date-holidays/eslint.config.mjs",
+  "submodules/date-holidays/LICENSE",
+  "submodules/date-holidays/Makefile",
+  "submodules/date-holidays/package.json",
+  "submodules/date-holidays/README.md",
+  "submodules/date-holidays/rollup.config.mjs",
+  "submodules/date-holidays/TODO.md",
+  "submodules/date-holidays/webpack.config.cjs",
+  "submodules/date-holidays/.gitattributes",
+  "submodules/date-holidays/.gitignore",
+  "submodules/date-holidays/.npmignore",
+  "submodules/date-holidays/.npmrc",
+  "submodules/date-holidays/.zuul.yml",
+  "submodules/date-holidays/data/names.yaml",
+  "submodules/date-holidays/docs/**",
+  "submodules/date-holidays/examples/**",
+  "submodules/date-holidays/scripts/**",
+  "submodules/date-holidays/src/**",
+  "submodules/date-holidays/test/**",
+  "submodules/date-holidays/types/**",
+]
+SPDX-FileCopyrightText = "date-holidays contributors"
+SPDX-License-Identifier = "ISC"
