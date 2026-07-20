@@ -35,6 +35,7 @@ import word_error_correction from './locales/word_error_correction.yaml';
 
 import { getTimes } from 'suncalc';
 import { translate } from './locales/i18n';
+import { compareSelectorOrder, formatPrettifySelectorToken, getRuleSeparator, matchTokens, normalizePrettifyConf, shouldSortPrettifiedGroup } from './prettify-helpers.js';
 
 import { resolveRange } from './locale-resolver/resolver.mjs';
 import { regionLanguages } from './locale-resolver/region-languages.mjs';
@@ -1438,12 +1439,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
         }
 
-        Object.keys(default_prettify_conf).forEach(function (key) {
-            if (typeof user_conf[key] === 'undefined') {
-                user_conf[key] = default_prettify_conf[key];
-            }
-        });
-
+        user_conf = normalizePrettifyConf(user_conf, default_prettify_conf);
         for (let nrule = 0; nrule < new_tokens.length; nrule++) {
             if (new_tokens[nrule][0].length === 0) continue;
             // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
@@ -1452,19 +1448,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 if (rule_index !== nrule) continue;
             } else {
                 if (nrule !== 0)
-                    prettified_value += (
-                        new_tokens[nrule][1]
-                            ? user_conf.rule_sep_string + '|| '
-                            : (
-                                new_tokens[nrule][0][0][1] === 'rule separator'
-                                ? ','
-                                : (
-                                    user_conf.print_semicolon
-                                    ? ';'
-                                    : ''
-                                )
-                            ) +
-                        user_conf.rule_sep_string);
+                    prettified_value += getRuleSeparator(new_tokens[nrule], user_conf);
             }
 
             let selector_start_end_type = [ 0, 0, undefined ];
@@ -1501,19 +1485,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
             } while (selector_start_end_type[1] < new_tokens[nrule][0].length);
             // console.log('Prettified value: ' + JSON.stringify(prettified_group_value, null, '    '));
             const not_sorted_prettified_group_value = prettified_group_value.slice();
-            const contains_comment_selector = prettified_group_value.some(function (array) {
-                return array[0][2] === 'comment';
-            });
-
-            if (!done_with_selector_reordering && !rules_without_selector_reordering.has(nrule) && !contains_comment_selector) {
-                prettified_group_value.sort(
-                    function (a, b) {
-                        const selector_order = [ 'year', 'month', 'week', 'holiday', 'weekday', 'time', '24/7', 'state', 'comment'];
-                        return selector_order.indexOf(a[0][2]) - selector_order.indexOf(b[0][2]);
-                    }
-                );
+            if (shouldSortPrettifiedGroup(done_with_selector_reordering, rules_without_selector_reordering, nrule, prettified_group_value)) {
+                prettified_group_value.sort(compareSelectorOrder);
             }
-
             const old_prettified_value_length = prettified_value.length;
 
             prettified_value += prettified_group_value.map(function (array) {
@@ -1550,26 +1524,6 @@ export default function(value, nominatim_object, optional_conf_parm) {
         } else {
             return prettified_value;
         }
-    }
-    /* }}} */
-
-    /* Check selector array of tokens for specific token name pattern. {{{
-     *
-     * :param tokens: List of token objects.
-     * :param at: Position at which the matching should begin.
-     * :param token_name(s): One or many token_name strings which have to match in that order.
-     * :returns: true if token_name(s) match in order false otherwise.
-     */
-    function matchTokens(tokens, at /*, matches... */) {
-        if (at + arguments.length - 2 > tokens.length)
-            return false;
-        for (let i = 0; i < arguments.length - 2; i++) {
-            if (tokens[at + i][1] !== arguments[i + 2]) {
-                return false;
-            }
-        }
-
-        return true;
     }
     /* }}} */
 
@@ -4211,59 +4165,6 @@ export default function(value, nominatim_object, optional_conf_parm) {
     };
     /* }}} */
 
-    /* Memoized localized month/weekday names for prettified output.
-     * :param conf: Prettify configuration (locale/date_format).
-     * :param kind: Either 'weekday' or 'month'.
-     * :returns: Localized name array with stable index mapping.
-     */
-    const localized_name_cache = {};
-
-    function getLocalizedNames(conf, kind) {
-        const useEnglishShortNames =
-            (conf['locale'] === 'en' || conf['locale'] === 'all') && conf['date_format'] === 'short';
-        if (useEnglishShortNames) {
-            return kind === 'weekday' ? weekdays : months;
-        }
-
-        const cache_key = kind + '|' + conf['locale'] + '|' + conf['date_format'];
-        if (!localized_name_cache[cache_key]) {
-            localized_name_cache[cache_key] = kind === 'weekday'
-                // 2026-02-01 is a Sunday, so day 1..7 maps to Su..Sa.
-                ? [1, 2, 3, 4, 5, 6, 7].map(function (weekday) {
-                    return new Date(2026, 1, weekday).toLocaleString(conf['locale'], {weekday: conf['date_format']});
-                })
-                // The year is arbitrary; only the month index affects the name.
-                : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (month) {
-                    return new Date(2026, month - 1, 1).toLocaleString(conf['locale'], {month: conf['date_format']});
-                });
-        }
-        return localized_name_cache[cache_key];
-    }
-
-    /* Translate prettify output token-wise (fixes PH/SH inside grouped selectors, #319).
-     * :param value: Token value (index for month/weekday, string otherwise).
-     * :param token_type: Token type, e.g. 'weekday', 'month', 'state'.
-     * :param conf: Prettify configuration (locale/date_format).
-     * :returns: Translated token string or unchanged value.
-     */
-    function translatePrettyToken(value, token_type, conf) {
-        if (token_type === 'weekday') {
-            return getLocalizedNames(conf, 'weekday')[value];
-        }
-
-        if (token_type === 'month') {
-            return getLocalizedNames(conf, 'month')[value];
-        }
-
-        // Other tokens (e.g. holidays 'PH'/'SH' or the 'off'/'closed' state)
-        // only need translation for non-English locales.
-        if (typeof conf['locale'] !== 'string' || conf['locale'] === 'en') {
-            return value;
-        }
-
-        return translate(conf['locale'], 'pretty', value);
-    }
-
     /* Generate prettified value for selector based on tokens. {{{
      *
      * :param tokens: List of token objects.
@@ -4276,93 +4177,22 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
         let prettified_value = '';
         let at = selector_start;
-        // Preserve a leading malformed ':' before a time selector so the
-        // prettified form keeps the same meaning as the tolerated input.
-        if (selector_type === 'time'
-                && selector_start > 1
-                && matchTokens(tokens, selector_start - 1, 'timesep')
-                && matchTokens(tokens, selector_start, 'number')
-                && (matchTokens(tokens, selector_start - 2, 'rule separator')
-                    || matchTokens(tokens, selector_start - 2, ','))) {
-            prettified_value += ':';
-        }
         // console.log(selector_type);
         while (at <= selector_end) {
-            const token_value = tokens[at][0];
-            const token_type = tokens[at][1];
-            // console.log('At: ' + at + ', token: ' + tokens[at]);
-            if (matchTokens(tokens, at, 'weekday')) {
-                if (!conf.leave_weekday_sep_one_day_betw
-                    && at - selector_start > 1 && (matchTokens(tokens, at-1, ',') || matchTokens(tokens, at-1, '-'))
-                    && matchTokens(tokens, at-2, 'weekday')
-                    && tokens[at][0] === (tokens[at-2][0] + 1) % 7) {
-                        prettified_value = prettified_value.substring(0, prettified_value.length - 1) + conf.sep_one_day_between;
-                }
-                prettified_value += translatePrettyToken(token_value, 'weekday', conf);
-            } else if (at - selector_start > 0 // e.g. '09:0' -> '09:00'
-                    && selector_type === 'time'
-                    && matchTokens(tokens, at-1, 'timesep')
-                    && matchTokens(tokens, at, 'number')) {
-                prettified_value += (tokens[at][0] < 10 ? '0' : '') + tokens[at][0].toString();
-            } else if (selector_type === 'time' // e.g. '9:00' -> ' 09:00'
-                    && conf.zero_pad_hour
-                    && at !== tokens.length
-                    && matchTokens(tokens, at, 'number')
-                    && matchTokens(tokens, at+1, 'timesep')) {
-                prettified_value += (
-                        tokens[at][0] < 10 ?
-                            (tokens[at][0] === 0 && conf.one_zero_if_hour_zero ?
-                             '' : '0') :
-                            '') + tokens[at][0].toString();
-            } else if (selector_type === 'time' // e.g. '9-18' -> '09:00-18:00'
-                    && at + 2 <= selector_end
-                    && matchTokens(tokens, at, 'number')
-                    && matchTokens(tokens, at+1, '-')
-                    && matchTokens(tokens, at+2, 'number')
-                    && tokens[at][0] !== tokens[at+2][0]) {
-                prettified_value += (tokens[at][0] < 10 ?
-                        (tokens[at][0] === 0 && conf.one_zero_if_hour_zero ? '' : '0')
-                        : '') + tokens[at][0].toString();
-                prettified_value += ':00-'
-                    + (tokens[at+2][0] < 10 ? '0' : '') + tokens[at+2][0].toString()
-                    + ':00';
-                at += 2;
-            } else if (matchTokens(tokens, at, 'comment')) {
-                prettified_value += '"' + tokens[at][0].toString() + '"';
-            } else if (matchTokens(tokens, at, 'closed')) {
-                prettified_value += translatePrettyToken(conf.leave_off_closed ? token_value : conf.keyword_for_off_closed, 'state', conf);
-            } else if (at - selector_start > 0 && matchTokens(tokens, at, 'number')
-                    && (selector_type === 'month' || selector_type === 'week')) {
-                prettified_value +=
-                    (matchTokens(tokens, at-1, 'month') || matchTokens(tokens, at-1, 'week') ? ' ' : '')
-                    + (conf.zero_pad_month_and_week_numbers && tokens[at][4] !== 'positive_number' && tokens[at][0] < 10 ? '0' : '')
-                    + tokens[at][0];
-            } else if (at - selector_start > 0 && matchTokens(tokens, at, 'month')
-                    && matchTokens(tokens, at-1, 'year')) {
-                prettified_value += ' ' + translatePrettyToken(token_value, 'month', conf);
-            } else if (at - selector_start > 0 && matchTokens(tokens, at, 'event')
-                    && matchTokens(tokens, at-1, 'year')) {
-                prettified_value += ' ' + tokens[at][0];
-            } else if (matchTokens(tokens, at, 'month')) {
-                prettified_value += translatePrettyToken(token_value, 'month', conf);
-                if (at + 1 <= selector_end && matchTokens(tokens, at+1, 'weekday'))
-                    prettified_value += ' ';
-            } else if (at + 2 <= selector_end
-                    && (matchTokens(tokens, at, '-') || matchTokens(tokens, at, '+'))
-                    && matchTokens(tokens, at+1, 'number', 'calcday')) {
-                prettified_value += ' ' + tokens[at][0] + tokens[at+1][0] + ' day' + (Math.abs(tokens[at+1][0]) === 1 ? '' : 's');
-                at += 2;
-            } else if (at === selector_end
-                    && selector_type === 'weekday'
-                    && tokens[at][0] === ':') {
-                // Do nothing.
-            } else if (at === selector_end
-                    && selector_type === 'time'
-                    && tokens[at][0] === ',') {
-                /* Remove trailing , which is ignored in parseTimeRange. */
-            } else {
-                prettified_value += translatePrettyToken(token_value.toString(), token_type, conf);
-            }
+            const formatted = formatPrettifySelectorToken(
+                prettified_value,
+                tokens,
+                at,
+                selector_start,
+                selector_end,
+                selector_type,
+                conf,
+                months,
+                weekdays,
+                translate
+            );
+            prettified_value = formatted.value;
+            at += formatted.advance;
             at++;
         }
         return prettified_value;
