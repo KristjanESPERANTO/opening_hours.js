@@ -948,7 +948,7 @@ With [34m[1mwarnings[22m[39m:
 "Full range" for "Dec-Nov": [32m[1mPASSED[22m[39m
 With [34m[1mwarnings[22m[39m:
 	*Dec-Nov <--- (Diese Regel ist nicht sehr aussagekräftig, da kein Zeit Selektor angegeben wurde. Ein Zeit Selektor ist die Komponente die angibt, zu welcher Tageszeit ein Objekt geöffnet hat, zum Beispiel "10:00-19:00". Bitte füge eine Zeitangabe oder einen Kommentar hinzu, um dies zu verbessern.)
-"Full range" for "Jan 01-Dec 31": [32m[1mPASSED[22m[39m, [33m[1mexcept[22m[39m weekstable which is ignored for now
+"Full range" for "Jan 01-Dec 31": [32m[1mPASSED[22m[39m
 With [34m[1mwarnings[22m[39m:
 	*Jan 01-Dec 31 <--- (Diese Regel ist nicht sehr aussagekräftig, da kein Zeit Selektor angegeben wurde. Ein Zeit Selektor ist die Komponente die angibt, zu welcher Tageszeit ein Objekt geöffnet hat, zum Beispiel "10:00-19:00". Bitte füge eine Zeitangabe oder einen Kommentar hinzu, um dies zu verbessern.)
 "Full range" for "week 01-53": [32m[1mPASSED[22m[39m
@@ -2668,7 +2668,7 @@ Der optional_conf_parm["tag_key"] fehlt, ist aber notwendig wegen optional_conf_
 "getNextChange skips PH comment inside contiguous open range (#489)" for "Jul-Aug Mo-Su,PH 00:00-24:00": [32m[1mPASSED[22m[39m
 "getNextChange returns undefined when state never changes" for "24/7": [32m[1mPASSED[22m[39m
 1030/1030 tests passed. 0 did not pass.
-41 tests where (partly) ignored, sorted by commonness:
+40 tests where (partly) ignored, sorted by commonness:
 * 26: prettifyValue (most of the cases this is used to test if values with selectors in wrong order or wrong symbols (error tolerance) are evaluated correctly)
 * 11: not implemented yet
-*  4: check for week stable not implemented
+*  3: check for week stable not implemented

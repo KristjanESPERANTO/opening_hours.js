@@ -2835,7 +2835,7 @@ test.addTest('Full range', [
         'Jan-Dec',
         'Feb-Jan',
         'Dec-Nov',
-        ignored('Jan 01-Dec 31', 'check for week stable not implemented'),
+        'Jan 01-Dec 31',
         'week 01-53',
         'Mo 00:00-24:00; Tu 00:00-24:00; We 00:00-24:00; Th 00:00-24:00; Fr 00:00-24:00; Sa 00:00-24:00; Su 00:00-24:00',
     ], '2025-10-01 0:00', '2025-10-08 0:00', [
