@@ -9,7 +9,7 @@ PH:
   - {'name': 'Nieuwjaarsdag', 'fixed_date': [1, 1]}
   - {'name': 'Goede vrijdag', 'variable_date': easter, 'offset': -2}
   - {'name': 'Tweede Paasdag', 'variable_date': easter, 'offset': 1}
-  - {'name': 'Koningsdag', 'fixed_date': [4, 27]}
+  - {'name': 'Koningsdag', 'fixed_date': [4, 27], 'shift_rule': 'if sunday then previous saturday'}
   - {'name': 'Bevrijdingsdag', 'fixed_date': [5, 5]}
   - {'name': 'Hemelvaartsdag', 'variable_date': easter, 'offset': 39}
   - {'name': 'Tweede Pinksterdag', 'variable_date': easter, 'offset': 50}
