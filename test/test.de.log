@@ -2649,6 +2649,7 @@ Der optional_conf_parm["tag_key"] fehlt, ist aber notwendig wegen optional_conf_
 "Regression: prettifyValue should keep bare time ranges unchanged (#596)" for "Su 8-8, Mo Closed, Tu-Th 12-8, F-Sa 12-9": [32m[1mPASSED[22m[39m
 "Regression: prettifyValue should not reorder comments across state (#596)" for "Mo-Fr 11:00-14:00 "Mittagessen" open": [32m[1mPASSED[22m[39m
 "Regression: prettifyValue should preserve malformed time selectors (#596)" for "Tu-We 09:00-12:30,14:00-18:00; Th 09:00-12:30,:15:00-18:00, Fr 09:00-12:30, 14:00-18:00; Sa 09:00-12:30,13:30-16:30": [32m[1mPASSED[22m[39m
+"Compare prettifyValue locale-aware monthday order" for "Mar 6-Jul 15": [32m[1mPASSED[22m[39m
 "Test isEqualTo function: Full range" for "open": [32m[1mPASSED[22m[39m
 "Test isEqualTo function: Full range" for "24/7": [32m[1mPASSED[22m[39m
 "Test isEqualTo function: Full range" for "2000-2100": [32m[1mPASSED[22m[39m

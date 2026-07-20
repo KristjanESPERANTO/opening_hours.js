@@ -5832,6 +5832,18 @@ test.addPrettifyValue('Regression: prettifyValue should preserve malformed time 
         'Tu-We 09:00-12:30,14:00-18:00; Th 09:00-12:30,:15:00-18:00, Fr 09:00-12:30, 14:00-18:00; Sa 09:00-12:30,13:30-16:30',
     ], 'all', 'Tu-We 09:00-12:30,14:00-18:00; Th 09:00-12:30, :15:00-18:00, Fr 09:00-12:30,14:00-18:00; Sa 09:00-12:30,13:30-16:30');
 
+test.addPrettifyValue('Compare prettifyValue locale-aware monthday order', [
+        'Mar 6-Jul 15',
+    ], 'fr', '6 mars-15 juil.');
+
+test.addPrettifyValue('Compare prettifyValue locale-aware monthday order', [
+        'Mar 6-Jul 15',
+    ], 'de', '6. Mär-15. Jul');
+
+test.addPrettifyValue('Compare prettifyValue locale-aware monthday order', [
+        'Mar 6-Jul 15',
+    ], 'en', 'Mar 06-Jul 15');
+
 /* }}} */
 
 /* isEqualTo {{{ */

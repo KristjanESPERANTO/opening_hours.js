@@ -1444,6 +1444,37 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }
         });
 
+        // Preserve current behavior if locale order cannot be determined.
+        user_conf.day_before_month = false;
+        user_conf.day_month_separator = ' ';
+        if (typeof Intl === 'object' && typeof Intl.DateTimeFormat === 'function') {
+            try {
+                const locale_probe_monthday_date = new Date(2018, 2, 6); // Mar 06 2018
+                const parts = new Intl.DateTimeFormat(user_conf['locale'], {
+                    day: 'numeric',
+                    month: user_conf['date_format'],
+                }).formatToParts(locale_probe_monthday_date);
+                const day_index = parts.findIndex(function(part) {
+                    return part.type === 'day';
+                });
+                const month_index = parts.findIndex(function(part) {
+                    return part.type === 'month';
+                });
+                if (day_index !== -1 && month_index !== -1) {
+                    user_conf.day_before_month = day_index < month_index;
+                    if (user_conf.day_before_month) {
+                        const separator = parts.slice(day_index + 1, month_index).map(function(part) {
+                            return part.value;
+                        }).join('');
+                        if (separator !== '') {
+                            user_conf.day_month_separator = separator;
+                        }
+                    }
+                }
+            } catch {
+                // Keep fallback order if locale is unsupported in runtime.
+            }
+        }
         for (let nrule = 0; nrule < new_tokens.length; nrule++) {
             if (new_tokens[nrule][0].length === 0) continue;
             // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
@@ -4344,7 +4375,17 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     && matchTokens(tokens, at-1, 'year')) {
                 prettified_value += ' ' + tokens[at][0];
             } else if (matchTokens(tokens, at, 'month')) {
-                prettified_value += translatePrettyToken(token_value, 'month', conf);
+                const month_pretty = translatePrettyToken(token_value, 'month', conf);
+                if (selector_type === 'month'
+                        && conf.day_before_month
+                        && at + 1 <= selector_end
+                        && matchTokens(tokens, at+1, 'number')) {
+                    const day = tokens[at+1][0].toString();
+                    prettified_value += day + conf.day_month_separator + month_pretty;
+                    at += 1;
+                } else {
+                    prettified_value += month_pretty;
+                }
                 if (at + 1 <= selector_end && matchTokens(tokens, at+1, 'weekday'))
                     prettified_value += ' ';
             } else if (at + 2 <= selector_end
