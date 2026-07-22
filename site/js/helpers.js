@@ -394,11 +394,32 @@ function generatePrettifiedValueHTML(prettified) {
     </div>`;
 }
 
+function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        '\'': '&#39;',
+    })[char]);
+}
+
 function generateWarningsHTML(warnings) {
     if (warnings.length === 0) return '';
 
+    const entries = warnings.map(({ message, value, position }) => {
+        let contextHTML = '';
+        if (position !== null && typeof value === 'string') {
+            const before = escapeHtml(value.substring(0, position));
+            const after = escapeHtml(value.substring(position));
+            contextHTML = `<div class="warning-context"><code>${before}<span class="warning-marker"></span>${after}</code></div>`;
+        }
+
+        return `<div class="warning-entry">${contextHTML}<div class="warning-message">${escapeHtml(message)}</div></div>`;
+    });
+
     return `<div class="warning">${i18next.t('texts.filter.error')}` +
-           `<div class="warning_error_message">${warnings.join('\n')}</div></div>`;
+           `<div class="warning_error_message">${entries.join('')}</div></div>`;
 }
 
 function generateValueTooLongHTML(prettified, value) {
@@ -542,7 +563,7 @@ export async function Evaluate (offset = 0, reset) {
         }
 
         // Append warnings if any
-        const warnings = oh.getWarnings();
+        const warnings = oh.getStructuredWarnings();
         showWarningsOrErrors.innerHTML += generateWarningsHTML(warnings);
 
         // Check value length
