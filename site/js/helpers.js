@@ -148,17 +148,29 @@ function getFragmentIdentifier(selectorType) {
     }
 }
 
-function generateRuleSeparatorHTML(ruleSeparator) {
-    return `<span title="${i18next.t('texts.rule separator ' + ruleSeparator)}" class="rule_separator">` +
-           `<a target="_blank" class="specification" href="${window.specification_url}#section:rule_separators">${ruleSeparator}</a></span><br>`;
+function generateRuleSeparatorElement(ruleSeparator) {
+    const separator = createElement('span', 'rule_separator');
+    separator.title = i18next.t('texts.rule separator ' + ruleSeparator);
+
+    const link = createElement('a', 'specification', ruleSeparator);
+    link.target = '_blank';
+    link.href = `${window.specification_url}#section:rule_separators`;
+    separator.append(link);
+    return separator;
 }
 
-function generateSelectorHTML(selectorType, selectorValue) {
+function generateSelectorElement(selectorType, selectorValue) {
     const fragmentIdentifier = getFragmentIdentifier(selectorType);
     const translationKey = selectorType.match(/(?:state|comment)/) ? 'modifier' : 'selector';
 
-    return `<span title="${i18next.t(`words.${translationKey}`, { name: selectorType })}" class="${selectorType}">` +
-           `<a target="_blank" class="specification" href="${window.specification_url}#${fragmentIdentifier}">${selectorValue}</a></span>`;
+    const selector = createElement('span', selectorType);
+    selector.title = i18next.t(`words.${translationKey}`, { name: selectorType });
+
+    const link = createElement('a', 'specification', selectorValue);
+    link.target = '_blank';
+    link.href = `${window.specification_url}#${fragmentIdentifier}`;
+    selector.append(link);
+    return selector;
 }
 
 /**
@@ -168,14 +180,15 @@ function generateSelectorHTML(selectorType, selectorValue) {
  * to the specification for each selector type and rule separator.
  *
  * @param {Array} prettifiedValueArray - Array containing [rules, ruleSeparators]
- * @returns {string} HTML string with formatted value explanation
+ * @returns {DocumentFragment} DOM fragment with formatted value explanation
  */
-function generateValueExplanation(prettifiedValueArray) {
+function generateValueExplanationFragment(prettifiedValueArray) {
     const [rules, ruleSeparators] = prettifiedValueArray;
-    const parts = [
-        `${i18next.t('texts.prettified value for displaying')}:<br />`,
-        '<p class="value_explanation">'
-    ];
+    const fragment = document.createDocumentFragment();
+    fragment.append(i18next.t('texts.prettified value for displaying'), ':');
+    fragment.append(document.createElement('br'));
+
+    const explanation = createElement('p', 'value_explanation');
 
     for (const [ruleIndex, selectors] of rules.entries()) {
         if (ruleIndex !== 0) {
@@ -184,37 +197,36 @@ function generateValueExplanation(prettifiedValueArray) {
                 ? ' ||'
                 : (separatorData[0][0][1] === 'rule separator' ? ',' : ';');
 
-            parts.push(generateRuleSeparatorHTML(ruleSeparator));
+            explanation.append(generateRuleSeparatorElement(ruleSeparator));
+            explanation.append(document.createElement('br'));
         }
 
-        parts.push('<span class="one_rule">');
+        const rule = createElement('span', 'one_rule');
 
         for (const [selectorIndex, selector] of selectors.entries()) {
             const [typeArray, selectorValue] = selector;
             const selectorType = typeArray[2];
 
-            parts.push(generateSelectorHTML(selectorType, selectorValue));
+            rule.append(generateSelectorElement(selectorType, selectorValue));
 
             const isLastSelector = selectorIndex === selectors.length - 1;
             if (!isLastSelector) {
-                parts.push(' ');
+                rule.append(' ');
             }
         }
 
-        parts.push('</span>');
+        explanation.append(rule);
     }
 
-    parts.push('</p></div>');
-    return parts.join('');
+    fragment.append(explanation);
+    return fragment;
 }
 
-function generateResultsHTML() {
-    return `
-        <div class="matching-rule-card">
-            <div class="status-label">${i18next.t('texts.MatchingRule')}</div>
-            <div class="matching-rule-value" id="matching-rule-display"></div>
-        </div>
-    `;
+function generateResultsElement(matchingRule) {
+    return createElement('div', 'matching-rule-card',
+        createElement('div', 'status-label', i18next.t('texts.MatchingRule')),
+        createElement('div', 'matching-rule-value', matchingRule)
+    );
 }
 
 /**
@@ -375,62 +387,91 @@ function generateYoHoursHTML(value, crashed) {
            `<div class="yohours-warning">${i18next.t('texts.yohours incompatible')}</div>`;
 }
 
-function generatePrettifiedValueHTML(prettified) {
-    const escapedValue = prettified.replace(/"/g, '&quot;');
-
+function generatePrettifiedValueFragment(prettified) {
     // Build translation with placeholder for the link
     const translatedText = i18next.t('texts.prettified value', { copyFunc: '__COPY_LINK__' });
-    const linkHtml = `<a href="#" class="copy-prettified-value" data-value="${escapedValue}">`;
-    const finalText = translatedText.replace('<a href="__COPY_LINK__">', linkHtml);
 
-    const copyTooltip = i18next.t('texts.copy');
+    const section = createElement('div', 'prettified-value-section');
+    const description = createElement('p');
+    const linkMatch = translatedText.match(/^(.*?)<a\b[^>]*>(.*?)<\/a>(.*)$/s);
+    if (linkMatch) {
+        const [, beforeLink, linkText, afterLink] = linkMatch;
+        const link = createElement('a', 'copy-prettified-value', linkText);
+        link.href = '#';
+        link.dataset.value = prettified;
+        description.append(beforeLink, link, afterLink, ':');
+    } else {
+        description.append(translatedText, ':');
+    }
+    section.append(description);
 
-    return `<div class="prettified-value-section">
-        <p>${finalText}:</p>
-        <div class="prettified-value-container">
-            <code class="prettified-value-display" data-value="${escapedValue}">${prettified}</code>
-            <button type="button" class="copy-btn copy-prettified-btn" data-value="${escapedValue}" title="${copyTooltip}">📋</button>
-        </div>
-    </div>`;
+    const container = createElement('div', 'prettified-value-container');
+    const valueDisplay = createElement('code', 'prettified-value-display', prettified);
+    valueDisplay.dataset.value = prettified;
+    container.append(valueDisplay);
+
+    const copyButton = createElement('button', 'copy-btn copy-prettified-btn', '📋');
+    copyButton.type = 'button';
+    copyButton.dataset.value = prettified;
+    copyButton.title = i18next.t('texts.copy');
+    container.append(copyButton);
+    section.append(container);
+    return section;
 }
 
-function escapeHtml(str) {
-    return str.replace(/[&<>"']/g, (char) => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        '\'': '&#39;',
-    })[char]);
+function createElement(tagName, className, ...children) {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    if (children.length) element.append(...children);
+    return element;
 }
 
-function generateWarningsHTML(warnings) {
-    if (warnings.length === 0) return '';
+function createMessageBox(className, messageContent) {
+    return createElement('div', className,
+        i18next.t('texts.filter.error'),
+        createElement('div', 'warning_error_message', messageContent)
+    );
+}
 
-    const entries = warnings.map(({ message, value, position }) => {
-        let contextHTML = '';
+function generateWarningsFragment(warnings) {
+    if (warnings.length === 0) return document.createDocumentFragment();
+
+    const entries = document.createDocumentFragment();
+
+    for (const { message, value, position } of warnings) {
+        const entry = createElement('div', 'warning-entry');
+
         if (position !== null && typeof value === 'string') {
-            const before = escapeHtml(value.substring(0, position));
-            const after = escapeHtml(value.substring(position));
-            contextHTML = `<div class="warning-context"><code>${before}<span class="warning-marker"></span>${after}</code></div>`;
+            const context = createElement('div', 'warning-context');
+            const valueCode = createElement('code');
+            valueCode.append(
+                value.substring(0, position),
+                createElement('span', 'warning-marker'),
+                value.substring(position)
+            );
+            context.append(valueCode);
+            entry.append(context);
         }
 
-        return `<div class="warning-entry">${contextHTML}<div class="warning-message">${escapeHtml(message)}</div></div>`;
-    });
+        entry.append(createElement('div', 'warning-message', message));
+        entries.append(entry);
+    }
 
-    return `<div class="warning">${i18next.t('texts.filter.error')}` +
-           `<div class="warning_error_message">${entries.join('')}</div></div>`;
+    const fragment = document.createDocumentFragment();
+    fragment.append(createMessageBox('warning', entries));
+    return fragment;
 }
 
-function generateValueTooLongHTML(prettified, value) {
-    if (prettified.length <= OSM_MAX_VALUE_LENGTH) return '';
+function generateValueTooLongFragment(prettified, value) {
+    const fragment = document.createDocumentFragment();
+    if (prettified.length <= OSM_MAX_VALUE_LENGTH) return fragment;
 
-    return `<div class="warning">${i18next.t('texts.filter.error')}` +
-           `<div class="warning_error_message">${i18next.t('texts.value to long for osm', {
-               pretLength: prettified.length,
-               valLength: value.length,
-               maxLength: OSM_MAX_VALUE_LENGTH
-           })}</div></div>`;
+    fragment.append(createMessageBox('warning', i18next.t('texts.value to long for osm', {
+        pretLength: prettified.length,
+        valLength: value.length,
+        maxLength: OSM_MAX_VALUE_LENGTH
+    })));
+    return fragment;
 }
 
 /* }}} */
@@ -502,8 +543,6 @@ export async function Evaluate (offset = 0, reset) {
     const actionJosm = document.getElementById('action-josm');
     const actionYoHours = document.getElementById('action-yohours');
 
-    showWarningsOrErrors.innerHTML = '';
-
     // Parse opening hours value
     let crashed = false;
     const value = document.forms.check.elements['expression'].value;
@@ -521,9 +560,7 @@ export async function Evaluate (offset = 0, reset) {
         it = oh.getIterator(date);
     } catch (err) {
         crashed = err;
-        showWarningsOrErrors.innerHTML =
-            `<div class="error">${i18next.t('texts.filter.error')}` +
-            `<div class="warning_error_message">${crashed}</div></div>`;
+        showWarningsOrErrors.replaceChildren(createMessageBox('error', crashed));
         showTimeTable.innerHTML = '';
         showResults.innerHTML = '';
     }
@@ -538,36 +575,30 @@ export async function Evaluate (offset = 0, reset) {
             get_internals: true,
         });
 
-        // Generate and display results
-        showResults.innerHTML = generateResultsHTML();
-
-        // Generate value explanation
-        const valueExplanation = generateValueExplanation(prettifiedValueArray);
-
         // Handle diff comparison
         handleDiffComparison(oh, diffValue, mode, date);
 
         // Display value explanation
-        showWarningsOrErrors.innerHTML = valueExplanation;
+        showWarningsOrErrors.replaceChildren(generateValueExplanationFragment(prettifiedValueArray));
 
-        // Update matching rule
+        // Display matching rule
         const ruleIndex = it.getMatchingRule();
-        const ruleDisplay = document.getElementById('matching-rule-display');
-        if (ruleDisplay) {
-            ruleDisplay.textContent = typeof ruleIndex === 'undefined' ? i18next.t('words.none') : oh.prettifyValue({ 'rule_index': ruleIndex });
-        }
+        const matchingRule = typeof ruleIndex === 'undefined'
+            ? i18next.t('words.none')
+            : oh.prettifyValue({ 'rule_index': ruleIndex });
+        showResults.replaceChildren(generateResultsElement(matchingRule));
 
         // Show prettified value if different from input
         if (prettified !== value) {
-            showWarningsOrErrors.innerHTML = generatePrettifiedValueHTML(prettified);
+            showWarningsOrErrors.append(generatePrettifiedValueFragment(prettified));
         }
 
         // Append warnings if any
         const warnings = oh.getStructuredWarnings();
-        showWarningsOrErrors.innerHTML += generateWarningsHTML(warnings);
+        showWarningsOrErrors.append(generateWarningsFragment(warnings));
 
         // Check value length
-        showWarningsOrErrors.innerHTML += generateValueTooLongHTML(prettified, value);
+        showWarningsOrErrors.append(generateValueTooLongFragment(prettified, value));
 
         // Generate time table
         showTimeTable.innerHTML = OpeningHoursTable.drawTableAndComments(oh, it, date);
