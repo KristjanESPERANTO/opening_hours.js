@@ -587,9 +587,32 @@ div.warning_error_message {
     background-color: var(--bg-body);
     color: var(--text-primary);
     opacity: 0.9;
-    font-family: 'Courier New', monospace;
     border-left: 4px solid #ff851b;
     border-radius: 4px;
+}
+
+.warning-entry + .warning-entry {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.warning-context {
+    margin-bottom: 0.25rem;
+    word-break: break-all;
+    font-size: 0.95rem;
+}
+
+.warning-marker::after {
+    content: '←';
+    color: #ff4136;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 0.7;
+    margin: 0 0.15rem;
+    position: relative;
+    top: 0.11em;
 }
 
 .diff-deviation {
