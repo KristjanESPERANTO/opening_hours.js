@@ -132,6 +132,7 @@ function initializeUI() {
 
     // Actions section
     document.getElementById('actions-heading').textContent = i18next.t('words.actions');
+    document.getElementById('compare-heading').textContent = i18next.t('words.compare');
     document.getElementById('compare-label').textContent = i18next.t('texts.value to compare');
     document.getElementById('action-permalink-label').textContent = i18next.t('texts.share config');
     document.getElementById('permalink-with-timestamp-label').textContent = i18next.t('texts.with timestamp');
