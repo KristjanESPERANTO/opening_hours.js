@@ -16,6 +16,7 @@ declare module 'opening_hours' {
     | 'period_one_year_plus'
     | 'please_use_ok_for_ko'
     | 'public_holiday'
+    | 'public_holiday_today'
     | 'rant_degree_sign_used_for_zero'
     | 'separator_for_readability'
     | 'strange_24_7'
@@ -71,8 +72,8 @@ declare module 'opening_hours' {
     getStatePair(
       date?: Date
     ): [boolean, Date, boolean, string | undefined, number | undefined]
-    getWarnings(): string[]
-    getStructuredWarnings(): opening_hours_warning[]
+    getWarnings(date?: Date): string[]
+    getStructuredWarnings(date?: Date): opening_hours_warning[]
     isEqualTo(
       second_oh_object: opening_hours,
       start_date?: Date

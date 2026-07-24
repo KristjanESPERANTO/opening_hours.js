@@ -47,6 +47,7 @@ en:
       If you are not certain try to find it out.
       If you can’t then do not add PH to the value and ignore this warning.
     'public holiday part2': ' Unfortunately the tag key (e.g. "opening_hours", or "lit") is unknown to opening_hours.js. This warning only applies to the key {{keys}}. If your value is for that key than read on. If not you can ignore the following.'
+    'current day public holiday missing': 'Today is a public holiday at this location, but this value has no explicit PH rule. The shown status may be misleading for today.'
     'additional_rule_separator not used after time wrapping midnight': >-
       This rule overwrites parts of the previous rule.
       This happens because normal rules apply to the whole day and overwrite any definition made by previous rules.

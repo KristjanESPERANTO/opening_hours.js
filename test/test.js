@@ -5460,6 +5460,12 @@ test.addStructuredWarnings('Structured warning: no switched for reordered commen
     'Mo-Fr 10:00-20:00 unknown "Maybe"; We "Maybe open. Call us." 10:00-16:00',
     [],
     nominatim_default, 'not only test', { 'tag_key': 'opening_hours' });
+
+test.addStructuredWarnings('Structured warning: public holiday warning uses evaluated date',
+    'Mo-Fr 08:00-20:00',
+    [ 'public_holiday', 'public_holiday_today' ],
+    { address: { country_code: 'de' } }, 'not only test',
+    { 'tag_key': 'opening_hours', 'warnings_severity': 7 }, new Date(2026, 11, 26, 12));
 // }}}
 
 // values which should fail during parsing {{{
@@ -6055,13 +6061,14 @@ function opening_hours_test() {
         const expected_types = test_data_object[2];
         const nominatim_data = test_data_object[3];
         const oh_mode        = test_data_object[4];
+        const date           = test_data_object[5];
 
         let warnings, formatted, oh;
         let crashed = false;
         try {
             oh = new opening_hours(value, nominatim_data, oh_mode);
-            warnings = oh.getStructuredWarnings();
-            formatted = oh.getWarnings();
+            warnings = oh.getStructuredWarnings(date);
+            formatted = oh.getWarnings(date);
         } catch (err) {
             crashed = err;
         }
@@ -6571,7 +6578,7 @@ function opening_hours_test() {
     // }}}
 
     // add test to check getStructuredWarnings returns the expected warning types {{{
-    this.addStructuredWarnings = function(name, value, expected_types, nominatim_data, last, oh_mode) {
+    this.addStructuredWarnings = function(name, value, expected_types, nominatim_data, last, oh_mode, date) {
         if (this.last === true)  {
             return;
         }
@@ -6579,7 +6586,7 @@ function opening_hours_test() {
 
         oh_mode = get_oh_mode_parameter(oh_mode);
 
-        this.tests_structured_warnings.push([name, value, expected_types, nominatim_data, oh_mode]);
+        this.tests_structured_warnings.push([name, value, expected_types, nominatim_data, oh_mode, date]);
     };
     // }}}
 

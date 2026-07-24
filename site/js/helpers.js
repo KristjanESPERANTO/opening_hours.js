@@ -597,7 +597,7 @@ export async function Evaluate (offset = 0, reset) {
         }
 
         // Append warnings if any
-        const warnings = oh.getStructuredWarnings();
+        const warnings = oh.getStructuredWarnings(date);
         showWarningsOrErrors.append(generateWarningsFragment(warnings));
 
         // Check value length

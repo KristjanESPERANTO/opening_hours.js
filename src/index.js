@@ -1038,10 +1038,12 @@ export default function(value, nominatim_object, optional_conf_parm) {
      *           `value` (the string the offset refers to) and `position` (character
      *           offset of the `<--- ` marker, or null) fields.
      */
-    function getWarnings(it, structured = false) {
+    function getWarnings(it, structured = false, include_date_warnings = false) {
         if (warnings_severity < 4) {
             return [];
         }
+
+        const evaluatedDate = include_date_warnings ? it.getDate() : undefined;
 
         // FIXME: Guard is too broad; `typeof null === 'object'`
         if (!done_with_warnings && typeof it === 'object') {
@@ -1329,6 +1331,18 @@ export default function(value, nominatim_object, optional_conf_parm) {
             } else {
                 warnings.push( formatWarnErrorMessage(pw[0], pw[1], pw[3], pw[4]) );
             }
+        }
+
+        if (include_date_warnings
+                && parsing_warnings.some(warning => warning[2] === 'public_holiday')
+            && isPublicHoliday(evaluatedDate)) {
+            const warning = {
+                type: 'public_holiday_today',
+                message: t('current day public holiday missing'),
+                value: '',
+                position: null,
+            };
+            warnings.push(structured ? warning : warning.message);
         }
         return warnings;
     }
@@ -2877,6 +2891,15 @@ export default function(value, nominatim_object, optional_conf_parm) {
     }
     /* }}} */
 
+    function isPublicHoliday(date) {
+        try {
+            const applying_holidays = getMatchingHoliday('PH');
+            return createPublicHolidaySelector(applying_holidays, [0, 0])(date)[0];
+        } catch {
+            return false;
+        }
+    }
+
     /* Return closest holiday definition available. {{{
      *
      * First try to get the state, if missing get the country wide holidays
@@ -4402,14 +4425,17 @@ export default function(value, nominatim_object, optional_conf_parm) {
     };
 
     /* Not available for iterator API {{{ */
-    /* getWarnings: Get warnings, empty list if none {{{ */
+    /* getWarnings: Get warnings, empty list if none. An optional date includes
+     * warnings which depend on the evaluated date. {{{ */
     this.getWarnings = function() {
-        const it = this.getIterator();
-        return getWarnings(it);
+        const date = arguments.length > 0 ? arguments[0] : undefined;
+        const it = this.getIterator(date);
+        return getWarnings(it, false, typeof date !== 'undefined');
     };
     /* }}} */
 
-    /* getStructuredWarnings: Get warnings as structured objects {{{
+    /* getStructuredWarnings: Get warnings as structured objects. An optional
+     * date includes warnings which depend on the evaluated date. {{{
      * Returns an array of objects for each warning, empty list if none. Each object
      * has a stable, machine-readable `type`, a human-readable `message`, the `value`
      * the warning refers to and the character `position` of the marker within it.
@@ -4417,8 +4443,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * `value.substring(0, position) + ' <--- (' + message + ')'`.
      */
     this.getStructuredWarnings = function() {
-        const it = this.getIterator();
-        return getWarnings(it, true);
+        const date = arguments.length > 0 ? arguments[0] : undefined;
+        const it = this.getIterator(date);
+        return getWarnings(it, true, typeof date !== 'undefined');
     };
     /* }}} */
 
