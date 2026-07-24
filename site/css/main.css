@@ -437,6 +437,10 @@ section {
     width: 98%;
 }
 
+#show_prettified_value:empty {
+    display: none;
+}
+
 /* Ensure diff_value input has black text when colored background is applied */
 #diff_value {
     color: #000 !important;

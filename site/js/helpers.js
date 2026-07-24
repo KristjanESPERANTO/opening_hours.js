@@ -539,6 +539,7 @@ export async function Evaluate (offset = 0, reset) {
     // Cache DOM elements
     const showTimeTable = document.getElementById('show_time_table');
     const showWarningsOrErrors = document.getElementById('show_warnings_or_errors');
+    const showPrettifiedValue = document.getElementById('show_prettified_value');
     const showResults = document.getElementById('show_results');
     const actionJosm = document.getElementById('action-josm');
     const actionYoHours = document.getElementById('action-yohours');
@@ -561,6 +562,7 @@ export async function Evaluate (offset = 0, reset) {
     } catch (err) {
         crashed = err;
         showWarningsOrErrors.replaceChildren(createMessageBox('error', crashed));
+        showPrettifiedValue.innerHTML = '';
         showTimeTable.innerHTML = '';
         showResults.innerHTML = '';
     }
@@ -580,6 +582,7 @@ export async function Evaluate (offset = 0, reset) {
 
         // Display value explanation
         showWarningsOrErrors.replaceChildren(generateValueExplanationFragment(prettifiedValueArray));
+        showPrettifiedValue.innerHTML = '';
 
         // Display matching rule
         const ruleIndex = it.getMatchingRule();
@@ -590,7 +593,7 @@ export async function Evaluate (offset = 0, reset) {
 
         // Show prettified value if different from input
         if (prettified !== value) {
-            showWarningsOrErrors.append(generatePrettifiedValueFragment(prettified));
+            showPrettifiedValue.append(generatePrettifiedValueFragment(prettified));
         }
 
         // Append warnings if any
