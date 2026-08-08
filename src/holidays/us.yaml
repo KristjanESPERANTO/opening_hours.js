@@ -22,7 +22,7 @@ PH:  # https://en.wikipedia.org/wiki/Public_holidays_in_the_United_States
 
 Alabama:
   _state_code: al
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=32.3673&lon=-86.2983&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Alabama&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -40,7 +40,7 @@ Alabama:
 
 Alaska:
   _state_code: ak
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=64.5082&lon=-165.4066&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Alaska&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -58,7 +58,7 @@ Alaska:
 
 American Samoa:
   _state_code: as
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=-14.2756&lon=-170.7020&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=American+Samoa&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -75,7 +75,7 @@ American Samoa:
 
 Arizona:
   _state_code: az
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=34.9378&lon=-109.7565&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Arizona&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -91,7 +91,7 @@ Arizona:
 
 Arkansas:
   _state_code: ar
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=34.74610&lon=-92.29054&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Arkansas&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -108,7 +108,7 @@ Arkansas:
 
 California:
   _state_code: ca
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=40.8001&lon=-124.1698&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=California&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -125,7 +125,7 @@ California:
 
 Colorado:
   _state_code: co
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=39.1804&lon=-106.8218&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Colorado&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -142,7 +142,7 @@ Colorado:
 
 Connecticut:
   _state_code: ct
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.9111&lon=-72.16014&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Connecticut&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -160,7 +160,7 @@ Connecticut:
 
 Delaware:
   _state_code: de
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=38.7113&lon=-75.0978&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Delaware&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -177,7 +177,7 @@ Delaware:
 
 District of Columbia:
   _state_code: dc
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=38.8953&lon=-77.0356&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=District+of+Columbia&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -194,7 +194,7 @@ District of Columbia:
 
 Florida:
   _state_code: fl
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=25.7720&lon=-80.1324&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Florida&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -212,7 +212,7 @@ Florida:
 
 Georgia:
   _state_code: ga
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=31.0823&lon=-81.4192&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Georgia&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -230,7 +230,7 @@ Georgia:
 
 Guam:
   _state_code: gu
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=13.4311&lon=144.6549&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Guam&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -250,7 +250,7 @@ Guam:
 
 Hawaii:
   _state_code: hi
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=19.6423&lon=-155.4837&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Hawaii&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -270,7 +270,7 @@ Hawaii:
 
 Idaho:
   _state_code: id
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=47.6710&lon=-116.7671&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Idaho&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -286,7 +286,7 @@ Idaho:
 
 Illinois:
   _state_code: il
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=42.05202&lon=-87.67594&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Illinois&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -305,7 +305,7 @@ Illinois:
 
 Indiana:
   _state_code: in
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=40.4179&lon=-86.8969&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Indiana&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -322,7 +322,7 @@ Indiana:
 
 Iowa:
   _state_code: ia
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.9747&lon=-91.6760&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Iowa&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -339,7 +339,7 @@ Iowa:
 
 Kansas:
   _state_code: ks
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=37.6888&lon=-97.3271&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Kansas&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -355,7 +355,7 @@ Kansas:
 
 Kentucky:
   _state_code: ky
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=36.8446&lon=-83.3196&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Kentucky&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -373,7 +373,7 @@ Kentucky:
 
 Louisiana:
   _state_code: la
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=30.1800&lon=-90.1787&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Louisiana&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -391,7 +391,7 @@ Louisiana:
 
 Maine:
   _state_code: me
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=44.7903&lon=-68.7829&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Maine&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -408,7 +408,7 @@ Maine:
 
 Maryland:
   _state_code: md
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=38.3206&lon=-75.6213&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Maryland&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -424,7 +424,7 @@ Maryland:
 
 Massachusetts:
   _state_code: ma
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=42.3550&lon=-71.0645&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Massachusetts&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -443,7 +443,7 @@ Massachusetts:
 
 Michigan:
   _state_code: mi
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=42.7153&lon=-84.4995&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Michigan&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -461,7 +461,7 @@ Michigan:
 
 Minnesota:
   _state_code: mn
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=47.8278&lon=-90.0484&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Minnesota&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -477,7 +477,7 @@ Minnesota:
 
 Mississippi:
   _state_code: ms
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=30.3986&lon=-88.8820&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Mississippi&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -494,7 +494,7 @@ Mississippi:
 
 Missouri:
   _state_code: mo
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=37.0799&lon=-94.5060&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Missouri&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -512,7 +512,7 @@ Missouri:
 
 Montana:
   _state_code: mt
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=48.3866&lon=-115.5498&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Montana&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -530,7 +530,7 @@ Montana:
 
 Nebraska:
   _state_code: ne
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.2587&lon=-95.9374&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Nebraska&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -547,7 +547,7 @@ Nebraska:
 
 Nevada:
   _state_code: nv
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=36.1215&lon=-115.1704&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Nevada&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -564,7 +564,7 @@ Nevada:
 
 New Hampshire:
   _state_code: nh
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=43.5628&lon=-71.9447&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=New+Hampshire&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -580,7 +580,7 @@ New Hampshire:
 
 New Jersey:
   _state_code: nj
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=39.9475&lon=-75.1066&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=New+Jersey&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -598,7 +598,7 @@ New Jersey:
 
 New Mexico:
   _state_code: nm
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=34.0790&lon=-107.6179&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=New+Mexico&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -614,7 +614,7 @@ New Mexico:
 
 New York:
   _state_code: ny
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=42.8126&lon=-73.9379&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=New+York&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -632,7 +632,7 @@ New York:
 
 North Carolina:
   _state_code: nc
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=35.7802&lon=-78.6394&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=North+Carolina&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -650,7 +650,7 @@ North Carolina:
 
 North Dakota:
   _state_code: nd
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=48.1459&lon=-103.6232&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=North+Dakota&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -666,7 +666,7 @@ North Dakota:
 
 Ohio:
   _state_code: oh
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.4846&lon=-82.6852&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Ohio&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -682,7 +682,7 @@ Ohio:
 
 Oklahoma:
   _state_code: ok
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=36.0514&lon=-95.7892&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Oklahoma&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -698,7 +698,7 @@ Oklahoma:
 
 Oregon:
   _state_code: or
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=45.3732&lon=-121.6959&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Oregon&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -714,7 +714,7 @@ Oregon:
 
 Pennsylvania:
   _state_code: pa
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=40.3340&lon=-75.9300&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Pennsylvania&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -731,7 +731,7 @@ Pennsylvania:
 
 Puerto Rico:
   _state_code: pr
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=18.4364&lon=-66.1188&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Puerto+Rico&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -757,7 +757,7 @@ Puerto Rico:
 
 Rhode Island:
   _state_code: ri
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=41.8251&lon=-71.4194&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Rhode+Island&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -774,7 +774,7 @@ Rhode Island:
 
 South Carolina:
   _state_code: sc
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=32.7878&lon=-79.9392&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=South+Carolina&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -792,7 +792,7 @@ South Carolina:
 
 South Dakota:
   _state_code: sd
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=43.7148&lon=-98.0249&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=South+Dakota&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -808,7 +808,7 @@ South Dakota:
 
 Tennessee:
   _state_code: tn
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=35.1438&lon=-90.0231&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Tennessee&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -826,7 +826,7 @@ Tennessee:
 
 Texas:
   _state_code: tx
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=30.2655&lon=-97.7559&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Texas&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -844,7 +844,7 @@ Texas:
 
 United States Virgin Islands:
   _state_code: vi
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=18.3433&lon=-64.9347&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=United+States+Virgin+Islands&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -867,7 +867,7 @@ United States Virgin Islands:
 
 Utah:
   _state_code: ut
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=40.5888&lon=-111.6378&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Utah&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -884,7 +884,7 @@ Utah:
 
 Vermont:
   _state_code: vt
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=44.2597&lon=-72.5800&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Vermont&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -902,7 +902,7 @@ Vermont:
 
 Virginia:
   _state_code: va
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=36.9454&lon=-76.2888&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Virginia&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -918,7 +918,7 @@ Virginia:
 
 Washington:
   _state_code: wa
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=46.8598&lon=-121.7256&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Washington&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -934,7 +934,7 @@ Washington:
 
 West Virginia:
   _state_code: wv
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=38.3686&lon=-81.6070&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=West+Virginia&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -952,7 +952,7 @@ West Virginia:
 
 Wisconsin:
   _state_code: wi
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=45.8719&lon=-89.6930&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Wisconsin&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}
@@ -970,7 +970,7 @@ Wisconsin:
 
 Wyoming:
   _state_code: wy
-  _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=42.8590&lon=-106.3126&zoom=18&addressdetails=1&accept-language=en'
+  _nominatim_url: 'https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&state=Wyoming&zoom=18&addressdetails=1&limit=1&accept-language=en'
   PH:
     - {'name': 'New Year''s Day', 'fixed_date': [1, 1], 'substitute_rule': 'if sunday then next monday if saturday then previous friday'}
     - {'name': 'Martin Luther King Jr. Day', 'variable_date': firstJanuaryMonday, 'offset': 14}

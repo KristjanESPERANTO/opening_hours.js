@@ -8,8 +8,8 @@ _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=48.
 PH:
   - {'name': 'Deň vzniku Slovenskej republiky', 'fixed_date': [1, 1]}
   - {'name': 'Zjavenie Pána', 'fixed_date': [1, 6]}
-  - {'name': 'Veľký piatok', 'variable_date': easter, 'offset': -2}
-  - {'name': 'Veľkonočná nedeľa', 'variable_date': easter}
+  - {'name': 'Veľkonočný piatok', 'variable_date': easter, 'offset': -2}
+  - {'name': 'Veľká noc', 'variable_date': easter}
   - {'name': 'Veľkonočný pondelok', 'variable_date': easter, 'offset': 1}
   - {'name': 'Sviatok práce', 'fixed_date': [5, 1]}
   - {'name': 'Sviatok svätého Cyrila a Metoda', 'fixed_date': [7, 5]}

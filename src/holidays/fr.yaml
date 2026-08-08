@@ -19,12 +19,12 @@ PH:
   - {'name': 'Toussaint', 'fixed_date': [11, 1]}
   - {'name': 'Armistice 1918', 'fixed_date': [11, 11]}
   - {'name': 'Noël', 'fixed_date': [12, 25]}
-  - {'name': 'Arrivée de l’Évangile', 'fixed_date': [3, 5], 'only_states': [Polynésie française]}
+  - {'name': 'Arrivée de l''Évangile', 'fixed_date': [3, 5], 'only_states': [Polynésie française]}
   - {'name': 'Vendredi saint', 'variable_date': easter, 'offset': -2, 'only_states': [Grand Est, Guadeloupe, Martinique, Polynésie française, Saint-Barthélemy]}
   - {'name': 'Abolition de l’esclavage', 'fixed_date': [4, 27], 'only_states': [Mayotte]}
   - {'name': 'Fête de Saint Pierre-Chanel', 'fixed_date': [4, 28], 'only_states': [Wallis-et-Futuna]}
   - {'name': 'Abolition de l’esclavage', 'fixed_date': [5, 22], 'only_states': [Martinique]}
-  - {'name': 'Abolition de l’esclavage', 'fixed_date': [5, 27], 'only_states': [Saint-Martin]}
+  - {'name': 'Abolition de l''esclavage', 'fixed_date': [5, 27], 'only_states': [Saint-Martin]}
   - {'name': 'Abolition de l’esclavage', 'fixed_date': [5, 27], 'only_states': [Guadeloupe]}
   - {'name': 'Abolition de l’esclavage', 'fixed_date': [6, 10], 'only_states': [Guyane]}
   - {'name': 'Saint Pierre et Paul', 'fixed_date': [6, 29], 'only_states': [Wallis-et-Futuna]}
@@ -32,7 +32,7 @@ PH:
   - {'name': 'Fête du Territoire', 'fixed_date': [7, 29], 'only_states': [Wallis-et-Futuna]}
   - {'name': 'Fête de la Citoyenneté', 'fixed_date': [9, 24], 'only_states': [Nouvelle-Calédonie]}
   - {'name': 'Abolition de l’esclavage', 'fixed_date': [10, 9], 'only_states': [Saint-Barthélemy]}
-  - {'name': 'Matari’i', 'fixed_date': [11, 20], 'only_states': [Polynésie française]}
+  - {'name': 'Matari''i', 'fixed_date': [11, 20], 'only_states': [Polynésie française]}
   - {'name': 'Abolition de l’esclavage', 'fixed_date': [12, 20], 'only_states': [La Réunion]}
   - {'name': 'Lendemain de Noël', 'fixed_date': [12, 26], 'only_states': [Grand Est]}
 
