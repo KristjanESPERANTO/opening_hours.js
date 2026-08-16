@@ -1103,27 +1103,28 @@ export default function(value, nominatim_object, optional_conf_parm) {
             const has_token = {};
 
             for (let nrule = 0; nrule < new_tokens.length; nrule++) {
-                if (new_tokens[nrule][0].length === 0) continue;
+                const rule_tokens = new_tokens[nrule][0];
+                if (rule_tokens.length === 0) continue;
                 // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
 
                 let selector_start_end_type = [ 0, 0, undefined ];
-                // console.log(new_tokens[nrule][0]);
+                // console.log(rule_tokens);
 
                 used_selectors[nrule] = {};
                 used_selectors_types_array[nrule] = [];
 
                 do {
-                    selector_start_end_type = getSelectorRange(new_tokens[nrule][0], selector_start_end_type[1]);
-                    // console.log(selector_start_end_type, new_tokens[nrule][0].length);
+                    selector_start_end_type = getSelectorRange(rule_tokens, selector_start_end_type[1]);
+                    // console.log(selector_start_end_type, rule_tokens.length);
 
                     for (let token_pos = 0; token_pos <= selector_start_end_type[1]; token_pos++) {
-                        if (typeof new_tokens[nrule][0][token_pos] === 'object' && new_tokens[nrule][0][token_pos][0] === 'PH') {
+                        if (typeof rule_tokens[token_pos] === 'object' && rule_tokens[token_pos][0] === 'PH') {
                             has_token['PH'] = true;
                         }
                     }
 
                     if (selector_start_end_type[0] === selector_start_end_type[1] &&
-                        new_tokens[nrule][0][selector_start_end_type[0]][0] === '24/7'
+                        rule_tokens[selector_start_end_type[0]][0] === '24/7'
                         ) {
                             has_token['24/7'] = true;
                     }
@@ -1136,22 +1137,24 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     used_selectors_types_array[nrule].push(selector_start_end_type[2]);
 
                     selector_start_end_type[1]++;
-                } while (selector_start_end_type[1] < new_tokens[nrule][0].length);
+                } while (selector_start_end_type[1] < rule_tokens.length);
             }
             // console.log('used_selectors: ' + JSON.stringify(used_selectors, null, '    '));
             // console.log('used_selectors_types_array: ' + JSON.stringify(used_selectors_types_array, null, '    '));
             /* }}} */
 
             for (let nrule = 0; nrule < used_selectors.length; nrule++) {
+                const rule_tokens = new_tokens[nrule][0];
 
                 /* Check if more than one not connected selector of the same type is used in one rule {{{ */
                 Object.keys(used_selectors[nrule]).forEach(function (selector_type) {
-                    // console.log(selector_type + ' use at: ' + used_selectors[nrule][selector_type].length);
-                    if (used_selectors[nrule][selector_type].length > 1) {
-                        parsing_warnings.push([nrule, used_selectors[nrule][selector_type][used_selectors[nrule][selector_type].length - 1],
+                    const selector_positions = used_selectors[nrule][selector_type];
+                    // console.log(selector_type + ' use at: ' + selector_positions.length);
+                    if (selector_positions.length > 1) {
+                        parsing_warnings.push([nrule, selector_positions[selector_positions.length - 1],
                             'use_multi',
                             t('use multi', {
-                                'count': used_selectors[nrule][selector_type].length,
+                                'count': selector_positions.length,
                                 'part2': (
                                     /^(?:comment|state)/.test(selector_type) ?
                                         t('selector multi 2a', {'what': (selector_type === 'state' ? t('selector state'): t('comments'))})
@@ -1170,13 +1173,13 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     && Object.keys(used_selectors[nrule]).length === 1
                 ) {
                     if (nrule !== 0) {
-                        parsing_warnings.push([nrule, new_tokens[nrule][0].length - 1, 'default_state', t('default state'), new_tokens]);
+                        parsing_warnings.push([nrule, rule_tokens.length - 1, 'default_state', t('default state'), new_tokens]);
                     }
                 /* }}} */
                 /* Check if a rule (with state open) has no time selector {{{ */
                 } else if (typeof used_selectors[nrule].time === 'undefined') {
                     if (    (       typeof used_selectors[nrule].state === 'object'
-                                && new_tokens[nrule][0][used_selectors[nrule].state[0]][0] === 'open'
+                                && rule_tokens[used_selectors[nrule].state[0]][0] === 'open'
                                 && typeof used_selectors[nrule].comment === 'undefined'
                             ) || ( typeof used_selectors[nrule].comment === 'undefined'
                                 && typeof used_selectors[nrule].state === 'undefined'
@@ -1184,13 +1187,13 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             typeof used_selectors[nrule]['24/7'] === 'undefined'
                     ) {
 
-                        parsing_warnings.push([nrule, new_tokens[nrule][0].length - 1, 'vague', t('vague'), new_tokens]);
+                        parsing_warnings.push([nrule, rule_tokens.length - 1, 'vague', t('vague'), new_tokens]);
                     }
                 }
                 /* }}} */
                 /* Check if empty comment was given {{{ */
                 if (typeof used_selectors[nrule].comment === 'object'
-                    && new_tokens[nrule][0][used_selectors[nrule].comment[0]][0].length === 0
+                    && rule_tokens[used_selectors[nrule].comment[0]][0].length === 0
                 ) {
 
                     parsing_warnings.push([nrule, used_selectors[nrule].comment[0], 'empty_comment', t('empty comment'), new_tokens]);
@@ -1206,7 +1209,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             && small_range_selector_order.indexOf(next_selector_type) !== -1)
                         ) {
 
-                        if (new_tokens[nrule][0][used_selectors[nrule][selector_type][0]][0] === ':') {
+                        if (rule_tokens[used_selectors[nrule][selector_type][0]][0] === ':') {
                             parsing_warnings.push([nrule, used_selectors[nrule][selector_type][0],
                                 'separator_for_readability',
                                 t('separator_for_readability'),
@@ -1267,17 +1270,17 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 }
                 /* }}} */
                 /* Check if rule with closed|off modifier is additional {{{ */
-                if (typeof new_tokens[nrule][0][0] === 'object'
-                        && new_tokens[nrule][0][0][0] === ','
-                        && new_tokens[nrule][0][0][1] === 'rule separator'
+                if (typeof rule_tokens[0] === 'object'
+                    && rule_tokens[0][0] === ','
+                    && rule_tokens[0][1] === 'rule separator'
                         && typeof used_selectors[nrule].state === 'object'
                         && (
-                               new_tokens[nrule][0][used_selectors[nrule].state[0]][0] === 'closed'
-                            || new_tokens[nrule][0][used_selectors[nrule].state[0]][0] === 'off'
+                                         rule_tokens[used_selectors[nrule].state[0]][0] === 'closed'
+                                     || rule_tokens[used_selectors[nrule].state[0]][0] === 'off'
                            )
                 ) {
 
-                    parsing_warnings.push([nrule, new_tokens[nrule][0].length - 1,
+                    parsing_warnings.push([nrule, rule_tokens.length - 1,
                         'additional_rule_which_evaluates_to_closed',
                         t('additional rule which evaluates to closed'),
                         new_tokens
@@ -1503,7 +1506,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
         user_conf['day_month_sep']    = day_month_sep;
 
         for (let nrule = 0; nrule < new_tokens.length; nrule++) {
-            if (new_tokens[nrule][0].length === 0) continue;
+            const rule_entry = new_tokens[nrule];
+            const rule_tokens = rule_entry[0];
+            if (rule_tokens.length === 0) continue;
             // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
 
             if (typeof rule_index === 'number') {
@@ -1511,10 +1516,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
             } else {
                 if (nrule !== 0)
                     prettified_value += (
-                        new_tokens[nrule][1]
+                        rule_entry[1]
                             ? user_conf.rule_sep_string + '|| '
                             : (
-                                new_tokens[nrule][0][0][1] === 'rule separator'
+                                rule_tokens[0][1] === 'rule separator'
                                 ? ','
                                 : (
                                     user_conf.print_semicolon
@@ -1528,11 +1533,11 @@ export default function(value, nominatim_object, optional_conf_parm) {
             let selector_start_end_type = [ 0, 0, undefined ];
             const prettified_group_value = [];
             let count = 0;
-            // console.log(new_tokens[nrule][0]);
+            // console.log(rule_tokens);
 
             do {
-                selector_start_end_type = getSelectorRange(new_tokens[nrule][0], selector_start_end_type[1]);
-                // console.log(selector_start_end_type, new_tokens[nrule][0].length, count);
+                selector_start_end_type = getSelectorRange(rule_tokens, selector_start_end_type[1]);
+                // console.log(selector_start_end_type, rule_tokens.length, count);
 
                 if (count > 50) {
                     throw formatLibraryBugMessage('Infinite loop.');
@@ -1543,7 +1548,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         [
                             selector_start_end_type,
                             prettifySelector(
-                                new_tokens[nrule][0],
+                                rule_tokens,
                                 selector_start_end_type[0],
                                 selector_start_end_type[1],
                                 selector_start_end_type[2],
@@ -1555,8 +1560,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                 selector_start_end_type[1]++;
                 count++;
-                // console.log(selector_start_end_type, new_tokens[nrule][0].length, count);
-            } while (selector_start_end_type[1] < new_tokens[nrule][0].length);
+                // console.log(selector_start_end_type, rule_tokens.length, count);
+            } while (selector_start_end_type[1] < rule_tokens.length);
             // console.log('Prettified value: ' + JSON.stringify(prettified_group_value, null, '    '));
             const not_sorted_prettified_group_value = prettified_group_value.slice();
             const contains_comment_selector = prettified_group_value.some(function (array) {
