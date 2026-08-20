@@ -2,14 +2,16 @@
 # SPDX-License-Identifier: ODbL-1.0
 ---
 
+# @source https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/1993/241
+# @attrib https://sk.wikipedia.org/wiki/Zoznam_sviatkov_na_SlovenskuS
+# @attrib https://github.com/commenthol/date-holidays/blob/master/data/countries/SK.yaml
+
 _nominatim_url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=48.7411522&lon=19.4528646&zoom=18&addressdetails=1&accept-language=sk,en'
 
-# https://sk.wikipedia.org/wiki/Zoznam_sviatkov_na_Slovensku or english: https://en.wikipedia.org/wiki/Public_holidays_in_Slovakia
 PH:
   - {'name': 'Deň vzniku Slovenskej republiky', 'fixed_date': [1, 1]}
   - {'name': 'Zjavenie Pána', 'fixed_date': [1, 6]}
   - {'name': 'Veľký piatok', 'variable_date': easter, 'offset': -2}
-  - {'name': 'Veľkonočná nedeľa', 'variable_date': easter}
   - {'name': 'Veľkonočný pondelok', 'variable_date': easter, 'offset': 1}
   - {'name': 'Sviatok práce', 'fixed_date': [5, 1]}
   - {'name': 'Sviatok svätého Cyrila a Metoda', 'fixed_date': [7, 5]}
