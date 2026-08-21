@@ -1136,21 +1136,21 @@ test.addTest('SH(summer holiday) workaround', [
 /* Italy {{{ */
 test.addTest('Variable days: Italian public holidays', [
         'PH',
-    ], '2014-01-01 0:00', '2014-12-31 23:59', [
-        [ '2014-01-01 00:00', '2014-01-02 00:00', false, 'Capodanno' ],
-        [ '2014-01-06 00:00', '2014-01-07 00:00', false, 'Epifania' ],
-        [ '2014-04-20 00:00', '2014-04-21 00:00', false, 'Pasqua' ],
-        [ '2014-04-21 00:00', '2014-04-22 00:00', false, 'Lunedì di Pasqua' ],
-        [ '2014-04-25 00:00', '2014-04-26 00:00', false, 'Liberazione dal nazifascismo (1945)' ],
-        [ '2014-05-01 00:00', '2014-05-02 00:00', false, 'Festa del lavoro' ],
-        [ '2014-06-02 00:00', '2014-06-03 00:00', false, 'Festa della Repubblica' ],
-        [ '2014-08-15 00:00', '2014-08-16 00:00', false, 'Assunzione di Maria' ],
-        // [ '2014-09-07 00:00', '2014-09-08 00:00', false, 'Festa dell’unità nazionale' ],
-        [ '2014-11-01 00:00', '2014-11-02 00:00', false, 'Ognissanti' ],
-        [ '2014-12-08 00:00', '2014-12-09 00:00', false, 'Immacolata Concezione' ],
-        [ '2014-12-25 00:00', '2014-12-26 00:00', false, 'Natale di Gesù' ],
-        [ '2014-12-26 00:00', '2014-12-27 00:00', false, 'Santo Stefano' ],
-    ], 1000 * 60 * 60 * 24 * 12, 0, false, nominatim_by_loc.it, 'not last test');
+    ], '2026-01-01 0:00', '2026-12-31 23:59', [
+        [ '2026-01-01 00:00', '2026-01-02 00:00', false, 'Capodanno' ],
+        [ '2026-01-06 00:00', '2026-01-07 00:00', false, 'Epifania' ],
+        [ '2026-04-05 00:00', '2026-04-06 00:00', false, 'Pasqua' ],
+        [ '2026-04-06 00:00', '2026-04-07 00:00', false, 'Lunedì di Pasqua' ],
+        [ '2026-04-25 00:00', '2026-04-26 00:00', false, 'Liberazione dal nazifascismo (1945)' ],
+        [ '2026-05-01 00:00', '2026-05-02 00:00', false, 'Festa del lavoro' ],
+        [ '2026-06-02 00:00', '2026-06-03 00:00', false, 'Festa della Repubblica' ],
+        [ '2026-08-15 00:00', '2026-08-16 00:00', false, 'Assunzione di Maria' ],
+        [ '2026-10-04 00:00', '2026-10-05 00:00', false, 'Festa nazionale di San Francesco d\'Assisi' ],
+        [ '2026-11-01 00:00', '2026-11-02 00:00', false, 'Ognissanti' ],
+        [ '2026-12-08 00:00', '2026-12-09 00:00', false, 'Immacolata Concezione' ],
+        [ '2026-12-25 00:00', '2026-12-26 00:00', false, 'Natale di Gesù' ],
+        [ '2026-12-26 00:00', '2026-12-27 00:00', false, 'Santo Stefano' ],
+    ], 1000 * 60 * 60 * 24 * 13, 0, false, nominatim_by_loc.it, 'not last test');
 /* }}} */
 
 /* Romania {{{ */
