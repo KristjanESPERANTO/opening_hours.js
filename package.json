@@ -62,6 +62,7 @@
     "benchmark": "make benchmark",
     "interactive_testing": "make run-interactive_testing",
     "regex_search": "make run-regex_search",
+    "generate-holidays": "node scripts/sync_holidays_from_date_holidays.js",
     "prepare": "husky",
     "readme": "doctoc README.md --title \"## Table of Contents\"",
     "check-updates": "npm-check-updates --upgrade"
