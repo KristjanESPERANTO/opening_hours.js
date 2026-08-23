@@ -2676,7 +2676,7 @@ test.addTest('Variable days: Australia national PH. 2027 (substitute_rule: Chris
 test.addTest('Variable days: Czech Republic public holidays.', [
     'PH',
 ], '2015-01-01 0:00', '2015-12-31 23:59', [
-    [ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Den obnovy samostatného českého státu; Nový rok' ],
+    [ '2015-01-01 00:00', '2015-01-02 00:00', false, 'Nový rok a Den obnovy samostatného českého státu' ],
     [ '2015-04-03 00:00', '2015-04-04 00:00', false, 'Velký pátek' ],
     [ '2015-04-06 00:00', '2015-04-07 00:00', false, 'Velikonoční pondělí' ],
     [ '2015-05-01 00:00', '2015-05-02 00:00', false, 'Svátek práce' ],
