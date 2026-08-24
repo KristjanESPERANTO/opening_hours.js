@@ -55,7 +55,8 @@
   "scripts": {
     "build": "make build",
     "test-quick": "make check",
-    "test": "make check-full",
+    "test:unit": "node --test test/unit/*.test.mjs",
+    "test": "npm run test:unit && make check-full",
     "lint": "eslint",
     "typecheck": "tsc --project jsconfig.json",
     "lint:fix": "eslint --fix",
