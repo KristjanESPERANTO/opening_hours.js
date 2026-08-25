@@ -33,9 +33,9 @@
 import * as holiday_definitions from './holidays/index';
 import word_error_correction from './locales/word_error_correction.yaml';
 
-import { getTimes } from 'suncalc';
 import { translate } from './locales/i18n';
 import { compareSelectorOrder, formatPrettifySelectorToken, getRuleSeparator, matchTokens, normalizePrettifyConf, shouldSortPrettifiedGroup } from './prettify-helpers.mjs';
+import { VARIABLE_TIME_DEFAULTS, getVariableTimeMinutes } from './variable-times.mjs';
 
 import { resolveRange } from './locale-resolver/resolver.mjs';
 import { regionLanguages } from './locale-resolver/region-languages.mjs';
@@ -50,12 +50,6 @@ import resolver_layers from './locale-resolver/layers.json';
  */
 export default function(value, nominatim_object, optional_conf_parm) {
     // Short constants {{{
-    const word_value_replacement = { // If the correct values can not be calculated.
-        dawn    : 60 * 5 + 30,
-        sunrise : 60 * 6,
-        sunset  : 60 * 18,
-        dusk    : 60 * 18 + 30,
-    };
     const months   = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const weekdays = ['Su','Mo','Tu','We','Th','Fr','Sa'];
     const INTL_DAY_MONTH_REF_DATE = new Date(2024, 2, 6); // fixed reference date for Intl.DateTimeFormat#formatToParts
@@ -220,10 +214,6 @@ export default function(value, nominatim_object, optional_conf_parm) {
             + ', expected object.';
     }
 
-    function getTimevarMinutes(date, timevar_name, timevar_add_minutes) {
-        const event_time = getTimes(date, lat, lon)[timevar_name];
-        return event_time.getHours() * 60 + event_time.getMinutes() + timevar_add_minutes;
-    }
     /* }}} */
 
     /* mode, locale, warnings_severity, tag_key, map_value {{{
@@ -1990,7 +1980,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     minutes_from = getMinutesByHoursMinutes(tokens, nrule, at+has_time_var_calc[0]);
                 } else {
                     timevar_string[0] = tokens[at+has_time_var_calc[0]][0];
-                    minutes_from = word_value_replacement[timevar_string[0]];
+                    minutes_from = VARIABLE_TIME_DEFAULTS[timevar_string[0]];
 
                     if (has_time_var_calc[0]) {
                         timevar_add[0] = parseTimevarCalc(tokens, at);
@@ -2050,7 +2040,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             warnAmbiguousSingleDigitHours(tokens, at, at_end_time, nrule);
                         } else {
                             timevar_string[1] = tokens[at_end_time+has_time_var_calc[1]][0];
-                            minutes_to = word_value_replacement[timevar_string[1]];
+                            minutes_to = VARIABLE_TIME_DEFAULTS[timevar_string[1]];
                         }
 
                         if (has_time_var_calc[1]) {
@@ -2095,7 +2085,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     if (!has_normal_time[0] || !(has_normal_time[1] || has_open_end || is_point_in_time) ) {
                         week_stable = false;
                     }
-                } else { // we can not calculate exact times so we use the already applied constants (word_value_replacement).
+                } else { // Without coordinates, keep the parser defaults above.
                     timevar_string = [];
                 }
 
@@ -2116,28 +2106,34 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 if (minutes_from === 0 && minutes_to === minutes_in_day) {
                     rule.time.push(function() { return [true]; });
                 } else {
-                    if (minutes_to > minutes_in_day) { // has_normal_time[1] must be true
-                        rule.time.push(function(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period, extended_open_end) { return function(date) {
+                    // A variable start time can order itself after a fixed or
+                    // variable end time on the real location even when the
+                    // constant fallback above did not wrap (#377), so also
+                    // take this branch to re-check the order on every date.
+                    if (minutes_to > minutes_in_day ||
+                            (typeof lat === 'string' && !has_open_end && !is_point_in_time &&
+                        timevar_string[0])) {
+                        rule.time.push(function(initial_from, initial_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period, extended_open_end) { return function(date) {
                             const ourminutes = date.getHours() * 60 + date.getMinutes();
 
-                            if (timevar_string[0]) {
-                                minutes_from = getTimevarMinutes(date, timevar_string[0], timevar_add[0]);
-                            }
-                            if (timevar_string[1]) {
-                                minutes_to = getTimevarMinutes(date, timevar_string[1], timevar_add[1]);
-                                minutes_to += minutes_in_day;
-                                // Needs to be added because it was added by
-                                // normal times: if (minutes_to < minutes_from)
-                                // above the selector construction.
+                            // Variable times can change their order from day to day.
+                            const resolved_from = timevar_string[0]
+                                ? getVariableTimeMinutes(date, lat, lon, timevar_string[0], timevar_add[0])
+                                : initial_from;
+                            let resolved_to = timevar_string[1]
+                                ? getVariableTimeMinutes(date, lat, lon, timevar_string[1], timevar_add[1])
+                                : initial_to;
+                            if (timevar_string[1] && resolved_to <= resolved_from) {
+                                resolved_to += minutes_in_day;
                             } else if (is_point_in_time && typeof point_in_time_period !== 'number') {
-                                minutes_to = minutes_from + 1;
+                                resolved_to = resolved_from + 1;
                             }
 
                             if (typeof point_in_time_period === 'number') {
-                                if (ourminutes < minutes_from) {
-                                    return [false, dateAtDayMinutes(date, minutes_from)];
-                                } else if (ourminutes <= minutes_to) {
-                                    for (let cur_min = minutes_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
+                                if (ourminutes < resolved_from) {
+                                    return [false, dateAtDayMinutes(date, resolved_from)];
+                                } else if (ourminutes <= resolved_to) {
+                                    for (let cur_min = resolved_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
                                         if (cur_min === ourminutes) {
                                             return [true, dateAtDayMinutes(date, ourminutes + 1)];
                                         } else if (ourminutes < cur_min) {
@@ -2147,10 +2143,20 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                 }
                                 return [false, dateAtDayMinutes(date, minutes_in_day)];
                             } else {
-                                if (ourminutes < minutes_from)
-                                    return [false, dateAtDayMinutes(date, minutes_from)];
-                                else
-                                    return [true, dateAtDayMinutes(date, minutes_to), has_open_end, extended_open_end];
+                                if (resolved_to > minutes_in_day) {
+                                    if (ourminutes < resolved_from)
+                                        return [false, dateAtDayMinutes(date, resolved_from)];
+                                    return [true, dateAtDayMinutes(date, resolved_to), has_open_end, extended_open_end];
+                                }
+                                if (ourminutes < resolved_from)
+                                    return [false, dateAtDayMinutes(date, resolved_from)];
+                                if (ourminutes < resolved_to)
+                                    return [true, dateAtDayMinutes(date, resolved_to), has_open_end, extended_open_end];
+                                if (timevar_string[0]) {
+                                    const next_day = dateAtDayMinutes(date, minutes_in_day);
+                                    return [false, dateAtDayMinutes(next_day, getVariableTimeMinutes(next_day, lat, lon, timevar_string[0], timevar_add[0]))];
+                                }
+                                return [false, dateAtDayMinutes(date, resolved_from + minutes_in_day)];
                             }
                         }}(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period, extended_open_end));
 
@@ -2159,16 +2165,20 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                 rule_infos[nrule] = {};
                             }
                             rule_infos[nrule]['time_wraps_over_midnight'] = true;
-                            rule.wraptime.push(function(minutes_to, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end) { return function(date) {
+                            rule.wraptime.push(function(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end) { return function(date) {
                                 const ourminutes = date.getHours() * 60 + date.getMinutes();
 
+                                if (timevar_string[0]) {
+                                    minutes_from = getVariableTimeMinutes(date, lat, lon, timevar_string[0], timevar_add[0]);
+                                }
                                 if (timevar_string[1]) {
-                                    minutes_to = getTimevarMinutes(date, timevar_string[1], timevar_add[1]);
-                                    // minutes_in_day does not need to be added.
-                                    // For normal times in it was added in: if (minutes_to < // minutes_from)
-                                    // above the selector construction and
-                                    // subtracted in the selector construction call
-                                    // which returns the selector function.
+                                    minutes_to = getVariableTimeMinutes(date, lat, lon, timevar_string[1], timevar_add[1]);
+                                }
+
+                                if (timevar_string[0] || timevar_string[1]) {
+                                    if (minutes_to > minutes_from) {
+                                        return [false, undefined];
+                                    }
                                 }
 
                                 if (typeof point_in_time_period === 'number') {
@@ -2186,26 +2196,27 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                         return [true, dateAtDayMinutes(date, minutes_to), has_open_end, extended_open_end];
                                 }
                                 return [false, undefined];
-                            }}(minutes_to - minutes_in_day, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end));
+                            }}(minutes_from, minutes_to > minutes_in_day ? minutes_to - minutes_in_day : minutes_to, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end));
                         }
                     } else {
-                        rule.time.push(function(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period) { return function(date) {
+                        rule.time.push(function(initial_from, initial_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period) { return function(date) {
                             const ourminutes = date.getHours() * 60 + date.getMinutes();
 
-                            if (timevar_string[0]) {
-                                minutes_from = getTimevarMinutes(date, timevar_string[0], timevar_add[0]);
-                            }
-                            if (timevar_string[1]) {
-                                minutes_to = getTimevarMinutes(date, timevar_string[1], timevar_add[1]);
-                            } else if (is_point_in_time && typeof point_in_time_period !== 'number') {
-                                minutes_to = minutes_from + 1;
+                            const resolved_from = timevar_string[0]
+                                ? getVariableTimeMinutes(date, lat, lon, timevar_string[0], timevar_add[0])
+                                : initial_from;
+                            let resolved_to = timevar_string[1]
+                                ? getVariableTimeMinutes(date, lat, lon, timevar_string[1], timevar_add[1])
+                                : initial_to;
+                            if (!timevar_string[1] && is_point_in_time && typeof point_in_time_period !== 'number') {
+                                resolved_to = resolved_from + 1;
                             }
 
                             if (typeof point_in_time_period === 'number') {
-                                if (ourminutes < minutes_from) {
-                                    return [false, dateAtDayMinutes(date, minutes_from)];
-                                } else if (ourminutes <= minutes_to) {
-                                    for (let cur_min = minutes_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
+                                if (ourminutes < resolved_from) {
+                                    return [false, dateAtDayMinutes(date, resolved_from)];
+                                } else if (ourminutes <= resolved_to) {
+                                    for (let cur_min = resolved_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
                                         if (cur_min === ourminutes) {
                                             return [true, dateAtDayMinutes(date, ourminutes + 1)];
                                         } else if (ourminutes < cur_min) {
@@ -2215,12 +2226,19 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                 }
                                 return [false, dateAtDayMinutes(date, minutes_in_day)];
                             } else {
-                                if (ourminutes < minutes_from)
-                                    return [false, dateAtDayMinutes(date, minutes_from)];
-                                else if (ourminutes < minutes_to)
-                                    return [true, dateAtDayMinutes(date, minutes_to), has_open_end];
-                                else
-                                    return [false, dateAtDayMinutes(date, minutes_from + minutes_in_day)];
+                                if (ourminutes < resolved_from)
+                                    return [false, dateAtDayMinutes(date, resolved_from)];
+                                else if (ourminutes < resolved_to)
+                                    return [true, dateAtDayMinutes(date, resolved_to), has_open_end];
+                                else if (timevar_string[0]) {
+                                    // The next opening is the variable time on
+                                    // the following day, which drifts from day
+                                    // to day, so recompute it instead of reusing
+                                    // today's value shifted by 24h (#377).
+                                    const next_day = dateAtDayMinutes(date, minutes_in_day);
+                                    return [false, dateAtDayMinutes(next_day, getVariableTimeMinutes(next_day, lat, lon, timevar_string[0], timevar_add[0]))];
+                                } else
+                                    return [false, dateAtDayMinutes(date, resolved_from + minutes_in_day)];
                             }
                         }}(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period));
                     }
