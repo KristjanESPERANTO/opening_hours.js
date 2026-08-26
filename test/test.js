@@ -684,46 +684,48 @@ test.addTest('Variable times calculation with coordinates', [
 test.addTest('Variable times which moves over fix end time', [
         'sunrise-08:02',
     ], '2013-01-26 0:00', '2013-02-03 0:00', [
-        [ '2013-01-26 08:01', '2013-01-26 08:02' ],
-        [ '2013-01-27 08:00', '2013-01-27 08:02' ],
-        [ '2013-01-28 07:59', '2013-01-28 08:02' ],
-        [ '2013-01-29 07:58', '2013-01-29 08:02' ],
-        [ '2013-01-30 07:56', '2013-01-30 08:02' ],
-        [ '2013-01-31 07:55', '2013-01-31 08:02' ],
-        [ '2013-02-01 07:54', '2013-02-01 08:02' ],
-        [ '2013-02-02 07:52', '2013-02-02 08:02' ],
-    ], 1000 * 60 * (1 + 2 + 3 + 4 + 6 + 7 + 8 + 10), 0, false, nominatim_default);
+        [ '2013-01-26 08:00', '2013-01-26 08:02' ],
+        [ '2013-01-27 07:59', '2013-01-27 08:02' ],
+        [ '2013-01-28 07:58', '2013-01-28 08:02' ],
+        [ '2013-01-29 07:56', '2013-01-29 08:02' ],
+        [ '2013-01-30 07:55', '2013-01-30 08:02' ],
+        [ '2013-01-31 07:54', '2013-01-31 08:02' ],
+        [ '2013-02-01 07:52', '2013-02-01 08:02' ],
+        [ '2013-02-02 07:51', '2013-02-02 08:02' ],
+    ], 1000 * 60 * (2 + 3 + 4 + 6 + 7 + 8 + 10 + 11), 0, false, nominatim_default);
 
 test.addTest('Variable times boundary: first non-empty day', [
         'sunrise-08:02',
-    ], '2013-01-25 0:00', '2013-01-27 0:00', [
-        [ '2013-01-26 08:01', '2013-01-26 08:02' ],
+    ], '2013-01-24 0:00', '2013-01-26 0:00', [
+        [ '2013-01-25 08:01', '2013-01-25 08:02' ],
     ], 1000 * 60, 0, false, nominatim_default, 'not last test');
 
 test.addTest('Variable times which moves over fix end time', [
         'sunrise-08:00',
     ], '2013-01-26 0:00', '2013-02-03 0:00', [
-        [ '2013-01-28 07:59', '2013-01-28 08:00' ],
-        [ '2013-01-29 07:58', '2013-01-29 08:00' ],
-        [ '2013-01-30 07:56', '2013-01-30 08:00' ],
-        [ '2013-01-31 07:55', '2013-01-31 08:00' ],
-        [ '2013-02-01 07:54', '2013-02-01 08:00' ],
-        [ '2013-02-02 07:52', '2013-02-02 08:00' ],
-    ], 1000 * 60 * (1 + 2 + 4 + 5 + 6 + 8), 0, false, nominatim_default);
+        [ '2013-01-27 07:59', '2013-01-27 08:00' ],
+        [ '2013-01-28 07:58', '2013-01-28 08:00' ],
+        [ '2013-01-29 07:56', '2013-01-29 08:00' ],
+        [ '2013-01-30 07:55', '2013-01-30 08:00' ],
+        [ '2013-01-31 07:54', '2013-01-31 08:00' ],
+        [ '2013-02-01 07:52', '2013-02-01 08:00' ],
+        [ '2013-02-02 07:51', '2013-02-02 08:00' ],
+    ], 1000 * 60 * (1 + 2 + 4 + 5 + 6 + 8 + 9), 0, false, nominatim_default);
 
 test.addTest('Variable times boundary: zero-length is excluded', [
         'sunrise-08:00',
-    ], '2013-01-27 0:00', '2013-01-28 0:00', [
+    ], '2013-01-26 0:00', '2013-01-27 0:00', [
     ], 0, 0, false, nominatim_default, 'not last test');
 
 test.addTest('Variable times which moves over fix end time', [
         'sunrise-07:58',
     ], '2013-01-26 0:00', '2013-02-03 0:00', [
-        [ '2013-01-30 07:56', '2013-01-30 07:58' ],
-        [ '2013-01-31 07:55', '2013-01-31 07:58' ],
-        [ '2013-02-01 07:54', '2013-02-01 07:58' ],
-        [ '2013-02-02 07:52', '2013-02-02 07:58' ],
-    ], 1000 * 60 * (2 + 3 + 4 + 6), 0, false, nominatim_default);
+        [ '2013-01-29 07:56', '2013-01-29 07:58' ],
+        [ '2013-01-30 07:55', '2013-01-30 07:58' ],
+        [ '2013-01-31 07:54', '2013-01-31 07:58' ],
+        [ '2013-02-01 07:52', '2013-02-01 07:58' ],
+        [ '2013-02-02 07:51', '2013-02-02 07:58' ],
+    ], 1000 * 60 * (2 + 3 + 4 + 6 + 7), 0, false, nominatim_default);
 
 test.addTest('Variable times which moves over fix end time', [
         'sunrise-06:00',
@@ -742,15 +744,36 @@ test.addTest('Variable times which moves over fix end time', [
 test.addTest('Variable times which moves over fix end time', [
         'sunrise-06:00', // from time < constant time <= end time
     ], '2013-04-15 0:00', '2013-04-19 0:00', [
-        [ '2013-04-17 05:59', '2013-04-17 06:00' ],
-        [ '2013-04-18 05:56', '2013-04-18 06:00' ],
-    ], 1000 * 60 * (1 + 4), 0, false, nominatim_sunrise_below);
+        [ '2013-04-16 05:59', '2013-04-16 06:00' ],
+        [ '2013-04-17 05:56', '2013-04-17 06:00' ],
+        [ '2013-04-18 05:53', '2013-04-18 06:00' ],
+    ], 1000 * 60 * (1 + 4 + 7), 0, false, nominatim_sunrise_below);
 
 test.addTest('Variable times which moves over fix end time', [
         ignored('sunrise-05:59'), // from time < end time <= constant time
     ], '2013-04-13 0:00', '2013-04-19 0:00', [
         [ 'something else', '' ],
     ], 1000 * 60 * 3, 0, false, nominatim_sunrise_below, 'not last test');
+
+// Regression (#377): sunrise/sunset intervals must not vanish for locations
+// whose longitude is far from the process time zone (fixed to Europe/Berlin
+// for this test suite). suncalc anchors sunrise/sunset to the solar day
+// implied by the given longitude, which can differ from the calendar day
+// implied by the process-local timestamp; the range then wraps past midnight
+// in local time (sunrise in the afternoon, sunset early the next morning).
+// See src/variable-times.mjs for how the day-shift and wrap decision are
+// resolved.
+test.addTest('Regression: sunrise-sunset interval vanishes for a location far from the process time zone (#377)', [
+        'Mo-Su sunrise-sunset',
+    ], '2021-04-18 10:00', '2021-04-19 10:00', [
+        [ '2021-04-18 15:14', '2021-04-19 05:02' ],
+    ], 1000 * 60 * 828, 0, false, { lat: '47.606', lon: '-122.322' }, 'not last test'); // Seattle
+
+test.addTest('Regression: sunrise-sunset interval vanishes for a location far from the process time zone (#377)', [
+        'Mo-Su sunrise-sunset',
+    ], '2021-04-17 12:00', '2021-04-18 12:00', [
+        [ '2021-04-17 22:49', '2021-04-18 09:50' ],
+    ], 1000 * 60 * 661, 0, false, { lat: '-37.818', lon: '144.951' }); // Melbourne
 
 test.addTest('Variable times spanning midnight', [
         'sunset-sunrise',
