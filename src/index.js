@@ -294,7 +294,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
         throw t('nothing');
     }
 
-    /** @typedef {[number, string, number] & { single_digit_lexeme?: boolean, meridian?: string }} ParserToken */
+    /** @typedef {[number|string, string, number] & { single_digit_lexeme?: boolean, meridian?: string }} ParserToken */
+    /** @typedef {[Array<ParserToken>, boolean, number?]} ParserTokenRule */
     const parsing_warnings = []; // Elements are arrays [nrule, at, type, message, tokens_to_use?] fed into formatWarnErrorMessage().
     let done_with_warnings = false; // The functions which returns warnings can be called multiple times.
     let done_with_selector_reordering = false;
@@ -302,7 +303,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     // Rule indices for which prettify must keep the original selector order,
     // because reordering time/state would change the meaning (#596).
     const rules_without_selector_reordering = new Set();
-    /** @type {Array<unknown>} */
+    /** @type {Array<ParserTokenRule>} */
     const tokens = tokenize(value);
     // console.log(JSON.stringify(tokens, null, '    '));
     let prettified_value = '';
@@ -493,7 +494,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * @param {number|string} nrule Rule number starting with 0. `-1` means an
      *     error during tokenization; a string means the prettified value.
      * @param {number} at Token position. `-1` means the end of a rule.
-     * @param {Array<unknown>} [tokens_to_use] Token array, defaulting to `tokens`. Pass
+     * @param {Array<ParserTokenRule>} [tokens_to_use] Token array, defaulting to `tokens`. Pass
      *     `new_tokens` from `getWarnings()` because additional rules can make
      *     it longer than `tokens`.
      * @returns {{value: string, position: number|null}} The value the position
@@ -516,37 +517,39 @@ export default function(value, nominatim_object, optional_conf_parm) {
         }
 
         let pos;
-        if (typeof tokens_to_use[nrule] === 'undefined') {
+        const current_rule = tokens_to_use[nrule];
+        if (typeof current_rule === 'undefined') {
             // Caller passed the wrong token array (tokens instead of new_tokens?).
             formatLibraryBugMessage('Bug in warning generation code: tokens_to_use[nrule] is undefined for nrule=' + nrule + '.');
             pos = value.length;
-        } else if (typeof tokens_to_use[nrule][0][at] === 'undefined') {
-            if (typeof tokens_to_use[nrule][0] !== 'undefined' && at === -1) {
+        } else if (typeof current_rule[0][at] === 'undefined') {
+            if (at === -1) {
                 // at === -1: point to end of rule, use offset of next rule entry if available.
                 pos = value.length;
-                if (typeof tokens_to_use[nrule+1] === 'object' && typeof tokens_to_use[nrule+1][2] === 'number') {
-                    pos -= tokens_to_use[nrule+1][2];
-                } else if (typeof tokens_to_use[nrule][2] === 'number') {
-                    pos -= tokens_to_use[nrule][2];
+                const next_rule = tokens_to_use[nrule + 1];
+                if (typeof next_rule !== 'undefined' && typeof next_rule[2] === 'number') {
+                    pos -= next_rule[2];
+                } else if (typeof current_rule[2] === 'number') {
+                    pos -= current_rule[2];
                 }
             } else {
                 // Token position is out of range. Run real_test regularly to catch this.
                 formatLibraryBugMessage('Bug in warning generation code which could not determine the exact position of the warning or error in value.');
                 pos = value.length;
-                if (typeof tokens_to_use[nrule][2] === 'number') {
+                if (typeof current_rule[2] === 'number') {
                     // Fallback: point to last token in the rule which caused the problem.
-                    pos -= tokens_to_use[nrule][2];
-                    console.warn('Last token for rule: ' + JSON.stringify(tokens_to_use[nrule]));
+                    pos -= current_rule[2];
+                    console.warn('Last token for rule: ' + JSON.stringify(current_rule));
                 } else {
                     console.warn('tokens_to_use[nrule][2] is undefined. This is ok if nrule is the last rule.');
                 }
             }
         } else {
             pos = value.length;
-            if (typeof tokens_to_use[nrule][0][at+1] === 'object') {
-                pos -= tokens_to_use[nrule][0][at+1][2];
-            } else if (typeof tokens_to_use[nrule][2] === 'number') {
-                pos -= tokens_to_use[nrule][2];
+            if (typeof current_rule[0][at + 1] === 'object') {
+                pos -= current_rule[0][at + 1][2];
+            } else if (typeof current_rule[2] === 'number') {
+                pos -= current_rule[2];
             }
         }
         return { value: value, position: pos };
@@ -559,7 +562,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      *     position refers to that value.
      * @param {number} at Token or character position to mark.
      * @param {string} message Human-readable warning or error message.
-     * @param {Array<unknown>} [tokens_to_use] Token array used to resolve the position.
+     * @param {Array<ParserTokenRule>} [tokens_to_use] Token array used to resolve the position.
      * @returns {string} Message with the position marker, or the original message
      *     when no position can be determined.
      */
@@ -597,7 +600,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     /**
      * Tokenize an opening-hours input stream. {{{
      * @param {string} value Raw opening-hours value.
-     * @returns {Array<unknown>} Tokenized list. See the internal documentation in `docs/`.
+     * @returns {Array<ParserTokenRule>} Tokenized list. See the internal documentation in `docs/`.
      */
     function tokenize(value) {
         // Negative list approach: Match anything that's NOT punctuation, digits, or special chars
