@@ -2163,6 +2163,12 @@ We off; Mo,Tu,Th-Su,PH; FRÜHLING <--- (Saisonwörter sind mehrdeutig. Bitte ver
 "Season words should fail with explicit date-range guidance" for "We off; Mo,Tu,Th-Su,PH; primavera We 11:00-14:00,17:00+": [32m[1mPASSED[22m[39m
 We off; Mo,Tu,Th-Su,PH; primavera <--- (Saisonwörter sind mehrdeutig. Bitte verwende stattdessen explizite Datumsbereiche, z. B. Jun-Aug, Dec-Feb oder Jun 21-Sep 22.)
 
+"Errors during tokenization must not crash internally" for "|| Mo": [32m[1mPASSED[22m[39m
+|| <--- (Die Regel vor der Fallback-Regel enthält nichts nützliches)
+
+"Errors during tokenization must not crash internally" for "summer": [32m[1mPASSED[22m[39m
+summer <--- (Saisonwörter sind mehrdeutig. Bitte verwende stattdessen explizite Datumsbereiche, z. B. Jun-Aug, Dec-Feb oder Jun 21-Sep 22.)
+
 "Incorrect syntax which should throw an error" for "Mo-Fr 17:00-12:00; Sa-Su 24:00-12:00": [32m[1mPASSED[22m[39m
 Mo-Fr 17:00-12:00; Sa-Su 24:00 <--- (Zeitspanne beginnt außerhalb des aktuellen Tages)
 
@@ -2754,7 +2760,7 @@ Der optional_conf_parm["tag_key"] fehlt, ist aber notwendig wegen optional_conf_
 "getNextChange skips comment-only boundary at end of off "renovation" overlay (#523)" for "Mo-Sa 08:00-21:00; Su "some 08:00-16:00"; PH off; 2025 Jul 27 - 2025 Sep 24 off "renovacija"": [32m[1mPASSED[22m[39m
 "getNextChange skips PH comment inside contiguous open range (#489)" for "Jul-Aug Mo-Su,PH 00:00-24:00": [32m[1mPASSED[22m[39m
 "getNextChange returns undefined when state never changes" for "24/7": [32m[1mPASSED[22m[39m
-1073/1073 tests passed. 0 did not pass.
+1075/1075 tests passed. 0 did not pass.
 41 tests where (partly) ignored, sorted by commonness:
 * 26: prettifyValue (most of the cases this is used to test if values with selectors in wrong order or wrong symbols (error tolerance) are evaluated correctly)
 * 11: not implemented yet
