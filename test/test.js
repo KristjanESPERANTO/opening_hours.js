@@ -5566,6 +5566,18 @@ test.addStructuredWarnings('Structured warning: time range without minutes',
         [ 'without_minutes' ],
         nominatim_default, 'not only test', { 'tag_key': 'opening_hours' });
 
+test.addStructuredWarnings('Structured warning: additional rule positions',
+    'Mo 10-12, Tu 14-16',
+    [ 'without_minutes', 'without_minutes' ],
+    nominatim_default, 'not only test', { 'tag_key': 'opening_hours' }, undefined, undefined,
+    [ 8, 18 ]);
+
+test.addStructuredWarnings('Structured warning: empty rule position',
+    '10:00-12:00;',
+    [ 'nothing_useful' ],
+    nominatim_default, 'not only test', { 'tag_key': 'opening_hours' }, undefined, undefined,
+    [ 12 ]);
+
 test.addStructuredWarnings('Structured warning: word error correction has stable type',
         'Mon',
         [ 'word_error_correction', 'vague' ],
@@ -6232,6 +6244,7 @@ function opening_hours_test() {
         const oh_mode        = test_data_object[4];
         const date           = test_data_object[5];
         const expected_is_holiday = test_data_object[6];
+        const expected_positions = test_data_object[7];
 
         let warnings, formatted, oh, public_holiday_context;
         let crashed = false;
@@ -6249,6 +6262,7 @@ function opening_hours_test() {
 
         let shape_ok = false;
         let types_ok = false;
+        let positions_ok = true;
         let derives_ok = false;
         let public_holiday_context_ok = true;
         if (!crashed && Array.isArray(warnings)) {
@@ -6265,6 +6279,12 @@ function opening_hours_test() {
             const got_types = warnings.map(function(w) { return w.type; });
             types_ok = expected_types.length === got_types.length
                 && expected_types.every(function(t, i) { return t === got_types[i]; });
+            if (typeof expected_positions !== 'undefined') {
+                positions_ok = expected_positions.length === warnings.length
+                    && expected_positions.every(function(position, i) {
+                        return warnings[i].position === position;
+                    });
+            }
             // The formatted string from getWarnings() must be derivable from the
             // structured object, proving value/position are correct.
             derives_ok = Array.isArray(formatted)
@@ -6280,7 +6300,7 @@ function opening_hours_test() {
             }
         }
 
-        if (shape_ok && types_ok && derives_ok && public_holiday_context_ok) {
+        if (shape_ok && types_ok && positions_ok && derives_ok && public_holiday_context_ok) {
             str += c.passed('PASSED');
             passed = true;
             if (this.show_passing_tests) {
@@ -6294,6 +6314,9 @@ function opening_hours_test() {
             } else {
                 console.warn('  expected types: ' + JSON.stringify(expected_types));
                 console.warn('  got warnings:   ' + JSON.stringify(warnings));
+                if (!positions_ok) {
+                    console.warn('  expected positions: ' + JSON.stringify(expected_positions));
+                }
                 if (!derives_ok) {
                     console.warn('  formatted:      ' + JSON.stringify(formatted));
                 }
@@ -6757,7 +6780,7 @@ function opening_hours_test() {
     // }}}
 
     // add test to check getStructuredWarnings returns the expected warning types {{{
-    this.addStructuredWarnings = function(name, value, expected_types, nominatim_data, last, oh_mode, date, date_relevant) {
+    this.addStructuredWarnings = function(name, value, expected_types, nominatim_data, last, oh_mode, date, date_relevant, expected_positions) {
         if (this.last === true)  {
             return;
         }
@@ -6765,7 +6788,7 @@ function opening_hours_test() {
 
         oh_mode = get_oh_mode_parameter(oh_mode);
 
-        this.tests_structured_warnings.push([name, value, expected_types, nominatim_data, oh_mode, date, date_relevant]);
+        this.tests_structured_warnings.push([name, value, expected_types, nominatim_data, oh_mode, date, date_relevant, expected_positions]);
     };
     // }}}
 
