@@ -316,6 +316,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     // for (var nrule = 0; nrule < tokens.length; nrule++) {
     //     rule_infos[nrule] = {};
     // }
+    /** @type {Array<ParserTokenRule>} */
     const new_tokens = [];
 
     for (nrule = 0; nrule < tokens.length; nrule++) {
@@ -392,7 +393,13 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
             if (next_rule_is_additional && new_tokens.length > 1) {
                 // Move 'rule separator' from last token of last rule to first token of this rule.
-                new_tokens[new_tokens.length - 1][0].unshift(new_tokens[new_tokens.length - 2][0].pop());
+                const previous_tokens = new_tokens[new_tokens.length - 2][0];
+                const current_tokens = new_tokens[new_tokens.length - 1][0];
+                const rule_separator = previous_tokens.pop();
+                if (rule_separator === undefined) {
+                    throw formatLibraryBugMessage('Missing rule separator.');
+                }
+                current_tokens.unshift(rule_separator);
             }
 
             next_rule_is_additional = continue_at === 0 ? false : true;
@@ -1096,8 +1103,11 @@ export default function(value, nominatim_object, optional_conf_parm) {
             const small_range_selector_order = [ 'weekday', 'time', '24/7', 'state', 'comment'];
 
             // How many times was a selector_type used per rule? {{{
+            /** @type {Array<Record<string, number[]>>} */
             const used_selectors = [];
+            /** @type {string[][]} */
             const used_selectors_types_array = [];
+            /** @type {Record<string, boolean>} */
             const has_token = {};
 
             for (let nrule = 0; nrule < new_tokens.length; nrule++) {
