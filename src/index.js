@@ -1606,6 +1606,36 @@ export default function(value, nominatim_object, optional_conf_parm) {
     }
     /* }}} */
 
+    /**
+     * Check whether the tokens describe the plain full-year month/day range
+     * `Jan 01-Dec 31`, without a period or following selector.
+     * @param {Array<ParserToken>} tokens Parser tokens.
+     * @param {number} at Position of the possible range.
+     * @returns {boolean} Whether the range is week-stable.
+     */
+    function isPlainFullYearMonthdayRange(tokens, at) {
+        if (matchTokens(tokens, at, 'year'))
+            return false;
+        if (!matchTokens(tokens, at, 'month', 'number', '-', 'month', 'number'))
+            return false;
+
+        const from_month = tokens[at][0];
+        const from_day = tokens[at + 1][0];
+        const to_month = tokens[at + 3][0];
+        const to_day = tokens[at + 4][0];
+
+        if (!(from_month === 0 && from_day === 1 && to_month === 11 && to_day === 31))
+            return false;
+
+        // A period or another selector means this is not the plain full-year range.
+        if (matchTokens(tokens, at + 5, '/', 'number'))
+            return false;
+        if (matchTokens(tokens, at + 5, ','))
+            return false;
+
+        return true;
+    }
+
     /* Top-level parser {{{
      *
      * :param tokens: List of tokens.
@@ -1640,9 +1670,11 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     || matchTokens(tokens, at, 'year', 'month', 'number')
                     || matchTokens(tokens, at, 'year', 'event')
                     || matchTokens(tokens, at, 'event')) {
+                const is_full_year_monthday_range = isPlainFullYearMonthdayRange(tokens, at);
 
                 at = parseMonthdayRange(tokens, at, nrule);
-                week_stable = false;
+                if (!is_full_year_monthday_range)
+                    week_stable = false;
             } else if (matchTokens(tokens, at, 'year')) {
                 at = parseYearRange(tokens, at);
                 week_stable = false;
