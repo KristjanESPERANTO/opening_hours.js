@@ -164,14 +164,13 @@ All functions are documented, which should help contributors to get started.
 The documentation looks like this:
 
 ```js
-/* List parser for constrained weekdays in month range {{{
+/** List parser for constrained weekdays in month range {{{
  * e.g. Su[-1] which selects the last Sunday of the month.
  *
- * :param tokens: List of token objects.
- * :param at: Position where to start.
- * :returns: Array:
- *            0. Constrained weekday number.
- *            1. Position at which the token does not belong to the list any more (after ']' token).
+ * @param {Array<ParserToken>} tokens List of token objects.
+ * @param {number} at Position where to start.
+ * @returns {Array<number>} 0. Constrained weekday number.
+ *                          1. Position at which the token does not belong to the list any more (after ']' token).
  */
 function getConstrainedWeekday(tokens, at) {}
 ```
