@@ -4828,30 +4828,29 @@ export default function(value, nominatim_object, optional_conf_parm) {
             /** @type {{getStatePair: (date: Date) => OpeningHoursStatePair}} */
             oh
         ) {
-            // TODO: only prevstate[1] (date) is ever read; indices 0/2/3/4 are dead sentinel values. Could simplify to a plain Date.
-            /** @type {[boolean|undefined, Date|undefined, boolean|undefined, string|undefined, number|undefined]} */
-            let prevstate = [ undefined, date, undefined, undefined, undefined ];
             let state = oh.getStatePair(date);
+            let prevstate = state;
 
             /**
              * getDate {{{
              * @returns {Date} Current iterator date.
              */
             this.getDate = function() {
-                return prevstate[1];
+                return date;
             };
             /* }}} */
 
             /**
              * setDate {{{
-             * @param {Date} date - Date to set.
+             * @param {Date} new_date - Date to set.
              */
-            this.setDate = function(date) {
-                if (typeof date !== 'object')
+            this.setDate = function(new_date) {
+                if (typeof new_date !== 'object')
                     throw t('date parameter needed');
 
-                prevstate = [ undefined, date, undefined, undefined, undefined ];
-                state     = oh.getStatePair(date);
+                date = new_date;
+                state = oh.getStatePair(date);
+                prevstate = state;
             };
             /* }}} */
 
@@ -4911,8 +4910,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
              */
             this.advance = function(datelimit) {
                 if (typeof datelimit === 'undefined') {
-                    datelimit = new Date(prevstate[1].getTime() + msec_in_day * 366 * 5);
-                } else if (datelimit.getTime() <= prevstate[1].getTime()) {
+                    datelimit = new Date(date.getTime() + msec_in_day * 366 * 5);
+                } else if (datelimit.getTime() <= date.getTime()) {
                     return false; /* The limit for advance needs to be after the current time. */
                 }
 
@@ -4921,14 +4920,14 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         return false; /* open range, we won't be able to advance */
                     }
 
-                    // console.log('\n' + 'previous check time:', prevstate[1]
+                    // console.log('\n' + 'previous check time:', date
                     //     + ', current check time:',
                     //     state[1],
                     //     (state[0] ? 'open' : (state[2] ? 'unknown' : 'closed'))
                     //     + ', comment:', state[3]
                     //     + ', match_rule:', state[4]);
 
-                    if (state[1].getTime() <= prevstate[1].getTime()) {
+                    if (state[1].getTime() <= date.getTime()) {
                         /* We're going backwards or staying at the same time.
                          * This most likely indicates an error in a selector code.
                          */
@@ -4941,8 +4940,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     }
 
                     // do advance
+                    date = state[1];
                     prevstate = state;
-                    state = oh.getStatePair(prevstate[1]);
+                    state = oh.getStatePair(date);
                     // console.log(state);
                 } while (state[0] === prevstate[0] && state[2] === prevstate[2] && state[3] === prevstate[3]);
                 return true;
