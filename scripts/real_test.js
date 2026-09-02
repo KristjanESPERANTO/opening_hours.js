@@ -146,7 +146,9 @@ for (let i = 0; i < argv._.length; i++) {
     test_framework.json_file(filename);
 }
 
-/* Test framework {{{ */
+/**
+ * Test framework {{{
+ */
 function opening_hours_test() {
 
     // let percent_number_format     = '%04.1f %%';
@@ -577,7 +579,21 @@ function opening_hours_test() {
         });
     }; /* }}} */
 
-    /* log_to_user {{{ */
+    /**
+     * log_to_user {{{
+     * @param {boolean} tests_done - Whether all tests are done.
+     * @param {number} total - Total number of tests.
+     * @param {number} total_differ - Number of differing tests.
+     * @param {number} currently_parsed_value - Current value number.
+     * @param {number} parsed_values - Number of parsed values.
+     * @param {number} success - Number of successful tests.
+     * @param {number} success_differ - Number of differing successes.
+     * @param {number} warnings - Number of warnings.
+     * @param {number} warnings_differ - Number of differing warnings.
+     * @param {number} not_pretty - Number of non-pretty values.
+     * @param {number} not_pretty_differ - Number of differing non-pretty values.
+     * @param {Date} time_at_test_begin - Test start time.
+     */
     function log_to_user(tests_done, total, total_differ, currently_parsed_value, parsed_values,
         success, success_differ, warnings, warnings_differ, not_pretty, not_pretty_differ, time_at_test_begin) {
 
@@ -614,7 +630,13 @@ function opening_hours_test() {
         /* "100.0 %" would be 7 characters long, but that does not happen to often. */
     }
 
-    /* Helper functions {{{ */
+    // Helper functions {{{
+
+    /**
+     * @param {Array} a - First value.
+     * @param {Array} b - Second value.
+     * @returns {number} Sort order.
+     */
     function Comparator(a, b){
         if (a[1] > b[1]) return -1;
         if (a[1] < b[1]) return 1;

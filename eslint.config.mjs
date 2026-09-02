@@ -28,9 +28,7 @@ export default defineConfig([
       'prefer-const': 'error',
       'no-var': 'error',
       'jsdoc/require-jsdoc': ['warn', { publicOnly: true }],
-      // TODO: Re-enable this rule after the affected comments have been migrated safely.
-      // Disabled for now because its autofix does not preserve Vim fold markers or legacy JSDoc descriptions.
-      'jsdoc/convert-to-jsdoc-comments': ['off', { lineOrBlockStyle: 'block' }],
+      'jsdoc/convert-to-jsdoc-comments': ['error', { lineOrBlockStyle: 'block' }],
     },
   },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/gfm', extends: ['markdown/recommended'] },
