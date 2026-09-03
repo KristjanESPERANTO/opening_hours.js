@@ -4824,131 +4824,124 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * @returns {OpeningHoursIterator} Iterator over state changes.
      */
     this.getIterator = function(date = new Date()) {
-        return new function(
-            /** @type {{getStatePair: (date: Date) => OpeningHoursStatePair}} */
-            oh
-        ) {
-            let state = oh.getStatePair(date);
-            let prevstate = state;
+        const iterator = {};
+        /** @type {{getStatePair: (date: Date) => OpeningHoursStatePair}} */
+        const oh = this;
+        let state = oh.getStatePair(date);
+        let prevstate = state;
 
-            /**
-             * getDate {{{
-             * @returns {Date} Current iterator date.
-             */
-            this.getDate = function() {
-                return date;
-            };
-            /* }}} */
+        /**
+         * getDate {{{
+         * @returns {Date} Current iterator date.
+         */
+        iterator.getDate = function() {
+            return date;
+        };
+        /* }}} */
 
-            /**
-             * setDate {{{
-             * @param {Date} new_date - Date to set.
-             */
-            this.setDate = function(new_date) {
-                if (typeof new_date !== 'object')
-                    throw t('date parameter needed');
+        /**
+         * setDate {{{
+         * @param {Date} new_date - Date to set.
+         */
+        iterator.setDate = function(new_date) {
+            if (typeof new_date !== 'object')
+                throw t('date parameter needed');
 
-                date = new_date;
-                state = oh.getStatePair(date);
-                prevstate = state;
-            };
-            /* }}} */
+            date = new_date;
+            state = oh.getStatePair(date);
+            prevstate = state;
+        };
+        /* }}} */
 
-            /**
-             * Check whether facility is `open' {{{
-             * @returns {boolean} Whether the facility is open.
-             */
-            this.getState = function() {
-                return state[0];
-            };
-            /* }}} */
+        /**
+         * Check whether facility is `open' {{{
+         * @returns {boolean} Whether the facility is open.
+         */
+        iterator.getState = function() {
+            return state[0];
+        };
+        /* }}} */
 
-            /**
-             * Checks whether the opening state is conditional or unknown {{{
-             * @returns {boolean} Whether the state is unknown.
-             */
-            this.getUnknown = function() {
-                return state[2];
-            };
-            /* }}} */
+        /**
+         * Checks whether the opening state is conditional or unknown {{{
+         * @returns {boolean} Whether the state is unknown.
+         */
+        iterator.getUnknown = function() {
+            return state[2];
+        };
+        /* }}} */
 
-            /**
-             * Get state string. Either 'open', 'unknown' or 'closed' {{{
-             * @param {boolean} past - Whether to report a past closed state.
-             * @returns {string} State string.
-             */
-            this.getStateString = function(past) {
-                return (state[0] ? 'open' : (state[2] ? 'unknown' : (past ? 'closed' : 'close')));
-            };
-            /* }}} */
+        /**
+         * Get state string. Either 'open', 'unknown' or 'closed' {{{
+         * @param {boolean} past - Whether to report a past closed state.
+         * @returns {string} State string.
+         */
+        iterator.getStateString = function(past) {
+            return (state[0] ? 'open' : (state[2] ? 'unknown' : (past ? 'closed' : 'close')));
+        };
+        /* }}} */
 
-            /**
-             * Get the comment, undefined in none {{{
-             * @returns {string|undefined} Current comment.
-             */
-            this.getComment = function() {
-                return state[3];
-            };
-            /* }}} */
+        /**
+         * Get the comment, undefined in none {{{
+         * @returns {string|undefined} Current comment.
+         */
+        iterator.getComment = function() {
+            return state[3];
+        };
+        /* }}} */
 
-            /**
-             * Get the rule which matched thus deterrents the current state {{{
-             * @returns {object|undefined} Matching rule.
-             */
-            this.getMatchingRule = function() {
-                if (typeof state[4] === 'undefined')
-                    return undefined;
+        /**
+         * Get the rule which matched thus deterrents the current state {{{
+         * @returns {object|undefined} Matching rule.
+         */
+        iterator.getMatchingRule = function() {
+            if (typeof state[4] === 'undefined')
+                return undefined;
 
-                return rules[state[4]].build_from_token_rule[2];
-            };
-            /* }}} */
+            return rules[state[4]].build_from_token_rule[2];
+        };
+        /* }}} */
 
-            /**
-             * Advances to the next position {{{
-             * @param {Date} datelimit - Date limit.
-             * @returns {boolean} Whether the iterator advanced.
-             */
-            this.advance = function(datelimit) {
-                if (typeof datelimit === 'undefined') {
-                    datelimit = new Date(date.getTime() + msec_in_day * 366 * 5);
-                } else if (datelimit.getTime() <= date.getTime()) {
-                    return false; /* The limit for advance needs to be after the current time. */
+        /**
+         * Advances to the next position {{{
+         * @param {Date} datelimit - Date limit.
+         * @returns {boolean} Whether the iterator advanced.
+         */
+        iterator.advance = function(datelimit) {
+            if (typeof datelimit === 'undefined') {
+                datelimit = new Date(date.getTime() + msec_in_day * 366 * 5);
+            } else if (datelimit.getTime() <= date.getTime()) {
+                return false; /* The limit for advance needs to be after the current time. */
+            }
+
+            do {
+                if (typeof state[1] === 'undefined') {
+                    return false; /* open range, we won't be able to advance */
                 }
 
-                do {
-                    if (typeof state[1] === 'undefined') {
-                        return false; /* open range, we won't be able to advance */
-                    }
+                if (state[1].getTime() <= date.getTime()) {
+                    /* We're going backwards or staying at the same time.
+                     * This most likely indicates an error in a selector code.
+                     */
+                    throw 'Fatal: infinite loop in nextChange';
+                }
 
-                    // console.log('\n' + 'previous check time:', date
-                    //     + ', current check time:',
-                    //     state[1],
-                    //     (state[0] ? 'open' : (state[2] ? 'unknown' : 'closed'))
-                    //     + ', comment:', state[3]
-                    //     + ', match_rule:', state[4]);
+                if (state[1].getTime() >= datelimit.getTime()) {
+                    /* Don't advance beyond limits. */
+                    return false;
+                }
 
-                    if (state[1].getTime() <= date.getTime()) {
-                        /* We're going backwards or staying at the same time.
-                         * This most likely indicates an error in a selector code.
-                         */
-                        throw 'Fatal: infinite loop in nextChange';
-                    }
+                // do advance
+                date = state[1];
+                prevstate = state;
+                state = oh.getStatePair(date);
+                // console.log(state);
+            } while (state[0] === prevstate[0] && state[2] === prevstate[2] && state[3] === prevstate[3]);
+            return true;
+        };
+        /* }}} */
 
-                    if (state[1].getTime() >= datelimit.getTime()) {
-                        /* Don't advance beyond limits. */
-                        return false;
-                    }
-
-                    // do advance
-                    date = state[1];
-                    prevstate = state;
-                    state = oh.getStatePair(date);
-                    // console.log(state);
-                } while (state[0] === prevstate[0] && state[2] === prevstate[2] && state[3] === prevstate[3]);
-                return true;
-            };
-            /* }}} */
-        }(this);
+        return iterator;
     };
     /* }}} */
 
