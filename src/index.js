@@ -42,6 +42,42 @@ import { regionLanguages } from './locale-resolver/region-languages.mjs';
 import { normalizeToken } from './locale-resolver/normalize.mjs';
 import resolver_layers from './locale-resolver/layers.json';
 
+function getStateFromNominatimAddress(address, countryCode) {
+    const countryDefinitions = holiday_definitions[countryCode];
+    if (!countryDefinitions || typeof address !== 'object' || address === null) {
+        return undefined;
+    }
+
+    const stateDefinitions = Object.entries(countryDefinitions)
+        .filter(([, definition]) => definition && typeof definition === 'object'
+            && typeof definition._state_code === 'string');
+    const iso3166Fields = Object.keys(address)
+        .filter((key) => /^ISO3166-2-lvl\d+$/i.test(key))
+        .sort((left, right) => {
+            const leftLevel = Number(left.match(/\d+$/)[0]);
+            const rightLevel = Number(right.match(/\d+$/)[0]);
+            return rightLevel - leftLevel;
+        });
+
+    for (const field of iso3166Fields) {
+        const isoCode = address[field];
+        if (typeof isoCode !== 'string') {
+            continue;
+        }
+        const normalizedIsoCode = isoCode.toLowerCase();
+        const localCode = normalizedIsoCode.replace(/^[^-]+-/, '');
+        const state = stateDefinitions.find(([, definition]) => {
+            const stateCode = definition._state_code.toLowerCase();
+            return stateCode === normalizedIsoCode || stateCode === localCode;
+        });
+        if (state) {
+            return state[0];
+        }
+    }
+
+    return undefined;
+}
+
 /**
  * Creates an opening hours parser for an OSM opening-hours value.
  * @param {string} value The opening-hours value to parse.
@@ -188,9 +224,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
             if (typeof nominatim_object.address.country_code === 'string') {
                 location_cc = nominatim_object.address.country_code;
             }
-            if (typeof nominatim_object.address.state === 'string') {
+            location_state = getStateFromNominatimAddress(nominatim_object.address, location_cc);
+            if (typeof location_state !== 'string' && typeof nominatim_object.address.state === 'string') {
                 location_state = nominatim_object.address.state;
-            } else if (typeof nominatim_object.address.county === 'string') {
+            } else if (typeof location_state !== 'string' && typeof nominatim_object.address.county === 'string') {
                 location_state = nominatim_object.address.county;
             }
         }
