@@ -43,6 +43,53 @@ import { normalizeToken } from './locale-resolver/normalize.mjs';
 import resolver_layers from './locale-resolver/layers.json';
 
 /**
+ * Resolve a state name from a Nominatim address.
+ * Prefer matching ISO3166-2 fields (e.g. "DE-BE" -> "Berlin"), then fall back
+ * to the address.state and address.county fields.
+ * @param {Record<string, unknown>} address Nominatim address object.
+ * @param {string|undefined} countryCode Lowercase country code.
+ * @returns {string|undefined} Resolved state name, if any.
+ */
+function getStateFromAddress(address, countryCode) {
+    if (typeof address !== 'object' || address === null) {
+        return undefined;
+    }
+
+    if (typeof countryCode === 'string') {
+        const countryDefinitions = /** @type {Record<string, Record<string, { _state_code?: unknown }>>} */ (holiday_definitions)[countryCode];
+        if (countryDefinitions) {
+            /** @type {Record<string, string>} */
+            const stateByCode = {};
+            for (const name of Object.keys(countryDefinitions)) {
+                const definition = countryDefinitions[name];
+                if (definition && typeof definition._state_code === 'string') {
+                    stateByCode[definition._state_code.toLowerCase()] = name;
+                }
+            }
+
+            for (const [key, value] of Object.entries(address)) {
+                if (key.startsWith('ISO3166-2') && typeof value === 'string') {
+                    const lower = value.toLowerCase();
+                    const localCode = lower.slice(lower.indexOf('-') + 1);
+                    if (stateByCode[localCode]) {
+                        return stateByCode[localCode];
+                    }
+                }
+            }
+        }
+    }
+
+    if (typeof address.state === 'string') {
+        return address.state;
+    }
+    if (typeof address.county === 'string') {
+        return address.county;
+    }
+
+    return undefined;
+}
+
+/**
  * Creates an opening hours parser for an OSM opening-hours value.
  * @param {string} value The opening-hours value to parse.
  * @param {object|null} [nominatim_object] Location and address data used for holidays and solar times.
@@ -188,11 +235,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             if (typeof nominatim_object.address.country_code === 'string') {
                 location_cc = nominatim_object.address.country_code;
             }
-            if (typeof nominatim_object.address.state === 'string') {
-                location_state = nominatim_object.address.state;
-            } else if (typeof nominatim_object.address.county === 'string') {
-                location_state = nominatim_object.address.county;
-            }
+            location_state = getStateFromAddress(nominatim_object.address, location_cc);
         }
 
         if (typeof nominatim_object.lon === 'string' && typeof nominatim_object.lat === 'string') {
