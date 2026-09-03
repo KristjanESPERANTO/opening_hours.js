@@ -310,6 +310,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     let week_stable = true;
 
     let rule, nrule;
+    /** @type {Array<{[key: string]: object}>} */
     const rules = [];
     const rule_infos = {};
     /* Not reliable because tokens !== new_tokens */
@@ -4287,6 +4288,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * Main selector traversal function (return state array for date). {{{
      * Checks which rule applies for the given date, including its state and
      * comment.
+     * @param {object[]} rules Parsed rules to inspect.
      * @param {Date} date Date to inspect.
      * @returns {OpeningHoursStatePair}
      *     Array:
@@ -4296,7 +4298,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      *     3. comment: Comment which applies for this time range (from date to changedate).
      *     4. match_rule: Rule number starting with 0 (nrule).
      */
-    this.getStatePair = function(date) {
+    function getStatePair(rules, date) {
         let resultstate = false;
         let changedate;
         let unknown = false;
@@ -4499,6 +4501,15 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
         // console.log('changedate', changedate, resultstate, comment, match_rule);
         return [ resultstate, changedate, unknown, comment, match_rule ];
+    }
+
+    /**
+     * Get the state pair for a date.
+     * @param {Date} date Date to inspect.
+     * @returns {OpeningHoursStatePair} State and next-change information.
+     */
+    this.getStatePair = function(date) {
+        return getStatePair(rules, date);
     };
     /* }}} */
 
@@ -4825,9 +4836,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      */
     this.getIterator = function(date = new Date()) {
         const iterator = {};
-        /** @type {{getStatePair: (date: Date) => OpeningHoursStatePair}} */
-        const oh = this;
-        let state = oh.getStatePair(date);
+        let state = getStatePair(rules, date);
         let prevstate = state;
 
         /**
@@ -4848,7 +4857,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 throw t('date parameter needed');
 
             date = new_date;
-            state = oh.getStatePair(date);
+            state = getStatePair(rules, date);
             prevstate = state;
         };
         /* }}} */
@@ -4934,7 +4943,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 // do advance
                 date = state[1];
                 prevstate = state;
-                state = oh.getStatePair(date);
+                state = getStatePair(rules, date);
                 // console.log(state);
             } while (state[0] === prevstate[0] && state[2] === prevstate[2] && state[3] === prevstate[3]);
             return true;
