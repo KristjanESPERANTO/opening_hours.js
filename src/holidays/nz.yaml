@@ -13,7 +13,7 @@ PH:
   - {'name': 'Waitangi Day', 'fixed_date': [2, 6], 'substitute_rule': 'if saturday,sunday then next monday'}
   - {'name': 'Good Friday', 'variable_date': easter, 'offset': -2}
   - {'name': 'Easter Monday', 'variable_date': easter, 'offset': 1}
-  - {'name': 'Anzac Day', 'fixed_date': [4, 25], 'substitute_rule': 'if saturday,sunday then next monday'}
+  - {'name': 'ANZAC Day', 'fixed_date': [4, 25], 'substitute_rule': 'if saturday,sunday then next monday'}
   - {'name': 'King''s Birthday', 'variable_date': firstJuneMonday}
   - {'name': 'Matariki', 'fixed_date': [6, 25], 'year': 2027}
   - {'name': 'Matariki', 'fixed_date': [7, 6], 'year': 2029}

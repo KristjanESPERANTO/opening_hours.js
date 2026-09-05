@@ -520,6 +520,11 @@ src/locale-resolver/layers.json: scripts/gen_locale_resolver_layers.mjs src/loca
 	@echo "Generating locale resolver layers..."
 	$(NODEJS) scripts/gen_locale_resolver_layers.mjs >/dev/null
 
+## Generate holiday YAML files from date-holidays package
+.PHONY: generate-holidays
+generate-holidays:
+	$(NODEJS) scripts/sync_holidays_from_date_holidays.js
+
 README.html:
 
 %.html: %.md
