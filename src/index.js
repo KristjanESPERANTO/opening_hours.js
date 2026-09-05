@@ -30,7 +30,7 @@
  *     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  *     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-import * as holiday_definitions from './holidays/index';
+import * as holiday_definitions from './holidays/generated-openholidays.js';
 import word_error_correction from './locales/word_error_correction.yaml';
 
 import { translate } from './locales/i18n';
@@ -41,6 +41,9 @@ import { resolveRange } from './locale-resolver/resolver.mjs';
 import { regionLanguages } from './locale-resolver/region-languages.mjs';
 import { normalizeToken } from './locale-resolver/normalize.mjs';
 import resolver_layers from './locale-resolver/layers.json';
+
+/** @type {import('./holidays/holiday-definitions.d.ts').HolidayDefinitions} */
+const holidayDefinitions = holiday_definitions;
 
 /**
  * Resolve a state name from a Nominatim address.
@@ -56,13 +59,15 @@ function getStateFromAddress(address, countryCode) {
     }
 
     if (typeof countryCode === 'string') {
-        const countryDefinitions = /** @type {Record<string, Record<string, { _state_code?: unknown }>>} */ (holiday_definitions)[countryCode];
+        const countryDefinitions = holidayDefinitions[countryCode];
         if (countryDefinitions) {
             /** @type {Record<string, string>} */
             const stateByCode = {};
             for (const name of Object.keys(countryDefinitions)) {
                 const definition = countryDefinitions[name];
-                if (definition && typeof definition._state_code === 'string') {
+                if (typeof definition === 'object' && definition !== null
+                    && !Array.isArray(definition)
+                    && typeof definition._state_code === 'string') {
                     stateByCode[definition._state_code.toLowerCase()] = name;
                 }
             }
@@ -3068,25 +3073,35 @@ export default function(value, nominatim_object, optional_conf_parm) {
             throw t('no country code');
         }
 
-        if (!holiday_definitions[location_cc]) {
+        if (!holidayDefinitions[location_cc]) {
             throw formatLibraryBugMessage(t('no holiday definition', {
                 'name': type_of_holidays,
                 'cc': location_cc,
             }), 'library bug PR only');
         }
 
+        const countryDefinitions = holidayDefinitions[location_cc];
+        const stateDefinition = typeof location_state === 'string'
+            ? countryDefinitions[location_state]
+            : undefined;
+        const stateHolidays = typeof stateDefinition === 'object'
+            && stateDefinition !== null
+            && !Array.isArray(stateDefinition)
+            ? stateDefinition[type_of_holidays]
+            : undefined;
+
         let matching_holiday = [];
-        if (typeof location_state === 'string'
-            && typeof holiday_definitions[location_cc][location_state] === 'object'
-            && typeof holiday_definitions[location_cc][location_state][type_of_holidays] === 'object') {
+        if (Array.isArray(stateHolidays)) {
 
             /* If holiday_definitions for the state are specified,
              * use it and ignore lesser specific ones (for the
              * country).
              */
 
-            const country_holidays = holiday_definitions[location_cc][type_of_holidays] || [];
-            const state_holidays = holiday_definitions[location_cc][location_state][type_of_holidays];
+            const country_holidays = Array.isArray(countryDefinitions[type_of_holidays])
+                ? countryDefinitions[type_of_holidays]
+                : [];
+            const state_holidays = stateHolidays;
             if (type_of_holidays === 'PH') {
                 matching_holiday = state_holidays;
             } else if (!country_holidays.length) {
@@ -3109,12 +3124,12 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     return (h1_date[0] - h2_date[0]) || (h1_date[1] - h2_date[1]);
                 });
             }
-        } else if (holiday_definitions[location_cc][type_of_holidays]) {
+        } else if (countryDefinitions[type_of_holidays]) {
             /* Holidays are defined country wide. Some
              * countries only have country-wide holiday definitions
              * so that is ok too.
              */
-            const applying_holidays_for_country = holiday_definitions[location_cc][type_of_holidays];
+            const applying_holidays_for_country = countryDefinitions[type_of_holidays];
 
             switch (type_of_holidays) {
                 case 'PH':

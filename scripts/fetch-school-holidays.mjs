@@ -547,82 +547,6 @@ async function discoverYamlCountries() {
 }
 
 /**
- * Validate that all generated countries are exported in index.js
- * @param {string[]} generatedCountries - Country codes found in generated data.
- * @returns {Promise<void>} Resolves after export validation completes.
- */
-async function validateExports(generatedCountries) {
-  const INDEX_FILE = path.join(HOLIDAYS_DIR, 'index.js');
-
-  try {
-    const indexContent = await fs.readFile(INDEX_FILE, 'utf8');
-
-    // Check if index.js uses wildcard export (export *)
-    const wildcardMatch = indexContent.match(/export\s*\*\s*from\s*['"]\.\/generated-openholidays\.js['"]/);
-
-    if (wildcardMatch) {
-      console.log('\n✅ Export validation: Using wildcard export (export *) - all countries automatically exported\n');
-      return;
-    }
-
-    // Extract explicit export list from index.js
-    // Matches: export { ad, al, ar, ... } from './generated-openholidays.js';
-    const exportMatch = indexContent.match(/export\s*\{([^}]+)\}\s*from\s*['"]\.\/generated-openholidays\.js['"]/);
-
-    if (!exportMatch) {
-      console.log('\n⚠️  Warning: Could not find exports in index.js');
-      console.log('   Please manually verify that all countries are exported.\n');
-      return;
-    }
-
-    // Parse exported countries
-    const exportedCountries = exportMatch[1]
-      .split(',')
-      .map(c => c.trim())
-      .filter(c => c.length > 0)
-      .sort();
-
-    const sortedGenerated = [...generatedCountries].sort();
-
-    // Find missing countries
-    const missing = sortedGenerated.filter(c => !exportedCountries.includes(c));
-    const extra = exportedCountries.filter(c => !sortedGenerated.includes(c));
-
-    if (missing.length === 0 && extra.length === 0) {
-      console.log('\n✅ Export validation: All countries are properly exported\n');
-      return;
-    }
-
-    // Report issues
-    console.log('\n⚠️  Export validation failed:\n');
-
-    if (missing.length > 0) {
-      console.log(`   Missing in index.js exports (${missing.length}):`);
-      console.log(`   ${missing.join(', ')}\n`);
-      console.log(`   → Add to export list in ${INDEX_FILE}`);
-      console.log('');
-    }
-
-    if (extra.length > 0) {
-      console.log(`   Extra in index.js exports (${extra.length}):`);
-      console.log(`   ${extra.join(', ')}\n`);
-      console.log('   → These countries were not generated but are exported');
-      console.log('');
-    }
-
-    // Suggest fix
-    if (missing.length > 0) {
-      const fixedExports = [...new Set([...exportedCountries, ...missing])].sort().join(', ');
-      console.log('   Suggested export line:');
-      console.log(`   export { ${fixedExports} } from './generated-openholidays.js';\n`);
-    }
-
-  } catch (error) {
-    console.log(`\n⚠️  Warning: Could not validate exports: ${error.message}\n`);
-  }
-}
-
-/**
  * Build school holidays for all countries
  * @returns {Promise<object>} Generated holiday data grouped by country.
  */
@@ -726,9 +650,6 @@ async function buildSchoolHolidays() {
   }
 
   console.log(`📦 Generated: ${GENERATED_FILE} (${jsSizeKB} KB)`);
-
-  // Validate exports in index.js
-  await validateExports(Object.keys(results));
 
   console.log('═'.repeat(60));
 
