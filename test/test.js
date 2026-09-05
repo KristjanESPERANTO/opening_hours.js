@@ -145,6 +145,33 @@ const nominatim_no_valid_address = {
     }
 };
 
+// https://github.com/opening-hours/opening_hours.js/issues/458
+// https://nominatim.openstreetmap.org/reverse?format=json&lat=52.55048&lon=13.409781&zoom=18&addressdetails=1
+// Nominatim does not always return address.state or address.county. Here only
+// ISO3166-2-lvl4 identifies the region (Berlin), which needs to be resolved
+// against the _state_code values in src/holidays/de.yaml.
+const nominatim_berlin_iso_only = {
+    'place_id': '144081916',
+    'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright',
+    'osm_type': 'way',
+    'osm_id': '1049888449',
+    'lat': '52.5504796',
+    'lon': '13.4096999',
+    'display_name': '38, Schivelbeiner Straße, Nordisches Viertel, Prenzlauer Berg, Pankow, Berlin, 10439, Deutschland',
+    'address': {
+        'house_number': '38',
+        'road': 'Schivelbeiner Straße',
+        'quarter': 'Nordisches Viertel',
+        'suburb': 'Prenzlauer Berg',
+        'borough': 'Pankow',
+        'city': 'Berlin',
+        'ISO3166-2-lvl4': 'DE-BE',
+        'postcode': '10439',
+        'country': 'Deutschland',
+        'country_code': 'de'
+    }
+};
+
 /* }}} */
 
 const sane_value_suffix = '; 00:01-00:02 closed "warning at correct position?"';
@@ -903,6 +930,16 @@ test.addTest('Variable days: Germany school holidays. Rheinland-Pfalz', [
         [ '2024-10-14 00:00', '2024-10-26 00:00', false, 'Herbstferien' ],
         [ '2024-12-23 00:00', '2025-01-01 00:00', false, 'Weihnachtsferien' ],
     ], 1000 * 60 * 60 * 24 * 84 - 1000 * 60 * 60, 0, false, nominatim_by_loc.de_rp, 'not only test');
+
+// https://github.com/opening-hours/opening_hours.js/issues/458
+// Nominatim only returns ISO3166-2-lvl4 (DE-BE) for this address, no address.state
+// or address.county. Internationaler Frauentag is only a public holiday in Berlin
+// and Mecklenburg-Vorpommern, so this only passes if the ISO code is resolved.
+test.addTest('Variable days: public holidays. Berlin Frauentag resolved via ISO3166-2-lvl4', [
+        'PH',
+    ], '2025-03-07 0:00', '2025-03-09 0:00', [
+        [ '2025-03-08 00:00', '2025-03-09 00:00', false, 'Internationaler Frauentag' ],
+    ], 1000 * 60 * 60 * 24, 0, false, nominatim_berlin_iso_only, 'not only test');
 
 /* }}} */
 
