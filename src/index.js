@@ -67,13 +67,25 @@ function getStateFromAddress(address, countryCode) {
                 }
             }
 
-            for (const [key, value] of Object.entries(address)) {
-                if (key.startsWith('ISO3166-2') && typeof value === 'string') {
-                    const lower = value.toLowerCase();
-                    const localCode = lower.slice(lower.indexOf('-') + 1);
-                    if (stateByCode[localCode]) {
-                        return stateByCode[localCode];
-                    }
+            const iso3166Fields = Object.keys(address)
+                .filter((key) => /^ISO3166-2-lvl\d+$/i.test(key))
+                .sort((left, right) => {
+                    const leftLevel = Number(left.match(/\d+$/)[0]);
+                    const rightLevel = Number(right.match(/\d+$/)[0]);
+                    return rightLevel - leftLevel;
+                });
+            for (const field of iso3166Fields) {
+                const value = address[field];
+                if (typeof value !== 'string') {
+                    continue;
+                }
+                const lower = value.toLowerCase();
+                const localCode = lower.replace(/^[^-]+-/, '');
+                if (stateByCode[lower]) {
+                    return stateByCode[lower];
+                }
+                if (stateByCode[localCode]) {
+                    return stateByCode[localCode];
                 }
             }
         }

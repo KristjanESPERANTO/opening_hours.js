@@ -220,9 +220,9 @@ const COUNTRY_CONFIGS = {
         includeStateCode: true,
         stateNameLanguagePriority: ['fr', 'en'],
         stateNameOverrides: {
-            '57': 'Grand Est',
-            '67': 'Grand Est',
-            '68': 'Grand Est',
+            '57': 'Moselle',
+            '67': 'Bas-Rhin',
+            '68': 'Haut-Rhin',
             BL: 'Saint-Barthélemy',
             GF: 'Guyane',
             GP: 'Guadeloupe',
