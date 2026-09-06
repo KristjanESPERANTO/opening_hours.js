@@ -12,6 +12,7 @@ path = [
   "jsconfig.json",
   "package.json",
   "package-lock.json",
+  "src/holidays/holiday-definitions.d.ts",
   "taginfo.json",
   "taginfo_template.json",
   "test/test.de.log",

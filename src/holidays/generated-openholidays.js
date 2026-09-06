@@ -1,10 +1,10 @@
-// @ts-nocheck
 /**
  * Auto-generated school holidays from OpenHolidays API Data (Git Submodule)
  * DO NOT EDIT MANUALLY - Run: node scripts/fetch-school-holidays.mjs
  * Submodule: a42b397 (2026-04-13)
  */
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ad = {
   SH: [
     {
@@ -78,6 +78,7 @@ export const ad = {
   ]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const al = {
   SH: [
     {
@@ -113,11 +114,13 @@ export const al = {
   ]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ar = {
   PH: [{"name":"Año Nuevo","fixed_date":[1,1]},{"name":"Carnaval","variable_date":"easter","offset":-48},{"name":"Carnaval","variable_date":"easter","offset":-47},{"name":"Día Nacional de la Memoria por la Verdad y la Justicia","fixed_date":[3,24]},{"name":"Viernes Santo","variable_date":"easter","offset":-2},{"name":"Día del Veterano y de los Caídos en la Guerra de Malvinas","fixed_date":[4,2]},{"name":"Día del Trabajador","fixed_date":[5,1]},{"name":"Día de la Revolución de Mayo","fixed_date":[5,25]},{"name":"Paso a la Inmortalidad del General Don Martín Miguel de Güemes","fixed_date":[6,17],"shift_rule":"if tuesday,wednesday then previous monday if thursday,friday then next monday"},{"name":"Paso a la Inmortalidad del General D. Manuel Belgrano","fixed_date":[6,20]},{"name":"Día de la Independencia","fixed_date":[7,9]},{"name":"Día no laborable con fines turísticos","fixed_date":[7,10],"year":2026},{"name":"Paso a la Inmortalidad del General José de San Martín","fixed_date":[8,17],"shift_rule":"if tuesday,wednesday then previous monday if thursday,friday then next monday"},{"name":"Día del Respeto a la Diversidad Cultural","fixed_date":[10,12],"shift_rule":"if tuesday,wednesday then previous monday if thursday,friday then next monday"},{"name":"Día de la Soberanía Nacional","fixed_date":[11,20],"shift_rule":"if tuesday,wednesday then previous monday if thursday,friday then next monday"},{"name":"Día no laborable con fines turísticos","fixed_date":[12,7],"year":2026},{"name":"Inmaculada Concepción de María","fixed_date":[12,8]},{"name":"Navidad","fixed_date":[12,25]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=-34.60377&lon=-58.38159&zoom=16&addressdetails=1&accept-language=es"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const at = {
   PH: [{"name":"Neujahr","fixed_date":[1,1]},{"name":"Heilige Drei Könige","fixed_date":[1,6]},{"name":"Ostermontag","variable_date":"easter","offset":1},{"name":"Staatsfeiertag","fixed_date":[5,1]},{"name":"Christi Himmelfahrt","variable_date":"easter","offset":39},{"name":"Pfingstmontag","variable_date":"easter","offset":50},{"name":"Fronleichnam","variable_date":"easter","offset":60},{"name":"Mariä Himmelfahrt","fixed_date":[8,15]},{"name":"Nationalfeiertag","fixed_date":[10,26]},{"name":"Allerheiligen","fixed_date":[11,1]},{"name":"Mariä Empfängnis","fixed_date":[12,8]},{"name":"Christtag","fixed_date":[12,25]},{"name":"Stefanitag","fixed_date":[12,26]}],
   SH: [
@@ -560,6 +563,7 @@ export const at = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const au = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Australia Day","fixed_date":[1,26],"shift_rule":"if saturday,sunday then next monday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Anzac Day","fixed_date":[4,25]},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=-35.2809&lon=149.1300&zoom=16&addressdetails=1&accept-language=en",
@@ -605,6 +609,7 @@ export const au = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const be = {
   PH: [{"name":"Nieuwjaar - Nouvel An","fixed_date":[1,1]},{"name":"Paasmaandag - Lundi de Pâques","variable_date":"easter","offset":1},{"name":"Dag van de Arbeid - Fête du travail","fixed_date":[5,1]},{"name":"Hemelvaartsdag - Ascension","variable_date":"easter","offset":39},{"name":"Pinkstermaandag - Lundi de Pentecôte","variable_date":"easter","offset":50},{"name":"Nationale feestdag - Fête nationale","fixed_date":[7,21]},{"name":"Tenhemelopneming - Assomption","fixed_date":[8,15]},{"name":"Allerheiligen - Toussaint","fixed_date":[11,1]},{"name":"Wapenstilstand - Armistice","fixed_date":[11,11]},{"name":"Kerstmis - Noël","fixed_date":[12,25]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=Belgium&zoom=18&addressdetails=1&limit=1&accept-language=nl,fr,de,en",
@@ -813,6 +818,7 @@ export const be = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const bg = {
   PH: [{"name":"Нова Година","fixed_date":[1,1]},{"name":"Ден на Освобождението на България от Османската Империя","fixed_date":[3,3]},{"name":"Разпети петък","variable_date":"orthodox easter","offset":-2},{"name":"Великден","variable_date":"orthodox easter"},{"name":"Велики понеделник","variable_date":"orthodox easter","offset":1},{"name":"Ден на труда","fixed_date":[5,1]},{"name":"Гергьовден","fixed_date":[5,6]},{"name":"Ден на азбуката, културата и просветата","fixed_date":[5,24]},{"name":"Ден на съединението","fixed_date":[9,6]},{"name":"Ден на независимостта","fixed_date":[9,22]},{"name":"Бъдни вечер","fixed_date":[12,24]},{"name":"Коледа","fixed_date":[12,25]}],
   SH: [
@@ -874,6 +880,7 @@ export const bg = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=42.6977&lon=23.3219&zoom=18&addressdetails=1&accept-language=bg,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const br = {
   PH: [{"name":"Ano Novo","fixed_date":[1,1]},{"name":"Sexta-Feira Santa","variable_date":"easter","offset":-2},{"name":"Dia de Tiradentes","fixed_date":[4,21]},{"name":"Dia do trabalhador","fixed_date":[5,1]},{"name":"Dia da Independência","fixed_date":[9,7]},{"name":"Dia de Eleição","variable_date":"firstOctoberSunday","years":"even"},{"name":"Nossa Senhora Aparecida","fixed_date":[10,12]},{"name":"Dia de Eleição","variable_date":"lastOctoberSunday","years":"even"},{"name":"Dia de Finados","fixed_date":[11,2]},{"name":"Proclamação da República","fixed_date":[11,15]},{"name":"Dia da Consciência Negra","fixed_date":[11,20]},{"name":"Natal","fixed_date":[12,25]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=-10&lon=-52&zoom=18&addressdetails=1&accept-language=pt,en",
@@ -1014,6 +1021,7 @@ export const br = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const by = {
   PH: [{"name":"Новы год","fixed_date":[1,1]},{"name":"Мiжнародны жаночы дзень","fixed_date":[3,8]},{"name":"Радунiца","variable_date":"orthodox easter","offset":9},{"name":"Дзень працы","fixed_date":[5,1]},{"name":"Дзень Перамогi","fixed_date":[5,9]},{"name":"Дзень Незалежнасцi","fixed_date":[7,3]},{"name":"Дзень Кастрычніцкай рэвалюцыі","fixed_date":[11,7]},{"name":"Каляды каталiцкiя","fixed_date":[12,25]}],
   SH: [
@@ -1060,6 +1068,7 @@ export const by = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=53.9045&lon=27.5615&zoom=18&addressdetails=1&accept-language=be,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ca = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1]},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Canada Day","variable_date":"canadaDay"},{"name":"Labour Day","variable_date":"firstSeptemberMonday"},{"name":"Christmas Day","fixed_date":[12,25]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=45.4215&lon=-75.6972&zoom=18&addressdetails=1&accept-language=en,fr",
@@ -1130,6 +1139,7 @@ export const ca = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ch = {
   PH: [{"name":"Neujahr/Nouvel An/Capodanno","fixed_date":[1,1]},{"name":"Karfreitag/Vendredi saint/Venerdì santo","variable_date":"easter","offset":-2},{"name":"Ostersonntag/Pâques/Domenica di Pasqua","variable_date":"easter"},{"name":"Ostermontag/Lundi de Pâques/Lunedì dell’Angelo","variable_date":"easter","offset":1},{"name":"Auffahrt/Ascension/Ascensione","variable_date":"easter","offset":39},{"name":"Pfingstsonntag/Pentecôte/Pentecoste","variable_date":"easter","offset":49},{"name":"Pfingstmontag/Lundi de Pentecôte/Lunedì di Pentecoste","variable_date":"easter","offset":50},{"name":"Bundesfeiertag/Fête nationale/Giorno festivo federale","fixed_date":[8,1]},{"name":"Eidg. Dank-, Buss- und Bettag/Jeûne fédéral/Digiuno federale","variable_date":"firstSeptemberSunday","offset":14},{"name":"Weihnachtstag/Noël/Natale di Gesù","fixed_date":[12,25]},{"name":"Stephanstag/Saint-Etienne/Santo Stefano","fixed_date":[12,26]},{"name":"Berchtoldstag/2 janvier","fixed_date":[1,2],"only_states":["Aargau","Bern","Jura","Thurgau","Waadt"]},{"name":"Heilige Drei Könige/l’Épiphanie/Epifania","fixed_date":[1,6],"only_states":["Schwyz","Tessin","Uri"]},{"name":"Jahrestag Ausrufung der Republik/Instauration de la République","fixed_date":[3,1],"only_states":["Neuenburg"]},{"name":"Josefstag/San Giuseppe","fixed_date":[3,19],"only_states":["Nidwalden","Schwyz","Solothurn","Tessin","Uri","Wallis"]},{"name":"Tag der Arbeit/Fête du travail/Festa del lavoro","fixed_date":[5,1],"only_states":["Aargau","Basel-Landschaft","Basel-Stadt","Jura","Neuenburg","Schaffhausen","Tessin","Thurgau","Zürich"]},{"name":"Fronleichnam/la Fête-Dieu/Corpus Domini","variable_date":"easter","offset":60,"only_states":["Aargau","Appenzell Innerrhoden","Freiburg","Jura","Luzern","Neuenburg","Nidwalden","Obwalden","Schwyz","Solothurn","Tessin","Uri","Wallis","Zug"]},{"name":"Fest der Unabhängigkeit/Plébiscite jurassien","fixed_date":[6,23],"only_states":["Jura"]},{"name":"Peter und Paul/Saint Pierre et Paul/Santi Pietro e Paolo","fixed_date":[6,29],"only_states":["Tessin"]},{"name":"Mariä Himmelfahrt/Assomption/Assunzione","fixed_date":[8,15],"only_states":["Tessin"]},{"name":"Mariä Himmelfahrt/Assomption/Assunzione di Maria","fixed_date":[8,15],"only_states":["Aargau","Appenzell Innerrhoden","Freiburg","Jura","Luzern","Nidwalden","Obwalden","Schwyz","Solothurn","Uri","Wallis","Zug"]},{"name":"Mauritiustag","fixed_date":[9,22],"only_states":["Appenzell Innerrhoden"]},{"name":"Bruderklausenfest/Saint-Nicholas-de-Flüe","fixed_date":[9,25],"only_states":["Obwalden"]},{"name":"Allerheiligen/Toussaint/Ognissanti","fixed_date":[11,1],"only_states":["Aargau","Appenzell Innerrhoden","Freiburg","Glarus","Jura","Luzern","Nidwalden","Obwalden","Schwyz","Solothurn","St. Gallen","Tessin","Uri","Wallis","Zug"]},{"name":"Mariä Empfängnis/Immaculée Conception/Immacolata Concezione","fixed_date":[12,8],"only_states":["Aargau","Freiburg","Luzern","Nidwalden","Obwalden","Schwyz","Tessin","Uri","Wallis","Zug"]},{"name":"Heiliger Abend/Veille de Noël","fixed_date":[12,24],"only_states":["Glarus"]},{"name":"Silvester/Saint-Sylvestre/Ultimo dell’anno","fixed_date":[12,31],"only_states":["Glarus"]},{"name":"Wiederherstellung der Republik/Restauration de la République","fixed_date":[12,31],"only_states":["Genf"]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=Switzerland&zoom=18&addressdetails=1&limit=1&accept-language=de,fr,it,rm",
@@ -3527,11 +3537,13 @@ export const ch = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ci = {
   PH: [{"name":"Fête du 1ᵉʳ janvier","fixed_date":[1,1]},{"name":"Lundi de Pâques","variable_date":"easter","offset":1},{"name":"Fête du travail","fixed_date":[5,1]},{"name":"Lendemain de la Fête du travail","variable_date":"nextMo-Sa01May"},{"name":"Jour de l’Ascension","variable_date":"easter","offset":39},{"name":"Lundi de la Pentecôte","variable_date":"easter","offset":50},{"name":"Fête nationale","fixed_date":[8,7]},{"name":"Lendemain de la Fête nationale","variable_date":"nextMo-Sa07August"},{"name":"Fête de l’Assomption","fixed_date":[8,15]},{"name":"Fête de la Toussaint","fixed_date":[11,1]},{"name":"Journée Nationale de la Paix","fixed_date":[11,15]},{"name":"Fête de Noël","fixed_date":[12,25]},{"name":"Lendemain de la Fête de Noël","variable_date":"nextMo-Sa25December"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=5.3203570&lon=-4.0161070&zoom=18&addressdetails=1&accept-language=fr"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const cn = {
   PH: [{"name":"元旦","fixed_date":[1,1]},{"name":"妇女节","fixed_date":[3,8]},{"name":"劳动节","fixed_date":[5,1]},{"name":"青年节","fixed_date":[5,4]},{"name":"儿童节","fixed_date":[6,1]},{"name":"国庆节","fixed_date":[10,1]},{"name":"国庆节休息日","fixed_date":[10,2]},{"name":"国庆节休息日","fixed_date":[10,3]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=%E4%B8%AD%E5%9B%BD&&zoom=18&addressdetails=1&limit=1&accept-language=zh,en",
@@ -3542,6 +3554,7 @@ export const cn = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const cz = {
   PH: [{"name":"Nový rok a Den obnovy samostatného českého státu","fixed_date":[1,1]},{"name":"Velký pátek","variable_date":"easter","offset":-2},{"name":"Velikonoční pondělí","variable_date":"easter","offset":1},{"name":"Svátek práce","fixed_date":[5,1]},{"name":"Den vítězství","fixed_date":[5,8]},{"name":"Den slovanských věrozvěstů Cyrila a Metoděje","fixed_date":[7,5]},{"name":"Den upálení mistra Jana Husa","fixed_date":[7,6]},{"name":"Den české státnosti","fixed_date":[9,28]},{"name":"Den vzniku samostatného československého státu","fixed_date":[10,28]},{"name":"Den boje za svobodu a demokracii","fixed_date":[11,17]},{"name":"Štědrý den","fixed_date":[12,24]},{"name":"1. svátek vánoční","fixed_date":[12,25]},{"name":"2. svátek vánoční","fixed_date":[12,26]}],
   SH: [
@@ -4917,6 +4930,7 @@ export const cz = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const de = {
   PH: [{"name":"Neujahr","fixed_date":[1,1]},{"name":"Karfreitag","variable_date":"easter","offset":-2},{"name":"Ostermontag","variable_date":"easter","offset":1},{"name":"Maifeiertag","fixed_date":[5,1]},{"name":"Christi Himmelfahrt","variable_date":"easter","offset":39},{"name":"Pfingstmontag","variable_date":"easter","offset":50},{"name":"Tag der Deutschen Einheit","fixed_date":[10,3]},{"name":"1. Weihnachtstag","fixed_date":[12,25]},{"name":"2. Weihnachtstag","fixed_date":[12,26]},{"name":"Heilige Drei Könige","fixed_date":[1,6],"only_states":["Baden-Württemberg","Bayern","Sachsen-Anhalt"]},{"name":"Internationaler Frauentag","fixed_date":[3,8],"only_states":["Berlin","Mecklenburg-Vorpommern"]},{"name":"Ostersonntag","variable_date":"easter","only_states":["Brandenburg"]},{"name":"Pfingstsonntag","variable_date":"easter","offset":49,"only_states":["Brandenburg"]},{"name":"Fronleichnam","variable_date":"easter","offset":60,"only_states":["Baden-Württemberg","Bayern","Hessen","Nordrhein-Westfalen","Rheinland-Pfalz","Saarland"]},{"name":"75-jähriges Jubiläum des Volksaufstands in der DDR","fixed_date":[6,17],"year":2028,"only_states":["Berlin"]},{"name":"Augsburger Friedensfest","fixed_date":[8,8],"only_states":["Bayern"]},{"name":"Mariä Himmelfahrt","fixed_date":[8,15],"only_states":["Bayern","Saarland"]},{"name":"Weltkindertag","fixed_date":[9,20],"only_states":["Thüringen"]},{"name":"Reformationstag","fixed_date":[10,31],"only_states":["Brandenburg","Bremen","Hamburg","Mecklenburg-Vorpommern","Niedersachsen","Sachsen","Sachsen-Anhalt","Schleswig-Holstein","Thüringen"]},{"name":"Allerheiligen","fixed_date":[11,1],"only_states":["Baden-Württemberg","Bayern","Nordrhein-Westfalen","Rheinland-Pfalz","Saarland"]},{"name":"Buß- und Bettag","variable_date":"nextWednesday16Nov","only_states":["Sachsen"]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=49.5487&lon=9.8160&zoom=18&addressdetails=1&accept-language=de,en",
@@ -7230,11 +7244,13 @@ export const de = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const dk = {
   PH: [{"name":"Nytårsdag","fixed_date":[1,1]},{"name":"Skærtorsdag","variable_date":"easter","offset":-3},{"name":"Langfredag","variable_date":"easter","offset":-2},{"name":"Påskedag","variable_date":"easter"},{"name":"Anden påskedag","variable_date":"easter","offset":1},{"name":"Kristi Himmelfartsdag","variable_date":"easter","offset":39},{"name":"Pinsedag","variable_date":"easter","offset":49},{"name":"Anden Pinsedag","variable_date":"easter","offset":50},{"name":"Grundlovsdag","fixed_date":[6,5]},{"name":"Juleaftensdag","fixed_date":[12,24]},{"name":"Juledag","fixed_date":[12,25]},{"name":"Anden Juledag","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=55.670249&lon=10.3333283&zoom=18&addressdetails=1&accept-language=da,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ee = {
   PH: [{"name":"uusaasta","fixed_date":[1,1]},{"name":"iseseisvuspäev","fixed_date":[2,24]},{"name":"suur reede","variable_date":"easter","offset":-2},{"name":"lihavõtted","variable_date":"easter"},{"name":"kevadpüha","fixed_date":[5,1]},{"name":"nelipühade 1. püha","variable_date":"easter","offset":49},{"name":"võidupüha","fixed_date":[6,23]},{"name":"jaanipäev","fixed_date":[6,24]},{"name":"taasiseseisvumispäev","fixed_date":[8,20]},{"name":"jõululaupäev","fixed_date":[12,24]},{"name":"esimene jõulupüha","fixed_date":[12,25]},{"name":"teine jõulupüha","fixed_date":[12,26]}],
   SH: [
@@ -7296,6 +7312,7 @@ export const ee = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=59.4370&lon=24.7536&zoom=18&addressdetails=1&accept-language=et,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const es = {
   PH: [{"name":"Año Nuevo","fixed_date":[1,1]},{"name":"Día de los Reyes Magos","fixed_date":[1,6]},{"name":"Viernes Santo","variable_date":"easter","offset":-2},{"name":"Día del Trabajador","fixed_date":[5,1]},{"name":"Asunción","fixed_date":[8,15]},{"name":"Fiesta Nacional de España","fixed_date":[10,12]},{"name":"Todos los Santos","fixed_date":[11,1]},{"name":"Día de la Constitución Española","fixed_date":[12,6]},{"name":"La inmaculada concepción","fixed_date":[12,8]},{"name":"Navidad","fixed_date":[12,25],"substitute_rule":"if sunday then next monday"},{"name":"Día de Andalucía","fixed_date":[2,28],"substitute_rule":"if sunday then next monday","only_states":["Andalucía"]},{"name":"Día de les Illes Balears","fixed_date":[3,1],"substitute_rule":"if sunday then next monday","only_states":["Illes Balears"]},{"name":"San José","fixed_date":[3,19],"only_states":["Comunidad Foral de Navarra","Comunitat Valenciana","Galicia","País Vasco","Región de Murcia"]},{"name":"Jueves Santo","variable_date":"easter","offset":-3,"only_states":["Andalucía","Aragón","Asturias","Cantabria","Castilla y León","Castilla-La Mancha","Ceuta","Comunidad de Madrid","Comunidad Foral de Navarra","Extremadura","Galicia","Illes Balears","La Rioja","Melilla","País Vasco","Región de Murcia"]},{"name":"Lunes de Pascua","variable_date":"easter","offset":1,"only_states":["Cataluña","Comunidad Foral de Navarra","Comunitat Valenciana","Illes Balears","La Rioja","País Vasco"]},{"name":"Día de Aragón","fixed_date":[4,23],"substitute_rule":"if sunday then next monday","only_states":["Aragón"]},{"name":"Fiesta de Castilla y León","fixed_date":[4,23],"substitute_rule":"if sunday then next monday","only_states":["Castilla y León"]},{"name":"Día de la Comunidad de Madrid","fixed_date":[5,2],"shift_rule":"if sunday then next monday","only_states":["Comunidad de Madrid"]},{"name":"Día de las Letras Gallegas","fixed_date":[5,17],"only_states":["Galicia"]},{"name":"Día de Castilla-La Mancha","fixed_date":[5,31],"only_states":["Castilla-La Mancha"]},{"name":"Corpus Christi","variable_date":"easter","offset":60,"only_states":["Castilla-La Mancha"]},{"name":"Día de La Rioja","fixed_date":[6,9],"only_states":["La Rioja"]},{"name":"San Juan","fixed_date":[6,24],"only_states":["Cataluña","Comunitat Valenciana"]},{"name":"Día de las Instituciones de Cantabria","fixed_date":[6,28],"only_states":["Cantabria"]},{"name":"Día Nacional de Galicia","fixed_date":[7,25],"only_states":["Galicia"]},{"name":"Santiago Apóstol","fixed_date":[7,25],"only_states":["País Vasco"]},{"name":"Nuestra Señora de África","fixed_date":[8,5],"substitute_rule":"if sunday then next monday","only_states":["Ceuta"]},{"name":"Día de Ceuta","fixed_date":[9,2],"substitute_rule":"if sunday then next monday","only_states":["Ceuta"]},{"name":"Día de Asturias","fixed_date":[9,8],"substitute_rule":"if sunday then next monday","only_states":["Asturias"]},{"name":"Día de Extremadura","fixed_date":[9,8],"substitute_rule":"if sunday then next monday","only_states":["Extremadura"]},{"name":"Dia de Cataluña","fixed_date":[9,11],"only_states":["Cataluña"]},{"name":"La Bien Aparecida","fixed_date":[9,15],"substitute_rule":"if sunday then next monday","only_states":["Cantabria"]},{"name":"Nuestra Señora de la Merced","fixed_date":[9,24],"only_states":["Cataluña"]},{"name":"San Esteban","fixed_date":[12,26],"only_states":["Cataluña"]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=41.60333&lon=2.18920&zoom=18&addressdetails=1&limit=1&accept-language=es,ca,eu,gl,oc,ast",
@@ -8682,11 +8699,13 @@ export const es = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const fi = {
   PH: [{"name":"uudenvuodenpäivä - nyårsdagen","fixed_date":[1,1]},{"name":"loppiainen - trettondedagen","fixed_date":[1,6]},{"name":"pitkäperjantai - långfredagen","variable_date":"easter","offset":-2},{"name":"pääsiäispäivä - påskdagen","variable_date":"easter"},{"name":"toinen pääsiäispäivä - annandag påsk","variable_date":"easter","offset":1},{"name":"vappu - första maj","fixed_date":[5,1]},{"name":"helatorstai - Kristi himmelsfärdsdag","variable_date":"easter","offset":39},{"name":"helluntai - pingst","variable_date":"easter","offset":49},{"name":"juhannuspäivä - midsommardagen","variable_date":"nextSaturday20Jun"},{"name":"pyhäinpäivä - alla helgons dag","variable_date":"nextSaturday31Oct"},{"name":"itsenäisyyspäivä - självständighetsdagen","fixed_date":[12,6]},{"name":"joulupäivä - juldagen","fixed_date":[12,25]},{"name":"toinen joulupäivä - annandag jul","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=63.4965&lon=26.8429&zoom=18&addressdetails=1&accept-language=fi,sv,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const fr = {
   PH: [{"name":"Jour de l'an","fixed_date":[1,1]},{"name":"Vendredi saint","variable_date":"easter","offset":-2,"only_states":["Moselle","Bas-Rhin","Haut-Rhin","Guadeloupe","Martinique","Polynésie française"]},{"name":"Lundi de Pâques","variable_date":"easter","offset":1},{"name":"Abolition de l'esclavage (Mayotte)","fixed_date":[4,27],"only_states":["Mayotte"]},{"name":"Saint-Pierre-Chanel","fixed_date":[4,28],"only_states":["Wallis-et-Futuna"]},{"name":"Fête du Travail","fixed_date":[5,1]},{"name":"Fête de la Victoire","fixed_date":[5,8]},{"name":"Abolition de l'esclavage (Martinique)","fixed_date":[5,22],"only_states":["Martinique"]},{"name":"Abolition de l'esclavage (Guadeloupe)","fixed_date":[5,27],"only_states":["Guadeloupe"]},{"name":"Abolition de l'esclavage (Saint-Martin)","fixed_date":[5,28],"only_states":["Saint-Martin (France)"]},{"name":"Jeudi de l'Ascension","variable_date":"easter","offset":39},{"name":"Lundi de Pentecôte","variable_date":"easter","offset":50},{"name":"Abolition de l'esclavage (Guyane)","fixed_date":[6,10],"only_states":["Guyane"]},{"name":"Fête de l'autonomie","fixed_date":[6,29],"only_states":["Polynésie française"]},{"name":"Fête nationale","fixed_date":[7,14]},{"name":"Fête Victor Schoelcher","fixed_date":[7,21],"only_states":["Guadeloupe","Martinique"]},{"name":"Fête du Territoire","fixed_date":[7,29],"only_states":["Wallis-et-Futuna"]},{"name":"Assomption","fixed_date":[8,15]},{"name":"Fête de la citoyenneté","fixed_date":[9,24],"only_states":["Nouvelle-Calédonie"]},{"name":"Abolition de l'esclavage (Saint-Barthélemy)","fixed_date":[10,9],"only_states":["Saint-Barthélemy"]},{"name":"Toussaint","fixed_date":[11,1]},{"name":"Armistice","fixed_date":[11,11]},{"name":"Abolition de l'esclavage (Réunion)","fixed_date":[12,20],"only_states":["Réunion"]},{"name":"Noël","fixed_date":[12,25]},{"name":"Saint-Étienne ","fixed_date":[12,26],"only_states":["Moselle","Bas-Rhin","Haut-Rhin"]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=46.60333&lon=1.88920&zoom=18&addressdetails=1&accept-language=fr,en",
@@ -10446,6 +10465,7 @@ export const fr = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const gb = {
   "England": {
     "_state_code": "eng",
@@ -10469,24 +10489,29 @@ export const gb = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ge = {
   PH: [{"name":"ახალი წელი","fixed_date":[1,1]},{"name":"ბედობა","fixed_date":[1,2]},{"name":"შობა","fixed_date":[1,7]},{"name":"ნათლისღება","fixed_date":[1,19]},{"name":"დედის დღე","fixed_date":[3,3]},{"name":"ქალთა საერთაშორისო დღე","fixed_date":[3,8]},{"name":"ეროვნული ერთიანობის დღე","fixed_date":[4,9]},{"name":"წითელი პარასკევი","variable_date":"orthodox easter","offset":-2},{"name":"დიდი შაბათი","variable_date":"orthodox easter","offset":-1},{"name":"აღდგომა","variable_date":"orthodox easter"},{"name":"აღდგომის ორშაბათი","variable_date":"orthodox easter","offset":1},{"name":"ფაშიზმზე გამარჯვების დღე","fixed_date":[5,9]},{"name":"წმინდა ანდრია პირველწოდებულის ხსენების დღე","fixed_date":[5,12]},{"name":"დამოუკიდებლობის დღე","fixed_date":[5,26]},{"name":"მარიამობა","fixed_date":[8,28]},{"name":"სვეტიცხოვლობა","fixed_date":[10,14]},{"name":"გიორგობა","fixed_date":[11,23]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=41.7151&lon=44.8271&zoom=18&addressdetails=1&accept-language=ka,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const gg = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Early May bank holiday","variable_date":"firstMayMonday"},{"name":"Liberation Day","fixed_date":[5,9]},{"name":"Spring bank holiday","variable_date":"lastMayMonday"},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"}]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const gi = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Commonwealth Day","variable_date":"firstMarchMonday","offset":7},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Workers Memorial Day","fixed_date":[4,28]},{"name":"May Day","fixed_date":[5,1],"shift_rule":"if sunday, saturday then next monday"},{"name":"Spring bank holiday","variable_date":"lastMayMonday"},{"name":"Late Summer Bank Holiday","variable_date":"lastAugustMonday"},{"name":"Gibraltar National Day","fixed_date":[9,10],"substitute_rule":"if sunday, saturday then previous monday"},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Queen's Birthday","variable_date":"mondayBefore20Jun"}]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const gr = {
   PH: [{"name":"Πρωτοχρονιά","fixed_date":[1,1]},{"name":"Θεοφάνια","fixed_date":[1,6]},{"name":"25η Μαρτίου","fixed_date":[3,25]},{"name":"Καθαρά Δευτέρα","variable_date":"orthodox easter","offset":-48},{"name":"Μεγάλη Παρασκευή","variable_date":"orthodox easter","offset":-2},{"name":"Πάσχα","variable_date":"orthodox easter"},{"name":"Δευτέρα του Πάσχα","variable_date":"orthodox easter","offset":1},{"name":"Αγίου Πνεύματος","variable_date":"orthodox easter","offset":50},{"name":"Εργατική Πρωτομαγιά","fixed_date":[5,1]},{"name":"Κοίμηση της Θεοτόκου","fixed_date":[8,15]},{"name":"Επέτειος του Όχι","fixed_date":[10,28]},{"name":"Χριστούγεννα","fixed_date":[12,25]},{"name":"Δεύτερη μέρα των Χριστουγέννων","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=Greece&zoom=18&addressdetails=1&limit=1&accept-language=el,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const hr = {
   PH: [{"name":"Nova godina","fixed_date":[1,1]},{"name":"Bogojavljenje ili Sveta tri kralja","fixed_date":[1,6]},{"name":"Uskrs","variable_date":"easter"},{"name":"Uskršnji ponedjeljak","variable_date":"easter","offset":1},{"name":"Praznik rada","fixed_date":[5,1]},{"name":"Dan državnosti","fixed_date":[5,30]},{"name":"Tijelovo","variable_date":"easter","offset":60},{"name":"Dan antifašističke borbe","fixed_date":[6,22]},{"name":"Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja","fixed_date":[8,5]},{"name":"Velika Gospa","fixed_date":[8,15]},{"name":"Svi sveti","fixed_date":[11,1]},{"name":"Dan sjećanja na žrtve Domovinskog rata i Dan sjećanja na žrtvu Vukovara i Škabrnje","fixed_date":[11,18]},{"name":"Božić","fixed_date":[12,25]},{"name":"Sveti Stjepan","fixed_date":[12,26]}],
   SH: [
@@ -10545,6 +10570,7 @@ export const hr = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lon=15.977&lat=45.813&zoom=18&addressdetails=1&accept-language=hr,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const hu = {
   PH: [{"name":"újév","fixed_date":[1,1]},{"name":"az 1848-as forradalom ünnepe","fixed_date":[3,15]},{"name":"nagypéntek","variable_date":"easter","offset":-2},{"name":"húsvétvasárnap","variable_date":"easter"},{"name":"húsvéthétfő","variable_date":"easter","offset":1},{"name":"pünkösdvasárnap","variable_date":"easter","offset":49},{"name":"pünkösdhétfő","variable_date":"easter","offset":50},{"name":"a munka ünnepe","fixed_date":[5,1]},{"name":"az államalapítás ünnepe","fixed_date":[8,20]},{"name":"az 1956-os forradalom ünnepe","fixed_date":[10,23]},{"name":"mindenszentek","fixed_date":[11,1]},{"name":"karácsony","fixed_date":[12,25]},{"name":"karácsony másnap","fixed_date":[12,26]}],
   SH: [
@@ -10612,6 +10638,7 @@ export const hu = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=47.4821&lon=19.0640&zoom=18&addressdetails=1&accept-language=hu,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ie = {
   PH: [{"name":"New Year’s Day","fixed_date":[1,1]},{"name":"St. Brigid’s Day","fixed_date":[2,1],"shift_rule":"if tuesday,wednesday,thursday,saturday,sunday then next monday"},{"name":"St. Patrick’s Day","fixed_date":[3,17]},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"First Monday in May","variable_date":"firstMayMonday"},{"name":"First Monday in June","variable_date":"firstJuneMonday"},{"name":"First Monday in August","variable_date":"firstAugustMonday"},{"name":"Last Monday in October","variable_date":"lastOctoberMonday"},{"name":"Christmas Day","fixed_date":[12,25]},{"name":"St. Stephen’s Day","fixed_date":[12,26]}],
   SH: [
@@ -10658,10 +10685,12 @@ export const ie = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=53.1424&lon=-7.6921&zoom=18&addressdetails=1&accept-language=ga,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const im = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Early May bank holiday","variable_date":"firstMayMonday"},{"name":"Spring bank holiday","variable_date":"lastMayMonday"},{"name":"Tourist Trophy, Senior Race Day","variable_date":"firstJuneFriday","offset":7},{"name":"Tynwald Day","fixed_date":[7,5]},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"}]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const it = {
   PH: [{"name":"Capodanno","fixed_date":[1,1]},{"name":"Epifania","fixed_date":[1,6]},{"name":"Pasqua","variable_date":"easter"},{"name":"Lunedì di Pasqua","variable_date":"easter","offset":1},{"name":"Liberazione dal nazifascismo (1945)","fixed_date":[4,25]},{"name":"Festa del lavoro","fixed_date":[5,1]},{"name":"Festa della Repubblica","fixed_date":[6,2]},{"name":"Assunzione di Maria","fixed_date":[8,15]},{"name":"Festa nazionale di San Francesco d'Assisi","fixed_date":[10,4]},{"name":"Ognissanti","fixed_date":[11,1]},{"name":"Immacolata Concezione","fixed_date":[12,8]},{"name":"Natale di Gesù","fixed_date":[12,25]},{"name":"Santo Stefano","fixed_date":[12,26]}],
   SH: [
@@ -11696,16 +11725,19 @@ export const it = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const je = {
   PH: [{"name":"New Year’s Day","fixed_date":[1,1],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Early May bank holiday","variable_date":"firstMayMonday"},{"name":"Liberation Day","fixed_date":[5,9]},{"name":"Spring bank holiday","variable_date":"lastMayMonday"},{"name":"Summer bank holiday","variable_date":"lastAugustMonday"},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=49.2&lon=-2.1&zoom=11&addressdetails=1&accept-language=en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const jp = {
   PH: [{"name":"元日","fixed_date":[1,1],"substitute_rule":"if sunday then next monday"},{"name":"成人の日","variable_date":"firstJanuaryMonday","offset":7},{"name":"建国記念の日","fixed_date":[2,11],"substitute_rule":"if sunday then next monday"},{"name":"天皇誕生日","fixed_date":[2,23],"substitute_rule":"if sunday then next monday"},{"name":"昭和の日","fixed_date":[4,29],"substitute_rule":"if sunday then next monday"},{"name":"憲法記念日","fixed_date":[5,3],"substitute_rule":"if sunday then next wednesday"},{"name":"みどりの日","fixed_date":[5,4],"substitute_rule":"if sunday then next tuesday"},{"name":"こどもの日","fixed_date":[5,5],"substitute_rule":"if sunday then next monday"},{"name":"海の日","variable_date":"firstJulyMonday","offset":14},{"name":"山の日","fixed_date":[8,11],"substitute_rule":"if sunday then next monday"},{"name":"敬老の日","variable_date":"firstSeptemberMonday","offset":14},{"name":"スポーツの日","variable_date":"firstOctoberMonday","offset":7},{"name":"文化の日","fixed_date":[11,3],"substitute_rule":"if sunday then next monday"},{"name":"勤労感謝の日","fixed_date":[11,23],"substitute_rule":"if sunday then next monday"},{"name":"春分の日","variable_date":"springEquinox","substitute_rule":"if sunday then next monday"},{"name":"秋分の日","variable_date":"autumnalEquinox","substitute_rule":"if sunday then next monday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=35.39291572&lon=139.44288869&zoom=18&addressdetails=1&accept-language=ja,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const li = {
   SH: [
     {
@@ -11772,6 +11804,7 @@ export const li = {
   ]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const lt = {
   PH: [{"name":"Naujieji metai","fixed_date":[1,1]},{"name":"Lietuvos valstybės atkūrimo diena","fixed_date":[2,16]},{"name":"Lietuvos nepriklausomybės atkūrimo diena","fixed_date":[3,11]},{"name":"Velykos","variable_date":"easter"},{"name":"Velykų pirmadienis","variable_date":"easter","offset":1},{"name":"Tarptautinė darbo diena","fixed_date":[5,1]},{"name":"Joninės, Rasos","fixed_date":[6,24]},{"name":"Valstybės diena","fixed_date":[7,6]},{"name":"Žolinė","fixed_date":[8,15]},{"name":"Visų šventųjų diena","fixed_date":[11,1]},{"name":"Vėlinės","fixed_date":[11,2]},{"name":"Šv. Kūčios","fixed_date":[12,24]},{"name":"Šv. Kalėdos","fixed_date":[12,25]},{"name":"2. Kalėdų diena","fixed_date":[12,26]}],
   SH: [
@@ -11823,6 +11856,7 @@ export const lt = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=54.6872&lon=25.2797&zoom=18&addressdetails=1&accept-language=lt,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const lu = {
   PH: [{"name":"Neijoerschdag - Neujahr - Nouvel An","fixed_date":[1,1]},{"name":"Ouschterméindeg - Ostermontag - Lundi de Pâques","variable_date":"easter","offset":1},{"name":"Dag vun der Aarbecht - Tag der Arbeit - Premier Mai","fixed_date":[5,1]},{"name":"Europadag - Europatag - Journée de l'Europe","fixed_date":[5,1]},{"name":"Christi Himmelfaart - Christi Himmelfahrt - Ascension","variable_date":"easter","offset":39},{"name":"Péngschtméindeg - Pfingstmontag - Lundi de Pentecôte","variable_date":"easter","offset":50},{"name":"Nationalfeierdag - Nationalfeiertag - Fête nationale","fixed_date":[6,23]},{"name":"Mariä Himmelfaart - Maria Himmelfahrt - Assomption","fixed_date":[8,15]},{"name":"Allerhellgen - Weihnachten - Allerheiligen - Toussaint","fixed_date":[11,1]},{"name":"Chrëschtdag - Noël","fixed_date":[12,25]},{"name":"Stiefesdag - Zweiter Weihnachtsfeiertag - St. Etienne","fixed_date":[12,26]}],
   SH: [
@@ -11895,6 +11929,7 @@ export const lu = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=Luxembourg&zoom=18&addressdetails=1&limit=1&accept-language=lb,fr,de,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const lv = {
   PH: [{"name":"Jaunais Gads","fixed_date":[1,1]},{"name":"Lielā Piektdiena","variable_date":"easter","offset":-2},{"name":"Lieldienas","variable_date":"easter"},{"name":"Otrās Lieldienas","variable_date":"easter","offset":1},{"name":"Darba svētki","fixed_date":[5,1]},{"name":"Latvijas Republikas Neatkarības atjaunošanas diena","fixed_date":[5,4],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Līgo Diena","fixed_date":[6,23]},{"name":"Jāņi","fixed_date":[6,24]},{"name":"Latvijas Republikas proklamēšanas diena","fixed_date":[11,18],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Ziemassvētku vakars","fixed_date":[12,24]},{"name":"Ziemassvētki","fixed_date":[12,25]},{"name":"Otrie Ziemassvētki","fixed_date":[12,26]},{"name":"Vecgada vakars","fixed_date":[12,31]}],
   SH: [
@@ -11937,6 +11972,7 @@ export const lv = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=56.9460&lon=24.1059&zoom=18&addressdetails=1&accept-language=lv,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const mc = {
   PH: [{"name":"Nouvel An","fixed_date":[1,1]},{"name":"Sainte Dévote","fixed_date":[1,27],"substitute_rule":"if sunday then next monday"},{"name":"Lundi de Pâques","variable_date":"easter","offset":1},{"name":"1er mai","fixed_date":[5,1],"substitute_rule":"if sunday then next monday"},{"name":"Ascension","variable_date":"easter","offset":39},{"name":"Lundi de Pentecôte","variable_date":"easter","offset":50},{"name":"la Fête-Dieu","variable_date":"easter","offset":60},{"name":"Assomption","fixed_date":[8,15]},{"name":"Toussaint","fixed_date":[11,1]},{"name":"La Fête du Prince","fixed_date":[11,19],"substitute_rule":"if sunday then next monday"},{"name":"Immaculée Conception","fixed_date":[12,8]},{"name":"Noël","fixed_date":[12,25],"substitute_rule":"if sunday then next monday"}],
   SH: [
@@ -12008,6 +12044,7 @@ export const mc = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=43.7384&lon=7.4246&zoom=18&addressdetails=1&accept-language=fr,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const md = {
   PH: [{"name":"Anul nou","fixed_date":[1,1]},{"name":"Ziua Internationala a Femeii","fixed_date":[3,8]},{"name":"Paștele","variable_date":"orthodox easter"},{"name":"A doua zi de Pasti","variable_date":"orthodox easter","offset":1},{"name":"Paştele Blăjinilor","variable_date":"orthodox easter","offset":8},{"name":"Ziua muncii","fixed_date":[5,1]},{"name":"Ziua Victoriei","fixed_date":[5,9]},{"name":"Ziua Independentei","fixed_date":[8,27]},{"name":"Limba noastră","fixed_date":[8,31]},{"name":"Craciun pe stil Nou","fixed_date":[12,25]}],
   SH: [
@@ -12064,6 +12101,7 @@ export const md = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=47.0105&lon=28.8638&zoom=18&addressdetails=1&accept-language=ro,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const mt = {
   PH: [{"name":"L-Ewwel tas-Sena","fixed_date":[1,1]},{"name":"Nawfraġju ta' San Pawl","fixed_date":[2,10]},{"name":"San Ġużepp","fixed_date":[3,19]},{"name":"Jum il-Ħelsien","fixed_date":[3,31]},{"name":"Il-Ġimgħa l-Kbira","variable_date":"easter","offset":-2},{"name":"Jum il-Ħaddiem","fixed_date":[5,1]},{"name":"Sette Giugno","fixed_date":[6,7]},{"name":"L-Imnarja","fixed_date":[6,29]},{"name":"Santa Marija","fixed_date":[8,15]},{"name":"Jum il-Vitorja","fixed_date":[9,8]},{"name":"Jum l-Indipendenza","fixed_date":[9,21]},{"name":"Il-Kunċizzjoni","fixed_date":[12,8]},{"name":"Jum ir-Repubblika","fixed_date":[12,13]},{"name":"Il-Milied","fixed_date":[12,25]}],
   SH: [
@@ -12130,6 +12168,7 @@ export const mt = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=35.8997&lon=14.5147&zoom=18&addressdetails=1&accept-language=mt,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const mx = {
   PH: [{"name":"Año Nuevo","fixed_date":[1,1]},{"name":"Día de la Constitución","variable_date":"firstFebruaryMonday"},{"name":"Natalicio de Benito Juárez","variable_date":"firstMarchMonday","offset":14},{"name":"Día del Trabajador","fixed_date":[5,1]},{"name":"Día de la Independencia","fixed_date":[9,16]},{"name":"Día de la Revolución","variable_date":"firstNovemberMonday","offset":14},{"name":"Navidad","fixed_date":[12,25]}],
   SH: [
@@ -12170,15 +12209,18 @@ export const mx = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=19.4326&lon=-99.1332&zoom=18&addressdetails=1&accept-language=es,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const na = {
   PH: [{"name":"New Year’s Day","fixed_date":[1,1],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Independence Day","fixed_date":[3,21],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Workers’ Day","fixed_date":[5,1],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Cassinga Day","fixed_date":[5,4],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Ascension Day","variable_date":"easter","offset":39},{"name":"Africa Day","fixed_date":[5,25],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Heroes’ Day","fixed_date":[8,26],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Human Rights Day","fixed_date":[12,10],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Christmas Day","fixed_date":[12,25]},{"name":"Family Day","fixed_date":[12,26],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=Namibia&zoom=18&addressdetails=1&limit=1"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const nf = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Australia Day","fixed_date":[1,26],"shift_rule":"if saturday,sunday then next monday"},{"name":"Foundation Day","fixed_date":[3,6],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Anzac Day","fixed_date":[4,25]},{"name":"Anniversary (Bounty) Day","fixed_date":[6,8],"shift_rule":"if saturday,sunday then next monday"},{"name":"Norfolk Island Agricultural Show","variable_date":"firstOctoberMonday","offset":7},{"name":"Thanksgiving Day","variable_date":"lastNovemberWednesday"},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"}]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const nl = {
   PH: [{"name":"Nieuwjaarsdag","fixed_date":[1,1]},{"name":"Goede vrijdag","variable_date":"easter","offset":-2},{"name":"Tweede Paasdag","variable_date":"easter","offset":1},{"name":"Koningsdag","fixed_date":[4,27],"shift_rule":"if sunday then previous saturday"},{"name":"Bevrijdingsdag","fixed_date":[5,5]},{"name":"Hemelvaartsdag","variable_date":"easter","offset":39},{"name":"Tweede Pinksterdag","variable_date":"easter","offset":50},{"name":"Eerste Kerstdag","fixed_date":[12,25]},{"name":"Tweede Kerstdag","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=52.3702&lon=4.8952&zoom=18&addressdetails=1&accept-language=nl,en",
@@ -12406,16 +12448,19 @@ export const nl = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const no = {
   PH: [{"name":"Første nyttårsdag","fixed_date":[1,1]},{"name":"Skjærtorsdag","variable_date":"easter","offset":-3},{"name":"Langfredag","variable_date":"easter","offset":-2},{"name":"Første påskedag","variable_date":"easter"},{"name":"Andre påskedag","variable_date":"easter","offset":1},{"name":"Arbeidernes dag","fixed_date":[5,1]},{"name":"Kristi himmelfartsdag","variable_date":"easter","offset":39},{"name":"Grunnlovsdagen","fixed_date":[5,17]},{"name":"Første pinsedag","variable_date":"easter","offset":49},{"name":"Andre pinsedag","variable_date":"easter","offset":50},{"name":"Første juledag","fixed_date":[12,25]},{"name":"Andre juledag","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=61.0&lon=8.0&zoom=8&addressdetails=1&accept-language=no,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const nz = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Day after New Year's Day","fixed_date":[1,2],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Waitangi Day","fixed_date":[2,6],"substitute_rule":"if saturday,sunday then next monday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Easter Monday","variable_date":"easter","offset":1},{"name":"Anzac Day","fixed_date":[4,25],"substitute_rule":"if saturday,sunday then next monday"},{"name":"King's Birthday","variable_date":"firstJuneMonday"},{"name":"Matariki","fixed_date":[6,25],"year":2027},{"name":"Matariki","fixed_date":[7,6],"year":2029},{"name":"Matariki","fixed_date":[7,10],"year":2026},{"name":"Matariki","fixed_date":[7,14],"year":2028},{"name":"Labour Day","variable_date":"firstOctoberMonday","offset":21},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if saturday then next monday if sunday then next tuesday"},{"name":"Boxing Day","fixed_date":[12,26],"substitute_rule":"if saturday then next monday if sunday then next tuesday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=-41.2922255&lon=174.7763033&zoom=16&addressdetails=1&accept-language=en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const pl = {
   PH: [{"name":"Nowy Rok","fixed_date":[1,1]},{"name":"Święto Trzech Króli","fixed_date":[1,6]},{"name":"pierwszy dzień Wielkiej Nocy","variable_date":"easter"},{"name":"drugi dzień Wielkiej Nocy","variable_date":"easter","offset":1},{"name":"Święto Państwowe","fixed_date":[5,1]},{"name":"Święto Narodowe Trzeciego Maja","fixed_date":[5,3]},{"name":"pierwszy dzień Zielonych Świątek","variable_date":"easter","offset":49},{"name":"dzień Bożego Ciała","variable_date":"easter","offset":60},{"name":"Wniebowzięcie Najświętszej Marii Panny","fixed_date":[8,15]},{"name":"Wszystkich Świętych","fixed_date":[11,1]},{"name":"Narodowe Święto Niepodległości","fixed_date":[11,11]},{"name":"Wigilia Bożego Narodzenia","fixed_date":[12,24]},{"name":"pierwszy dzień Bożego Narodzenia","fixed_date":[12,25]},{"name":"drugi dzień Bożego Narodzenia","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=53.4825&lon=18.75823&zoom=18&addressdetails=1&accept-language=pl,en",
@@ -13156,10 +13201,12 @@ export const pl = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const pm = {
   PH: [{"name":"Nouvel An","fixed_date":[1,1]},{"name":"Lundi de Pâques","variable_date":"easter","offset":1},{"name":"Fête du travail","fixed_date":[5,1]},{"name":"Fête de la Victoire 1945","fixed_date":[5,8]},{"name":"Ascension","variable_date":"easter","offset":39},{"name":"Lundi de Pentecôte","variable_date":"easter","offset":50},{"name":"Fête Nationale de la France","fixed_date":[7,14]},{"name":"Assomption","fixed_date":[8,15]},{"name":"Toussaint","fixed_date":[11,1]},{"name":"Armistice 1918","fixed_date":[11,11]},{"name":"Noël","fixed_date":[12,25]}]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const pt = {
   PH: [{"name":"Ano Novo","fixed_date":[1,1]},{"name":"Sexta-Feira Santa","variable_date":"easter","offset":-2},{"name":"Páscoa","variable_date":"easter"},{"name":"Dia da Liberdade","fixed_date":[4,25]},{"name":"Dia do trabalhador","fixed_date":[5,1]},{"name":"Corpo de Deus","variable_date":"easter","offset":60},{"name":"Dia de Portugal","fixed_date":[6,10]},{"name":"Assunção de Maria","fixed_date":[8,15]},{"name":"Implantação da República","fixed_date":[10,5]},{"name":"Todos os santos","fixed_date":[11,1]},{"name":"Restauração da Independência","fixed_date":[12,1]},{"name":"Imaculada Conceição","fixed_date":[12,8]},{"name":"Natal","fixed_date":[12,25]}],
   SH: [
@@ -13217,6 +13264,7 @@ export const pt = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=38.7223&lon=-9.1393&zoom=18&addressdetails=1&accept-language=pt,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ro = {
   PH: [{"name":"Anul nou","fixed_date":[1,1]},{"name":"Anul nou","fixed_date":[1,2]},{"name":"Bobotează","fixed_date":[1,6]},{"name":"Sfântul Ioan Botezătorul","fixed_date":[1,7]},{"name":"Ziua Unirii Principatelor Române","fixed_date":[1,24]},{"name":"Vinerea Mare","variable_date":"orthodox easter","offset":-2},{"name":"Paștele","variable_date":"orthodox easter"},{"name":"A doua zi de Paști","variable_date":"orthodox easter","offset":1},{"name":"Rusaliile","variable_date":"orthodox easter","offset":49},{"name":"A doua zi de Rusalii","variable_date":"orthodox easter","offset":50},{"name":"Ziua muncii","fixed_date":[5,1]},{"name":"Ziua Copilului","fixed_date":[6,1]},{"name":"Adormirea Maicii Domnului","fixed_date":[8,15]},{"name":"Sfântul Andrei","fixed_date":[11,30]},{"name":"Ziua națională, Ziua Marii Uniri","fixed_date":[12,1]},{"name":"Crăciunul","fixed_date":[12,25]},{"name":"A doua zi de Crăciun","fixed_date":[12,26]}],
   SH: [
@@ -13799,6 +13847,7 @@ export const ro = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const rs = {
   PH: [{"name":"Нова година","fixed_date":[1,1],"shift_rule":"if sunday then next tuesday"},{"name":"Нова година","fixed_date":[1,2],"shift_rule":"if sunday then next monday"},{"name":"Дан државности Србије","fixed_date":[2,15],"shift_rule":"if sunday then next tuesday"},{"name":"Дан државности Србије","fixed_date":[2,16],"shift_rule":"if sunday then next monday"},{"name":"Велики петак","variable_date":"orthodox easter","offset":-2},{"name":"Васкрс","variable_date":"orthodox easter"},{"name":"Васкрсни понедељак","variable_date":"orthodox easter","offset":1},{"name":"Празник рада","fixed_date":[5,1],"shift_rule":"if sunday then next tuesday"},{"name":"Празник рада","fixed_date":[5,2],"shift_rule":"if sunday then next monday"},{"name":"Дан примирја","fixed_date":[11,11],"shift_rule":"if sunday then next monday"}],
   SH: [
@@ -13848,6 +13897,7 @@ export const rs = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=44.8176&lon=20.4569&zoom=18&addressdetails=1&accept-language=sr,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ru = {
   PH: [{"name":"1. Новогодние каникулы","fixed_date":[1,1]},{"name":"2. Новогодние каникулы","fixed_date":[1,2]},{"name":"3. Новогодние каникулы","fixed_date":[1,3]},{"name":"4. Новогодние каникулы","fixed_date":[1,4]},{"name":"5. Новогодние каникулы","fixed_date":[1,5]},{"name":"6. Новогодние каникулы","fixed_date":[1,6]},{"name":"Рождество Христово","fixed_date":[1,7]},{"name":"8. Новогодние каникулы","fixed_date":[1,8]},{"name":"День защитника Отечества","fixed_date":[2,23]},{"name":"Международный женский день","fixed_date":[3,8],"substitute_rule":"if sunday then next monday"},{"name":"День Победы","fixed_date":[5,9]},{"name":"Праздник Весны и Труда","fixed_date":[5,1]},{"name":"День народного единства","fixed_date":[11,4]},{"name":"День России","fixed_date":[6,12]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=55.7780&lon=49.1303&zoom=18&addressdetails=1&accept-language=ru,en",
@@ -13948,11 +13998,13 @@ export const ru = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const se = {
   PH: [{"name":"nyårsdagen","fixed_date":[1,1]},{"name":"trettondedag jul","fixed_date":[1,6]},{"name":"långfredagen","variable_date":"easter","offset":-2},{"name":"påskdagen","variable_date":"easter"},{"name":"annandag påsk","variable_date":"easter","offset":1},{"name":"första maj","fixed_date":[5,1]},{"name":"Kristi himmelsfärdsdag","variable_date":"easter","offset":39},{"name":"pingstdagen","variable_date":"easter","offset":49},{"name":"nationaldagen","fixed_date":[6,6]},{"name":"midsommardagen","variable_date":"nextSaturday20Jun"},{"name":"alla helgons dag","variable_date":"nextSaturday31Oct"},{"name":"juldagen","fixed_date":[12,25]},{"name":"annandag jul","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=63.1151&lon=16.5767&zoom=18&addressdetails=1&accept-language=sv,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const si = {
   PH: [{"name":"novo leto","fixed_date":[1,1]},{"name":"novo leto","fixed_date":[1,2]},{"name":"Prešernov dan, slovenski kulturni praznik","fixed_date":[2,8]},{"name":"velikonočna nedelja","variable_date":"easter"},{"name":"velikonočni ponedeljek","variable_date":"easter","offset":1},{"name":"dan upora proti okupatorju","fixed_date":[4,27]},{"name":"praznik dela 1","fixed_date":[5,1]},{"name":"praznik dela 2","fixed_date":[5,2]},{"name":"binkoštna nedelja - binkošti","variable_date":"easter","offset":49},{"name":"dan državnosti","fixed_date":[6,25]},{"name":"Marijino vnebovzetje","fixed_date":[8,15]},{"name":"dan reformacije","fixed_date":[10,31]},{"name":"dan spomina na mrtve","fixed_date":[11,1]},{"name":"božič","fixed_date":[12,25]},{"name":"dan samostojnosti in enotnosti","fixed_date":[12,26]}],
   SH: [
@@ -14033,10 +14085,12 @@ export const si = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const sj = {
   PH: [{"name":"Første nyttårsdag","fixed_date":[1,1]},{"name":"Skjærtorsdag","variable_date":"easter","offset":-3},{"name":"Langfredag","variable_date":"easter","offset":-2},{"name":"Første påskedag","variable_date":"easter"},{"name":"Andre påskedag","variable_date":"easter","offset":1},{"name":"Arbeidernes dag","fixed_date":[5,1]},{"name":"Grunnlovsdagen","fixed_date":[5,17]},{"name":"Kristi himmelfartsdag","variable_date":"easter","offset":39},{"name":"Første pinsedag","variable_date":"easter","offset":49},{"name":"Andre pinsedag","variable_date":"easter","offset":50},{"name":"Første juledag","fixed_date":[12,25]},{"name":"Andre juledag","fixed_date":[12,26]}]
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const sk = {
   PH: [{"name":"Deň vzniku Slovenskej republiky","fixed_date":[1,1]},{"name":"Zjavenie Pána","fixed_date":[1,6]},{"name":"Veľký piatok","variable_date":"easter","offset":-2},{"name":"Veľkonočný pondelok","variable_date":"easter","offset":1},{"name":"Sviatok práce","fixed_date":[5,1]},{"name":"Sviatok svätého Cyrila a Metoda","fixed_date":[7,5]},{"name":"Výročie Slovenského národného povstania","fixed_date":[8,29]},{"name":"Sviatok všetkých svätých","fixed_date":[11,1]},{"name":"Štedrý deň","fixed_date":[12,24]},{"name":"Prvý sviatok vianočný","fixed_date":[12,25]},{"name":"Druhý sviatok vianočný","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=48.7411522&lon=19.4528646&zoom=18&addressdetails=1&accept-language=sk,en",
@@ -14554,6 +14608,7 @@ export const sk = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const sm = {
   PH: [{"name":"Capodanno","fixed_date":[1,1]},{"name":"Epifania","fixed_date":[1,6]},{"name":"Festa di Sant’Agata","fixed_date":[2,5]},{"name":"Anniversario dell'Arengo","fixed_date":[3,25]},{"name":"Domenica di Pasqua","variable_date":"easter"},{"name":"Lunedì dell’Angelo","variable_date":"easter","offset":1},{"name":"Cerimonia di investitura dei Capitani Reggenti","fixed_date":[4,1]},{"name":"Festa del lavoro","fixed_date":[5,1]},{"name":"Corpus Domini","variable_date":"easter","offset":60},{"name":"Anniversario della caduta del Fascismo e Festa della Libertà","fixed_date":[7,28]},{"name":"Assunzione di Maria","fixed_date":[8,15]},{"name":"Festa di San Marino e di Fondazione della Repubblica","fixed_date":[9,3]},{"name":"Cerimonia di investitura dei Capitani Reggenti","fixed_date":[10,1]},{"name":"Tutti i Santi","fixed_date":[11,1]},{"name":"Commemorazione dei defunti","fixed_date":[11,2]},{"name":"Immacolata Concezione","fixed_date":[12,8]},{"name":"Natale di Gesù","fixed_date":[12,25]},{"name":"Santo Stefano","fixed_date":[12,26]}],
   SH: [
@@ -14594,11 +14649,13 @@ export const sm = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=43.9424&lon=12.4578&zoom=18&addressdetails=1&accept-language=it,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const ua = {
   PH: [{"name":"Новий Рік","fixed_date":[1,1],"substitute_rule":"if saturday, sunday then next tuesday"},{"name":"Новий Рік","fixed_date":[1,2],"substitute_rule":"if saturday, sunday then next monday"},{"name":"Міжнародний жіночий день","fixed_date":[3,8],"substitute_rule":"if saturday, sunday then next monday"},{"name":"Великдень","variable_date":"orthodox easter"},{"name":"Трійця","variable_date":"orthodox easter","offset":49},{"name":"День міжнародної солідарності трудящих","fixed_date":[5,1],"substitute_rule":"if saturday, sunday then next tuesday"},{"name":"День перемоги над нацизмом у Другій світовій війні","fixed_date":[5,9],"substitute_rule":"if saturday, sunday then next monday"},{"name":"День Конституції","fixed_date":[6,28],"substitute_rule":"if saturday, sunday then next monday"},{"name":"День Української Державності","fixed_date":[7,15],"substitute_rule":"if saturday, sunday then next monday"},{"name":"День Незалежності","fixed_date":[8,24],"substitute_rule":"if saturday, sunday then next monday"},{"name":"День захисників і захисниць України","fixed_date":[10,1],"substitute_rule":"if saturday, sunday then next monday"},{"name":"Різдво Христове","fixed_date":[12,25],"substitute_rule":"if saturday, sunday then next monday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=50.4501&lon=30.5234&zoom=18&addressdetails=1&accept-language=uk,en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const us = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if sunday then next monday if saturday then previous friday"},{"name":"Martin Luther King Jr. Day","variable_date":"firstJanuaryMonday","offset":14},{"name":"Washington's Birthday","variable_date":"firstFebruaryMonday","offset":14},{"name":"Memorial Day","variable_date":"lastMayMonday"},{"name":"Juneteenth","fixed_date":[6,19],"substitute_rule":"if sunday then next monday if saturday then previous friday"},{"name":"Independence Day","fixed_date":[7,4],"substitute_rule":"if sunday then next monday if saturday then previous friday"},{"name":"Labor Day","variable_date":"firstSeptemberMonday"},{"name":"Columbus Day","variable_date":"firstOctoberMonday","offset":7},{"name":"Veterans Day","fixed_date":[11,11]},{"name":"Thanksgiving Day","variable_date":"firstNovemberThursday","offset":21},{"name":"Christmas Day","fixed_date":[12,25],"substitute_rule":"if sunday then next monday if saturday then previous friday"}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/search?format=json&country=United+States+of+America&zoom=18&addressdetails=1&limit=1&accept-language=en",
@@ -14879,11 +14936,13 @@ export const us = {
   }
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const vn = {
   PH: [{"name":"Tết Dương Lịch","fixed_date":[1,1]},{"name":"Ngày Quốc tế Phụ nữ","fixed_date":[3,8]},{"name":"Ngày thành lập Đoàn Thanh niên Cộng sản Hồ Chí Minh","fixed_date":[3,26]},{"name":"Ngày Quốc tế Thiếu nhi","fixed_date":[6,1]},{"name":"Ngày Nhà giáo Việt Nam","fixed_date":[11,20]},{"name":"Ngày Giải phóng miền Nam, Thống nhất Đất nước","fixed_date":[4,30]},{"name":"Ngày Quốc tế lao động","fixed_date":[5,1]},{"name":"Quốc Khánh","fixed_date":[9,2]},{"name":"Lễ Giáng Sinh","fixed_date":[12,25]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=10.77374&lon=106.70094&zoom=16&addressdetails=1&accept-language=en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const xa = {
   PH: [{"name":"New Year","fixed_date":[1,1]}],
   SH: [
@@ -14907,6 +14966,7 @@ export const xa = {
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=0.0&lon=0.0&zoom=18&addressdetails=1&accept-language=en"
 };
 
+/** @type {import('./holiday-definitions.d.ts').CountryHolidayDefinitions} */
 export const za = {
   PH: [{"name":"New Year's Day","fixed_date":[1,1],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Human Rights Day","fixed_date":[3,21],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Good Friday","variable_date":"easter","offset":-2},{"name":"Family Day","variable_date":"easter","offset":1},{"name":"Freedom Day","fixed_date":[4,27],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Workers' Day","fixed_date":[5,1],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Youth Day","fixed_date":[6,16],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"National Women's Day","fixed_date":[8,9],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Heritage Day","fixed_date":[9,24],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Day of Reconciliation","fixed_date":[12,16],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"},{"name":"Christmas Day","fixed_date":[12,25]},{"name":"Day of Goodwill","fixed_date":[12,26],"substitute_rule":"if sunday then next monday","substitute_name":"Public Holiday"}],
   SH: [
