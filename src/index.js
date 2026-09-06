@@ -44,6 +44,7 @@ import resolver_layers from './locale-resolver/layers.json';
 
 /** @type {import('./holidays/holiday-definitions.d.ts').HolidayDefinitions} */
 const holidayDefinitions = holiday_definitions;
+/** @typedef {import('./holidays/holiday-definitions.d.ts').HolidayItem} HolidayItem */
 
 /**
  * Resolve a state name from a Nominatim address.
@@ -234,7 +235,14 @@ export default function(value, nominatim_object, optional_conf_parm) {
      *
      * Required to reasonably calculate 'sunrise' and holidays.
      */
-    let location_cc, location_state, lat, lon;
+    /** @type {string|undefined} */
+    let location_state;
+    /** @type {string|undefined} */
+    let location_cc;
+    /** @type {string|undefined} */
+    let lat;
+    /** @type {string|undefined} */
+    let lon;
     if (typeof nominatim_object === 'object' && nominatim_object !== null) {
         if (typeof nominatim_object.address === 'object') {
             if (typeof nominatim_object.address.country_code === 'string') {
@@ -3061,6 +3069,18 @@ export default function(value, nominatim_object, optional_conf_parm) {
     }
 
     /**
+     * Check whether a holiday definition contains named holiday items.
+     * @param {unknown} value Value to check.
+     * @returns {value is HolidayItem[]} Whether the value is a holiday list.
+     */
+    function isHolidayItemArray(value) {
+        return Array.isArray(value)
+            && value.every(item => typeof item === 'object'
+                && item !== null
+                && typeof item.name === 'string');
+    }
+
+    /**
      * Return the closest available holiday definition. {{{
      * First try to get the state; if missing, use the country-wide holidays,
      * which can themselves be limited to some states.
@@ -3089,18 +3109,20 @@ export default function(value, nominatim_object, optional_conf_parm) {
             && !Array.isArray(stateDefinition)
             ? stateDefinition[type_of_holidays]
             : undefined;
+        const countryDefinition = countryDefinitions[type_of_holidays];
+        const country_holidays = isHolidayItemArray(countryDefinition)
+            ? countryDefinition
+            : [];
 
+        /** @type {HolidayItem[]} */
         let matching_holiday = [];
-        if (Array.isArray(stateHolidays)) {
+        if (isHolidayItemArray(stateHolidays)) {
 
             /* If holiday_definitions for the state are specified,
              * use it and ignore lesser specific ones (for the
              * country).
              */
 
-            const country_holidays = Array.isArray(countryDefinitions[type_of_holidays])
-                ? countryDefinitions[type_of_holidays]
-                : [];
             const state_holidays = stateHolidays;
             if (type_of_holidays === 'PH') {
                 matching_holiday = state_holidays;
@@ -3116,29 +3138,29 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     return country_holiday_names.indexOf(state_holiday.name) === -1;
                 }));
                 matching_holiday.sort(function(h1, h2) {
-                    const h1_year = Object.keys(h1).find(function(k) {return k !== 'name';});
-                    const h2_year = Object.keys(h2).find(function(k) {return k !== 'name';});
-                    const h1_date = h1[h1_year];
-                    const h2_date = h2[h2_year];
+                    const h1_year = Object.keys(h1).find(function(k) {return k !== 'name';}) ?? '';
+                    const h2_year = Object.keys(h2).find(function(k) {return k !== 'name';}) ?? '';
+                    const h1_date = /** @type {[number, number]} */ (h1[h1_year]);
+                    const h2_date = /** @type {[number, number]} */ (h2[h2_year]);
                     // compare both months, or to break a tie both days
                     return (h1_date[0] - h2_date[0]) || (h1_date[1] - h2_date[1]);
                 });
             }
-        } else if (countryDefinitions[type_of_holidays]) {
+        } else if (country_holidays.length > 0) {
             /* Holidays are defined country wide. Some
              * countries only have country-wide holiday definitions
              * so that is ok too.
              */
-            const applying_holidays_for_country = countryDefinitions[type_of_holidays];
+            const applying_holidays_for_country = country_holidays;
 
             switch (type_of_holidays) {
                 case 'PH':
                     applying_holidays_for_country.forEach(function (holiday_item) {
                         /* Holidays in the country-wide scope can be limited to certain states. */
-                        if ('only_states' in holiday_item) {
-                            if (-1 === holiday_item.only_states.indexOf(location_state)) {
-                                return;
-                            }
+                        if (Array.isArray(holiday_item.only_states)
+                                && (typeof location_state !== 'string'
+                                    || !holiday_item.only_states.includes(location_state))) {
+                            return;
                         }
 
                         matching_holiday.push(holiday_item);
@@ -3542,6 +3564,15 @@ export default function(value, nominatim_object, optional_conf_parm) {
         return date;
     }
 
+    /**
+     * Resolve holiday definitions to dated holiday entries for one year.
+     * Applies year restrictions, movable dates, shifts, substitutes, and the
+     * requested day offset before sorting the resulting entries.
+     * @param {HolidayItem[]} applying_holidays Holiday definitions to resolve.
+     * @param {number} year Calendar year for which to resolve holidays.
+     * @param {[number, number]} add_days Day offset and parser-token count.
+     * @returns {Array<[Date, string]>} Sorted holiday dates and names.
+     */
     function getApplyingHolidaysForYear(applying_holidays, year, add_days) {
         const movableDays = getMovableEventsForYear(year);
 
@@ -3564,17 +3595,19 @@ export default function(value, nominatim_object, optional_conf_parm) {
             })
             .map(function (holiday_item) {
                 let base_date;
-                if ('fixed_date' in holiday_item) {
+                if (Array.isArray(holiday_item.fixed_date)) {
                     base_date = new Date(year,
                             holiday_item.fixed_date[0] - 1,
                             holiday_item.fixed_date[1]
                         );
-                } else if ('variable_date' in holiday_item) {
+                } else if (typeof holiday_item.variable_date === 'string') {
                     const selected_movableDay = movableDays[holiday_item.variable_date];
                     if (!selected_movableDay) {
                         throw t('movable no formula', {'name': holiday_item.name});
                     }
-                    const date_offset = 'offset' in holiday_item ? holiday_item.offset : 0;
+                    const date_offset = typeof holiday_item.offset === 'number'
+                        ? holiday_item.offset
+                        : 0;
                     base_date = new Date(selected_movableDay.getFullYear(),
                         selected_movableDay.getMonth(),
                         selected_movableDay.getDate() + date_offset
