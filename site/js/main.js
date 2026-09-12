@@ -7,6 +7,7 @@
 import i18next from '../../node_modules/i18next/dist/esm/i18next.js';
 import { resources, detectLanguage, getUserSelectTranslateHTMLCode, changeLanguage } from './i18n-resources.js';
 import { Evaluate, EX, josm, toggle, getISOWeekNumber, newValue, currentDateTime } from './helpers.js';
+import { initializeVisualEditor } from './visual_editor.js';
 
 // Configuration constants
 window.default_lat = 48.7769;
@@ -398,4 +399,5 @@ if (document.title !== i18next.t('texts.title')) {
 
 initializeUI();
 setupEventListeners();
+initializeVisualEditor();
 Evaluate();
