@@ -4606,6 +4606,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
         let resultstate = false;
         let changedate;
         let unknown = false;
+        let open_end = false;
         let comment;
         let match_rule;
 
@@ -4685,6 +4686,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 if (!rules[rule].fallback || (rules[rule].fallback && !(resultstate || unknown))) {
                     resultstate = rules[rule].meaning;
                     unknown     = rules[rule].unknown;
+                    open_end    = false;
                     match_rule  = rule;
 
                     // if (rules[rule].fallback)
@@ -4701,6 +4703,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     if (!rules[rule].fallback || (rules[rule].fallback && !(resultstate || unknown))) {
                         resultstate = rules[rule].meaning;
                         unknown     = rules[rule].unknown;
+                        open_end    = false;
                         match_rule  = rule;
 
                         /* Reset open end comment */
@@ -4713,6 +4716,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                             resultstate = false;
                             unknown     = true;
+                            open_end    = true;
 
                             /* Hack to make second rule in '07:00+,12:00-16:00; 16:00-24:00 closed "needed because of open end"' obsolete {{{ */
                             if (typeof rules[rule].time[timesel+1] === 'function') {
@@ -4733,6 +4737,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                                     resultstate = false;
                                     unknown     = false;
+                                    open_end    = false;
                                 }
                             }
 
@@ -4804,7 +4809,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
         }
 
         // console.log('changedate', changedate, resultstate, comment, match_rule);
-        return [ resultstate, changedate, unknown, comment, match_rule ];
+        return [ resultstate, changedate, unknown, comment, match_rule, open_end ];
     }
 
     /**
@@ -4865,6 +4870,11 @@ export default function(value, nominatim_object, optional_conf_parm) {
     this.getUnknown = function(date) {
         const it = this.getIterator(date);
         return it.getUnknown();
+    };
+
+    this.getOpenEnd = function(date) {
+        const it = this.getIterator(date);
+        return it.getOpenEnd();
     };
 
     this.getStateString = function(date, past) {
@@ -5129,6 +5139,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * @property {(date: Date) => void} setDate - Set the iterator date.
      * @property {() => boolean} getState - Whether the facility is open.
      * @property {() => boolean} getUnknown - Whether the state is unknown.
+     * @property {() => boolean} getOpenEnd - Whether the current interval has an open end.
      * @property {(past: boolean) => string} getStateString - State as 'open'/'unknown'/'closed'.
      * @property {() => string|undefined} getComment - Current comment.
      * @property {() => object|undefined} getMatchingRule - Matching rule.
@@ -5181,6 +5192,15 @@ export default function(value, nominatim_object, optional_conf_parm) {
          */
         iterator.getUnknown = function() {
             return state[2];
+        };
+        /* }}} */
+
+        /**
+         * Checks whether the current interval has an open end.
+         * @returns {boolean} Whether the interval has an open end.
+         */
+        iterator.getOpenEnd = function() {
+            return state[5] === true;
         };
         /* }}} */
 
