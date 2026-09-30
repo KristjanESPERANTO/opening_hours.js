@@ -1,0 +1,29 @@
+{
+  "licenses": {
+    "spdx": [
+      "MIT",
+      "MIT-0",
+      "BSD-2-Clause",
+      "BSD-3-Clause",
+      "Apache-2.0",
+      "ISC",
+      "0BSD",
+      "CC0-1.0",
+      "CC-BY-3.0",
+      "BlueOak-1.0.0",
+      "Python-2.0",
+      "Unicode-DFS-2016"
+    ]
+  },
+  "packages": {
+    "optimist": "<=0.6.1",
+    "format": "<=0.2.2",
+    "suncalc": "<=1.9.0",
+    "tosource": "<=2.0.0-alpha.3",
+    "underscore": "<=1.7.0",
+    "underscore.deep": "<=0.5.3",
+    "update-section": "<=0.3.3",
+    "gitconfiglocal": "<=1.0.0"
+  },
+  "corrections": false
+}
