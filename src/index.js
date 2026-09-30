@@ -4585,7 +4585,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     /* }}} */
 
     /**
-     * @typedef {[boolean, Date|undefined, boolean, string|undefined, number|undefined]} OpeningHoursStatePair
+     * @typedef {[boolean, Date|undefined, boolean, string|undefined, number|undefined, boolean]} OpeningHoursStatePair
      */
 
     /**
@@ -4601,6 +4601,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      *     2. unknown: true if state open is not sure.
      *     3. comment: Comment which applies for this time range (from date to changedate).
      *     4. match_rule: Rule number starting with 0 (nrule).
+     *     5. open_end: true if the matching selector has an open end (time or date).
      */
     function getStatePair(rules, date) {
         let resultstate = false;
@@ -4611,12 +4612,16 @@ export default function(value, nominatim_object, optional_conf_parm) {
         let match_rule;
 
         let date_matching_rules = [];
+        // Per-rule flag: date component matched without any selector reporting
+        // a future change (e.g. an open-ended monthday range like '2027 Feb 15+').
+        const rule_date_open_end = [];
 
         /* Go though all date selectors and check if they return something
          * else than closed for the given date.
          */
         for (let nrule = 0; nrule < rules.length; nrule++) {
             let matching_date_rule = true;
+            let rule_date_has_known_change = false;
             // console.log(nrule, 'length',  rules[nrule].date.length);
 
             /* Try each date selector type. */
@@ -4635,6 +4640,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         }
 
                     }
+                    if (typeof res[1] === 'object')
+                        rule_date_has_known_change = true;
+
                     if (typeof changedate === 'undefined' || (typeof res[1] === 'object' && res[1].getTime() < changedate.getTime()))
                         changedate = res[1];
                 }
@@ -4649,6 +4657,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     break;
                 }
             }
+
+            rule_date_open_end[nrule] = matching_date_rule
+                && rules[nrule].date.length > 0
+                && !rule_date_has_known_change;
 
             if (matching_date_rule) {
                 /* The following lines implement date overwriting logic (e.g. for
@@ -4686,7 +4698,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 if (!rules[rule].fallback || (rules[rule].fallback && !(resultstate || unknown))) {
                     resultstate = rules[rule].meaning;
                     unknown     = rules[rule].unknown;
-                    open_end    = false;
+                    // Informational only: an open-ended date range (e.g. '2027 Feb
+                    // 15+') does not imply an unknown state, unlike an open-ended
+                    // time range, so resultstate/unknown are left untouched here.
+                    open_end    = rule_date_open_end[rule] === true;
                     match_rule  = rule;
 
                     // if (rules[rule].fallback)
@@ -5197,6 +5212,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
         /**
          * Checks whether the current interval has an open end.
+         * An open-ended time range (e.g. '07:00+') also forces the state to
+         * unknown. An open-ended date range (e.g. '2027 Feb 15+ closed')
+         * only sets this flag; getState()/getUnknown() keep their explicit
+         * values.
          * @returns {boolean} Whether the interval has an open end.
          */
         iterator.getOpenEnd = function() {
