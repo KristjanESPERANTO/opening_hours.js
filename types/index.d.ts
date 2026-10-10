@@ -31,6 +31,7 @@ declare module 'opening_hours' {
     | 'zero_calculation'
 
   export interface opening_hours_warning {
+  getOpenEnd(date?: Date): boolean
     type: opening_hours_warning_type
     message: string
     /** The string the `position` offset refers to. This is the input value,
@@ -77,7 +78,7 @@ declare module 'opening_hours' {
     ): [Date, Date, boolean, string | undefined][]
     getStatePair(
       date?: Date
-    ): [boolean, Date, boolean, string | undefined, number | undefined]
+    ): [boolean, Date, boolean, string | undefined, number | undefined, boolean]
     getWarnings(): string[]
     getStructuredWarnings(): opening_hours_warning[]
     isEqualTo(
@@ -108,6 +109,7 @@ declare module 'opening_hours' {
       past?: boolean
     ): 'open' | 'unknown' | 'closed' | 'close'
     getComment(date?: Date): string | undefined
+    getOpenEnd(): boolean
     getMatchingRule(date?: Date): number | undefined
     advance(limit?: Date): boolean
   }
