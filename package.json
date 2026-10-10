@@ -1,10 +1,10 @@
 {
   "name": "opening_hours",
-  "type": "commonjs",
+  "type": "module",
   "types": "./types/index.d.ts",
   "description": "Library to parse and process opening_hours tag from OpenStreetMap data",
   "version": "3.15.0",
-  "main": "./build/opening_hours.js",
+  "main": "./build/opening_hours.cjs",
   "module": "./build/opening_hours.esm.mjs",
   "sideEffects": false,
   "exports": {
@@ -40,6 +40,7 @@
   "files": [
     "Makefile",
     "build/opening_hours.js",
+    "build/opening_hours.cjs",
     "build/opening_hours.esm.mjs",
     "build/opening_hours.esm.mjs.map",
     "CHANGELOG.md",
