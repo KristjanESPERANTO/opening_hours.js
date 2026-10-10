@@ -9,7 +9,7 @@
 _nominatim_url: "https://nominatim.openstreetmap.org/reverse?format=json&lat=53.1424&lon=-7.6921&zoom=18&addressdetails=1&accept-language=ga,en"
 
 PH:
-  - {name: New Year’s Day, fixed_date: [1, 1]}
+  - {name: New Year's Day, fixed_date: [1, 1]}
   - {name: St. Brigid’s Day, fixed_date: [2, 1], shift_rule: "if tuesday,wednesday,thursday,saturday,sunday then next monday"}
   - {name: St. Patrick’s Day, fixed_date: [3, 17]}
   - {name: Easter Monday, variable_date: easter, offset: 1}
