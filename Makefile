@@ -134,8 +134,8 @@ ready-for-hosting: dependencies-get build/opening_hours+deps.min.js
 
 ## command line programs {{{
 .PHONY: run-regex_search
-run-regex_search: export.$(SEARCH).json ./scripts/interactive_testing.mjs scripts/regex_search.py
-	python3 ./scripts/regex_search.py "$<"
+run-regex_search: export.$(SEARCH).json ./build/opening_hours.esm.mjs ./scripts/regex_search.mjs
+	$(NODEJS) ./scripts/regex_search.mjs "$<"
 
 .PHONY: run-interactive_testing
 run-interactive_testing: ./scripts/interactive_testing.mjs ./build/opening_hours.esm.mjs

@@ -728,7 +728,7 @@ For faster testing during development, you can limit the number of values: `make
 
 #### Small scale
 
-A python script to search with regular expressions over OSM opening_hours style tags is bundled. You can run it with `make run-regex_search` or `./scripts/regex_search.py` which will search on the opening_hours tag. To search over different tags either use `make run-regex_search "SEARCH=$tagname"` (this also makes sure that the tag you would like to search on will be downloaded if necessary) or run `./scripts/regex_search.py $path_to_downloaded_taginfo_json_file`.
+A script to search with regular expressions over OSM opening_hours style tags is bundled. You can run it with `make run-regex_search` or `node ./scripts/regex_search.mjs` which will search on the opening_hours tag. To search over different tags either use `make run-regex_search "SEARCH=$tagname"` (this also makes sure that the tag you would like to search on will be downloaded if necessary) or run `node ./scripts/regex_search.mjs $path_to_downloaded_taginfo_json_file`. Make downloads the full export by default; set `MAX_VALUES` for a quicker sample, for example `make run-regex_search MAX_VALUES=10000`.
 
 This script not only shows you if the found value can be processed with this library or not, it also indicates using different colors if the facility is currently open (open: green, unknown: magenta, closed: blue).
 
