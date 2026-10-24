@@ -9,12 +9,35 @@ This library supports both **Public Holidays (PH)** and **School Holidays (SH)**
 - **School Holidays**: 33 countries (all via [OpenHolidays API](https://openholidaysapi.org))
 - **Public Holidays**: 37 countries (defined in YAML files)
 
+## Updating Holiday Data
+
+Before each release, check whether new holiday data is available by running both update scripts:
+
+### 1. School Holidays (OpenHolidays data)
+
 School holiday data is generated from the local OpenHolidays data submodule and merged with YAML holiday definitions using:
+
 ```bash
 node scripts/generate-holiday-definitions.mjs
 ```
 
 This generates `src/holidays/generated-openholidays.mjs` which consolidates all holiday definitions.
+
+Run this before every release and commit any changes.
+
+### 2. Public Holidays (date-holidays submodule)
+
+If the `submodules/date-holidays` submodule has been updated (new upstream commits), regenerate the public holiday YAML files:
+
+```bash
+# First update the submodule
+git -C submodules/date-holidays pull
+# Then regenerate public holiday YAMLs
+node scripts/sync_holidays_from_date_holidays.js
+```
+
+This regenerates `src/holidays/<cc>.yaml` for all countries. Commit any changed YAML files.
+
 ## Deciding which holidays do apply
 
 Because each country/culture has it‘s own important dates/events, holidays are defined on a country level. The country wide definition can be overwritten as needed by more specific definitions. Because this library works with the OSM ecosystem, those boundaries are based on OSM.
