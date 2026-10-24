@@ -76,8 +76,9 @@ list:
 build: build/opening_hours+deps.min.js
 
 build/opening_hours.js \
-build/opening_hours.min.js \
+build/opening_hours.cjs \
 build/opening_hours.esm.mjs \
+build/opening_hours.esm.min.mjs \
 build/opening_hours+deps.js \
 build/opening_hours+deps.min.js: src/index.js src/locales/word_error_correction.yaml \
 src/locale-resolver/layers.json
@@ -90,7 +91,7 @@ check: qa-quick check-fast check-package.json
 check-full: clean check-all-diff check-package.json lint check-holidays check-holiday-state-codes check-nominatim-cache check-translations
 
 .PHONY: benchmark
-benchmark: benchmark-opening_hours.min.js
+benchmark: benchmark-opening_hours.esm.min.mjs
 
 .PHONY: clean
 clean: osm-tag-data-rm
@@ -162,29 +163,28 @@ qa-phrases-to-avoid:
 check-all: check-package.json check-test check-all-diff osm-tag-data-update-check
 
 .PHONY: check-test
-check-test: check-opening_hours.js
+check-test: check-opening_hours.esm.mjs
 
 .PHONY: check-translations
 check-translations:
 	$(NODEJS) scripts/check_translations.mjs
 
 .PHONY: check-fast
-check-fast: check-diff-opening_hours.js
+check-fast: check-diff-opening_hours.esm.mjs
 
 .PHONY: check-all-diff
-check-all-diff: check-all-lang-diff check-diff-opening_hours.js
+check-all-diff: check-all-lang-diff check-diff-opening_hours.esm.mjs
 
 # Compare parser test results with the reference logs for each test language.
 .PHONY: check-all-lang-diff
 check-all-lang-diff:
 	@for lang in en de; do \
-		$(MAKE) $(MAKE_OPTIONS) "CHECK_LANG=$$lang" check-diff-opening_hours.js || exit 1; \
+		$(MAKE) $(MAKE_OPTIONS) "CHECK_LANG=$$lang" check-diff-opening_hours.esm.mjs || exit 1; \
 	done
 
-# .PHONY: check-opening_hours.js check-opening_hours.min.js
+# .PHONY: check-opening_hours.esm.mjs
 ## Does not work
-check-opening_hours.js:
-check-opening_hours.min.js:
+check-opening_hours.esm.mjs:
 
 check-diff-%: build/% test/test.mjs
 	@rm -rf "test/test.$(CHECK_LANG).log"
@@ -197,7 +197,7 @@ check-diff-%: build/% test/test.mjs
 	fi
 	@sh -c 'git --no-pager diff --exit-code -- "test/test.$(CHECK_LANG).log"'
 
-check-o%.js: build/o%.js test/test.mjs
+check-o%.mjs: build/o%.mjs test/test.mjs
 	$(NODEJS) test/test.mjs --library-file "$<"
 
 
@@ -212,11 +212,8 @@ osm-tag-data-taginfo-check: scripts/real_test.mjs build/opening_hours.esm.mjs os
 .SILENT : osm-tag-data-update-check
 osm-tag-data-update-check: osm-tag-data-update-taginfo osm-tag-data-taginfo-check
 
-benchmark-opening_hours.js:
-benchmark-opening_hours.min.js:
-
 # .PHONY: benchmark
-benchmark-%.js: build/%.js scripts/benchmark.mjs
+benchmark-%.mjs: build/%.mjs scripts/benchmark.mjs
 	$(NODEJS) scripts/benchmark.mjs "../$<"
 
 .PHONY: check-package.json

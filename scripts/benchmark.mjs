@@ -36,7 +36,7 @@
 /* Required modules {{{ */
 let openingHoursLibPath = process.argv[2];
 if (typeof openingHoursLibPath !== 'string') {
-    openingHoursLibPath = '../build/opening_hours.js';
+    openingHoursLibPath = '../build/opening_hours.esm.min.mjs';
 }
 /* Required modules {{{ */
 
