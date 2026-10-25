@@ -64,6 +64,7 @@ declare module 'opening_hours' {
     )
     getState(date?: Date): boolean
     getUnknown(date?: Date): boolean
+    getOpenEnd(date?: Date): boolean
     getStateString(
       date: Date | undefined,
       past: true
@@ -87,7 +88,7 @@ declare module 'opening_hours' {
     ): [Date, Date, boolean, string | undefined][]
     getStatePair(
       date?: Date
-    ): [boolean, Date | undefined, boolean, string | undefined, number | undefined]
+    ): [boolean, Date | undefined, boolean, string | undefined, number | undefined, boolean]
     getWarnings(): string[]
     getStructuredWarnings(): opening_hours_warning[]
     isEqualTo(
@@ -119,6 +120,7 @@ declare module 'opening_hours' {
       past?: boolean
     ): 'open' | 'unknown' | 'closed' | 'close'
     getComment(date?: Date): string | undefined
+    getOpenEnd(): boolean
     getMatchingRule(date?: Date): number | undefined
     advance(limit?: Date): boolean
   }
