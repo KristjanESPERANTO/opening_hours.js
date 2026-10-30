@@ -79,6 +79,36 @@ test('tokenizer preserves corrected-word output and warning positions', () => {
     ]);
 });
 
+test('literal corrections preserve optional weekday and month spellings', () => {
+    for (const [variants, expected] of [
+        [['monday', 'mondays', 'montag', 'montags'], 'Mo'],
+        [['tue', 'tues', 'tuesday', 'tuesdays', 'di'], 'Tu'],
+        [['wed', 'weds', 'wednesday', 'wednesdays', 'mi', 'mit'], 'We'],
+        [['thur', 'thurs', 'thursday', 'thursdays', 'do', 'don'], 'Th'],
+        [['luned', 'lunedì'], 'Mo'],
+        [['marted', 'martedì'], 'Tu'],
+        [['mercoled', 'mercoledì'], 'We'],
+        [['gioved', 'giovedì'], 'Th'],
+        [['venerd', 'venerdì'], 'Fr'],
+        [['sabat', 'sabato'], 'Sa'],
+    ]) {
+        for (const variant of variants) {
+            const hours = new opening_hours(`${variant} 09:00-17:00`, null);
+            assert.equal(hours.prettifyValue(), `${expected} 09:00-17:00`, variant);
+        }
+    }
+    for (const [variants, expected] of [
+        [['mär', 'märz'], 'Mar'],
+        [['jun', 'june', 'giugn', 'giugno'], 'Jun'],
+        [['jul', 'july', 'lugli', 'luglio'], 'Jul'],
+    ]) {
+        for (const variant of variants) {
+            const hours = new opening_hours(`${variant} 01 09:00-17:00`, null);
+            assert.equal(hours.prettifyValue(), `${expected} 01 09:00-17:00`, variant);
+        }
+    }
+});
+
 test('tokenizer preserves phrase-correction output and warning positions', () => {
     const value = 'every day';
     const hours = new opening_hours(value, null);
@@ -92,6 +122,39 @@ test('tokenizer preserves phrase-correction output and warning positions', () =>
         { type: 'word_error_correction', value, position: 9 },
         { type: 'vague', value, position: 9 },
     ]);
+});
+
+test('corrections preserve finite word and phrase variants', () => {
+    for (const [variants, expected] of [
+        [['ruhetag', 'ruhetage'], 'off'],
+        [['weekday', 'weekdays', 'on work day', 'on work days'], 'Mo-Fr'],
+        [['werktag', 'werktags'], 'Mo-Sa'],
+        [['weekend', 'weekends'], 'Sa,Su'],
+        [['holiday', 'holidays', 'public holiday', 'public holidays'], 'PH'],
+        [['day after public holiday', 'one day after public holiday'], 'PH +1 day'],
+        [['day before public holiday', 'one day before public holiday'], 'PH -1 day'],
+        [['schoolholiday', 'schoolholidays', 'school holiday', 'school holidays', 'ferien', 'schulferien'], 'SH'],
+    ]) {
+        for (const variant of variants) {
+            const hours = new opening_hours(variant, null);
+            assert.equal(hours.prettifyValue(), expected, variant);
+        }
+    }
+    for (const variant of ['öffnungszeit', 'öffnungszeit:', 'öffnungszeiten', 'öffnungszeiten:']) {
+        assert.equal(new opening_hours(`${variant} 09:00-17:00`, null).prettifyValue(), '09:00-17:00', variant);
+    }
+    for (const variant of ['til', 'till']) {
+        assert.equal(new opening_hours(`09:00 ${variant} 17:00`, null).prettifyValue(), '09:00-17:00', variant);
+    }
+    for (const [variants, expected] of [
+        [['nach vereinbarung', 'nach_vereinbarung'], '"Nach Vereinbarung"'],
+        [['nach absprache', 'nach_absprache'], '"Nach Absprache"'],
+        [['sur rdv', 'sur_rdv'], '"Sur rendez-vous"'],
+    ]) {
+        for (const variant of variants) {
+            assert.equal(new opening_hours(variant, null).prettifyValue(), expected, variant);
+        }
+    }
 });
 
 test('tokenizer preserves complete literal phrase corrections', () => {
