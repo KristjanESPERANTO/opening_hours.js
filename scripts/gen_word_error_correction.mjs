@@ -5,40 +5,14 @@
  */
 
 /**
- * Word Error Correction Generator
- *
- * Generates multilingual word-correction data used by opening_hours.js.
- * Preserves manual corrections and derives ambiguity warnings from CLDR locale data.
- *
- * Features:
- * - Uses pinned CLDR package data for deterministic generation
- * - Scans localized weekday and month terms (long and short forms)
- * - Detects ambiguous words with different meanings across languages
- * - Generates warnings for conflicts (e.g., "listopad": Oct in Croatian vs Nov in Czech/Polish)
- *
- * Input:
- * - src/locales/word_error_correction_manual.yaml (manual corrections)
- * - cldr-dates-full (localized date/time terms)
- * - cldr-localenames-full (locale code to language name mapping)
- *
- * Output:
- * - src/locales/word_error_correction.yaml containing:
- *   • All manual corrections (preserved as-is)
- *   • "Ambiguous words" section with conflict warnings
- *   • Source/version metadata for reproducible generation
- *
- * Weekday/month names are resolved by the locale resolver at runtime,
- * so this generator no longer emits them as flat corrections.
- * CLDR is still analysed here to detect genuinely ambiguous words.
+ * Generate word_error_correction.yaml from manual literal/regex corrections and
+ * ambiguity warnings derived from pinned CLDR weekday and month names.
+ * Weekday/month correction lookup itself belongs to the runtime locale resolver.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'yaml';
-
-console.log('═══════════════════════════════════════');
-console.log('Word Error Correction Generator');
-console.log('═══════════════════════════════════════\n');
 
 const basePath = process.cwd();
 const localesPath = path.resolve(basePath, 'src/locales');
@@ -195,8 +169,6 @@ function collectTerms(gregorian) {
     return terms;
 }
 
-// 1. Load manual corrections
-console.log('► Loading manual corrections...');
 /** @type {ManualCorrections} */
 let manualCorrections = { literal: {}, regex: {}, ambiguous: {} };
 if (fs.existsSync(manualYamlPath)) {
@@ -205,37 +177,20 @@ if (fs.existsSync(manualYamlPath)) {
         throw new Error('Manual corrections must define literal and regex sections.');
     }
     manualCorrections.ambiguous ??= {};
-    const totalManual = correctionSections.reduce((sum, section) => sum + Object.values(manualCorrections[section])
-        .reduce((sectionSum, category) => sectionSum + Object.keys(category).length, 0), 0);
-    console.log(`  ✓ Loaded ${totalManual} manual entries from: ${path.relative(basePath, manualYamlPath)}`);
 } else {
     console.log(`  ✗ Manual corrections file not found: ${manualYamlPath}`);
 }
 
-// 2. Load locale data from pinned CLDR packages
-console.log('\n► Loading CLDR locale data...');
 const supportedLocales = listCldrLocales();
-console.log(`  ✓ Found ${supportedLocales.length} CLDR locales`);
 
 const cldrDatesVersion = readJson(path.resolve(basePath, 'node_modules/cldr-dates-full/package.json')).version;
 const cldrLocalenamesVersion = readJson(path.resolve(basePath, 'node_modules/cldr-localenames-full/package.json')).version;
-console.log(`  → cldr-dates-full: ${cldrDatesVersion}`);
-console.log(`  → cldr-localenames-full: ${cldrLocalenamesVersion}`);
-console.log(`  → Will analyze ${supportedLocales.length} locales for conflicts and corrections`);
 
 const languageNames = readJson(cldrLocalenamesPath)?.main?.en?.localeDisplayNames?.languages || {};
-
-// 3. Preserve structure - copy manual corrections as base
-const autoCategory = 'please use English abbreviation ok for ko';
-if (!manualCorrections.literal[autoCategory]) {
-    manualCorrections.literal[autoCategory] = {};
-}
 
 /** @type {Record<string, WordConflictOccurrence[]>} */
 const wordConflicts = {};
 
-// 4. Detect ambiguous words by analysing conflicts across languages
-console.log('\n► Detecting ambiguous words...');
 for (const locale of supportedLocales) {
     const gregorian = loadGregorianData(locale);
     if (!gregorian) {
@@ -251,13 +206,11 @@ for (const locale of supportedLocales) {
     }
 }
 
-let conflictCount = 0;
 for (const word of sortedKeys(wordConflicts)) {
     const occurrences = wordConflicts[word];
     if (new Set(occurrences.map(({ meaning }) => meaning)).size < 2) {
         continue;
     }
-    conflictCount++;
     if (occurrences.some(({ form }) => form === 'short')) {
         continue;
     }
@@ -266,18 +219,12 @@ for (const word of sortedKeys(wordConflicts)) {
     ))];
     manualCorrections.ambiguous[word] = `Word "${word}" is ambiguous: ${labels.join(' or ')}. Please specify language context or use English ${occurrences[0].type} name.`;
 }
-console.log(`  → Ambiguous words tracked: ${conflictCount}`);
 
-// 5. Weekday/month names are no longer auto-generated as flat corrections.
-// They are resolved by the locale resolver at runtime, while this generator
-// keeps manual corrections and ambiguity warnings only.
-
-manualCorrections.literal[autoCategory] = sortObject(manualCorrections.literal[autoCategory]);
+const abbreviationCategory = 'please use English abbreviation ok for ko';
+manualCorrections.literal[abbreviationCategory] = sortObject(manualCorrections.literal[abbreviationCategory] || {});
 manualCorrections.ambiguous = sortObject(manualCorrections.ambiguous);
 validateCorrections(manualCorrections);
 
-// 6. Write final YAML structure
-console.log('\n► Writing output file...');
 const yamlOutput = yaml.stringify(manualCorrections, {
     defaultStringType: 'PLAIN',
     lineWidth: 0
@@ -295,25 +242,7 @@ ${yamlOutput}`;
 
 fs.writeFileSync(outputPath, finalYamlContent, 'utf8');
 
-console.log('\n=======================================');
-console.log('Final Statistics');
-console.log('=======================================');
-console.log(`Output file: ${path.relative(basePath, outputPath)}`);
-console.log(`Categories: ${new Set(correctionSections.flatMap(section => Object.keys(manualCorrections[section]))).size}`);
-console.log('\nCategory breakdown:');
-
-let totalEntries = 0;
-for (const section of correctionSections) {
-    for (const category of Object.keys(manualCorrections[section])) {
-        const count = Object.keys(manualCorrections[section][category]).length;
-        totalEntries += count;
-        console.log(`  ▪ ${section}/${category}: ${count} entries`);
-    }
-}
+const correctionCount = correctionSections.flatMap(section => Object.values(manualCorrections[section]))
+    .reduce((sum, category) => sum + Object.keys(category).length, 0);
 const ambiguousCount = Object.keys(manualCorrections.ambiguous).length;
-totalEntries += ambiguousCount;
-console.log(`  ▪ ambiguous: ${ambiguousCount} entries`);
-
-console.log(`\n→ Total corrections: ${totalEntries}`);
-console.log(`→ Ambiguous words: ${Object.keys(manualCorrections.ambiguous).length} (warnings only)`);
-console.log('\n✓ Word error correction generation completed successfully!');
+console.log(`Generated ${path.relative(basePath, outputPath)}: ${correctionCount} corrections, ${ambiguousCount} ambiguity warnings.`);
