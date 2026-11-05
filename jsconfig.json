@@ -19,7 +19,6 @@
   ],
   "exclude": [
     "build/**",
-    "scripts/real_test.mjs",
     "submodules/**"
   ]
 }

@@ -34,13 +34,57 @@
  */
 
 /* Required modules {{{ */
-import opening_hours from '../build/opening_hours.esm.mjs';
+import opening_hours from 'opening_hours';
 import fs from 'node:fs';
 import { styleText } from 'node:util';
 import assert from 'node:assert';
 /* }}} */
 
-const test_framework = new opening_hours_test();
+/** @typedef {{ manually_ignored?: string[], oh_mode?: number, map?: Record<string, string> }} TagOptions */
+/** @typedef {{ key: string, filename: string, export_format: 'overpass' | 'taginfo', value?: string, timestamp?: string | Date }} ExportInfo */
+/** @typedef {{ value: string, count: number }} TagValueCount */
+/** @typedef {{ data: TagValueCount[] }} TagData */
+/** @typedef {{ elements: Array<{ tags?: Record<string, string> }> }} OverpassResponse */
+
+const related_tags_file = 'related_tags.txt';
+const nominatimTestJSON = {'place_id':'44651229','licence':'Data \u00a9 OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright','osm_type':'way','osm_id':'36248375','lat':'49.5400039','lon':'9.7937133','display_name':'K 2847, Lauda-K\u00f6nigshofen, Main-Tauber-Kreis, Regierungsbezirk Stuttgart, Baden-W\u00fcrttemberg, Germany, European Union','address':{'road':'K 2847','city':'Lauda-K\u00f6nigshofen','county':'Main-Tauber-Kreis','state_district':'Regierungsbezirk Stuttgart','state':'Baden-W\u00fcrttemberg','country':'Germany','country_code':'de','continent':'European Union'}};
+
+/**
+ * @param {unknown} value - Value to check.
+ * @returns {value is Record<string, unknown>} Whether the value is a non-array object.
+ */
+function isRecord(value) {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+/**
+ * @param {unknown} value - Value to check.
+ * @returns {value is TagData} Whether the value contains valid tag counts.
+ */
+function isTagData(value) {
+    return isRecord(value)
+        && Array.isArray(value.data)
+        && value.data.every(item => isRecord(item)
+            && typeof item.value === 'string'
+            && typeof item.count === 'number');
+}
+
+/**
+ * @param {unknown} value - Value to check.
+ * @returns {value is OverpassResponse} Whether the value is a valid Overpass response.
+ */
+function isOverpassResponse(value) {
+    return isRecord(value)
+        && Array.isArray(value.elements)
+        && value.elements.every(element => {
+            if (!isRecord(element)) {
+                return false;
+            }
+            const tags = element.tags;
+            return tags === undefined
+                || (isRecord(tags) && Object.values(tags).every(tag => typeof tag === 'string'));
+        });
+}
 
 /* Add as much tests (for different tags) as you like. Just make sure that the
  * export is present by adding it as dependence to the related_tags.txt file.
@@ -52,12 +96,14 @@ const test_framework = new opening_hours_test();
 
 // Text style helpers using built-in util.styleText (Node >= 20.12)
 const c = {
-    warning: s => styleText(['yellow', 'bold'], s),
-    tag: s => styleText(['blue', 'bold'], s),
+    /** @type {(text: string) => string} */
+    warning: text => styleText(['yellow', 'bold'], text),
+    /** @type {(text: string) => string} */
+    tag: text => styleText(['blue', 'bold'], text),
 };
 
 /* Also used by opening_hours_map/opening_hours_map.html */
-test_framework.config = {
+const test_config = {
     'opening_hours:kitchen': {
     },
     'opening_hours:warm_kitchen': {
@@ -141,44 +187,32 @@ if (argv._.length === 0) {
 }
 /* }}} */
 
-// test_framework.tag_key_name('opening_hours');
-for (let i = 0; i < argv._.length; i++) {
-    const filename = String(argv._[i]);
-    test_framework.json_file(filename);
-}
-
 /**
  * Test framework {{{
  */
-function opening_hours_test() {
+class OpeningHoursTest {
+    /** @type {Partial<Record<string, TagOptions>>} */
+    config = test_config;
 
-    // let percent_number_format     = '%04.1f %%';
-    // Looks kind of unusual.
+    constructor() {
+        console.log('The holiday definitions for the country ' + nominatimTestJSON.address.country_code + ' are used so the result will probably be a bit worse in reality but you can change that by providing the definition for missing holidays.\n');
+    }
 
-    const related_tags_file = 'related_tags.txt';
-
-    const nominatimTestJSON = {'place_id':'44651229','licence':'Data \u00a9 OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright','osm_type':'way','osm_id':'36248375','lat':'49.5400039','lon':'9.7937133','display_name':'K 2847, Lauda-K\u00f6nigshofen, Main-Tauber-Kreis, Regierungsbezirk Stuttgart, Baden-W\u00fcrttemberg, Germany, European Union','address':{'road':'K 2847','city':'Lauda-K\u00f6nigshofen','county':'Main-Tauber-Kreis','state_district':'Regierungsbezirk Stuttgart','state':'Baden-W\u00fcrttemberg','country':'Germany','country_code':'de','continent':'European Union'}};
-
-    console.log('The holiday definitions for the country ' + nominatimTestJSON.address.country_code + ' are used so the result will probably be a bit worse in reality but you can change that by providing the definition for missing holidays.\n');
-
-    this.config = {};
-
-    this.parse_tag = function (tag_key_name, info, data) { /* {{{ */
+    /**
+     * @param {string} tag_key_name - Tag key being parsed.
+     * @param {ExportInfo} info - Export metadata for the tag.
+     * @param {TagData} data - Value counts for the tag.
+     */
+    parse_tag(tag_key_name, info, data) { /* {{{ */
         const options = this.config[tag_key_name];
 
         const how_often_print_stats = 15000;
         const importance_threshold  = 30;
         const global_manually_ignored = [ 'fixme', 'FIXME' ];
-
-            const ignored_values = [];
-            if (argv['ignore-manual-values'] && typeof options === 'object' && typeof options.manually_ignored === 'object') {
-                for (let i = 0; i < global_manually_ignored.length; i++) {
-                    ignored_values.push(global_manually_ignored[i]);
-                }
-                for (const i in options.manually_ignored) {
-                    ignored_values.push(options.manually_ignored[i]);
-                }
-            }
+        const manually_ignored = options?.manually_ignored;
+        const ignored_values = argv['ignore-manual-values'] && Array.isArray(manually_ignored)
+            ? [...global_manually_ignored, ...manually_ignored]
+            : [];
 
             console.log('Parsing ' + c.tag(tag_key_name)
                 + (ignored_values.length === 0 ? '' : ' (ignoring: ' + ignored_values.join(', ') + ')') + ' …');
@@ -189,6 +223,7 @@ function opening_hours_test() {
             let warnings_differ      = 0; // number of values which throw warnings (only one warning is counted for each value if more appear)
             let not_pretty           = 0; // number of values which are not the same as the value returned by oh.prettifyValue()
             let not_pretty_differ    = 0; // number of values which are not pretty (only one warning is counted for each value if more appear)
+            /** @type {[string, number][]} */
             let important_and_failed = [];
 
             let logfile_out_string = '';
@@ -201,7 +236,9 @@ function opening_hours_test() {
 
             const time_at_test_begin = new Date();
 
-            const punchcard_data = {};
+            /** @type {number[][]} */
+            const punchcard_data = [];
+            /** @type {Record<string, string[]>} */
             const punchcard_data_out = {};
             // eslint-disable-next-line no-unused-vars
             const punchcard_debug = [];
@@ -225,10 +262,11 @@ function opening_hours_test() {
             for (let i = 0; i < total_differ; i++) {
                 const data_item = values_to_test[i];
                 const oh_value = data_item.value;
-                let oh_crashed,
-                    oh_warnings = [],
-                    oh_value_prettified,
-                    oh;
+                let oh_crashed = false;
+                let oh_warnings = 0;
+                let oh_value_prettified = '';
+                /** @type {import('opening_hours').opening_hours | undefined} */
+                let oh;
                 if (argv.debug) {
                     console.info(oh_value);
                 }
@@ -237,26 +275,22 @@ function opening_hours_test() {
                         oh_value,
                         nominatimTestJSON,
                         {
+                            'mode': undefined,
                             'tag_key': tag_key_name,
                             'map_value': argv['map-bad-oh-values'],
+                            'warnings_severity': undefined,
+                            'locale': undefined,
                         }
                     );
-                    oh_warnings = oh.getWarnings();
+                    oh_warnings = oh.getWarnings().length;
                     oh_value_prettified = oh.prettifyValue();
 
-                    oh_crashed = false;
                 } catch {
                     oh_crashed = true;
                 }
 
-                    if (typeof oh_warnings !== 'object') {
-                        oh_warnings = 1; // oh_crashed by oh.getWarnings()
-                    } else {
-                        oh_warnings = oh_warnings.length;
-                    }
-
                     logfile_out_string += (Number(!oh_crashed)) + ' ' + oh_value + '\n';
-                    if (!oh_crashed) {
+                    if (!oh_crashed && oh !== undefined) {
                         success_differ++;
                         success += data_item.count;
                         warnings_differ += Number(!!oh_warnings);
@@ -289,7 +323,7 @@ function opening_hours_test() {
                     parsed_values += data_item.count;
 
                     if (i !== 0 && i % how_often_print_stats === 0) {
-                        log_to_user(false, total, i, i, parsed_values,
+                        this.log_to_user(false, total, i, i, parsed_values,
                             success, success_differ, warnings, warnings_differ, not_pretty, not_pretty_differ,
                             time_at_test_begin);
                 }
@@ -298,12 +332,12 @@ function opening_hours_test() {
                 console.log();
             }
 
-            log_to_user(true, total, total_differ, undefined, parsed_values,
+            this.log_to_user(true, total, total_differ, undefined, parsed_values,
                 success, success_differ, warnings, warnings_differ, not_pretty, not_pretty_differ,
                 time_at_test_begin);
 
             if (important_and_failed.length > 0) {
-                important_and_failed = important_and_failed.sort(Comparator);
+                important_and_failed = important_and_failed.sort(this.Comparator);
                 for (let i = 0; i < important_and_failed.length; i++) {
                     const value = important_and_failed[i][0];
                     const count = important_and_failed[i][1];
@@ -355,11 +389,10 @@ function opening_hours_test() {
 
             if (argv.punchcard && tag_key_name === 'opening_hours') {
                 for (let i = 0; i < day_number_to_name.length; i++) {
-                    for (let hours_per_day = 0; hours_per_day < 24; hours_per_day++) {
-                        punchcard_data[i][hours_per_day] = (punchcard_data[i][hours_per_day] / total * 100).toFixed(2);
-                    }
-                    punchcard_data_out[day_number_to_name[i]] = punchcard_data[i];
-                    punchcard_csv += day_number_to_name[i].toString() + ',' + punchcard_data[i].join(',') + '\n';
+                    punchcard_data_out[day_number_to_name[i]] = punchcard_data[i].map(
+                        value => (value / total * 100).toFixed(2)
+                    );
+                    punchcard_csv += day_number_to_name[i] + ',' + punchcard_data_out[day_number_to_name[i]].join(',') + '\n';
                 }
                 if (argv.verbose) {
                     console.log(punchcard_data_out);
@@ -410,10 +443,10 @@ function opening_hours_test() {
                     );
                 }
                 if (info.export_format === 'taginfo') {
-                    info.timestamp = get_dump_creation_time_from_file('taginfo_sources.json');
+                    info.timestamp = this.get_dump_creation_time_from_file('taginfo_sources.json');
                     console.log(info.timestamp);
                 }
-                if (typeof(info.timestamp) !== 'object') {
+                if (!(info.timestamp instanceof Date) || Number.isNaN(info.timestamp.getTime())) {
                     throw('dump creation time is unknown.');
                 }
                 const timestamp = info.timestamp.toISOString();
@@ -446,11 +479,13 @@ function opening_hours_test() {
 
     } /* }}} */
 
-    this.tag_key_name = function (tag_key_name /* tag key, uses the data from the taginfo API */) { /* {{{ */
+    /** @param {string} tag_key_name - Tag key to load from the taginfo API. */
+    tag_key_name(tag_key_name /* tag key, uses the data from the taginfo API */) { /* {{{ */
         this.json_file('export.' + tag_key_name + '.json');
     } /* }}} */
 
-    this.json_file = function (filename /* file exported by the taginfo API */) { /* {{{ */
+    /** @param {string} filename - File exported by the taginfo API or Overpass. */
+    json_file(filename /* file exported by the taginfo API */) { /* {{{ */
         if (!fs.existsSync(filename)) {
             console.error('File ' + filename + ' does not exist.');
             return;
@@ -459,7 +494,9 @@ function opening_hours_test() {
         const filename_asciified = filename.replace(/♡/g, '@');
         /* TODO: JavaScript could not handle [^♡] */
         let re = filename_asciified.match(/^export@([^@]+)@([^@]+)(@[^@]+|).json$/);
+        /** @type {ExportInfo} */
         let info;
+        /** @type {string[]} */
         const related_tags = [];
         if (re !== null) {
             info = {
@@ -472,8 +509,9 @@ function opening_hours_test() {
             assert.strictEqual(typeof(info.key)       , 'string')
             assert.strictEqual(typeof(info.value)     , 'string')
             assert.strictEqual(typeof(info.timestamp) , 'string')
-            if (info.timestamp.length > 0) {
-                info.timestamp = new Date(info.timestamp);
+            const timestamp = typeof info.timestamp === 'string' ? info.timestamp : '';
+            if (timestamp.length > 0) {
+                info.timestamp = new Date(timestamp);
             } else {
                 info.timestamp = new Date();
             }
@@ -494,9 +532,9 @@ function opening_hours_test() {
             throw 'Filename of unknown type given.';
         }
 
-        fs.readFile(filename, 'utf8', function (err, data) {
+        fs.readFile(filename, 'utf8', (err, data) => {
             if (err) {
-                console.error('Error for tag "' + this.tag_key_name + '": ' + err);
+                console.error('Error for tag "' + info.key + '": ' + err);
                 return;
             }
 
@@ -506,45 +544,39 @@ function opening_hours_test() {
                 return;
             }
 
+            /** @type {Record<string, TagData>} */
             const taginfo_format = {};
 
+            /** @type {unknown} */
+            let parsed_data;
             try {
-                data = JSON.parse(data);
+                parsed_data = JSON.parse(data);
             } catch (parseError) {
-                console.error('Error parsing JSON in file "' + filename + '": ' + parseError.message);
+                const message = parseError instanceof Error ? parseError.message : String(parseError);
+                console.error('Error parsing JSON in file "' + filename + '": ' + message);
                 console.error('File content preview: ' + data.substring(0, 200));
                 return;
             }
 
             if (info.export_format === 'overpass') {
+                if (!isOverpassResponse(parsed_data)) {
+                    console.error('Invalid Overpass response in file "' + filename + '".');
+                    return;
+                }
                 let no_data_returned = true;
-                for (let elements_number = 0; elements_number < data.elements.length; elements_number++) {
-                    const element = data.elements[elements_number];
-                    if (typeof(element.tags) === 'undefined') {
-                        element.tags = [];
-                    }
-                    Object.keys(element.tags).forEach(function (key) {
+                for (let elements_number = 0; elements_number < parsed_data.elements.length; elements_number++) {
+                    const element = parsed_data.elements[elements_number];
+                    const tags = element.tags ?? {};
+                    element.tags = tags;
+                    Object.keys(tags).forEach(function (key) {
                         if (related_tags.includes(key)) {
-                            const val = element.tags[key];
-                            if (typeof(taginfo_format[key]) === 'undefined') {
-                                taginfo_format[key] = { data: [] };
-                            }
-                            let known_value = false;
-                            Object.keys(taginfo_format[key].data).forEach(function (data_index) {
-                                const tag = taginfo_format[key].data[data_index];
-                                if (tag.value === val) {
-                                    known_value = data_index;
-                                }
-                            });
-                            if (known_value) {
-                                taginfo_format[key].data[known_value].count++;
+                            const val = tags[key];
+                            const tag_data = taginfo_format[key] ??= { data: [] };
+                            const known_value = tag_data.data.find(tag => tag.value === val);
+                            if (known_value !== undefined) {
+                                known_value.count++;
                             } else {
-                                taginfo_format[key].data.push(
-                                    {
-                                        'value': val,
-                                        'count': 1,
-                                    }
-                                );
+                                tag_data.data.push({ value: val, count: 1 });
                             }
                             no_data_returned = false;
                         }
@@ -566,12 +598,15 @@ function opening_hours_test() {
 
             if (info.export_format === 'overpass') {
                 // console.log(JSON.stringify(taginfo_format, null, '    '));
-                Object.keys(taginfo_format).forEach(function (tag_key_name) {
-                    // FIXME: no access to 'this' …
-                    test_framework.parse_tag(tag_key_name, info, taginfo_format[tag_key_name]);
+                Object.keys(taginfo_format).forEach((tag_key_name) => {
+                    this.parse_tag(tag_key_name, info, taginfo_format[tag_key_name]);
                 });
             } else {
-                test_framework.parse_tag(info.key, info, data);
+                if (!isTagData(parsed_data)) {
+                    console.error('Invalid Taginfo response in file "' + filename + '".');
+                    return;
+                }
+                this.parse_tag(info.key, info, parsed_data);
             }
         });
     }; /* }}} */
@@ -581,7 +616,7 @@ function opening_hours_test() {
      * @param {boolean} tests_done - Whether all tests are done.
      * @param {number} total - Total number of tests.
      * @param {number} total_differ - Number of differing tests.
-     * @param {number} currently_parsed_value - Current value number.
+     * @param {number | undefined} currently_parsed_value - Current value number.
      * @param {number} parsed_values - Number of parsed values.
      * @param {number} success - Number of successful tests.
      * @param {number} success_differ - Number of differing successes.
@@ -591,7 +626,7 @@ function opening_hours_test() {
      * @param {number} not_pretty_differ - Number of differing non-pretty values.
      * @param {Date} time_at_test_begin - Test start time.
      */
-    function log_to_user(tests_done, total, total_differ, currently_parsed_value, parsed_values,
+    log_to_user(tests_done, total, total_differ, currently_parsed_value, parsed_values,
         success, success_differ, warnings, warnings_differ, not_pretty, not_pretty_differ, time_at_test_begin) {
 
         const delta = (new Date()).getTime() - time_at_test_begin.getTime();
@@ -601,15 +636,15 @@ function opening_hours_test() {
 
         console.log(
             String(success).padStart(7) + '/' + String(total).padStart(7) +
-            ' (' + get_percent(success, parsed_values) +
+            ' (' + this.get_percent(success, parsed_values) +
                 ( tests_done ?
-                    ', not pretty: ' + get_percent(not_pretty, parsed_values)
+                    ', not pretty: ' + this.get_percent(not_pretty, parsed_values)
                   :
                     '' /* Need the space to fit one line on the screen … */
                 ) +
-            ', with warnings: ' + get_percent(warnings , parsed_values) + ')' +
+            ', with warnings: ' + this.get_percent(warnings , parsed_values) + ')' +
             ', only different values: '+ String(success_differ).padStart(6) +'/'+ String(total_differ).padStart(6) +
-            ' (' + get_percent(success_differ, total_differ) + ')' +
+            ' (' + this.get_percent(success_differ, total_differ) + ')' +
             ' tests passed. ' +
                 ( tests_done ?
                     String(total).padStart(7) + ' values' +
@@ -617,12 +652,17 @@ function opening_hours_test() {
                 :
                     // String(total_differ - currently_parsed_value).padStart(7) + ' left … ' +
                     String(currently_parsed_value).padStart(7) + ' values' +
-                    ' in ' + String(delta).padStart(5) + ' ms (' + (currently_parsed_value/delta*1000).toFixed(1) + ' n/sec).'
+                    ' in ' + String(delta).padStart(5) + ' ms (' + ((currently_parsed_value ?? 0)/delta*1000).toFixed(1) + ' n/sec).'
                 )
         );
     } /* }}} */
 
-    function get_percent(passing_values, parsed_values) {
+    /**
+     * @param {number} passing_values - Number of passing values.
+     * @param {number} parsed_values - Number of parsed values.
+     * @returns {string} The percentage formatted for console output.
+     */
+    get_percent(passing_values, parsed_values) {
         return String((passing_values / parsed_values * 100).toFixed(1) + ' %').padStart(6);
         /* "100.0 %" would be 7 characters long, but that does not happen to often. */
     }
@@ -630,16 +670,20 @@ function opening_hours_test() {
     // Helper functions {{{
 
     /**
-     * @param {Array} a - First value.
-     * @param {Array} b - Second value.
-     * @returns {number} Sort order.
+     * @param {[string, number]} a - First value.
+     * @param {[string, number]} b - Second value.
+     * @returns {number} Sort order by descending count.
      */
-    function Comparator(a, b){
+    Comparator(a, b){
         if (a[1] > b[1]) return -1;
         if (a[1] < b[1]) return 1;
         return 0;
     }
-    function get_dump_creation_time_from_file(file) {
+    /**
+     * @param {string} file - Path to the taginfo dump file.
+     * @returns {Date | undefined} The dump timestamp, if available.
+     */
+    get_dump_creation_time_from_file(file) {
         try {
             const data = JSON.parse(fs.readFileSync(file, 'utf8'));
             for (let i = 0; i < data.length; i++) {
@@ -654,3 +698,9 @@ function opening_hours_test() {
     /* }}} */
 }
 /* }}} */
+
+const test_framework = new OpeningHoursTest();
+for (let i = 0; i < argv._.length; i++) {
+    const filename = String(argv._[i]);
+    test_framework.json_file(filename);
+}
