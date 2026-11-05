@@ -34,6 +34,13 @@ const configWithoutDeps = {
             format: 'esm',
             sourcemap: true,
         },
+        // Minified ESM build for Node.js benchmarks
+        {
+            file: 'build/opening_hours.esm.min.mjs',
+            format: 'esm',
+            plugins: [terser(terserConfig)],
+            sourcemap: true,
+        },
         // UMD build
         {
             name: 'opening_hours',
@@ -41,15 +48,13 @@ const configWithoutDeps = {
             format: 'umd',
             globals,
         },
-        // UMD build (minified)
+        // CommonJS build for Node.js package consumers
         {
             name: 'opening_hours',
-            file: 'build/opening_hours.min.js',
-            format: 'umd',
+            file: 'build/opening_hours.cjs',
+            format: 'cjs',
             globals,
-            plugins: [terser(terserConfig)],
-            sourcemap: true,
-        }
+        },
     ]
 };
 
