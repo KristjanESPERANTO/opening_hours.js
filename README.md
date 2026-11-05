@@ -420,6 +420,10 @@ This API is useful for one-shot checks, but for iteration over intervals you sho
   Conditions can be expressed in comments.
   If unknown is true then is_open will be false since it is not sure if it is open.
 
+- `let open_end = oh.getOpenEnd(date);`
+
+  Checks whether the matching rule has an open-ended date or time range. This is independent of the open or unknown state. You may omit *date* to use current date.
+
 - `let state_string = oh.getStateString(date, past);`
 
   Return state string at given *date*. Either 'open', 'unknown' or 'closed?'. You may omit *date* to use current date.
@@ -491,6 +495,10 @@ Here and below, unless noted otherwise, all arguments are expected to be and all
 - `let unknown = iterator.getUnknown();`
 
   Checks whether the opening state is conditional or unknown at the current iterator position.
+
+- `let open_end = iterator.getOpenEnd();`
+
+  Checks whether the matching rule has an open-ended date or time range at the current iterator position.
 
 - `let state_string = iterator.getStateString(past);`
 

@@ -80,3 +80,53 @@ test('supports monthday ranges with an open end', () => {
     assert.equal(oh.getStateString(new Date(2027, 1, 15, 10)), 'unknown');
     assert.deepEqual(oh.getWarnings(), []);
 });
+
+test('getOpenEnd reports an open-ended monthday range', () => {
+    const oh = new opening_hours('Mo-Fr 08:00-12:00; 2027 Feb 15+ unknown');
+
+    assert.equal(oh.getOpenEnd(new Date(2027, 1, 14, 10)), false);
+    assert.equal(oh.getOpenEnd(new Date(2027, 1, 15, 10)), true);
+});
+
+test('getOpenEnd does not force unknown for an open-ended monthday range with an explicit state', () => {
+    const oh = new opening_hours('Mo-Fr 08:00-12:00; 2027 Feb 15+ closed');
+
+    assert.equal(oh.getState(new Date(2027, 1, 15, 10)), false);
+    assert.equal(oh.getUnknown(new Date(2027, 1, 15, 10)), false);
+    assert.equal(oh.getOpenEnd(new Date(2027, 1, 15, 10)), true);
+});
+
+test('getOpenEnd keeps open monthday ranges with weekday and time selectors', () => {
+    const date = new Date(2027, 1, 16, 10);
+    const withWeekday = new opening_hours('2027 Feb 15+ Mo-Fr closed');
+    const withTime = new opening_hours('2027 Feb 15+ 08:00-12:00');
+
+    assert.equal(withWeekday.getOpenEnd(date), true);
+    assert.equal(withTime.getOpenEnd(date), true);
+});
+
+test('getOpenEnd only reports the open range when that date selector matches', () => {
+    const oh = new opening_hours('Jan 1-5, Feb 15+ closed');
+
+    assert.equal(oh.getOpenEnd(new Date(2027, 0, 2, 10)), false);
+    assert.equal(oh.getOpenEnd(new Date(2027, 1, 16, 10)), true);
+});
+
+test('getOpenEnd reports an open-ended time range', () => {
+    const oh = new opening_hours('Mo-Fr 08:00+');
+
+    assert.equal(oh.getOpenEnd(new Date(2027, 1, 16, 10)), true);
+});
+
+test('getOpenEnd survives the wrapped rule for an overnight time range', () => {
+    const oh = new opening_hours('2027 Feb 15+ 20:00-02:00');
+
+    assert.equal(oh.getOpenEnd(new Date(2027, 1, 16, 1)), true);
+});
+
+test('getOpenEnd stays false for rules without an open-ended date range', () => {
+    const oh = new opening_hours('Mo-Fr 08:00-12:00');
+
+    assert.equal(oh.getOpenEnd(new Date(2026, 0, 5, 10)), false);
+    assert.equal(oh.getOpenEnd(new Date(2026, 0, 5, 14)), false);
+});
