@@ -457,7 +457,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
              * It generates wrappers for all selectors and creates a new rule.
              */
             if (rule.wraptime.length > 0) {
-                const wrapselectors = {
+                const wrappedRule = {
                     time: rule.wraptime,
                     /** @type {RuleSelectorList[]} */
                     date: [],
@@ -470,16 +470,16 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     build_from_token_rule: rule.build_from_token_rule,
                 };
 
-                for (let dselg = 0; dselg < rule.date.length; dselg++) {
-                    wrapselectors.date.push([]);
-                    for (let dsel = 0; dsel < rule.date[dselg].length; dsel++) {
-                        wrapselectors.date[wrapselectors.date.length-1].push(
-                                generateDateShifter(rule.date[dselg][dsel], -msec_in_day)
+                for (let dateSelectorGroupIndex = 0; dateSelectorGroupIndex < rule.date.length; dateSelectorGroupIndex++) {
+                    wrappedRule.date.push([]);
+                    for (let dateSelectorIndex = 0; dateSelectorIndex < rule.date[dateSelectorGroupIndex].length; dateSelectorIndex++) {
+                        wrappedRule.date[wrappedRule.date.length-1].push(
+                                generateDateShifter(rule.date[dateSelectorGroupIndex][dateSelectorIndex], -msec_in_day)
                             );
                     }
                 }
 
-                rules.push(wrapselectors);
+                rules.push(wrappedRule);
             }
         } while (continue_at);
     }
@@ -4011,13 +4011,13 @@ export default function(value, nominatim_object, optional_conf_parm) {
             // console.log(nrule, 'length',  rules[nrule].date.length);
 
             /* Try each date selector type. */
-            for (let ndateselector = 0; ndateselector < rules[nrule].date.length; ndateselector++) {
-                const dateselectors = rules[nrule].date[ndateselector];
-                // console.log(nrule, ndateselector);
+            for (let dateSelectorGroupIndex = 0; dateSelectorGroupIndex < rules[nrule].date.length; dateSelectorGroupIndex++) {
+                const dateSelectorGroup = rules[nrule].date[dateSelectorGroupIndex];
+                // console.log(nrule, dateSelectorGroupIndex);
 
                 let has_matching_selector = false;
-                for (let datesel = 0; datesel < dateselectors.length; datesel++) {
-                    const res = dateselectors[datesel](date);
+                for (let dateSelectorIndex = 0; dateSelectorIndex < dateSelectorGroup.length; dateSelectorIndex++) {
+                    const res = dateSelectorGroup[dateSelectorIndex](date);
                     if (res[0]) {
                         has_matching_selector = true;
 
