@@ -46,6 +46,24 @@ export default defineConfig([
       'jsdoc/convert-to-jsdoc-comments': ['error', { lineOrBlockStyle: 'block' }],
     },
   },
+  {
+    files: ['src/**/*.js', 'src/**/*.mjs', 'scripts/**/*.js', 'scripts/**/*.mjs'],
+    extends: [tseslint.configs.recommendedTypeChecked],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['scripts/real_test.mjs'],
+          defaultProject: 'jsconfig.json',
+        },
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: { '@typescript-eslint': tseslint.plugin },
+    rules: {
+      '@typescript-eslint/no-deprecated': 'error',
+    },
+  },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/gfm', extends: ['markdown/recommended'] },
   {
     files: ['**/*.ts'],
