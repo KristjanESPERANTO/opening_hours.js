@@ -86,6 +86,73 @@ function getStateFromIso3166Address(address, stateByCode) {
 }
 
 /**
+ * @param {string} name Geographic name from Nominatim or the holiday data.
+ * @returns {string} Normalized name for exact lookup.
+ */
+function normalizeGeographicName(name) {
+    return name.normalize('NFKC').replace(/[’‘`]/g, '\'').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+/**
+ * Resolve a Dutch school holiday group without changing the administrative state.
+ * @param {Record<string, unknown>} address Nominatim address object.
+ * @param {Record<string, unknown>} countryDefinitions Holiday definitions of the country.
+ * @returns {string|null|undefined} Group code, null when the configured map cannot resolve the address.
+ */
+function getSchoolHolidayRegion(address, countryDefinitions) {
+    const index = countryDefinitions._school_holiday_regions;
+    if (typeof index !== 'object' || index === null || Array.isArray(index)) {
+        return undefined;
+    }
+    const regions = /** @type {Record<string, unknown>} */ (index);
+    const provinceCodes = Object.keys(address)
+        .filter((key) => /^ISO3166-2-lvl\d+$/i.test(key))
+        .sort((left, right) => Number(right.slice(right.lastIndexOf('lvl') + 3)) - Number(left.slice(left.lastIndexOf('lvl') + 3)))
+        .map((key) => address[key])
+        .filter((value) => typeof value === 'string')
+        .map((value) => value.toLowerCase().replace(/^[^-]+-/, ''));
+    const provinceNames = regions.provinceNames;
+    if (typeof provinceNames === 'object' && provinceNames !== null && !Array.isArray(provinceNames)) {
+        const byName = /** @type {Record<string, unknown>} */ (provinceNames);
+        for (const state of [address.state, address.county]) {
+            if (typeof state === 'string') {
+                const provinceCode = byName[normalizeGeographicName(state)];
+                if (typeof provinceCode === 'string' && !provinceCodes.includes(provinceCode)) {
+                    provinceCodes.push(provinceCode);
+                }
+            }
+        }
+    }
+    const municipalityNames = [address.municipality, address.city, address.town, address.village]
+        .filter((value) => typeof value === 'string')
+        .map((value) => normalizeGeographicName(value));
+
+    for (const provinceCode of provinceCodes) {
+        const municipalities = regions.municipalities;
+        if (typeof municipalities === 'object' && municipalities !== null && !Array.isArray(municipalities)) {
+            const provinceMunicipalities = /** @type {Record<string, unknown>} */ (municipalities)[provinceCode];
+            if (typeof provinceMunicipalities === 'object' && provinceMunicipalities !== null && !Array.isArray(provinceMunicipalities)) {
+                const byName = /** @type {Record<string, unknown>} */ (provinceMunicipalities);
+                for (const municipalityName of municipalityNames) {
+                    if (Object.prototype.hasOwnProperty.call(byName, municipalityName)) {
+                        const groups = byName[municipalityName];
+                        return typeof groups === 'string' ? groups : null;
+                    }
+                }
+            }
+        }
+
+        const group = regions.provinceCodes;
+        if (typeof group === 'object' && group !== null && !Array.isArray(group)) {
+            const provinceGroup = /** @type {Record<string, unknown>} */ (group)[provinceCode];
+            if (typeof provinceGroup === 'string') return provinceGroup;
+        }
+    }
+
+    return null;
+}
+
+/**
  * Resolve a state name from a Nominatim address.
  * Prefer matching ISO3166-2 fields (e.g. "DE-BE" -> "Berlin"), then fall back
  * to the address.state and address.county fields.
@@ -116,6 +183,7 @@ function getStateFromAddress(address, countryCode) {
             if (stateFromIso3166) {
                 return stateFromIso3166;
             }
+
         }
     }
 
@@ -188,6 +256,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
      */
     /** @type {string|undefined} */
     let location_state;
+    /** @type {string|null|undefined} */
+    let location_school_holiday_region;
     /** @type {string|undefined} */
     let location_cc;
     /** @type {string|undefined} */
@@ -200,6 +270,12 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 location_cc = nominatim_object.address.country_code;
             }
             location_state = getStateFromAddress(nominatim_object.address, location_cc);
+            if (location_cc && holidayDefinitions[location_cc]) {
+                location_school_holiday_region = getSchoolHolidayRegion(
+                    /** @type {Record<string, unknown>} */ (nominatim_object.address),
+                    holidayDefinitions[location_cc]
+                );
+            }
         }
 
         if (typeof nominatim_object.lon === 'string' && typeof nominatim_object.lat === 'string') {
@@ -2650,8 +2726,11 @@ export default function(value, nominatim_object, optional_conf_parm) {
         }
 
         const countryDefinitions = holidayDefinitions[location_cc];
-        const stateDefinition = typeof location_state === 'string'
-            ? countryDefinitions[location_state]
+        const holidayState = type_of_holidays === 'SH' && location_school_holiday_region !== undefined
+            ? location_school_holiday_region ?? undefined
+            : location_state;
+        const stateDefinition = typeof holidayState === 'string'
+            ? countryDefinitions[holidayState]
             : undefined;
         const stateHolidays = typeof stateDefinition === 'object'
             && stateDefinition !== null

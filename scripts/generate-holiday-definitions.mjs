@@ -37,6 +37,7 @@ const GENERATED_FILE = path.join(HOLIDAYS_DIR, 'generated-openholidays.mjs');
  * @typedef {{ source: 'submodule', csvData: CsvRow[] }} SubmoduleCountryData
  * @typedef {{ source: 'yaml-only', csvData: null }} YamlOnlyCountryData
  * @typedef {SubmoduleCountryData | YamlOnlyCountryData} CountryBuildData
+ * @typedef {{ provinceCodes: Record<string, string>, provinceNames: Record<string, string>, municipalities: Record<string, Record<string, string|string[]>> }} DutchSchoolHolidayRegions
  */
 
 /**
@@ -141,6 +142,70 @@ async function loadSubdivisionNames(country) {
   } catch {
     return {};
   }
+}
+
+/**
+ * Build direct address-to-region indexes for the Dutch school holiday groups.
+ * @param {string[]} groupCodes - Group codes used as school holiday keys.
+ * @returns {Promise<DutchSchoolHolidayRegions|undefined>} Region indexes, or undefined when source data is unavailable.
+ */
+async function loadDutchSchoolHolidayRegions(groupCodes) {
+  /** @type {CsvRow[]} */
+  let subdivisions;
+  try {
+    subdivisions = parseCSV(await fs.readFile(path.join(SUBMODULE_DIR, 'nl', 'subdivisions.csv'), 'utf8'));
+  } catch {
+    return undefined;
+  }
+
+  const usedGroups = new Set(groupCodes);
+  /** @type {DutchSchoolHolidayRegions} */
+  const regions = { provinceCodes: {}, provinceNames: {}, municipalities: {} };
+  const provinces = subdivisions.filter(row => !row.Parent);
+  const normalizeName = name => name.normalize('NFKC').replace(/[’‘`]/g, '\'').trim().toLowerCase().replace(/\s+/g, ' ');
+  const localizedNames = value => value.split(',').map(part => part.match(/^[A-Z]{2}\s+(.+)$/)?.[1].trim()).filter(Boolean);
+
+  for (const province of provinces) {
+    const names = localizedNames(province.Name || '');
+    if (!province.ShortName || names.length === 0) continue;
+
+    const municipalities = subdivisions.filter(row => row.Parent === province.ShortName);
+    const memberships = municipalities.map(row => (row.Groups || '').split(',').map(group => group.trim()).filter(group => usedGroups.has(group)));
+    const allGroupsAvailable = municipalities.every((row, index) =>
+      memberships[index].length === (row.Groups || '').split(',').map(group => group.trim()).filter(Boolean).length);
+    const allOneGroup = allGroupsAvailable && memberships.length > 0 && memberships.every(groups => groups.length === 1);
+    const provinceGroups = [...new Set(memberships.flat())];
+    for (const name of names) regions.provinceNames[normalizeName(name)] = province.ShortName.toLowerCase();
+
+    if (allOneGroup && provinceGroups.length === 1) {
+      regions.provinceCodes[province.ShortName.toLowerCase()] = provinceGroups[0];
+      continue;
+    }
+
+    for (let index = 0; index < municipalities.length; index += 1) {
+      const row = municipalities[index];
+      const groups = memberships[index];
+      const names = localizedNames(row.Name || '');
+      if (groups.length === 0 || groups.length !== (row.Groups || '').split(',').map(group => group.trim()).filter(Boolean).length || names.length === 0) continue;
+
+      // Keep aliases such as Den Haag ('s-Gravenhage) and multi-region municipalities explicit.
+      const municipalityMap = regions.municipalities[province.ShortName.toLowerCase()] ??= {};
+      for (const name of names) {
+        const aliases = name.match(/^(.+?)\s*\((.+)\)$/)?.slice(1) ?? [name];
+        for (const alias of aliases) {
+          const key = normalizeName(alias);
+          const previous = municipalityMap[key];
+          const assignments = [...new Set([
+            ...(Array.isArray(previous) ? previous : previous ? [previous] : []),
+            ...groups
+          ])].sort();
+          municipalityMap[key] = assignments.length === 1 ? assignments[0] : assignments;
+        }
+      }
+    }
+  }
+
+  return regions;
 }
 
 /**
@@ -430,6 +495,11 @@ async function generateJavaScriptFile(countriesData, yearRange, submodule) {
       // Load subdivision names for this country
       const subdivisionNames = await loadSubdivisionNames(country);
 
+      if (country === 'nl') {
+        const regions = await loadDutchSchoolHolidayRegions(Object.keys(convertedSH));
+        if (regions) merged._school_holiday_regions = regions;
+      }
+
       // Add school holidays data
       for (const [subdivision, subdivisionData] of Object.entries(convertedSH)) {
         if (subdivision === '_countrywide') {
@@ -440,7 +510,6 @@ async function generateJavaScriptFile(countriesData, yearRange, submodule) {
           // Fall back to the short code only when no full name is available.
           const fullName = subdivisionNames[subdivision] || subdivision;
           const existingData = merged[fullName];
-
           if (existingData && typeof existingData === 'object' && !Array.isArray(existingData)) {
             existingData._state_code ??= subdivision.toLowerCase();
             existingData.SH = subdivisionData.SH;
@@ -521,12 +590,12 @@ function formatCompactObject(obj, indent) {
         lines.push(`${ind2}  },`);
       }
       lines.push(`${ind2}]${comma}`);
+    } else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      // Nested objects retain readable generated structure.
+      lines.push(`${ind2}${JSON.stringify(key)}: ${formatCompactObject(value, indent + 1)}${comma}`);
     } else if (key.startsWith('_') || typeof value === 'string' || typeof value === 'number') {
       // Metadata or primitives - single line
       lines.push(`${ind2}${JSON.stringify(key)}: ${JSON.stringify(value)}${comma}`);
-    } else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      // Nested object (subdivisions)
-      lines.push(`${ind2}${JSON.stringify(key)}: ${formatCompactObject(value, indent + 1)}${comma}`);
     } else {
       lines.push(`${ind2}${JSON.stringify(key)}: ${JSON.stringify(value)}${comma}`);
     }

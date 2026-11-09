@@ -964,6 +964,28 @@ test.addTest('Variable days: public holidays. Bas-Rhin resolved via ISO3166-2-lv
         [ '2024-12-26 00:00', '2024-12-27 00:00', false, 'Lendemain de Noël' ],
     ], 1000 * 60 * 60 * 24, 0, false, nominatim_bas_rhin_iso_only, 'not only test');
 
+// https://github.com/opening-hours/opening_hours.js/issues/719
+// The Dutch school holiday regions Noord/Midden/Zuid are no Nominatim
+// subdivisions, they are resolved via province (ISO3166-2-lvl4) and municipality.
+for (const [description, address, start, end] of [
+    ['Amsterdam (province Noord-Holland) is Noord', { municipality: 'Amsterdam', 'ISO3166-2-lvl4': 'NL-NH' }, '2026-07-04', '2026-08-17'],
+    ['Maastricht (province name only) is Zuid', { municipality: 'Maastricht', state: 'Limburg' }, '2026-07-11', '2026-08-24'],
+    ['Den Haag (province Zuid-Holland) is Midden', { municipality: 'Den Haag', 'ISO3166-2-lvl4': 'NL-ZH' }, '2026-07-18', '2026-08-31'],
+    ['Zeewolde (province Flevoland) is Midden', { municipality: 'Zeewolde', 'ISO3166-2-lvl4': 'NL-FL' }, '2026-07-18', '2026-08-31'],
+    ['Utrecht (province split between regions) is Midden', { municipality: 'Utrecht', 'ISO3166-2-lvl4': 'NL-UT' }, '2026-07-18', '2026-08-31'],
+    ['Utrecht resolves from municipality and province names only', { municipality: 'Utrecht', state: 'Utrecht' }, '2026-07-18', '2026-08-31'],
+    ['Nijmegen resolves from city after unknown municipality', { municipality: 'Unknown', city: 'Nijmegen', 'ISO3166-2-lvl4': 'NL-GE' }, '2026-07-11', '2026-08-24'],
+    ['Apeldoorn (province Gelderland split between regions) is Midden', { municipality: 'Apeldoorn', 'ISO3166-2-lvl4': 'NL-GE' }, '2026-07-18', '2026-08-31'],
+]) {
+    test.addTest(`Variable days: Netherlands school holidays. ${description}`, [
+            'SH',
+        ], '2026-07-01 0:00', '2026-09-05 0:00', [
+            [ `${start} 00:00`, `${end} 00:00`, false, 'Zomervakantie' ],
+        ], 1000 * 60 * 60 * 24 * 44, 0, false, {
+            address: { ...address, country_code: 'nl' },
+        }, 'not only test');
+}
+
 /* }}} */
 
 /* Holidays combined with other features {{{ */
