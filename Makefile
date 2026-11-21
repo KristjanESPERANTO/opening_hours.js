@@ -176,22 +176,29 @@ check-translations:
 	$(NODEJS) scripts/check_translations.mjs
 
 .PHONY: check-fast
-check-fast: check-diff-opening_hours.js
+check-fast: check-diff-opening_hours-test.js
 
 .PHONY: check-all-diff
-check-all-diff: check-all-lang-diff check-diff-opening_hours.js
+check-all-diff: check-all-lang-diff check-diff-opening_hours-test.js
 
 # Compare parser test results with the reference logs for each test language.
 .PHONY: check-all-lang-diff
 check-all-lang-diff:
 	@for lang in en de; do \
-		$(MAKE) $(MAKE_OPTIONS) "CHECK_LANG=$$lang" check-diff-opening_hours.js || exit 1; \
+		$(MAKE) $(MAKE_OPTIONS) "CHECK_LANG=$$lang" check-diff-opening_hours-test.js || exit 1; \
 	done
 
 # .PHONY: check-opening_hours.js check-opening_hours.min.js
 ## Does not work
 check-opening_hours.js:
 check-opening_hours.min.js:
+
+# Integration tests expect school holidays from 2024 on, independent of the rolling production window.
+build/generated-openholidays-test.mjs: scripts/generate-holiday-definitions.mjs src/holidays/generated-openholidays.mjs $(wildcard src/holidays/*.yaml)
+	$(NODEJS) scripts/generate-holiday-definitions.mjs --from 2024 --output "$@"
+
+build/opening_hours-test.js: build/opening_hours.js build/generated-openholidays-test.mjs test/school-holiday-rollup.config.mjs
+	node_modules/.bin/rollup -c test/school-holiday-rollup.config.mjs
 
 check-diff-%: build/% test/test.mjs
 	@rm -rf "test/test.$(CHECK_LANG).log"
