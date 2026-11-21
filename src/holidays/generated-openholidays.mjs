@@ -10429,7 +10429,43 @@ export const nf = {
 export const nl = {
   PH: [{"name":"Nieuwjaar","fixed_date":[1,1]},{"name":"Pasen","variable_date":"easter"},{"name":"Tweede paasdag","variable_date":"easter","offset":1},{"name":"Koningsdag","fixed_date":[4,27],"shift_rule":"if sunday then previous saturday"},{"name":"Hemelvaartsdag","variable_date":"easter","offset":39},{"name":"Pinksteren","variable_date":"easter","offset":49},{"name":"Tweede pinksterdag","variable_date":"easter","offset":50},{"name":"Kerstmis","fixed_date":[12,25]},{"name":"Tweede kerstdag","fixed_date":[12,26]}],
   "_nominatim_url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=52.3702&lon=4.8952&zoom=18&addressdetails=1&accept-language=nl,en",
-  "MI": {
+  "Drenthe": {
+    "_state_code": "dr",
+    "_sh_region": "Regio Noord"
+  },
+  "Flevoland": {
+    "_state_code": "fl",
+    "_sh_region": {"Almere":"Regio Noord","Dronten":"Regio Noord","Lelystad":"Regio Noord","Noordoostpolder":"Regio Noord","Urk":"Regio Noord","Zeewolde":"Regio Midden"}
+  },
+  "Fryslân": {
+    "_state_code": "fr",
+    "_sh_region": "Regio Noord"
+  },
+  "Gelderland": {
+    "_state_code": "ge",
+    "_sh_region": {"Aalten":"Regio Midden","Apeldoorn":"Regio Midden","Arnhem":"Regio Zuid","Barneveld":"Regio Midden","Berg en Dal":"Regio Zuid","Beuningen":"Regio Zuid","Bronckhorst":"Regio Midden","Berkelland":"Regio Midden","Brummen":"Regio Midden","Buren":"Regio Midden","Culemborg":"Regio Midden","Doesburg":"Regio Zuid","Druten":"Regio Zuid","Doetinchem":"Regio Midden","Duiven":"Regio Zuid","Ede":"Regio Midden","Elburg":"Regio Midden","Epe":"Regio Midden","Ermelo":"Regio Midden","Heumen":"Regio Zuid","Heerde":"Regio Midden","Hattem":"Regio Noord","Harderwijk":"Regio Midden","Lochem":"Regio Midden","Lingewaard":"Regio Zuid","Maasdriel":"Regio Zuid","Nijkerk":"Regio Midden","Nijmegen":"Regio Zuid","Nunspeet":"Regio Midden","Oude IJsselstreek":"Regio Midden","Oldebroek":"Regio Midden","Overbetuwe":"Regio Zuid","Putten":"Regio Midden","Renkum":"Regio Zuid","Rheden":"Regio Zuid","Scherpenzeel":"Regio Midden","Tiel":"Regio Zuid","Voorst":"Regio Midden","West Betuwe":"Regio Midden","Wijchen":"Regio Zuid","Wageningen":"Regio Midden","West Maas en Waal":"Regio Zuid","Westervoort":"Regio Zuid","Winterswijk":"Regio Midden","Zaltbommel":"Regio Zuid","Zutphen":"Regio Midden","Zevenaar":"Regio Zuid","Oost Gelre":"Regio Midden","Rozendaal":"Regio Zuid"}
+  },
+  "Groningen": {
+    "_state_code": "gr",
+    "_sh_region": "Regio Noord"
+  },
+  "Limburg": {
+    "_state_code": "li",
+    "_sh_region": "Regio Zuid"
+  },
+  "Noord-Brabant": {
+    "_state_code": "nb",
+    "_sh_region": {"Alphen-Chaam":"Regio Zuid","Asten":"Regio Zuid","Bergeijk":"Regio Zuid","Bernheze":"Regio Zuid","Bladel":"Regio Zuid","Baarle-Nassau":"Regio Zuid","Boekel":"Regio Zuid","Breda":"Regio Zuid","Best":"Regio Zuid","Boxtel":"Regio Zuid","Bergen op Zoom":"Regio Zuid","Cranendonck":"Regio Zuid","Deurne":"Regio Zuid","Dongen":"Regio Zuid","Drimmelen":"Regio Zuid","Eersel":"Regio Zuid","Eindhoven":"Regio Zuid","Etten-Leur":"Regio Zuid","Gemert-Bakel":"Regio Zuid","Geldrop-Mierlo":"Regio Zuid","Geertruidenberg":"Regio Zuid","Goirle":"Regio Zuid","Gilze en Rijen":"Regio Zuid","Halderberge":"Regio Zuid","Hilvarenbeek":"Regio Zuid","Heeze-Leende":"Regio Zuid","Helmond":"Regio Zuid","Heusden":"Regio Zuid","Laarbeek":"Regio Zuid","Land van Cuijk":"Regio Zuid","Loon op Zand":"Regio Zuid","Maashorst":"Regio Zuid","Meierijstad":"Regio Zuid","Moerdijk":"Regio Zuid","Nuenen c.a.":"Regio Zuid","Oosterhout":"Regio Zuid","Oirschot":"Regio Zuid","Oss":"Regio Zuid","Oisterwijk":"Regio Zuid","Reusel-De Mierden":"Regio Zuid","Roosendaal":"Regio Zuid","Rucphen":"Regio Zuid","Son en Breugel":"Regio Zuid","'s-Hertogenbosch":"Regio Zuid","Sint-Michielsgestel":"Regio Zuid","Someren":"Regio Zuid","Steenbergen":"Regio Zuid","Tilburg":"Regio Zuid","Valkenswaard":"Regio Zuid","Veldhoven":"Regio Zuid","Vught":"Regio Zuid","Woensdrecht":"Regio Zuid","Waalre":"Regio Zuid","Waalwijk":"Regio Zuid","Zundert":"Regio Zuid"}
+  },
+  "Noord-Holland": {
+    "_state_code": "nh",
+    "_sh_region": "Regio Noord"
+  },
+  "Overijssel": {
+    "_state_code": "ov",
+    "_sh_region": "Regio Noord"
+  },
+  "Regio Midden": {
     "_state_code": "mi",
     SH: [
       {
@@ -10497,7 +10533,7 @@ export const nl = {
       },
     ]
   },
-  "NO": {
+  "Regio Noord": {
     "_state_code": "no",
     SH: [
       {
@@ -10565,7 +10601,7 @@ export const nl = {
       },
     ]
   },
-  "ZU": {
+  "Regio Zuid": {
     "_state_code": "zu",
     SH: [
       {
@@ -10632,6 +10668,18 @@ export const nl = {
         2029: [12,22,1,6],
       },
     ]
+  },
+  "Utrecht": {
+    "_state_code": "ut",
+    "_sh_region": {"Amersfoort":"Regio Midden","Baarn":"Regio Midden","Bunnik":"Regio Midden","Bunschoten":"Regio Midden","De Bilt":"Regio Midden","Eemnes":"Regio Noord","Houten":"Regio Midden","IJsselstein":"Regio Midden","Leusden":"Regio Midden","Lopik":"Regio Midden","Montfoort":"Regio Midden","Nieuwegein":"Regio Midden","Oudewater":"Regio Midden","Renswoude":"Regio Midden","Rhenen":"Regio Midden","Soest":"Regio Midden","Stichtse Vecht":"Regio Midden","Utrechtse Heuvelrug":"Regio Midden","Utrecht":"Regio Midden","Veenendaal":"Regio Midden","Vijfheerenlanden":"Regio Midden","Woudenberg":"Regio Midden","Wijk bij Duurstede":"Regio Midden","Woerden":"Regio Midden","Zeist":"Regio Midden"}
+  },
+  "Zeeland": {
+    "_state_code": "ze",
+    "_sh_region": "Regio Zuid"
+  },
+  "Zuid-Holland": {
+    "_state_code": "zh",
+    "_sh_region": "Regio Midden"
   }
 };
 

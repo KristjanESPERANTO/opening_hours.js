@@ -37,6 +37,7 @@ const GENERATED_FILE = path.join(HOLIDAYS_DIR, 'generated-openholidays.mjs');
  * @typedef {{ source: 'submodule', csvData: CsvRow[] }} SubmoduleCountryData
  * @typedef {{ source: 'yaml-only', csvData: null }} YamlOnlyCountryData
  * @typedef {SubmoduleCountryData | YamlOnlyCountryData} CountryBuildData
+ * @typedef {{ _state_code: string, _sh_region: string | Record<string, string> }} StateWithSchoolHolidayRegion
  */
 
 /**
@@ -103,14 +104,15 @@ function parseCSV(content) {
 }
 
 /**
- * Load subdivision names from subdivisions.csv
+ * Load subdivision names from subdivisions.csv (or groups.csv)
  * Returns: { "BW": "Baden-Württemberg", ... }
  * @param {string} country - Country code to load subdivision names for.
+ * @param {string} [file] - CSV file with ShortName and Name columns.
  * @returns {Promise<Record<string, string>>} Subdivision codes mapped to localized names.
  */
-async function loadSubdivisionNames(country) {
+async function loadSubdivisionNames(country, file = 'subdivisions.csv') {
   try {
-    const csvPath = path.join(SUBMODULE_DIR, country, 'subdivisions.csv');
+    const csvPath = path.join(SUBMODULE_DIR, country, file);
     const content = await fs.readFile(csvPath, 'utf8');
     const rows = parseCSV(content);
 
@@ -141,6 +143,37 @@ async function loadSubdivisionNames(country) {
   } catch {
     return {};
   }
+}
+
+/**
+ * Dutch school holidays are defined for the regions Noord, Midden and Zuid,
+ * which are not administrative subdivisions. Let each province refer to its
+ * region, or to a municipality to region map if the province is split.
+ * Municipalities which are split themselves are left out and stay unresolved.
+ * @param {Record<string, string>} subdivisionNames - Subdivision codes mapped to localized names.
+ * @returns {Promise<Record<string, StateWithSchoolHolidayRegion>>} Province definitions keyed by province name.
+ */
+async function loadDutchProvinces(subdivisionNames) {
+  const rows = parseCSV(await fs.readFile(path.join(SUBMODULE_DIR, 'nl', 'subdivisions.csv'), 'utf8'));
+  /** @type {(row: CsvRow) => string[]} */
+  const regionsOf = row => row.Groups.split(',').map(region => region.trim());
+
+  /** @type {Record<string, StateWithSchoolHolidayRegion>} */
+  const provinces = {};
+  for (const province of rows.filter(row => !row.Parent)) {
+    const municipalities = rows.filter(row => row.Parent === province.ShortName);
+    const regions = new Set(municipalities.flatMap(regionsOf));
+    provinces[subdivisionNames[province.ShortName]] = {
+      _state_code: province.ShortName.toLowerCase(),
+      _sh_region: regions.size === 1
+        ? subdivisionNames[[...regions][0]]
+        : Object.fromEntries(municipalities
+          .filter(row => regionsOf(row).length === 1)
+          .map(row => [subdivisionNames[row.ShortName], subdivisionNames[regionsOf(row)[0]]]))
+    };
+  }
+
+  return provinces;
 }
 
 /**
@@ -429,6 +462,12 @@ async function generateJavaScriptFile(countriesData, yearRange, submodule) {
 
       // Load subdivision names for this country
       const subdivisionNames = await loadSubdivisionNames(country);
+
+      if (country === 'nl') {
+        // Only Dutch groups are regions; Swiss and German groups are school types with clashing names.
+        Object.assign(subdivisionNames, await loadSubdivisionNames(country, 'groups.csv'));
+        Object.assign(merged, await loadDutchProvinces(subdivisionNames));
+      }
 
       // Add school holidays data
       for (const [subdivision, subdivisionData] of Object.entries(convertedSH)) {

@@ -96,6 +96,7 @@ en:
     unexpected token holiday: "Unexpected token (holiday parser): {{token}}"
     no holiday definition: "There are no holidays ({{name}}) defined for country {{cc}}."
     no holiday definition state: "There are no holidays ({{name}}) defined for country {{cc}} and state {{state}}."
+    school holiday region unresolved: "The school holiday region cannot be determined from the address for country {{cc}} and state {{state}}."
     no country code: Country code missing which is needed to select the correct holidays (see README how to provide it)
     no SH definition: "School holiday {{name}}not defined for the year {{year}}."
     movable no formula: "Movable day {{name}} can not not be calculated. Please add the formula how to calculate it."
@@ -245,6 +246,7 @@ de:
     unexpected token holiday: "Unerwarteter Token (in Feiertags-Auswertung): {{token}}"
     no holiday definition: "{{name}} ist für das Land {{cc}} nicht definiert."
     no holiday definition state: "{{name}} ist für das Land {{cc}} und Bundesland {{state}} nicht definiert."
+    school holiday region unresolved: "Die Schulferienregion kann anhand der Adresse für das Land {{cc}} und die Provinz {{state}} nicht bestimmt werden."
     no country code: Der Ländercode fehlt. Dieser wird benötigt um die korrekten Feiertage zu bestimmen (siehe in der README wie dieser anzugeben ist)
     no SH definition: "Die Schulferien {{name}}sind für das Jahr {{year}} nicht definiert"
     movable no formula: "Der bewegliche Feiertag {{name}} kann nicht berechnet werden. Bitte füge eine entsprechende Formel hinzu."
@@ -414,6 +416,7 @@ fr:
     unexpected token holiday: "Token inattendu (dans l'évaluation des jours fériés) : {{token}}"
     no holiday definition: "{{name}} n'est pas défini pour le pays {{cc}}."
     no holiday definition state: "{{name}} n'est pas défini pour le pays {{cc}} et la région {{state}}."
+    school holiday region unresolved: "La région de vacances scolaires ne peut pas être déterminée à partir de l'adresse pour le pays {{cc}} et la région {{state}}."
     no country code: Le code pays est manquant. Il est nécessaire pour déterminer les jours fériés corrects (voir le README pour savoir comment le spécifier).
     no SH definition: "Les vacances scolaires {{name}} ne sont pas définies pour l'année {{year}}."
     movable no formula: "Le jour férié mobile {{name}} ne peut pas être calculé. Veuillez ajouter une formule correspondante."
