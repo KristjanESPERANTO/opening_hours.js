@@ -7,6 +7,7 @@
  */
 
 import fs from 'node:fs';
+import path from 'node:path';
 import readline from 'node:readline';
 import { styleText } from 'node:util';
 import opening_hours from '../build/opening_hours.esm.mjs';
@@ -45,10 +46,61 @@ if (!Array.isArray(tagInfoExport?.data)) {
     process.exit(1);
 }
 
+const tagKey = /^export\.(.*)\.json$/.exec(path.basename(jsonFile))?.[1] || '';
 console.info(`Loaded ${jsonFile}.`);
 
-/** @type {import('node:readline').Interface} */
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+const standardRegexes = [
+    'PH',
+    'SH',
+    '.',
+    String.raw`\((?:dusk|sun|dawn)[^)]*(?:-|\+)[^)]*\)`,
+    String.raw`(?:dusk|sun|dawn).*hours`,
+    String.raw`(?:dusk|sun|dawn|\d{1,2}[.:]\d{2})\+`,
+    String.raw`\d\s*-\s*(mo|tu|we|th|fr|sa|su)\\b`,
+    String.raw`-\s*\d{1,2}[:.]\d{2}\s*?\+`,
+    String.raw`[^0-9a-z ?.]\s*?-\s*?\d{1,2}:\d{2}\s*?[^+]`,
+    String.raw`\d{1,2}:\d{2}\s*?-\s*?\d{1,2}:\d{2}\s*?\+`,
+    String.raw`^(?:(?:[0-1][0-9]|2[0-4])(?:[1-5][0-9]|0[0-9])\s*-?\s*){2}$`
+];
+const historyFile = process.env.OPENING_HOURS_REGEX_HISTORY_FILE || '/tmp/opening_hours.regex.history';
+const noRepeatFile = process.env.OPENING_HOURS_REGEX_NO_REPEAT_FILE || '/tmp/opening_hours.regex.testing';
+const doNotLoadValuesAgain = new Set();
+try {
+    for (const value of fs.readFileSync(noRepeatFile, 'utf8').split(/\r?\n/).filter(Boolean)) {
+        doNotLoadValuesAgain.add(value);
+    }
+} catch {
+    // The repeat list is optional and is created on first JOSM use.
+}
+
+/**
+ * Complete an input prefix with one of the common QA regexes.
+ * @param {string} line - Current input prefix.
+ * @returns {[string[], string]} Matching completions and the prefix.
+ */
+function completeRegex(line) {
+    return [standardRegexes.filter(regex => regex.startsWith(line)), line];
+}
+
+const rl = /** @type {import('node:readline').Interface & { history: string[] }} */ (
+    readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+        completer: completeRegex
+    })
+);
+try {
+    rl.history = fs.readFileSync(historyFile, 'utf8').split(/\r?\n/).filter(Boolean).reverse();
+} catch {
+    // History is optional and is saved as soon as the user enters a line.
+}
+rl.on('history', history => {
+    try {
+        fs.writeFileSync(historyFile, `${history.slice().reverse().join('\n')}\n`);
+    } catch (error) {
+        console.error(`Could not save regex history: ${error instanceof Error ? error.message : String(error)}`);
+    }
+});
 
 /** @type {((answer: string | null) => void) | undefined} */
 let pendingQuestion;
@@ -83,10 +135,11 @@ function ask(prompt) {
  * @returns {EvaluationResult} Parser status, state, and warnings.
  */
 function evaluateValue(value) {
+    const parserOptions = tagKey ? { tag_key: tagKey, map_value: true } : undefined;
     let lastError;
     for (const location of [undefined, nominatimTestJSON]) {
         try {
-            const parsed = new opening_hours(value, location);
+            const parsed = new opening_hours(value, location, parserOptions);
             return {
                 ok: true,
                 state: parsed.getStateString(),
@@ -125,14 +178,27 @@ function findMatches(source) {
 }
 
 /**
- * Print a page of matched values with parser status.
+ * Print selected matched values with parser status and optional integrations.
  * @param {SearchMatch[]} matches - Matches to display.
+ * @param {{ all: boolean, passed: boolean, showErrors: boolean, overpass: boolean, tagInfo: boolean, josm: boolean, noRepeat: boolean }} options - Output filters and integrations.
  * @returns {Promise<void>} Resolves when output completes.
  */
-async function printMatches(matches) {
-    for (let index = 0; index < matches.length; index++) {
-        const item = matches[index];
+async function printMatches(matches, options) {
+    const printWidth = options.showErrors ? pageWidth / 2 : pageWidth;
+    let printedCount = 0;
+    for (const item of matches) {
         const result = item.evaluation || evaluateValue(item.entry.value);
+        if (!options.all && options.passed !== result.ok) {
+            continue;
+        }
+
+        if (printedCount > 0 && printedCount % printWidth === 0) {
+            const response = await ask('Continue? ');
+            if (response === null || !/^y/i.test(response)) {
+                break;
+            }
+        }
+
         const passed = result.ok
             ? result.state === 'unknown'
                 ? styleText('magenta', 'Passed')
@@ -146,20 +212,56 @@ async function printMatches(matches) {
                 + (result.warnings.length > 0 ? ', warnings' : '')
             : styleText('red', 'Failed');
         console.info(`Matched (count: ${item.entry.count}, status: ${status}): ${item.pre}${styleText('blue', item.match)}${item.post}`);
-        if (!result.ok && result.error.message) {
+        if (options.showErrors && !result.ok && result.error.message) {
             console.info(`  * ${result.error.message}`);
-        } else if (result.ok && result.warnings.length > 0) {
-            for (const warning of result.warnings) {
-                console.info(`  * ${warning}`);
-            }
         }
 
-        if ((index + 1) % pageWidth === 0 && index + 1 < matches.length) {
-            const response = await ask('Continue? ');
-            if (response === null || !/^y/i.test(response)) {
-                break;
+        const encodedKey = encodeURIComponent(tagKey);
+        const encodedValue = encodeURIComponent(item.entry.value);
+        const urls = [];
+        if (options.overpass) {
+            urls.push(`overpass: https://overpass-turbo.eu/?template=key-value&key=${encodedKey}&value=${encodedValue}`);
+        }
+        if (options.tagInfo) {
+            urls.push(`taginfo: https://taginfo.openstreetmap.org/tags/${encodedKey}=${encodedValue}`);
+        }
+        if (urls.length > 0) {
+            console.info(urls.join(', '));
+        }
+
+        if (options.josm && (!options.noRepeat || !doNotLoadValuesAgain.has(item.entry.value))) {
+            const loaded = await loadInJosm(item.entry.value);
+            if (loaded && options.noRepeat) {
+                doNotLoadValuesAgain.add(item.entry.value);
+                try {
+                    fs.writeFileSync(noRepeatFile, `${[...doNotLoadValuesAgain].join('\n')}\n`);
+                } catch (error) {
+                    console.error(`Could not save JOSM repeat list: ${error instanceof Error ? error.message : String(error)}`);
+                }
             }
         }
+        printedCount++;
+    }
+}
+
+/**
+ * Send a value to JOSM Remote Control.
+ * @param {string} value - Opening-hours value to load.
+ * @returns {Promise<boolean>} Whether JOSM accepted the request.
+ */
+async function loadInJosm(value) {
+    const query = `https://overpass-api.de/api/xapi_meta?*[${tagKey}=${value}]`;
+    const url = `http://localhost:8111/import?url=${encodeURIComponent(query)}`;
+    try {
+        const response = await fetch(url);
+        if (response.status !== 200) {
+            console.error(styleText('red', `JOSM Remote HTTP request returned status ${response.status}`));
+            return false;
+        }
+        return true;
+    } catch {
+        console.error(styleText('red', 'Could not connect to JOSM. Start JOSM and enable Remote Control.'));
+        return false;
     }
 }
 
@@ -218,13 +320,23 @@ async function runInteractiveSearch() {
             : `, total in use: ${totalInUse}${parseAll ? ` (${passedInUse} passed)` : ''}`;
         console.info(styleText('green', `Matched ${matches.length}${passedSummary} different value${matches.length === 1 ? '' : 's'}${useSummary}`));
 
-        const printValues = await ask('Print values? (y/n) ');
-        if (printValues === null) {
+    const printOptions = await ask('Print values (yes, passed, failed; add overpass, taginfo, err, josm, no_repeat): ');
+    if (printOptions === null) {
             return;
         }
-        if (/^y/i.test(printValues)) {
-            await printMatches(matches);
+        if (!/^(y|p|f)/i.test(printOptions)) {
+            continue;
         }
+
+        await printMatches(matches, {
+            all: /^\s*y/i.test(printOptions),
+            passed: /^\s*p/i.test(printOptions),
+            showErrors: /\berr\b/i.test(printOptions),
+            overpass: /\bover(pass)?\b/i.test(printOptions),
+            tagInfo: /tag/i.test(printOptions),
+            josm: /\bjosm\b/i.test(printOptions),
+            noRepeat: /\bno_repeat\b/i.test(printOptions)
+        });
     }
 }
 
