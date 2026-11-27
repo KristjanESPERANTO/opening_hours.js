@@ -196,6 +196,23 @@ test('month selectors followed by times are not parsed as month days', () => {
     }
 });
 
+test('periodic monthday ranges count calendar days across DST changes', () => {
+    for (const [value, month, day] of [
+        ['Mar 01-31/2', 2, 31],
+        ['Oct 01-31/2', 9, 31],
+    ]) {
+        const oh = new opening_hours(value);
+        const iterator = oh.getIterator(new Date(2026, month, day - 1, 12));
+
+        assert.equal(iterator.getState(), false, value);
+        assert.equal(iterator.advance(new Date(2026, month + 1, 1)), true, value);
+        assert.equal(iterator.getDate().getTime(), new Date(2026, month, day, 0).getTime(), value);
+        assert.equal(iterator.getState(), true, value);
+    }
+
+    assert.equal(new opening_hours('Oct 01-31/2').getState(new Date(2026, 9, 30, 23, 30)), false);
+});
+
 test('movable event selectors consume optional day offsets', () => {
     for (const [value, date, expected] of [
         ['easter', new Date(2024, 2, 31, 12), true],

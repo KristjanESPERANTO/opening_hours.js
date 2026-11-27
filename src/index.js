@@ -3253,7 +3253,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
             else if (!period)
                 return [true, toDate];
 
-            const daysSinceStart = Math.floor((date.getTime() - fromDate.getTime()) / msec_in_day);
+            // Compare local calendar dates in UTC so DST does not affect the day count.
+            const currentDayUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+            const startDayUTC = Date.UTC(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate());
+            const daysSinceStart = (currentDayUTC - startDayUTC) / msec_in_day;
             const inPeriod = daysSinceStart % period;
             if (inPeriod === 0)
                 return [true, new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)];
