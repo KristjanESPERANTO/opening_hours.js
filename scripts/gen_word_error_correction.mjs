@@ -7,29 +7,20 @@
 /**
  * Word Error Correction Generator
  *
- * Generates multilingual word-correction data used by opening_hours.js.
- * Preserves manual corrections and derives ambiguity warnings from CLDR locale data.
- *
- * Features:
- * - Uses pinned CLDR package data for deterministic generation
- * - Scans localized weekday and month terms (long and short forms)
- * - Detects ambiguous words with different meanings across languages
- * - Generates warnings for conflicts (e.g., "listopad": Oct in Croatian vs Nov in Czech/Polish)
+ * Preserves manual literal/regex corrections and derives ambiguity warnings from
+ * CLDR weekday and month names (e.g. "listopad": Oct in Croatian vs Nov in Czech).
  *
  * Input:
  * - src/locales/word_error_correction_manual.yaml (manual corrections)
- * - cldr-dates-full (localized date/time terms)
- * - cldr-localenames-full (locale code to language name mapping)
+ * - cldr-dates-full (localized Gregorian weekday and month names)
+ * - cldr-localenames-full (English language display names for warnings)
  *
  * Output:
- * - src/locales/word_error_correction.yaml containing:
- *   • All manual corrections (preserved as-is)
- *   • "Ambiguous words" section with conflict warnings
- *   • Source/version metadata for reproducible generation
+ * - src/locales/word_error_correction.yaml containing manual correction rules,
+ *   an "ambiguous" section with warnings, and source/version metadata.
  *
- * Weekday/month names are resolved by the locale resolver at runtime,
- * so this generator no longer emits them as flat corrections.
- * CLDR is still analysed here to detect genuinely ambiguous words.
+ * Weekday/month names are resolved by the locale resolver at runtime, so this
+ * generator scans CLDR only for ambiguity warnings, not for flat corrections.
  */
 
 import fs from 'node:fs';
@@ -195,7 +186,7 @@ function collectTerms(gregorian) {
     return terms;
 }
 
-// 1. Load manual corrections
+// 1. Load manual literal and regex corrections.
 console.log('► Loading manual corrections...');
 /** @type {ManualCorrections} */
 let manualCorrections = { literal: {}, regex: {}, ambiguous: {} };
@@ -212,7 +203,7 @@ if (fs.existsSync(manualYamlPath)) {
     console.log(`  ✗ Manual corrections file not found: ${manualYamlPath}`);
 }
 
-// 2. Load locale data from pinned CLDR packages
+// 2. Load CLDR locales and record package versions for reproducible output.
 console.log('\n► Loading CLDR locale data...');
 const supportedLocales = listCldrLocales();
 console.log(`  ✓ Found ${supportedLocales.length} CLDR locales`);
@@ -221,21 +212,15 @@ const cldrDatesVersion = readJson(path.resolve(basePath, 'node_modules/cldr-date
 const cldrLocalenamesVersion = readJson(path.resolve(basePath, 'node_modules/cldr-localenames-full/package.json')).version;
 console.log(`  → cldr-dates-full: ${cldrDatesVersion}`);
 console.log(`  → cldr-localenames-full: ${cldrLocalenamesVersion}`);
-console.log(`  → Will analyze ${supportedLocales.length} locales for conflicts and corrections`);
+console.log(`  → Will analyze ${supportedLocales.length} locales for ambiguity warnings`);
 
 const languageNames = readJson(cldrLocalenamesPath)?.main?.en?.localeDisplayNames?.languages || {};
 
-// 3. Preserve structure - copy manual corrections as base
-const autoCategory = 'please use English abbreviation ok for ko';
-if (!manualCorrections.literal[autoCategory]) {
-    manualCorrections.literal[autoCategory] = {};
-}
-
+// 3. Collect the meanings of each localized word across languages and forms.
+console.log('\n► Detecting ambiguous words...');
 /** @type {Record<string, WordConflictOccurrence[]>} */
 const wordConflicts = {};
 
-// 4. Detect ambiguous words by analysing conflicts across languages
-console.log('\n► Detecting ambiguous words...');
 for (const locale of supportedLocales) {
     const gregorian = loadGregorianData(locale);
     if (!gregorian) {
@@ -254,6 +239,7 @@ for (const locale of supportedLocales) {
     }
 }
 
+// 4. Emit warnings for conflicting meanings, leaving short forms to the locale resolver.
 let conflictCount = 0;
 for (const word of sortedKeys(wordConflicts)) {
     const occurrences = wordConflicts[word];
@@ -271,15 +257,13 @@ for (const word of sortedKeys(wordConflicts)) {
 }
 console.log(`  → Ambiguous words tracked: ${conflictCount}`);
 
-// 5. Weekday/month names are no longer auto-generated as flat corrections.
-// They are resolved by the locale resolver at runtime, while this generator
-// keeps manual corrections and ambiguity warnings only.
-
-manualCorrections.literal[autoCategory] = sortObject(manualCorrections.literal[autoCategory]);
+// 5. Preserve stable output ordering and validate all manual correction rules.
+const abbreviationCategory = 'please use English abbreviation ok for ko';
+manualCorrections.literal[abbreviationCategory] = sortObject(manualCorrections.literal[abbreviationCategory] || {});
 manualCorrections.ambiguous = sortObject(manualCorrections.ambiguous);
 validateCorrections(manualCorrections);
 
-// 6. Write final YAML structure
+// 6. Write runtime data with its manual and CLDR source versions.
 console.log('\n► Writing output file...');
 const yamlOutput = yaml.stringify(manualCorrections, {
     defaultStringType: 'PLAIN',
@@ -307,8 +291,8 @@ console.log('\nCategory breakdown:');
 
 let totalEntries = 0;
 for (const section of correctionSections) {
-    for (const category of Object.keys(manualCorrections[section])) {
-        const count = Object.keys(manualCorrections[section][category]).length;
+    for (const [category, entries] of Object.entries(manualCorrections[section])) {
+        const count = Object.keys(entries).length;
         totalEntries += count;
         console.log(`  ▪ ${section}/${category}: ${count} entries`);
     }
@@ -318,5 +302,5 @@ totalEntries += ambiguousCount;
 console.log(`  ▪ ambiguous: ${ambiguousCount} entries`);
 
 console.log(`\n→ Total corrections: ${totalEntries}`);
-console.log(`→ Ambiguous words: ${Object.keys(manualCorrections.ambiguous).length} (warnings only)`);
+console.log(`→ Ambiguous words: ${ambiguousCount} (warnings only)`);
 console.log('\n✓ Word error correction generation completed successfully!');
