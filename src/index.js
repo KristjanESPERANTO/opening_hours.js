@@ -3290,8 +3290,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
             if (date.getTime() < eventDate.getTime())
                 return [false, eventDate];
-            else if (eventDate.getMonth() * 100 + eventDate.getDate() === date.getMonth() * 100 + date.getDate())
+            else if (getValueForDate(eventDate, true) === getValueForDate(date, true))
                 return [true, new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)];
+            else if (hasExplicitYear)
+                return [false];
             else
                 return [false, new Date(date.getFullYear() + 1, 0, 1)];
         };

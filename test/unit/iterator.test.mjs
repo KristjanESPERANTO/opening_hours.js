@@ -239,6 +239,33 @@ test('movable event offsets are checked against the event year', () => {
     }
 });
 
+test('single movable events respect explicit years and stop after the event', () => {
+    for (const [value, month, day] of [
+        ['2024 easter', 2, 31],
+        ['2024 easter +1 day', 3, 1],
+    ]) {
+        const oh = new opening_hours(value);
+        const start = new Date(2024, month, day);
+        const end = new Date(2024, month, day + 1);
+        const iterator = oh.getIterator(new Date(2023, month, day, 12));
+
+        assert.equal(iterator.getState(), false, value);
+        assert.equal(iterator.advance(new Date(2025, 0, 1)), true, value);
+        assert.equal(iterator.getDate().getTime(), start.getTime(), value);
+        assert.equal(iterator.getState(), true, value);
+        assert.equal(iterator.advance(new Date(2025, 0, 1)), true, value);
+        assert.equal(iterator.getDate().getTime(), end.getTime(), value);
+        assert.equal(iterator.getState(), false, value);
+        assert.deepEqual(oh.getStatePair(end).slice(0, 2), [false, undefined], value);
+        assert.equal(oh.getState(new Date(2025, month, day, 12)), false, value);
+        assert.equal(oh.getNextChange(end, new Date(2030, 0, 1)), undefined, value);
+    }
+
+    const recurring = new opening_hours('easter');
+    assert.equal(recurring.getNextChange(new Date(2024, 3, 1), new Date(2026, 0, 1)).getTime(),
+        new Date(2025, 3, 20).getTime());
+});
+
 test('time range errors mark the whole time, including calculated variable times', () => {
     for (const marked of [
         '10:00',
