@@ -225,6 +225,20 @@ test('movable event selectors consume optional day offsets', () => {
     }
 });
 
+test('movable event offsets are checked against the event year', () => {
+    const oh = new opening_hours('2024 easter +1 day');
+
+    assert.equal(oh.getState(new Date(2023, 0, 1)), false);
+    assert.equal(oh.getState(new Date(2024, 3, 1, 12)), true);
+    assert.equal(oh.getState(new Date(2025, 0, 1)), false);
+    for (const value of ['2024 easter -100 days', 'easter -100 days']) {
+        assert.throws(
+            () => new opening_hours(value).getState(new Date(2024, 0, 1)),
+            error => typeof error === 'string' && error.includes('is not in the year of the movable day')
+        );
+    }
+});
+
 test('time range errors mark the whole time, including calculated variable times', () => {
     for (const marked of [
         '10:00',

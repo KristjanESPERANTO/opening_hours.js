@@ -3281,8 +3281,9 @@ export default function(value, nominatim_object, optional_conf_parm) {
             );
 
             if (Array.isArray(addDays) && addDays[0]) {
+                const eventYear = eventDate.getFullYear();
                 eventDate.setDate(eventDate.getDate() + addDays[0]);
-                if (date.getFullYear() !== eventDate.getFullYear())
+                if (eventYear !== eventDate.getFullYear())
                     throw formatWarnErrorMessage(nrule, at+yearOffset+addDays[1], t('movable not in year', {
                         'name': tokens[at+yearOffset][0], 'days': addDays[0]}));
             }
