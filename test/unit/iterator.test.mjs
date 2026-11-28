@@ -289,6 +289,32 @@ test('movable event selectors consume optional day offsets', () => {
     }
 });
 
+test('movable event range endpoints include the event day', () => {
+    for (const [value, start, end] of [
+        ['Jan 01-easter', new Date(2024, 0, 1), new Date(2024, 3, 1)],
+        ['2024 Jan 01-2024 easter', new Date(2024, 0, 1), new Date(2024, 3, 1)],
+        ['easter-easter', new Date(2024, 2, 31), new Date(2024, 3, 1)],
+        ['easter -1 day-easter +1 day', new Date(2024, 2, 30), new Date(2024, 3, 2)],
+    ]) {
+        const oh = new opening_hours(value);
+        const iterator = oh.getIterator(new Date(start.getFullYear(), start.getMonth(), start.getDate() - 1, 12));
+
+        assert.equal(iterator.getState(), false, value);
+        assert.equal(iterator.advance(end), true, value);
+        assert.equal(iterator.getDate().getTime(), start.getTime(), value);
+        assert.equal(iterator.getState(), true, value);
+        assert.equal(oh.getState(new Date(end.getFullYear(), end.getMonth(), end.getDate() - 1, 12)), true, value);
+        assert.equal(oh.getState(end), false, value);
+        assert.equal(oh.getNextChange(start, new Date(2025, 0, 1)).getTime(), end.getTime(), value);
+    }
+
+    for (const value of ['easter +1 day-easter', 'Apr 01-Mar 31']) {
+        for (const date of [new Date(2024, 2, 31, 12), new Date(2024, 3, 1, 12)]) {
+            assert.equal(new opening_hours(value).getState(date), true, value);
+        }
+    }
+});
+
 test('movable event offsets are checked against the event year', () => {
     const oh = new opening_hours('2024 easter +1 day');
 

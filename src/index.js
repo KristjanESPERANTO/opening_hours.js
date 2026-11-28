@@ -3510,6 +3510,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                                     t('movable not in year', {'name': tokens[at_sec_event_or_month][0], 'days':  has_calc[1][0] }));
                             }
                         }
+                        to_date.setDate(to_date.getDate() + 1);
                     } else if (has_constrained_weekday[1]) {
                         const to_year = has_year[1]
                             ? asNumericParserToken(tokens[at_sec_event_or_month-1])[0]
@@ -3548,8 +3549,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                     if (has_year[0]) {
                         const endDate = new Date(to_date);
-                        if (!has_event[1])
-                            endDate.setDate(endDate.getDate() - 1);
+                        endDate.setDate(endDate.getDate() - 1);
                         if (endDate < from_date) {
                             const endToken = (has_constrained_weekday[1]
                                 ? has_constrained_weekday[1][1] - 1
@@ -3561,7 +3561,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                     let inside = true;
 
-                    if (to_date < from_date) {
+                    if (to_date <= from_date) {
                         const tmp = to_date;
                         to_date = from_date;
                         from_date = tmp;

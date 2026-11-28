@@ -4034,10 +4034,10 @@ test.addTest('Real world example: Was not processed right.', [
 test.addTest('Real world example: Was not processed right (month range/monthday range)', [
         'Aug,Dec 25-easter'
     ], '2014-01-01 0:00', '2015-01-01 0:00', [
-        [ '2014-01-01 00:00', '2014-04-20 00:00' ],
+        [ '2014-01-01 00:00', '2014-04-21 00:00' ],
         [ '2014-08-01 00:00', '2014-09-01 00:00' ],
         [ '2014-12-25 00:00', '2015-01-01 00:00' ],
-    ], 1000 * 60 * 60 * (24 * ((31 + 28 + 31 + 19) + 31 + 7)  -1), 0, false, {}, 'not last test');
+    ], 1000 * 60 * 60 * (24 * ((31 + 28 + 31 + 20) + 31 + 7)  -1), 0, false, {}, 'not last test');
 
 // https://www.openstreetmap.org/node/2554317486
 test.addTest('Real world example: Was processed right (month range/monthday range with additional rule)', [
@@ -4672,8 +4672,8 @@ test.addTest('Calculations based on variable events', [
 test.addTest('Calculations based on variable events', [
         'Apr 05-easter -1 day: open "Before easter"',
     ], '2012-01-01 0:00', '2012-10-08 0:00', [
-        [ '2012-04-05 00:00', '2012-04-07 00:00', false, 'Before easter' ],
-    ], 1000 * 60 * 60 * 24 * 2, 0, false, nominatim_default, 'not only test');
+        [ '2012-04-05 00:00', '2012-04-08 00:00', false, 'Before easter' ],
+    ], 1000 * 60 * 60 * 24 * 3, 0, false, nominatim_default, 'not only test');
 
 test.addTest('Calculations based on variable events', [
         'easter-Apr 20: open "Around easter"',
@@ -4693,8 +4693,8 @@ test.addTest('Calculations based on variable events', [
         'easter -2 days-easter +2 days: open "Around easter"',
         'easter -2 days-easter +2 days open "Around easter"',
     ], '2012-01-01 0:00', '2012-10-08 0:00', [
-        [ '2012-04-06 00:00', '2012-04-10 00:00', false, 'Around easter' ],
-    ], 1000 * 60 * 60 * 24 * 4, 0, false, nominatim_default, 'not only test');
+        [ '2012-04-06 00:00', '2012-04-11 00:00', false, 'Around easter' ],
+    ], 1000 * 60 * 60 * 24 * 5, 0, false, nominatim_default, 'not only test');
 // }}}
 
 // additional rules {{{
