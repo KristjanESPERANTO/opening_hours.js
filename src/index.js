@@ -3231,25 +3231,24 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * @param {number} rangeFrom First day of the range.
      * @param {number} rangeTo Exclusive end day of the range.
      * @param {number|undefined} period Optional day interval.
-     * @param {boolean} isRange Whether an end day was specified.
      * @returns {RuleSelector} Date selector.
      */
-    function createMonthdaySelector(year, hasExplicitYear, month, rangeFrom, rangeTo, period, isRange) {
+    function createMonthdaySelector(year, hasExplicitYear, month, rangeFrom, rangeTo, period) {
         return function(date) {
             const startOfNextYear = new Date(date.getFullYear() + 1, 0, 1);
             const fromDate = new Date(hasExplicitYear ? year : date.getFullYear(), month, rangeFrom);
             if (month === 1 && rangeFrom !== fromDate.getDate())
-                return [false];
+                return hasExplicitYear ? [false] : [false, startOfNextYear];
 
-            const toDate = new Date(fromDate.getFullYear(), month, rangeTo);
-            if (month === 1 && isRange
-                    && new Date(fromDate.getFullYear(), month, rangeTo - 1).getDate() !== rangeTo - 1)
-                return [false];
+            const endDay = month === 1
+                ? Math.min(rangeTo, new Date(fromDate.getFullYear(), month + 1, 0).getDate() + 1)
+                : rangeTo;
+            const toDate = new Date(fromDate.getFullYear(), month, endDay);
 
             if (date.getTime() < fromDate.getTime())
                 return [false, fromDate];
             else if (date.getTime() >= toDate.getTime())
-                return [false, startOfNextYear];
+                return hasExplicitYear ? [false] : [false, startOfNextYear];
             else if (!period)
                 return [true, toDate];
 
@@ -3260,7 +3259,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
             const inPeriod = daysSinceStart % period;
             if (inPeriod === 0)
                 return [true, new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)];
-            return [false, new Date(date.getFullYear(), date.getMonth(), date.getDate() + period - inPeriod)];
+            const nextDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + period - inPeriod);
+            return [false, nextDay < toDate ? nextDay : toDate];
         };
     }
 
@@ -3364,7 +3364,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }
 
             const selector = createMonthdaySelector(
-                year, hasExplicitYear, month, rangeFrom, rangeTo, period, isRange
+                year, hasExplicitYear, month, rangeFrom, rangeTo, period
             );
             if (pushToMonth === true)
                 rule.month.push(selector);
@@ -3526,11 +3526,24 @@ export default function(value, nominatim_object, optional_conf_parm) {
                         );
                         to_date.setDate(to_date.getDate() + 1);
                     } else {
-                        to_date = new Date((has_year[1]
+                        const endYear = has_year[1]
                             ? asNumericParserToken(tokens[at_sec_event_or_month-1])[0]
-                            : date.getFullYear()),
-                            asNumericParserToken(tokens[at_sec_event_or_month])[0],
-                            asNumericParserToken(tokens[at_sec_event_or_month+1])[0] + 1);
+                            : date.getFullYear();
+                        const endMonth = asNumericParserToken(tokens[at_sec_event_or_month])[0];
+                        const endDay = asNumericParserToken(tokens[at_sec_event_or_month+1])[0] + 1;
+                        const exclusiveEndDay = endMonth === 1
+                            ? Math.min(endDay, new Date(endYear, endMonth + 1, 0).getDate() + 1)
+                            : endDay;
+                        to_date = new Date(endYear, endMonth, exclusiveEndDay);
+                    }
+
+                    if (has_month[0] && has_month[1]
+                            && from_date.getTime() === to_date.getTime()
+                            && asNumericParserToken(tokens[at+startYearOffset])[0] === 1
+                            && asNumericParserToken(tokens[at+startYearOffset+1])[0] === 29
+                            && asNumericParserToken(tokens[at_sec_event_or_month])[0] === 1
+                            && asNumericParserToken(tokens[at_sec_event_or_month+1])[0] === 29) {
+                        return has_year[0] ? [false] : [false, start_of_next_year];
                     }
 
                     if (has_year[0]) {

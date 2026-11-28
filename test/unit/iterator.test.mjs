@@ -155,22 +155,56 @@ test('explicit monthday ranges reject reversed endpoints', () => {
     }
 });
 
-test('February ranges validate inclusive endpoints independently', () => {
+test('February ranges include existing days in non-leap years', () => {
     for (const [value, date, expected] of [
         ['Feb 28-29', new Date(2024, 1, 28, 12), true],
         ['Feb 28-29', new Date(2024, 1, 29, 12), true],
         ['Feb 28-29', new Date(2024, 2, 1, 12), false],
-        ['Feb 28-29', new Date(2025, 1, 28, 12), false],
+        ['Feb 28-29', new Date(2025, 1, 28, 12), true],
+        ['Feb 28-29', new Date(2025, 2, 1, 12), false],
+        ['2025 Feb 28-29', new Date(2025, 1, 28, 12), true],
+        ['2025 Feb 28-29', new Date(2025, 2, 1, 12), false],
+        ['Feb 27-29/2', new Date(2025, 1, 27, 12), true],
+        ['Feb 27-29/2', new Date(2025, 1, 28, 12), false],
+        ['Feb 27-29/2', new Date(2024, 1, 29, 12), true],
+        ['Feb 29', new Date(2025, 1, 28, 12), false],
+        ['2025 Feb 29', new Date(2025, 2, 1, 12), false],
+        ['Jan 01-Feb 29', new Date(2025, 1, 28, 12), true],
+        ['Jan 01-Feb 29', new Date(2025, 2, 1, 12), false],
+        ['Jan 01-Feb 29', new Date(2024, 1, 29, 12), true],
+        ['2025 Jan 01-2025 Feb 29', new Date(2025, 2, 1, 12), false],
+        ['Feb 29-Mar 02', new Date(2025, 2, 1, 12), true],
+        ['2025 Feb 29-2025 Mar 02', new Date(2025, 2, 2, 12), true],
+        ['Feb 29-Feb 29', new Date(2025, 2, 1, 12), false],
+        ['Feb 29-Feb 29', new Date(2024, 1, 29, 12), true],
+        ['2025 Feb 29-2025 Feb 29', new Date(2025, 2, 1, 12), false],
         ['Feb 27-28', new Date(2025, 1, 27, 12), true],
         ['Feb 27-28', new Date(2025, 1, 28, 12), true],
         ['Feb 27-28', new Date(2025, 2, 1, 12), false],
         ['Feb 28-29,27', new Date(2024, 1, 29, 12), true],
         ['Feb 27,28-29', new Date(2024, 1, 29, 12), true],
-        ['Feb 28-29,27', new Date(2025, 1, 28, 12), false],
-        ['Feb 27,28-29', new Date(2025, 1, 28, 12), false],
+        ['Feb 28-29,27', new Date(2025, 1, 28, 12), true],
+        ['Feb 27,28-29', new Date(2025, 1, 28, 12), true],
     ]) {
         assert.equal(new opening_hours(value).getState(date), expected, value);
     }
+
+    const leapDay = new opening_hours('Feb 29');
+    assert.equal(leapDay.getNextChange(new Date(2025, 0, 1), new Date(2029, 0, 1)).getTime(),
+        new Date(2028, 1, 29).getTime());
+    const leapDayRange = new opening_hours('Feb 29-Feb 29');
+    assert.equal(leapDayRange.getNextChange(new Date(2025, 0, 1), new Date(2029, 0, 1)).getTime(),
+        new Date(2028, 1, 29).getTime());
+    const explicit = new opening_hours('2025 Feb 28-29');
+    assert.equal(explicit.getNextChange(new Date(2025, 1, 28), new Date(2026, 0, 1)).getTime(),
+        new Date(2025, 2, 1).getTime());
+    assert.deepEqual(explicit.getStatePair(new Date(2025, 2, 1)).slice(0, 2), [false, undefined]);
+    const periodic = new opening_hours('Feb 27-29/2');
+    assert.equal(periodic.getNextChange(new Date(2025, 1, 28), new Date(2027, 0, 1)).getTime(),
+        new Date(2026, 1, 27).getTime());
+    const crossMonth = new opening_hours('Jan 01-Feb 29');
+    assert.equal(crossMonth.getNextChange(new Date(2025, 1, 28), new Date(2026, 0, 1)).getTime(),
+        new Date(2025, 2, 1).getTime());
 });
 
 test('periodic monthday ranges advance at each selected day boundary', () => {

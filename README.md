@@ -671,6 +671,7 @@ Almost everything from opening_hours definition is supported, as well as some ex
 - Supports calculation based on constrained weekdays in monthday range (`Jan Su[1] +1 day-Feb 03 10:00-20:00`)
 - Supports movable events like easter (`easter - Apr 20: open "Around easter"`) Note that if easter would be after the 20th of April for one year, this will be interpreted as spanning into the next year currently.
 - Supports calculations based on movable events (`2012 easter - 2 days - 2012 easter + 2 days: open "Around easter"`)
+- In non-leap years, date ranges containing February 29 still match their existing days; a single `Feb 29` does not match.
 - Supports multiple monthday ranges separated by a comma (`Jan 23-31/3,Feb 1-12,Mar 1`)
 
 ### Week ranges
