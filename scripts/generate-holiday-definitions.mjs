@@ -8,15 +8,19 @@
  *
  * Strategy:
  * 1. Read school holiday CSV data from the local openholidaysapi.data submodule
- * 2. Parse data for each country/subdivision (submodule commit year -5 to +15)
+ * 2. Parse data for each country/subdivision (submodule commit year -1 to +4,
+ *    plus earlier holidays extending into that range)
  * 3. Merge with existing YAML holiday definitions (PH, metadata)
  * 4. Generate complete country definitions
+ *
+ * Options: --from YEAR, --to YEAR and --output FILE override the defaults.
  */
 
 import fs from 'fs/promises';
 import path from 'path';
 import yaml from 'js-yaml';
 import { fileURLToPath } from 'url';
+import { parseArgs } from 'util';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -271,10 +275,10 @@ function convertCSVToInternalFormat(csvData, country, yearRange) {
     // The library adds +1 day internally when creating intervals (see src/index.js line 2549)
     // So we keep the date as-is from CSV
 
-    const year = startDate.getFullYear();
+    const year = startDate.getUTCFullYear();
 
-    // Limit to configured year range
-    if (year < yearRange[0] || year > yearRange[1]) {
+    // Include holidays starting earlier if they continue into the configured range.
+    if (year > yearRange[1] || (year < yearRange[0] && endDate.getUTCFullYear() < yearRange[0])) {
       continue;
     }
 
@@ -323,10 +327,10 @@ function convertCSVToInternalFormat(csvData, country, yearRange) {
       // Add year data: [start_month, start_day, end_month, end_day]
       // OpenHolidays CSV uses INCLUSIVE dates, and opening_hours.js also expects INCLUSIVE
       bySubdivision[subdivisionCode][holidayName][year] = [
-        startDate.getMonth() + 1,
-        startDate.getDate(),
-        endDate.getMonth() + 1,
-        endDate.getDate()
+        startDate.getUTCMonth() + 1,
+        startDate.getUTCDate(),
+        endDate.getUTCMonth() + 1,
+        endDate.getUTCDate()
       ];
     }
   }
@@ -559,9 +563,10 @@ async function discoverYamlCountries() {
 
 /**
  * Build school holidays for all countries
+ * @param {{ from?: number, to?: number, output?: string }} [options] - Year range overrides and output file.
  * @returns {Promise<Record<string, CountryBuildData>>} Generated holiday data grouped by country.
  */
-async function buildSchoolHolidays() {
+async function buildSchoolHolidays({ from, to, output = GENERATED_FILE } = {}) {
   const counts = {
     phAndSH: 0,
     shOnly: 0,
@@ -635,16 +640,17 @@ async function buildSchoolHolidays() {
     }
   }
 
-  // Generate JavaScript file (submodule commit year -5 to +15)
+  // Generate JavaScript file (submodule commit year -1 to +4)
   // Using submodule timestamp ensures reproducible builds
   // @see https://reproducible-builds.org/docs/timestamps/
   const submodule = await getSubmoduleInfo();
   const referenceYear = new Date(submodule.commitUnixTimestamp * 1000).getUTCFullYear();
-  const yearRange = [referenceYear - 5, referenceYear + 15];
+  const yearRange = [from ?? referenceYear - 1, to ?? referenceYear + 4];
   const jsContent = await generateJavaScriptFile(results, yearRange, submodule);
-  await fs.writeFile(GENERATED_FILE, jsContent, 'utf8');
+  await fs.mkdir(path.dirname(output), { recursive: true });
+  await fs.writeFile(output, jsContent, 'utf8');
 
-  const jsStats = await fs.stat(GENERATED_FILE);
+  const jsStats = await fs.stat(output);
   const jsSizeKB = Math.round(jsStats.size / 1024);
 
   // Print summary
@@ -653,14 +659,14 @@ async function buildSchoolHolidays() {
   console.log('Summary');
   console.log('═'.repeat(60));
   console.log();
-  console.log(`Year range: ${yearRange[0]}-${yearRange[1]}`);
+  console.log(`Year range: ${yearRange[0]}-${yearRange[1]} (plus earlier holidays extending into the range)`);
   console.log();
   console.log(`✓  ${'PH and SH'.padEnd(10)}  ${counts.phAndSH}`);
   console.log(`○  ${'SH only'.padEnd(10)}  ${counts.shOnly}`);
   console.log(`·  ${'PH only'.padEnd(10)}  ${counts.phOnly}`);
   console.log();
 
-  console.log(`Generated: ${path.relative(ROOT_DIR, GENERATED_FILE)} (${jsSizeKB} KB)`);
+  console.log(`Generated: ${path.relative(ROOT_DIR, output)} (${jsSizeKB} KB)`);
   console.log();
   console.log('═'.repeat(60));
   console.log();
@@ -670,10 +676,27 @@ async function buildSchoolHolidays() {
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  buildSchoolHolidays().catch(error => {
+  const { values } = parseArgs({
+    options: {
+      from: { type: 'string' },
+      to: { type: 'string' },
+      output: { type: 'string' },
+    },
+  });
+  const toYear = (/** @type {string|undefined} */ value) => {
+    if (value === undefined) return undefined;
+    if (!/^\d{4}$/.test(value)) throw new Error(`Invalid year: ${value}`);
+    return Number(value);
+  };
+
+  buildSchoolHolidays({
+    from: toYear(values.from),
+    to: toYear(values.to),
+    output: values.output === undefined ? undefined : path.resolve(values.output),
+  }).catch(error => {
     console.error('Fatal error:', error);
     process.exit(1);
   });
 }
 
-export { buildSchoolHolidays };
+export { buildSchoolHolidays, convertCSVToInternalFormat };

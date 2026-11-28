@@ -103,6 +103,9 @@ In case your holiday definition does only change the `holiday_definitions` varia
 Be sure to add one or more tests if you add new features or enhance error tolerance or the like.
 See under [testing][ohlib.testing].
 
+Integration tests use school-holiday data generated from 2024 onward,
+independent of the rolling production window.
+
 ### Commit Message Convention
 
 We follow the [Conventional Commits] specification. The minimum required format is:
