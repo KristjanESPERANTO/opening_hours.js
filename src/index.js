@@ -415,6 +415,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     let nrule;
     /** @type {OpeningHoursRule[]} */
     const rules = [];
+    const date_selectors_with_open_end = new WeakSet();
     /** @typedef {{time_wraps_over_midnight?: boolean, week_days?: number[]}} RuleInfo */
     /** @type {Record<number, RuleInfo>} */
     const rule_infos = {};
@@ -533,9 +534,10 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 for (let dselg = 0; dselg < rule.date.length; dselg++) {
                     wrapselectors.date.push([]);
                     for (let dsel = 0; dsel < rule.date[dselg].length; dsel++) {
-                        wrapselectors.date[wrapselectors.date.length-1].push(
-                                generateDateShifter(rule.date[dselg][dsel], -msec_in_day)
-                            );
+                        const wrapped_date_selector = generateDateShifter(rule.date[dselg][dsel], -msec_in_day);
+                        if (date_selectors_with_open_end.has(rule.date[dselg][dsel]))
+                            date_selectors_with_open_end.add(wrapped_date_selector);
+                        wrapselectors.date[wrapselectors.date.length-1].push(wrapped_date_selector);
                     }
                 }
 
@@ -3567,6 +3569,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     rule.monthday.push(selector);
 
                 if (has_open_end) {
+                    date_selectors_with_open_end.add(selector);
                     at = at_range_sep + 1;
                 } else {
                     at = (has_constrained_weekday[1]
@@ -3616,7 +3619,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
     /* }}} */
 
     /**
-     * @typedef {[boolean, Date|undefined, boolean, string|undefined, number|undefined]} OpeningHoursStatePair
+     * @typedef {[boolean, Date|undefined, boolean, string|undefined, number|undefined, boolean]} OpeningHoursStatePair
      */
 
     /**
@@ -3632,22 +3635,26 @@ export default function(value, nominatim_object, optional_conf_parm) {
      *     2. unknown: true if state open is not sure.
      *     3. comment: Comment which applies for this time range (from date to changedate).
      *     4. match_rule: Rule number starting with 0 (nrule).
+     *     5. open_end: true if the matching selector has an open end (time or date).
      */
     function getStatePair(rules, date) {
         let resultstate = false;
         let changedate;
         let unknown = false;
+        let open_end = false;
         /** @type {string|[string, number]|undefined} */
         let comment;
         let match_rule;
 
         let date_matching_rules = [];
+        const date_matching_rules_open_end = [];
 
         /* Go though all date selectors and check if they return something
          * else than closed for the given date.
          */
         for (let nrule = 0; nrule < rules.length; nrule++) {
             let matching_date_rule = true;
+            let matching_open_end_selector = false;
             // console.log(nrule, 'length',  rules[nrule].date.length);
 
             /* Try each date selector type. */
@@ -3660,6 +3667,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     const res = dateselectors[datesel](date);
                     if (res[0]) {
                         has_matching_selector = true;
+                        if (date_selectors_with_open_end.has(dateselectors[datesel]))
+                            matching_open_end_selector = true;
 
                         if (typeof res[2] === 'string') { // holiday name
                             comment = [ res[2], nrule ];
@@ -3680,6 +3689,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     break;
                 }
             }
+
+            date_matching_rules_open_end[nrule] = matching_open_end_selector;
 
             if (matching_date_rule) {
                 /* The following lines implement date overwriting logic (e.g. for
@@ -3717,6 +3728,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 if (!rules[rule].fallback || (rules[rule].fallback && !(resultstate || unknown))) {
                     resultstate = rules[rule].meaning;
                     unknown     = rules[rule].unknown;
+                    open_end    = date_matching_rules_open_end[rule] === true;
                     match_rule  = rule;
 
                     // if (rules[rule].fallback)
@@ -3733,6 +3745,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                     if (!rules[rule].fallback || (rules[rule].fallback && !(resultstate || unknown))) {
                         resultstate = rules[rule].meaning;
                         unknown     = rules[rule].unknown;
+                        open_end    = date_matching_rules_open_end[rule] === true;
                         match_rule  = rule;
 
                         /* Reset open end comment */
@@ -3745,6 +3758,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                             resultstate = false;
                             unknown     = true;
+                            open_end    = true;
 
                             /* Hack to make second rule in '07:00+,12:00-16:00; 16:00-24:00 closed "needed because of open end"' obsolete {{{ */
                             if (typeof rules[rule].time[timesel+1] === 'function') {
@@ -3765,6 +3779,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
 
                                     resultstate = false;
                                     unknown     = false;
+                                    open_end    = date_matching_rules_open_end[rule] === true;
                                 }
                             }
 
@@ -3836,7 +3851,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
         }
 
         // console.log('changedate', changedate, resultstate, comment, match_rule);
-        return [ resultstate, changedate, unknown, comment, match_rule ];
+        return [ resultstate, changedate, unknown, comment, match_rule, open_end ];
     }
 
     /**
@@ -3905,6 +3920,15 @@ export default function(value, nominatim_object, optional_conf_parm) {
     this.getUnknown = function(date) {
         const it = this.getIterator(date);
         return it.getUnknown();
+    };
+
+    /**
+     * @param {Date} [date] Date to inspect.
+     * @returns {boolean} Whether the matching selector has an open end.
+     */
+    this.getOpenEnd = function(date) {
+        const it = this.getIterator(date);
+        return it.getOpenEnd();
     };
 
     /**
@@ -4196,6 +4220,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
      * @property {(date: Date) => void} setDate - Set the iterator date.
      * @property {() => boolean} getState - Whether the facility is open.
      * @property {() => boolean} getUnknown - Whether the state is unknown.
+     * @property {() => boolean} getOpenEnd - Whether the matching selector has an open end.
      * @property {(past?: boolean) => string} getStateString - State as 'open'/'unknown'/'closed'.
      * @property {() => string|undefined} getComment - Current comment.
      * @property {() => number|undefined} getMatchingRule - Matching rule.
@@ -4248,6 +4273,14 @@ export default function(value, nominatim_object, optional_conf_parm) {
          */
         iterator.getUnknown = function() {
             return statePair[2];
+        };
+        /* }}} */
+
+        /**
+         * @returns {boolean} Whether the current interval has an open end.
+         */
+        iterator.getOpenEnd = function() {
+            return statePair[5] === true;
         };
         /* }}} */
 
