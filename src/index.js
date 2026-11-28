@@ -3533,6 +3533,19 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             asNumericParserToken(tokens[at_sec_event_or_month+1])[0] + 1);
                     }
 
+                    if (has_year[0]) {
+                        const endDate = new Date(to_date);
+                        if (!has_event[1])
+                            endDate.setDate(endDate.getDate() - 1);
+                        if (endDate < from_date) {
+                            const endToken = (has_constrained_weekday[1]
+                                ? has_constrained_weekday[1][1] - 1
+                                : at_sec_event_or_month + (has_event[1] ? 0 : 1))
+                                + (has_calc[1]?.[1] || 0);
+                            throw formatWarnErrorMessage(nrule, endToken, t('day range reverse'));
+                        }
+                    }
+
                     let inside = true;
 
                     if (to_date < from_date) {

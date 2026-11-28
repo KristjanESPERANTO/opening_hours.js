@@ -125,6 +125,36 @@ test('monthday ranges honor year and date boundaries', () => {
     }
 });
 
+test('explicit monthday ranges reject reversed endpoints', () => {
+    for (const endpoint of [
+        '2028 Dec 01-2027 Jan 01',
+        '2024 Apr 02-2024 Apr 01',
+        '2024 easter +1 day-2024 Mar 01',
+        '2024 May 01-2024 easter +1 day',
+        '2024 Apr 01-2024 Mar Su[-1]',
+        '2024 Apr 02-2024 Mar Su[-1] +1 day',
+    ]) {
+        assert.throws(
+            () => new opening_hours(`${endpoint} 10:00-11:00`),
+            error => typeof error === 'string'
+                && error.split(' <--- (')[0].trimEnd() === endpoint
+                && error.includes('Range in wrong order')
+        );
+    }
+
+    for (const [value, date, expected] of [
+        ['Dec 31-Jan 01', new Date(2027, 11, 31, 12), true],
+        ['Dec 31-Jan 01', new Date(2028, 0, 1, 12), true],
+        ['Dec 31-Jan 01', new Date(2028, 5, 1, 12), false],
+        ['2027 Dec 31-2028 Jan 01', new Date(2027, 11, 31, 12), true],
+        ['2027 Dec 31-2028 Jan 01', new Date(2028, 0, 1, 12), true],
+        ['2027 Dec 31-2028 Jan 01', new Date(2029, 0, 1, 12), false],
+        ['2024 Apr 01-2024 Mar Su[-1] +1 day', new Date(2024, 3, 1, 12), true],
+    ]) {
+        assert.equal(new opening_hours(value).getState(date), expected, value);
+    }
+});
+
 test('February ranges validate inclusive endpoints independently', () => {
     for (const [value, date, expected] of [
         ['Feb 28-29', new Date(2024, 1, 28, 12), true],
