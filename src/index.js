@@ -3471,7 +3471,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                             const from_year_before_calc = from_date.getFullYear();
                             from_date.setDate(from_date.getDate() + has_calc[0][0]);
                             if (from_year_before_calc !== from_date.getFullYear())
-                                throw formatWarnErrorMessage(nrule, at+startYearOffset+has_calc[0][1]*3,
+                                throw formatWarnErrorMessage(nrule, at+startYearOffset+has_calc[0][1],
                                     t('movable not in year', {'name': tokens[at+startYearOffset][0], 'days': has_calc[0][0]}));
                         }
                     } else if (has_constrained_weekday[0]) {

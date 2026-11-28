@@ -269,6 +269,29 @@ test('movable event offsets are checked against the event year', () => {
     }
 });
 
+test('movable event range offset errors mark the offset', () => {
+    assert.throws(
+        () => new opening_hours('2024 easter -100 days 10:00-11:00').getState(new Date(2024, 0, 1)),
+        error => typeof error === 'string'
+            && error.split(' <--- (')[0].trimEnd() === '2024 easter -100 days'
+            && error.includes('is not in the year of the movable day')
+    );
+
+    for (const [value, marked] of [
+        ['2024 easter -100 days-2024 May 01 10:00-11:00', '2024 easter -100 days'],
+        ['2024 easter -100 days+ 10:00-11:00', '2024 easter -100 days'],
+        ['easter -100 days-May 01 10:00-11:00', 'easter -100 days'],
+        ['2024 Jan 01-2024 easter -100 days 10:00-11:00', '2024 Jan 01-2024 easter -100 days'],
+    ]) {
+        assert.throws(
+            () => new opening_hours(value).getState(new Date(2024, 0, 1)),
+            error => typeof error === 'string'
+                && error.split(' <--- (')[0].trimEnd() === marked
+                && error.includes('is not in the year of the movable day')
+        );
+    }
+});
+
 test('single movable events respect explicit years and stop after the event', () => {
     for (const [value, month, day] of [
         ['2024 easter', 2, 31],
