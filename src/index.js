@@ -144,6 +144,31 @@ function getStateFromAddress(address, countryCode) {
 }
 
 /**
+ * Resolve the school holiday region of a Nominatim address.
+ * School holiday regions are not always administrative subdivisions, e.g. the
+ * Dutch regions Noord, Midden and Zuid. A state definition can therefore refer
+ * to its region via `_sh_region`: either a region name, or a map from
+ * municipality to region name if the state is split between regions.
+ * @param {Record<string, unknown>} address Nominatim address object.
+ * @param {string|undefined} countryCode Lowercase country code.
+ * @param {string|undefined} state State name as resolved by getStateFromAddress.
+ * @returns {string|undefined} Region name, if the state refers to one.
+ */
+function getSchoolHolidayRegionFromAddress(address, countryCode, state) {
+    if (typeof countryCode !== 'string' || typeof state !== 'string') {
+        return undefined;
+    }
+    const stateDefinition = /** @type {{_sh_region?: string|Record<string, unknown>}|undefined} */ (
+        holidayDefinitions[countryCode]?.[state]
+    );
+    const region = stateDefinition?._sh_region;
+    const name = region && typeof region === 'object' && typeof address.municipality === 'string'
+        ? region[address.municipality]
+        : region;
+    return typeof name === 'string' ? name : undefined;
+}
+
+/**
  * Creates an opening hours parser for an OSM opening-hours value.
  * @param {string} value The opening-hours value to parse.
  * @param {NominatimObject|null} [nominatim_object] Location and address data used for holidays and solar times.
@@ -208,6 +233,8 @@ export default function(value, nominatim_object, optional_conf_parm) {
     /** @type {string|undefined} */
     let location_state;
     /** @type {string|undefined} */
+    let location_sh_region;
+    /** @type {string|undefined} */
     let location_cc;
     /** @type {string|undefined} */
     let lat;
@@ -219,6 +246,7 @@ export default function(value, nominatim_object, optional_conf_parm) {
                 location_cc = nominatim_object.address.country_code;
             }
             location_state = getStateFromAddress(nominatim_object.address, location_cc);
+            location_sh_region = getSchoolHolidayRegionFromAddress(nominatim_object.address, location_cc, location_state);
         }
 
         if (typeof nominatim_object.lon === 'string' && typeof nominatim_object.lat === 'string') {
@@ -2638,16 +2666,30 @@ export default function(value, nominatim_object, optional_conf_parm) {
             }), 'library bug PR only');
         }
 
-        const stateDefinition = typeof location_state === 'string'
+        const administrativeState = typeof location_state === 'string'
             ? countryDefinitions[location_state]
+            : undefined;
+        if (type === 'SH' && location_sh_region === undefined
+            && typeof administrativeState === 'object' && administrativeState !== null
+            && !Array.isArray(administrativeState)
+            && typeof administrativeState._sh_region === 'object'
+            && administrativeState._sh_region !== null) {
+            throw t('school holiday region unresolved', { 'cc': location_cc, 'state': location_state });
+        }
+        const holidayState = type === 'SH'
+            ? location_sh_region ?? location_state
+            : location_state;
+        const stateDefinition = typeof holidayState === 'string'
+            ? countryDefinitions[holidayState]
+            : undefined;
+        const stateHolidays = typeof stateDefinition === 'object'
+            && stateDefinition !== null
+            && !Array.isArray(stateDefinition)
+            ? stateDefinition[type]
             : undefined;
         return {
             country: countryDefinitions[type],
-            state: typeof stateDefinition === 'object'
-                && stateDefinition !== null
-                && !Array.isArray(stateDefinition)
-                ? stateDefinition[type]
-                : undefined,
+            state: stateHolidays,
         };
     }
 
