@@ -73,7 +73,7 @@ list:
 
 ## defaults {{{
 .PHONY: build
-build: build/opening_hours+deps.min.js
+build: build/opening_hours+deps.min.js site/js/main.bundle.js
 
 .PHONY: generate-locale-resolver-layers
 generate-locale-resolver-layers:
@@ -83,11 +83,13 @@ build/opening_hours.js \
 build/opening_hours.min.js \
 build/opening_hours.esm.mjs \
 build/opening_hours+deps.js \
-build/opening_hours+deps.min.js: src/index.js src/tokenizer.mjs src/osm-tag-defaults.mjs \
+build/opening_hours+deps.min.js \
+site/js/main.bundle.js &: src/index.js src/tokenizer.mjs src/osm-tag-defaults.mjs \
 src/word-error-correction.mjs src/prettify-helpers.mjs src/variable-times.mjs src/holidays/generated-openholidays.mjs \
 src/locales/i18n.js src/locales/translations.yaml src/locales/word_error_correction.yaml \
 src/locale-resolver/normalize.mjs src/locale-resolver/region-languages.mjs src/locale-resolver/resolver.mjs \
-src/locale-resolver/layers.json generate-locale-resolver-layers
+src/locale-resolver/layers.json site/js/main.js site/js/helpers.js \
+site/js/i18n-resources.js site/js/opening_hours_table.js generate-locale-resolver-layers
 	node_modules/.bin/rollup -c
 
 .PHONY: check
@@ -102,6 +104,7 @@ benchmark: benchmark-opening_hours.min.js
 .PHONY: clean
 clean: osm-tag-data-rm
 	rm -rf build
+	rm -f site/js/main.bundle.js site/js/main.bundle.js.map
 	rm -f README.html
 	rm -f taginfo_sources.json
 
@@ -137,7 +140,7 @@ doctoc:
 
 ## Build files which are needed to host the evaluation tool on a webserver.
 .PHONY: ready-for-hosting
-ready-for-hosting: dependencies-get build/opening_hours+deps.min.js
+ready-for-hosting: dependencies-get build/opening_hours+deps.min.js site/js/main.bundle.js
 
 ## command line programs {{{
 .PHONY: run-regex_search

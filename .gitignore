@@ -19,6 +19,8 @@ export*
 !uglifyjs.log
 
 build
+site/js/*.bundle.js
+site/js/*.bundle.js.map
 node_modules
 tags
 README.html

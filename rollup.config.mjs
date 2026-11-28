@@ -80,4 +80,15 @@ const configWithDeps = {
     ]
 };
 
-export default [configWithoutDeps, configWithDeps];
+const configSite = {
+    input: './site/js/main.js',
+    plugins: [nodeResolve(), common(), yamlPlugin, json()],
+    output: {
+        file: 'site/js/main.bundle.js',
+        format: 'esm',
+        plugins: [terser(terserConfig)],
+        sourcemap: true,
+    },
+};
+
+export default [configWithoutDeps, configWithDeps, configSite];

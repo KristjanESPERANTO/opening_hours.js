@@ -10,17 +10,8 @@
         <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/table.css">
-        <script defer src="../build/opening_hours+deps.min.js"></script>
         <script defer src="js/theme.js"></script>
-        <!-- Resolves bare "i18next" specifier independent of the URL depth this page is served from (e.g. direct vs. symlinked into opening_hours_map). -->
-        <script type="importmap">
-            {
-                "imports": {
-                    "i18next": "../../opening_hours.js/node_modules/i18next/dist/esm/i18next.js"
-                }
-            }
-        </script>
-        <script type="module" src="js/main.js"></script>
+        <script type="module" src="js/main.bundle.js"></script>
     </head>
     <body>
         <noscript>You don't have JavaScript enabled and that is a good thing but this tool makes heavy use of JavaScript so you need to enable it in order to use this tool. If you don't trust the code that is going to be executed that is good as well. I encourage you to read all the source code on <a href="https://github.com/opening-hours/opening_hours.js">GitHub</a>. Also note that every commit and all releases are digitally signed. You might want to check this out as well :) Stay safe.</noscript>

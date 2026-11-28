@@ -5,13 +5,11 @@
  */
 // Import dependencies
 import i18next from 'i18next';
+import opening_hours from '../../src/index.js';
 import { OpeningHoursTable } from './opening_hours_table.js';
 import { mapCountryToLanguage } from './countryToLanguageMapping.js';
 import { updateTimeButtonLabels } from './main.js';
 import { YoHoursChecker } from './yohours_model.js';
-
-// Access global variables set by main.js or UMD scripts
-const { opening_hours, default_lat, default_lon } = window;
 
 // Export date/time state
 export let currentDateTime = {
@@ -502,10 +500,10 @@ export async function Evaluate (offset = 0, reset) {
         lon = parseFloat(string_lon);
         if (typeof lat !== 'number' || typeof lon !== 'number') {
             if (typeof lat !== 'number') {
-                document.forms.check.elements['lat'].value = default_lat;
+                document.forms.check.elements['lat'].value = window.default_lat;
             }
             if (typeof lon !== 'number') {
-                document.forms.check.elements['lon'].value = default_lon;
+                document.forms.check.elements['lon'].value = window.default_lon;
             }
             console.log('Please enter numbers for latitude and longitude.');
             return;
